@@ -5,26 +5,12 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="#数据类型
-基本数据类型 Go 语言内置七类基本数据类型
- 布尔类型: bool 整型: byte int int8 int16 int32 int64 uint uint8 uint16 uint32 uint64 uintptr 浮点型: float32 float64 复数: complex64 complex128 字符: rune 字符串: string 错误类型: error  注意: Go内置两种字符类型: 一种是byte的字节类类型(byte是unit的别名), 另一种是表示unicode编码的字符rune. rune在go内部是int32类型的别名,占用4个字节.
-复合数据类型 复合数据类型就是由其他类型组合而成的类型.
- 指针  *pointerType //指针类型使用*后面跟其指向的类型名 *T声明指针
-**T 声明多级指针
-*T 出现在&quot;=&rdquo; 左边表示指针声明, 右边表示取指针指向的值
-结构体指针访问结构体字段仍然使用&rdquo;.&ldquo;点操作符,Go语言没有&rdquo;-&gt;&quot;操作符 Go不支持指针的运算
-函数中允许返回局部变量的地址
- 数组 [n]elementType //数组类型使用[n]后面跟数据元素类型来表示   var arr [2]int 数组初始化 a := [3]int{1,2,3} a := [&hellip;]int{1,2,3} a := [3]int{1:1, 2:3} // 指定总长度,并通过索引值进行初始化,没有初始化元素时使用类型默认值 a :=">
+一、基本数据类型 Go 语言内置七类基本数据类型
+1.布尔类型  True False //不初始化默认为false  2.整型 byte int int8 int16 int32 int64 uint uint8 uint16 uint32 uint64 uintptr  3.浮点型 float32 float64  4.复数 complex64 complex128 // real返回复数的实部, image返回复数的虚部  5.字符 rune //rune是uint类型的别名  6.字符串: string 赋值: a := &quot;hello&quot; a := &quot;hello world&quot; b := []byte(a) c := []rune(a) b和c的结果都是:[104 101 108 108 111 44 32 119 111 114 108 100]  7.错误类型: error 8.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="数据类型" />
 <meta property="og:description" content="#数据类型
-基本数据类型 Go 语言内置七类基本数据类型
- 布尔类型: bool 整型: byte int int8 int16 int32 int64 uint uint8 uint16 uint32 uint64 uintptr 浮点型: float32 float64 复数: complex64 complex128 字符: rune 字符串: string 错误类型: error  注意: Go内置两种字符类型: 一种是byte的字节类类型(byte是unit的别名), 另一种是表示unicode编码的字符rune. rune在go内部是int32类型的别名,占用4个字节.
-复合数据类型 复合数据类型就是由其他类型组合而成的类型.
- 指针  *pointerType //指针类型使用*后面跟其指向的类型名 *T声明指针
-**T 声明多级指针
-*T 出现在&quot;=&rdquo; 左边表示指针声明, 右边表示取指针指向的值
-结构体指针访问结构体字段仍然使用&rdquo;.&ldquo;点操作符,Go语言没有&rdquo;-&gt;&quot;操作符 Go不支持指针的运算
-函数中允许返回局部变量的地址
- 数组 [n]elementType //数组类型使用[n]后面跟数据元素类型来表示   var arr [2]int 数组初始化 a := [3]int{1,2,3} a := [&hellip;]int{1,2,3} a := [3]int{1:1, 2:3} // 指定总长度,并通过索引值进行初始化,没有初始化元素时使用类型默认值 a :=" />
+一、基本数据类型 Go 语言内置七类基本数据类型
+1.布尔类型  True False //不初始化默认为false  2.整型 byte int int8 int16 int32 int64 uint uint8 uint16 uint32 uint64 uintptr  3.浮点型 float32 float64  4.复数 complex64 complex128 // real返回复数的实部, image返回复数的虚部  5.字符 rune //rune是uint类型的别名  6.字符串: string 赋值: a := &quot;hello&quot; a := &quot;hello world&quot; b := []byte(a) c := []rune(a) b和c的结果都是:[104 101 108 108 111 44 32 119 111 114 108 100]  7.错误类型: error 8." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" />
 
@@ -32,7 +18,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
-<script defer src="/en.search.min.e4a5a4f232fa8fef382768c2e184273cc9d015b67e6b02d9459ec39796739385.js" integrity="sha256-5KWk8jL6j&#43;84J2jC4YQnPMnQFbZ&#43;awLZRZ7Dl5Zzk4U="></script>
+<script defer src="/en.search.min.0a991c2eeb3f1c51215e8ca814ca780542b92fc661801fb5cd4f4a2d31ef86c4.js" integrity="sha256-CpkcLus/HFEhXoyoFMp4BUK5L8ZhgB&#43;1zU9KLTHvhsQ="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -212,6 +198,16 @@ https://github.com/alex-shpak/hugo-book
           
   
     <a href="/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%8F%98%E9%87%8F%E5%B8%B8%E9%87%8F/" class="">变量&amp;常量</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/iota/" class="">iota</a>
   
 
         </li>
@@ -502,8 +498,28 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#基本数据类型">基本数据类型</a></li>
-    <li><a href="#复合数据类型">复合数据类型</a></li>
+    <li><a href="#一基本数据类型">一、基本数据类型</a>
+      <ul>
+        <li><a href="#1布尔类型">1.布尔类型</a></li>
+        <li><a href="#2整型">2.整型</a></li>
+        <li><a href="#3浮点型">3.浮点型</a></li>
+        <li><a href="#4复数">4.复数</a></li>
+        <li><a href="#5字符">5.字符</a></li>
+        <li><a href="#6字符串-string">6.字符串: string</a></li>
+        <li><a href="#7错误类型-error">7.错误类型: error</a></li>
+        <li><a href="#8注意">8.注意</a></li>
+      </ul>
+    </li>
+    <li><a href="#二复合数据类型">二、复合数据类型</a>
+      <ul>
+        <li><a href="#1指针">1.指针</a></li>
+        <li><a href="#2数组">2.数组</a></li>
+        <li><a href="#3切片">3.切片</a></li>
+        <li><a href="#4字典">4.字典</a></li>
+        <li><a href="#5通道">5.通道</a></li>
+        <li><a href="#6结构和接口">6.结构和接口</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -516,60 +532,167 @@ https://github.com/alex-shpak/hugo-book
       
       
   <article class="markdown"><p>#数据类型</p>
-<h2 id="基本数据类型">基本数据类型</h2>
+<h2 id="一基本数据类型">一、基本数据类型</h2>
 <p>Go 语言内置七类基本数据类型</p>
-<ul>
-<li>布尔类型: bool</li>
-<li>整型: byte int int8 int16 int32 int64 uint uint8 uint16 uint32 uint64 uintptr</li>
-<li>浮点型: float32 float64</li>
-<li>复数: complex64 complex128</li>
-<li>字符: rune</li>
-<li>字符串: string</li>
-<li>错误类型: error</li>
-</ul>
-<p>注意: Go内置两种字符类型: 一种是byte的字节类类型(byte是unit的别名), 另一种是表示unicode编码的字符rune.
-rune在go内部是int32类型的别名,占用4个字节.</p>
-<h2 id="复合数据类型">复合数据类型</h2>
+<h3 id="1布尔类型">1.布尔类型</h3>
+<pre><code> True False //不初始化默认为false
+</code></pre>
+<h3 id="2整型">2.整型</h3>
+<pre><code>byte int int8 int16 int32 int64 uint uint8 uint16 uint32 uint64 uintptr 
+</code></pre>
+<h3 id="3浮点型">3.浮点型</h3>
+<pre><code>float32 
+float64   
+</code></pre>
+<h3 id="4复数">4.复数</h3>
+<pre><code>complex64 
+complex128  
+// real返回复数的实部, image返回复数的虚部
+</code></pre>
+<h3 id="5字符">5.字符</h3>
+<pre><code>rune   //rune是uint类型的别名
+</code></pre>
+<h3 id="6字符串-string">6.字符串: string</h3>
+<pre><code>赋值: a := &quot;hello&quot;
+
+a := &quot;hello world&quot; 
+b := []byte(a)
+c := []rune(a)
+b和c的结果都是:[104 101 108 108 111 44 32 119 111 114 108 100]
+</code></pre>
+<h3 id="7错误类型-error">7.错误类型: error</h3>
+<h3 id="8注意">8.注意</h3>
+<pre><code>Go内置两种字符类型: 
+    一种是byte的字节类类型(byte是unit的别名), 
+    另一种是表示unicode编码的字符rune. rune在go内部是int32类型的别名,占用4个字节.
+</code></pre>
+<h2 id="二复合数据类型">二、复合数据类型</h2>
 <p>复合数据类型就是由其他类型组合而成的类型.</p>
-<ul>
-<li>指针
-<pre><code>    *pointerType //指针类型使用*后面跟其指向的类型名
-</code></pre><p>*T声明指针<br>
-**T 声明多级指针<br>
-*T 出现在&quot;=&rdquo; 左边表示指针声明, 右边表示取指针指向的值<br>
-结构体指针访问结构体字段仍然使用&rdquo;.&ldquo;点操作符,Go语言没有&rdquo;-&gt;&quot;操作符
-Go不支持指针的运算<br>
-函数中允许返回局部变量的地址</p>
-</li>
-<li>数组
-<pre><code class="language-$xslt" data-lang="$xslt">    [n]elementType //数组类型使用[n]后面跟数据元素类型来表示
-   
-</code></pre></li>
-</ul>
-<p>var arr [2]int
-数组初始化
-a := [3]int{1,2,3}
-a := [&hellip;]int{1,2,3}
-a := [3]int{1:1, 2:3} // 指定总长度,并通过索引值进行初始化,没有初始化元素时使用类型默认值
-a :=</p>
-<ul>
-<li>切片
-<pre><code class="language-$xslt" data-lang="$xslt">    []elementType //切片类型使用[]后面跟切片元素类型来表示
-</code></pre></li>
-<li>字典
-<pre><code class="language-$xslt" data-lang="$xslt">    map[keyType]valueType //map类型使用map[键类型]值类型来表示
-</code></pre></li>
-<li>通道
-<pre><code class="language-$xslt" data-lang="$xslt">    chan valueType  //通道使用chan后面跟通道元素类型来表示
-</code></pre></li>
-<li>结构和接口
-<pre><code>struct {  
-    feildType feildType  
-    feildType feildType  
-    ...  
-}  // 结构类型使用struct{} 将各个结构字段扩起来表示`````
-</code></pre></li>
-</ul>
+<h3 id="1指针">1.指针</h3>
+<pre><code>*pointerType //指针类型使用*后面跟其指向的类型名
+*T声明指针  
+**T 声明多级指针  
+*T 出现在&quot;=&quot; 左边表示指针声明, 右边表示取指针指向的值  
+结构体指针访问结构体字段仍然使用&quot;.&quot;点操作符,Go语言没有&quot;-&gt;&quot;操作符
+Go不支持指针的运算  
+函数中允许返回局部变量的地址  
+</code></pre>
+<h3 id="2数组">2.数组</h3>
+<pre><code>[n]elementType //数组类型使用[n]后面跟数据元素类型来表示
+var arr [2]int
+数组初始化:
+    a := [3]int{1,2,3}  
+    a := [...]int{1,2,3}  
+    a := [3]int{1:1, 2:3} // 指定总长度,并通过索引值进行初始化,没有初始化元素时使用类型默认值  
+    a := [...]int{1:1, 2:3} //不指定总长度,通过索引值进行初始化,数组长度由最后一个索引值确定，没有指定索引的元素被初始化为类型的零值  
+
+数组的特点:  
+    1. 数组创建完长度就固定了,不可以再追加元素  
+    2. 数组是值类型的,数组复制或作为函数参数都是值拷贝  
+
+数组相关操作:
+1. 数组元素的访问  
+    b := a[0]  
+    for i, v := range a {
+    }  
+2. 数据的长度
+    len()
+</code></pre>
+<h3 id="3切片">3.切片</h3>
+<pre><code>Go 为切片维护三个元素一一指向底层数组的指针、切片的元素数量和底层数组的容量
+[]elementType //切片类型使用[]后面跟切片元素类型来表示
+
+切片的相关操作  
+1. 切片的创建
+    var array = [...]int{0,1,2,3,4,5,6,7}
+    s1 := array[0:4]
+    
+    a := make([]int, 10)  或  a := make([]int, 10, 15)
+2.切片支持的操作
+    内置函数len()返回切片长度  
+    内置函数cap()返回切片底层数组容量
+    内置函数append()对切片追加元素
+    内置函数copy()用于复制一个切片
+3.字符串和切片的相互转换  
+    str := &quot;hello,世界&quot;
+    a := []byte(str)  // 将字符串转换为[]byte类型切片
+    b := []rune(str)  // 将字符串转换为[]rune类型切片
+</code></pre>
+<h3 id="4字典">4.字典</h3>
+<pre><code>Go语言内置的字典类型叫map.map的类型格式是: map[K]T, 其中K可以是任意可进行比较的类型,T是值类型.
+map[keyType]valueType //map类型使用map[键类型]值类型来表示
+
+字典的相关操作  
+    1.map的创建
+        ma :=map[string]int{&quot;a&quot;:1, &quot;b&quot;:2}
+        make(map[K]T)  或者 make(map[K]T, len)  
+    2.map支持的操作  
+        map的单个键值访问方式是: mapName[key]  
+        可以使用range遍历一个map类型变量,但是不保证每次迭代元素的顺序 
+            for k, v := range mp {
+                fmt.Println(&quot;key=&quot;, k, &quot;value=&quot;, v)
+            } 
+        删除map中的某个键值,使用如下语法:delete(mapName, key)  
+        可以使用内置的len()函数返回map中的键值对数量
+
+    注意:
+        Go内置的map不是并发安全的,并发安全的map可以使用标准包sync中的map。 
+        不要直接修改map value内某个元素的值, 如果想修改map的某个键值,则必须整体复制。
+        type User struct {
+               name string
+               age int
+        }
+    ma := make(map[int]User)
+    andes := User{
+        name: &quot;andes&quot;,
+        age: 18,
+    }
+    ma[1] = andes
+    ma[1].age = 19 //Error 不能通过map引用直接修改andes.age=19
+    andes.age = 19
+    ma[1] = andes //必须整体替换value
+</code></pre>
+<h3 id="5通道">5.通道</h3>
+<pre><code>chan valueType  //通道使用chan后面跟通道元素类型来表示
+</code></pre>
+<h3 id="6结构和接口">6.结构和接口</h3>
+<pre><code>  struct {  
+       feildType feildType  
+       feildType feildType  
+       ...  
+  }  // 结构类型使用struct{} 将各个结构字段扩起来表示
+  struct类型字面量
+  struct {
+        FeildName FeildType
+        FeildName FeildType
+        FeildName FeildType
+  }
+  自定义struct类型
+  type TypeName struct {
+        FeildName FeildType
+        FeildName FeildType
+        FeildName FeildType
+  }
+  struct类型变量的初始化
+  type Persion struct {
+    Name string
+    Age int
+  }
+  type Student struct {
+    *Persion
+    Number int
+  }
+  // 按照类型声明顺序,逐个赋值
+  a := Persion{&quot;Tom&quot;, 21}  //不推荐这种初始化方式
+  // 推荐下面这种赋值方式
+  p := &amp;Persion {
+    Name: &quot;tata&quot;,
+    Age: 12
+  }
+  s := Strudent {
+    Persion: p,
+    Number: 110,
+  }</code></pre>
 </article>
  
       
@@ -604,8 +727,28 @@ a :=</p>
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#基本数据类型">基本数据类型</a></li>
-    <li><a href="#复合数据类型">复合数据类型</a></li>
+    <li><a href="#一基本数据类型">一、基本数据类型</a>
+      <ul>
+        <li><a href="#1布尔类型">1.布尔类型</a></li>
+        <li><a href="#2整型">2.整型</a></li>
+        <li><a href="#3浮点型">3.浮点型</a></li>
+        <li><a href="#4复数">4.复数</a></li>
+        <li><a href="#5字符">5.字符</a></li>
+        <li><a href="#6字符串-string">6.字符串: string</a></li>
+        <li><a href="#7错误类型-error">7.错误类型: error</a></li>
+        <li><a href="#8注意">8.注意</a></li>
+      </ul>
+    </li>
+    <li><a href="#二复合数据类型">二、复合数据类型</a>
+      <ul>
+        <li><a href="#1指针">1.指针</a></li>
+        <li><a href="#2数组">2.数组</a></li>
+        <li><a href="#3切片">3.切片</a></li>
+        <li><a href="#4字典">4.字典</a></li>
+        <li><a href="#5通道">5.通道</a></li>
+        <li><a href="#6结构和接口">6.结构和接口</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

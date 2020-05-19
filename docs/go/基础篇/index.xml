@@ -20,6 +20,22 @@
     </item>
     
     <item>
+      <title>iota</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/iota/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/iota/</guid>
+      <description>iota   const (
+a = 1 &amp;laquo; iota // a==1 (iota == 0)
+b = 1 &amp;laquo; iota // b==2 （iota == 1）
+c = 3 // c == 3 (iota==2, unused)
+d = 1 &amp;laquo; iota // d==8 (iota == 3) )
+  const x = iota // x==0
+  const y = iota // y==0 分开的const语句,iota每次都从0开始
+  </description>
+    </item>
+    
+    <item>
       <title>并行、并发与分布式计算</title>
       <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%B9%B6%E8%A1%8C%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -35,15 +51,8 @@
       
       <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
       <description>#数据类型
-基本数据类型 Go 语言内置七类基本数据类型
- 布尔类型: bool 整型: byte int int8 int16 int32 int64 uint uint8 uint16 uint32 uint64 uintptr 浮点型: float32 float64 复数: complex64 complex128 字符: rune 字符串: string 错误类型: error  注意: Go内置两种字符类型: 一种是byte的字节类类型(byte是unit的别名), 另一种是表示unicode编码的字符rune. rune在go内部是int32类型的别名,占用4个字节.
-复合数据类型 复合数据类型就是由其他类型组合而成的类型.
- 指针  *pointerType //指针类型使用*后面跟其指向的类型名 *T声明指针
-**T 声明多级指针
-*T 出现在&amp;quot;=&amp;rdquo; 左边表示指针声明, 右边表示取指针指向的值
-结构体指针访问结构体字段仍然使用&amp;rdquo;.&amp;ldquo;点操作符,Go语言没有&amp;rdquo;-&amp;gt;&amp;quot;操作符 Go不支持指针的运算
-函数中允许返回局部变量的地址
- 数组 [n]elementType //数组类型使用[n]后面跟数据元素类型来表示   var arr [2]int 数组初始化 a := [3]int{1,2,3} a := [&amp;hellip;]int{1,2,3} a := [3]int{1:1, 2:3} // 指定总长度,并通过索引值进行初始化,没有初始化元素时使用类型默认值 a :=</description>
+一、基本数据类型 Go 语言内置七类基本数据类型
+1.布尔类型  True False //不初始化默认为false  2.整型 byte int int8 int16 int32 int64 uint uint8 uint16 uint32 uint64 uintptr  3.浮点型 float32 float64  4.复数 complex64 complex128 // real返回复数的实部, image返回复数的虚部  5.字符 rune //rune是uint类型的别名  6.字符串: string 赋值: a := &amp;quot;hello&amp;quot; a := &amp;quot;hello world&amp;quot; b := []byte(a) c := []rune(a) b和c的结果都是:[104 101 108 108 111 44 32 119 111 114 108 100]  7.错误类型: error 8.</description>
     </item>
     
   </channel>
