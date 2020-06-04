@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="复杂度 复杂度是衡量代码运行效率的重要的度量因素，复杂度通常包括时间复杂度和空间复杂度
+复杂度特性:  复杂度与具体的常系数无关 多项式级的复杂度相加的时候，选择高者作为结果 O(1) 也是表示一个特殊复杂度, 与输入数据量n无关  复杂度的经验结论  一个顺序结构的代码，时间复杂度是O(1) 二分查找，或者更通用地说是采用分而治之的二分策略，时间复杂度是O(logn). 一个简单的for循环，时间复杂度是O(n) 两个顺序执行的for循环,时间复杂度是O(n)&#43;O(n)=O(2n),其实也是O(n) 两个嵌套的for循环, 时间复杂度是O(n2)  总结 时间复杂度与&laquo;代码的结构设计&raquo;高度相关
+空间复杂度与&laquo;数据结构的选择&raquo;高度相关">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="复杂度" />
+<meta property="og:description" content="复杂度 复杂度是衡量代码运行效率的重要的度量因素，复杂度通常包括时间复杂度和空间复杂度
+复杂度特性:  复杂度与具体的常系数无关 多项式级的复杂度相加的时候，选择高者作为结果 O(1) 也是表示一个特殊复杂度, 与输入数据量n无关  复杂度的经验结论  一个顺序结构的代码，时间复杂度是O(1) 二分查找，或者更通用地说是采用分而治之的二分策略，时间复杂度是O(logn). 一个简单的for循环，时间复杂度是O(n) 两个顺序执行的for循环,时间复杂度是O(n)&#43;O(n)=O(2n),其实也是O(n) 两个嵌套的for循环, 时间复杂度是O(n2)  总结 时间复杂度与&laquo;代码的结构设计&raquo;高度相关
+空间复杂度与&laquo;数据结构的选择&raquo;高度相关" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/datas_tructure/%E5%A4%8D%E6%9D%82%E5%BA%A6/" />
+
+<title>复杂度 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.e6b3cee1afffb51b63c19697c337aab481d408efbbc25649ba1d0aeb79e0aa57.js" integrity="sha256-5rPO4a//tRtjwZaXwzeqtIHUCO&#43;7wlZJuh0K63ngqlc="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docs/example/" class="">Example Site</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/collapsed/" class="collapsed ">Collapsed</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">GoLang</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/%E5%A4%8D%E6%9D%82%E5%BA%A6/" class="active">复杂度</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Shortcodes</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>复杂度</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#复杂度特性">复杂度特性:</a></li>
+    <li><a href="#复杂度的经验结论">复杂度的经验结论</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="复杂度">复杂度</h1>
+<p>复杂度是衡量代码运行效率的重要的度量因素，复杂度通常包括时间复杂度和空间复杂度</p>
+<h2 id="复杂度特性">复杂度特性:</h2>
+<ul>
+<li>复杂度与具体的常系数无关</li>
+<li>多项式级的复杂度相加的时候，选择高者作为结果</li>
+<li>O(1) 也是表示一个特殊复杂度, 与输入数据量n无关</li>
+</ul>
+<h2 id="复杂度的经验结论">复杂度的经验结论</h2>
+<ul>
+<li>一个顺序结构的代码，时间复杂度是O(1)</li>
+<li>二分查找，或者更通用地说是采用分而治之的二分策略，时间复杂度是O(logn).</li>
+<li>一个简单的for循环，时间复杂度是O(n)</li>
+<li>两个顺序执行的for循环,时间复杂度是O(n)+O(n)=O(2n),其实也是O(n)</li>
+<li>两个嵌套的for循环, 时间复杂度是O(n<!-- raw HTML omitted -->2<!-- raw HTML omitted -->)</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>时间复杂度与&laquo;代码的结构设计&raquo;高度相关<br>
+空间复杂度与&laquo;数据结构的选择&raquo;高度相关</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#复杂度特性">复杂度特性:</a></li>
+    <li><a href="#复杂度的经验结论">复杂度的经验结论</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

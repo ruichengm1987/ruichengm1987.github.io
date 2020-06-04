@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>shell基础</title>
+      <link>https://ruichengm1987.github.io/docs/shell/shell%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/shell/shell%E5%9F%BA%E7%A1%80/</guid>
+      <description>shell基础 shell是命令行解析器 关系: 内存-&amp;gt; shell -&amp;gt; 用户  shell概述 脚本执行方法 Bash的基本功能 </description>
+    </item>
+    
+    <item>
       <title>With ToC</title>
       <link>https://ruichengm1987.github.io/docs/example/table-of-contents/with-toc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -36,6 +45,36 @@
       
       <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%8F%98%E9%87%8F%E5%B8%B8%E9%87%8F/</guid>
       <description>变量&amp;amp;常量 变量 1、显式的完整声明 var varName dataType [ = value] 说明: 关键字var用于变量声明 varName 是变量名称标识符 dataType 数据类型 value 初始化值 例子: var a int = 1 2、短类型声明 varName := value := 声明只能出现在函数内（包括在方法内） 此时Go编译器自动进行数据类型推断 a, b := 1, &amp;quot;hello&amp;quot;  常量 const a = 1 const ( a = iota ) </description>
+    </item>
+    
+    <item>
+      <title>名词</title>
+      <link>https://ruichengm1987.github.io/docs/english/%E8%AF%8D%E7%B1%BB/%E5%90%8D%E8%AF%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/english/%E8%AF%8D%E7%B1%BB/%E5%90%8D%E8%AF%8D/</guid>
+      <description>名词 </description>
+    </item>
+    
+    <item>
+      <title>复杂度</title>
+      <link>https://ruichengm1987.github.io/docs/datas_tructure/%E5%A4%8D%E6%9D%82%E5%BA%A6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/datas_tructure/%E5%A4%8D%E6%9D%82%E5%BA%A6/</guid>
+      <description>复杂度 复杂度是衡量代码运行效率的重要的度量因素，复杂度通常包括时间复杂度和空间复杂度
+复杂度特性:  复杂度与具体的常系数无关 多项式级的复杂度相加的时候，选择高者作为结果 O(1) 也是表示一个特殊复杂度, 与输入数据量n无关  复杂度的经验结论  一个顺序结构的代码，时间复杂度是O(1) 二分查找，或者更通用地说是采用分而治之的二分策略，时间复杂度是O(logn). 一个简单的for循环，时间复杂度是O(n) 两个顺序执行的for循环,时间复杂度是O(n)+O(n)=O(2n),其实也是O(n) 两个嵌套的for循环, 时间复杂度是O(n2)  总结 时间复杂度与&amp;laquo;代码的结构设计&amp;raquo;高度相关
+空间复杂度与&amp;laquo;数据结构的选择&amp;raquo;高度相关</description>
+    </item>
+    
+    <item>
+      <title>Bash变量</title>
+      <link>https://ruichengm1987.github.io/docs/shell/bash%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/shell/bash%E5%8F%98%E9%87%8F/</guid>
+      <description>shell基础 Buttons are styled links that can lead to local page or external link.
+Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  </description>
     </item>
     
     <item>
@@ -94,6 +133,16 @@ complex128
     </item>
     
     <item>
+      <title>shell运算符</title>
+      <link>https://ruichengm1987.github.io/docs/shell/shell%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/shell/shell%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
+      <description>shell基础 Buttons are styled links that can lead to local page or external link.
+Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  </description>
+    </item>
+    
+    <item>
       <title>常量值标识符(4个)</title>
       <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%B8%B8%E9%87%8F%E5%80%BC%E6%A0%87%E8%AF%86%E7%AC%A64%E4%B8%AA/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -111,6 +160,25 @@ complex128
       <description>#数据类型
 一、基本数据类型 Go 语言内置七类基本数据类型
 1.布尔类型  True False //不初始化默认为false  2.整型 byte int int8 int16 int32 int64 uint uint8 uint16 uint32 uint64 uintptr  3.浮点型 float32 float64  4.复数 complex64 complex128 // real返回复数的实部, image返回复数的虚部  5.字符 rune //rune是uint类型的别名  6.字符串: string 赋值: a := &amp;quot;hello&amp;quot; a := &amp;quot;hello world&amp;quot; b := []byte(a) c := []rune(a) b和c的结果都是:[104 101 108 108 111 44 32 119 111 114 108 100]  7.错误类型: error 8.</description>
+    </item>
+    
+    <item>
+      <title>控制结构</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/</guid>
+      <description>控制结构 1.if语句 if err, file := os.Open(&amp;quot;xxx&amp;quot;); err == nil { //do smoething } else { return nil, err } if score &amp;gt;= 90 { } else if score &amp;gt;= 80 { } else { }  2.switch语句 switch 语句会根据传入的参数检测并执行符合条件的分支. switch 的语法特点如下: switch 和 if 语句一样, switch后面可以带一个可选的简单的初始化语句 switch 后面的表达式也是可选的, 如果没有表达式, 则case子句是一个布尔表达式. 而不是一个值, 此时就相当于多重if else语句 switch 条件表达式的值不像c语言那样必须限制为整数, 可以是任意支持相等比较运算的类型变量 通过fallthough语句来强制执行下一个case子句(不再判断下一个case子句的条件是否满足) switch支持default语句, 当所有的case分支都不符合时,执行default语句,并且default语句可以放到任意位置,并不影响switch的逻辑判断 swith和.(type)结合可以进行类型的查询， （//todo::） switch i := &amp;quot;y&amp;quot;; i { //switch后面可以带上一个初始化语句 case &amp;quot;y&amp;quot;, &amp;quot;Y&amp;quot;: //多个case值使用逗号分隔 fmt.</description>
+    </item>
+    
+    <item>
+      <title>环境变量配置文件</title>
+      <link>https://ruichengm1987.github.io/docs/shell/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/shell/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
+      <description>shell基础 Buttons are styled links that can lead to local page or external link.
+Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  </description>
     </item>
     
     <item>
@@ -132,12 +200,50 @@ complex128
     </item>
     
     <item>
+      <title>帮助命令</title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4/</guid>
+      <description>帮助命令 帮助命令man man 命令 man的级别 1: 查看命令帮助 2: 查看可被内核调用的函数的帮助 3: 查看函数和函数库的帮助 4: 查看特殊文件的帮助(主要是/dev目录下的文件) 5: 查看配置文件的帮助 6: 查看游戏的帮助 7: 查看其他杂项的帮助 8: 查看系统管理员可用命令的帮助 9: 查看和内核相关文件的帮助 查看命令拥有哪个级别的帮助 man -f 命令 或者 whatis 命令 举例: man -5 passwd man -4 null man -8 ifconfig 查看和命令相关的所有帮助 man -k 命令 或者 apropos 命令 举例: man -k passwd  其他帮助命令 * 选项帮助: 命令 --help #获取命令选项的帮助 例如: ls --help * shell内部命令帮助 help shell内部命令 #获取shell内部命令的帮助 例如: whereis cd #确定是否是shell内部命令 只要找不到执行文件都是内部命令 help cd #获取内部命令帮助 * 详细命令帮助info - 回车: 进入子帮助页面(带有*号标记) - u: 进入上层页面 - n: 进入下一个帮助小节 - p: 进入上一个帮助小节 - q: 退出  </description>
+    </item>
+    
+    <item>
+      <title>正则表达式</title>
+      <link>https://ruichengm1987.github.io/docs/shell/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/shell/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+      <description>shell基础 Buttons are styled links that can lead to local page or external link.
+Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  </description>
+    </item>
+    
+    <item>
       <title>操作符和分隔符(47个)</title>
       <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%92%8C%E5%88%86%E9%9A%94%E7%AC%A647%E4%B8%AA/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%92%8C%E5%88%86%E9%9A%94%E7%AC%A647%E4%B8%AA/</guid>
       <description>操作符和分隔符(47个) 算术运算符(5个) ＋ － ＊ ／ %  位运算符(6个) &amp;amp; | &amp;lt; &amp;amp;^ &amp;gt;&amp;gt; &amp;lt;&amp;lt;  赋值和赋值复核运算符(13个) :＝ ＝ += -= *= /= %= &amp;amp;= |= ^= &amp;amp;^= &amp;gt;&amp;gt;= &amp;lt;&amp;lt;=  比较运算符(6个) &amp;gt; &amp;gt;= &amp;lt; &amp;lt;= == !=  括号(6个) () {} []  逻辑运算符(3个) &amp;amp;&amp;amp; || !  自增自减操作符(2个) ++ -- //go语言里面自增、自减操作符是语句而不是表达式  其他运算符(6个) : , ; . ... &amp;lt;-  </description>
+    </item>
+    
+    <item>
+      <title>流量控制语句</title>
+      <link>https://ruichengm1987.github.io/docs/shell/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/shell/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/</guid>
+      <description>shell基础 Buttons are styled links that can lead to local page or external link.
+Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  </description>
+    </item>
+    
+    <item>
+      <title>函数</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%87%BD%E6%95%B0/</guid>
+      <description>函数  函数是一种类型,函数类型变量可以像其他类型变量一样使用,可以作为其他函数的参数或返回值,也可以直接调用执行。 函数支持多值返回 支持闭包 函数支持可变参数  基本概念 函数定义 func funcName(param-list) (result-list) { function-body }  函数的特点 1、函数可以没有输入, 也可以没有返回值(默认返回0) 2、多个相邻的相同类型的参数可以使用简写模式: func add(a, b int) int { //a int, b int 简写为 a,b int return a + b } 3、支持有名的返回值,参数名就相当于函数体内最外层的局部变量，命名返回值变量会被初始化为类型零值， 最后的return可以不带参数名直接返回 func add(a, b int) (sum int) { sum = a + b return //return sum的简写模式 // sum := a + b // 如果是 sum:=a + b, 则相当于新声明一个sum变量命名返回变量sum覆盖 // return sum //最后需要显示的调用return sum } 4、不支持默认值参数 5、不支持函数重载 6、不支持函数嵌套，严格地说是不支持命名函数的嵌套定义，但支持嵌套匿名函数 func add(a, b int) (sum int) { anonymouse := function(x, y int) int { return x + y } return anonymouse(a, b) }  多值返回 func swap(a, b int) (int, int) { return b, a }  实参到形参的传递 package main import &amp;quot;fmt&amp;quot; func chvalue(a int) int { a = a + 1 return a } func chpointer(a *int) { *a = *a + 1 return } func main() { a := 10 chvalue(a) //实参传递给形参是值拷贝 fmt.</description>
     </item>
     
     <item>
