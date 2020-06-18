@@ -68,6 +68,15 @@
     </item>
     
     <item>
+      <title>安装</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%AE%89%E8%A3%85%E7%AF%87/%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%AE%89%E8%A3%85%E7%AF%87/%E5%AE%89%E8%A3%85/</guid>
+      <description>安装 linux 下安装  wget https://dl.google.com/go/go1.x.x.linux-amd64.tar.gz 下载安装包 tar -C /usr/local -zxvf go1.x.x.linux-amd64.tar.gz 添加/usr/loacl/go/bin目录到PATH变量中。添加到/etc/profile 或$HOME/.profile都可以  vim /etc/profile export GOROOT=/usr/local/go #设置为go安装的路径,有些安装包会自动设置默认的goroot export GOPATH=/usr/local/goprojects/ #GO项目路径多个用&amp;rsquo;,&amp;lsquo;分开 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin #加载 source /etc/profile   执行go version，如果现实版本号，则Go环境安装成功.  </description>
+    </item>
+    
+    <item>
       <title>Bash变量</title>
       <link>https://ruichengm1987.github.io/docs/shell/bash%E5%8F%98%E9%87%8F/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -101,6 +110,15 @@ d = 1 &amp;laquo; iota // d==8 (iota == 3) )
       <guid>https://ruichengm1987.github.io/docs/example/table-of-contents/without-toc/</guid>
       <description>At me ipso nepotibus nunc celebratior genus Tanto oblite Lorem markdownum pectora novis patenti igne sua opus aurae feras materiaque illic demersit imago et aristas questaque posset. Vomit quoque suo inhaesuro clara. Esse cumque, per referri triste. Ut exponit solisque communis in tendens vincetis agisque iamque huic bene ante vetat omina Thebae rates. Aeacus servat admonitu concidit, ad resimas vultus et rugas vultu dignamque Siphnon.
 Quam iugulum regia simulacra, plus meruit humo pecorumque haesit, ab discedunt dixit: ritu pharetramque.</description>
+    </item>
+    
+    <item>
+      <title>国内镜像配置</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%AE%89%E8%A3%85%E7%AF%87/%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%AE%89%E8%A3%85%E7%AF%87/%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE/</guid>
+      <description>国内镜像配置 Go 1.13及以上(推荐) 打开你的终端并执行: go env -w GOPROXY=https://goproxy.cn,direct  Go module 打开你的终端并执行: go env -w GO111MODULE=on  go imports go imports包的引入可以让代码书写变得更加快捷 $ go get -v golang.org/x/tools/cmd/goimports  </description>
     </item>
     
     <item>
@@ -140,6 +158,23 @@ complex128
       <guid>https://ruichengm1987.github.io/docs/shell/shell%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
       <description>shell基础 Buttons are styled links that can lead to local page or external link.
 Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  </description>
+    </item>
+    
+    <item>
+      <title>依赖管理</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%AE%89%E8%A3%85%E7%AF%87/%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%AE%89%E8%A3%85%E7%AF%87/%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/</guid>
+      <description>依赖管理 依赖管理的三个阶段: GOPATH, GOVENDOR, go mod
+GOPATH 默认在~/go
+go mod的使用 使用intelij Idea创建项目  打开Intelij Idea, File-&amp;gt;new-&amp;gt;project 选择Go MOdules(vgo), 将Proxy: 改为https://goproxy.cn,direct 打开ide的terminal输入go env查看GO111MODULE是否为on，和查看GOPROXY是否为: https://goproxy.cn,direct 继续在terminal输入: go get -u go.uber.org/zap  获取某个固定版本: go get -u go.uber.org/zap@1.11
+获取最新的版本: go get -u go.uber.org/zap
+清洁: go mod tidy
+增加依赖：
+1. go get
+2. 代码直接写, 点run的时候自动下载
+go build ./...  迁移到go mod go mod init modtest2 go build ./... 增加依赖 go get  总结  由go命令统一的管理, 用户不必关心目录结构 初始化: go mode init [名称] 增加依赖: go get 或者 直接写代码,在build的时候把依赖加进去 更新依赖: go get [@v&amp;hellip;], go mod tidy # 不加@v表示拿最新版本 将旧项目迁移到go mod: go mod init, go build .</description>
     </item>
     
     <item>
@@ -244,6 +279,34 @@ Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34
       
       <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%87%BD%E6%95%B0/</guid>
       <description>函数  函数是一种类型,函数类型变量可以像其他类型变量一样使用,可以作为其他函数的参数或返回值,也可以直接调用执行。 函数支持多值返回 支持闭包 函数支持可变参数  基本概念 函数定义 func funcName(param-list) (result-list) { function-body }  函数的特点 1、函数可以没有输入, 也可以没有返回值(默认返回0) 2、多个相邻的相同类型的参数可以使用简写模式: func add(a, b int) int { //a int, b int 简写为 a,b int return a + b } 3、支持有名的返回值,参数名就相当于函数体内最外层的局部变量，命名返回值变量会被初始化为类型零值， 最后的return可以不带参数名直接返回 func add(a, b int) (sum int) { sum = a + b return //return sum的简写模式 // sum := a + b // 如果是 sum:=a + b, 则相当于新声明一个sum变量命名返回变量sum覆盖 // return sum //最后需要显示的调用return sum } 4、不支持默认值参数 5、不支持函数重载 6、不支持函数嵌套，严格地说是不支持命名函数的嵌套定义，但支持嵌套匿名函数 func add(a, b int) (sum int) { anonymouse := function(x, y int) int { return x + y } return anonymouse(a, b) }  多值返回 func swap(a, b int) (int, int) { return b, a }  实参到形参的传递 package main import &amp;quot;fmt&amp;quot; func chvalue(a int) int { a = a + 1 return a } func chpointer(a *int) { *a = *a + 1 return } func main() { a := 10 chvalue(a) //实参传递给形参是值拷贝 fmt.</description>
+    </item>
+    
+    <item>
+      <title>接口</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%8E%A5%E5%8F%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%8E%A5%E5%8F%A3/</guid>
+      <description>接口 语法 type Traversal interface { Traverse() }  duck typing 定义 使用者-&amp;gt;实现者
+接口由使用者定义
+接口的实现: 接口的实现是隐式的
+只要实现接口里的方法
+接口的值类型 fmt.printf(&amp;quot;%T, %v&amp;quot;, 接口变量, 接口变量) #打印接口类型和值 // r.(type) r的类型 switch v := r.(type) { case mock.Retriever: case *real.Retrieve: } // type assertion r.(*real.Retruever) 或 r, ok := r.(mock.Retruever) if ok != nil { fmt.Printf(&amp;quot;Err: %s&amp;quot;, ok) } 接口变量里面有什么: * 接口变量自带指针 * 接口变量同样采用值传递, 几乎不需要使用接口的指针 * 指针接收者实现只能以指针方式使用； 值接收者都可以  接口的组合 // 把Retriever和poster接口组合成一个接口 type RetrieverPoster interface { Retriever Poster }  常用接口 string reader writer  </description>
+    </item>
+    
+    <item>
+      <title>并发</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%B9%B6%E5%8F%91/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%B9%B6%E5%8F%91/</guid>
+      <description>并发 进程、线程、协程   进程:
+ 进程是什么? 一种系统运行行动 进程的定位是什么? 程序的执行实体 进程长什么样子? 在terminal中查看 进程怎么使用? [一般情况]一个程序一个进程, [多进程]一个程序多个进程    线程:
+ 线程是什么? 运算调度的最小单元 线程的作用是什么? 同时运算多个任务 和进程有什么区别? 大哥和小弟的关系 线程内存大小?
+怎么&amp;quot;切&amp;rdquo;? 内核控制
+&amp;ldquo;切多大&amp;rdquo;? 缓存+内核控制
+&amp;ldquo;等长吗&amp;rdquo;? 不等长 线程观摩  回到我们的terminal 输入命令ps -M [pid] 查看对应pid的线程      协程
+ 协程(Coroutine)是什么? 轻量级的线程 协程的定位是什么? 用户控制的函数 有什么样的优势? 协程优势  协程的内存消耗更小  一个线程可以包含多个协程 线程大约8MB的内存申请量 协程大概2kb的内存申请量   上下文切换更快  协程少一道手续 线程申请内存, 需要走过内核 协程申请内存，不需要走过内核        灵魂Goroutine</description>
     </item>
     
     <item>
