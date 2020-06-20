@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>网络基础</title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/</guid>
+      <description>网络基础 1.iso/osi七层模型 7 应用层 &amp;lt;&amp;mdash;&amp;mdash;&amp;mdash;-应用层协议&amp;mdash;&amp;mdash;&amp;mdash;&amp;gt; 应用层 APDU(应用协议数据单元)
+6 表示层 &amp;lt;&amp;mdash;&amp;mdash;&amp;mdash;-表示层协议&amp;mdash;&amp;mdash;&amp;mdash;&amp;gt; 表示层 PPDU(表示协议数据单元) 5 会话层 &amp;lt;&amp;mdash;&amp;mdash;&amp;mdash;-会话层协议&amp;mdash;&amp;mdash;&amp;mdash;&amp;gt; 会话层 SPDU(会话协议数据单元) 4 传输层 &amp;lt;&amp;mdash;&amp;mdash;&amp;mdash;-传输层协议&amp;mdash;&amp;mdash;&amp;mdash;&amp;gt; 传输层 TPDU(传输协议数据单元)
+3 网络层 &amp;lt;&amp;mdash;&amp;mdash;&amp;mdash;-网络层协议&amp;mdash;&amp;mdash;&amp;mdash;&amp;gt; 网络层 报文 2 数据链路层 &amp;lt;&amp;mdash;&amp;mdash;&amp;mdash;-数据链路层协议&amp;mdash;&amp;mdash;&amp;mdash;&amp;gt; 数据链路层 帧 1 物理层 &amp;lt;&amp;mdash;&amp;mdash;&amp;mdash;-物理层协议&amp;mdash;&amp;mdash;&amp;mdash;&amp;gt; 物理层 比特
+MAC地址负责局域网通信
+IP地址负责外网通信
+物理层: 设备之间的比特流的传输、物理接口、电气特征等
+数据链路层: 成帧、用MAC地址访问媒介、错误检测与修正
+网络层: 提供逻辑地址、选路
+传输层: 可靠与不可靠的传输、传输前的错误检测、流控
+会话层: 对应用会话的管理、同步
+表示层: 数据的表示形式、特定功能的实现如-加密
+应用层: 用户接口
+2.Tcp/Ip四层模型  应用层 &amp;mdash;&amp;gt; (应用层, 表示层, 会话层) 传输层 &amp;mdash;&amp;gt; (传输层) 网际互联层 &amp;mdash;-&amp;gt; (网络层) 网络接口层 &amp;mdash;-&amp;gt; (物理层, 数据链路层)  网络接口层: 网络接入层是OSI参数模型中的物理层和数据链路层相对应.</description>
+    </item>
+    
+  </channel>
+</rss>
