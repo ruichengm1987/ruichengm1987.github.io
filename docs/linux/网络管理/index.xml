@@ -31,5 +31,16 @@ IP地址负责外网通信
 2.Tcp/Ip四层模型  应用层 &amp;mdash;&amp;gt; (应用层, 表示层, 会话层) 传输层 &amp;mdash;&amp;gt; (传输层) 网际互联层 &amp;mdash;-&amp;gt; (网络层) 网络接口层 &amp;mdash;-&amp;gt; (物理层, 数据链路层)  网络接口层: 网络接入层是OSI参数模型中的物理层和数据链路层相对应.</description>
     </item>
     
+    <item>
+      <title>网络配置</title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</guid>
+      <description>网络配置 配置IP地址 1. ifconfig命令临时配置ip地址 ifconfig命令: 查看与配置网络状态命令
+#临时设置eth0网卡的IP地址与子网掩码 ifconfig eth0 192.168.0.200 netmask 255.255.255.0
+2. setup工具永久配置IP地址(rethat专有) 3. 修改网络配置文件  网卡信息文件  vi /etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 //网卡设备名 BOOTPROTO=none //是否自动获取IP(none、static、dhcp) HWADDR=00:0c:29:17:c4:09 //MAC地址 NM_CONTROLLED=yes //是否可以由network manager图形管理工具托管 ONBOOT=yes //是否随网络服务启动, eth0生效 TYPE=Ethernet //类型为以太网 UUID=&amp;quot;xxsfwafewfw&amp;quot; //唯一识别码 IPADDR=192.168.0.252 //IP地址 NETMASK=255.255.255.0 //子网掩码 GATEWAY=192.168.0.1 //网关 DNS1=202.106.0.20 //DNS IPV6INIT=no //IPv6没有启用 USERCTL=no //不允许非root用户控制此网卡  主机名文件  vi /etc/sysconfig/network NETWORKING=yes HOSTNAME=localhost.localdomain # 查看与临时设置主机名命令 [root@localhost ~]# hostname imooc  DNS配置文件  vi /etc/resolv.conf nameserver 202.106.0.20 search localhost 4.</description>
+    </item>
+    
   </channel>
 </rss>

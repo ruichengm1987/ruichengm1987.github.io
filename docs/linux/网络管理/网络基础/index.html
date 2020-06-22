@@ -38,7 +38,7 @@ IP地址负责外网通信
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
-<script defer src="/en.search.min.9d7c3cf6634c2ce901c63cb19d036ad67add29d9d379985c4ad0a1cb644bb804.js" integrity="sha256-nXw89mNMLOkBxjyxnQNq1nrdKdnTeZhcStChy2RLuAQ="></script>
+<script defer src="/en.search.min.6e27ff2d854a96a7f8516fc289a0df5303252e27ebdf0a7596fd8aa4382c5af4.js" integrity="sha256-bif/LYVKlqf4UW/CiaDfUwMlLifr3wp1lv2KpDgsWvQ="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -308,6 +308,16 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+    <a href="/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" class="">网络配置</a>
+  
+
+        </li>
+      
+    
   </ul>
   
 
@@ -526,10 +536,30 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#tcpip模型与osi模型的比较">TCP/IP模型与OSI模型的比较</a></li>
       </ul>
     </li>
-    <li><a href="#3ip地址">3.IP地址</a></li>
-    <li><a href="#4端口作用">4.端口作用</a></li>
-    <li><a href="#5dns作用">5.DNS作用</a></li>
-    <li><a href="#6网关作用">6.网关作用</a></li>
+    <li><a href="#3ip地址">3.IP地址</a>
+      <ul>
+        <li><a href="#ip报文">IP报文</a></li>
+        <li><a href="#ip地址分类">IP地址分类</a></li>
+      </ul>
+    </li>
+    <li><a href="#4子网掩码">4.子网掩码</a></li>
+    <li><a href="#5端口作用">5.端口作用</a>
+      <ul>
+        <li><a href="#tcp协议包头">TCP协议包头</a></li>
+        <li><a href="#udp协议包头">UDP协议包头</a></li>
+        <li><a href="#查看本机启用的端口">查看本机启用的端口</a></li>
+      </ul>
+    </li>
+    <li><a href="#6dns作用">6.DNS作用</a>
+      <ul>
+        <li><a href="#域名空间结构">域名空间结构</a></li>
+      </ul>
+    </li>
+    <li><a href="#7网关作用">7.网关作用</a>
+      <ul>
+        <li><a href="#网关作用">网关作用</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -657,10 +687,235 @@ IP地址负责外网通信</p>
 4、实际市场应用不同(OSI模型只是理论上的模型), 并没有成熟的产品，而TCP/IP已经成为&quot;实际上的国际标准&rdquo;</li>
 </ul>
 <h2 id="3ip地址">3.IP地址</h2>
-<p><img src="../../ip.png" alt="avatar" /></p>
-<h2 id="4端口作用">4.端口作用</h2>
-<h2 id="5dns作用">5.DNS作用</h2>
-<h2 id="6网关作用">6.网关作用</h2>
+<h3 id="ip报文">IP报文</h3>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th></th>
+<th>15</th>
+<th>16</th>
+<th>31</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>版本(4))</td>
+<td>头部长度(4)</td>
+<td>优先级和服务类型(8)</td>
+<td>总长度(16)</td>
+<td></td>
+</tr>
+<tr>
+<td>标识(16)</td>
+<td></td>
+<td></td>
+<td>标志(3)</td>
+<td>偏移量(13)</td>
+</tr>
+<tr>
+<td>生存时间(8)</td>
+<td></td>
+<td>协议(8)</td>
+<td>头部校验和(16)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>源IP地址(32)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>目的IP地址(32)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>选项(如果有)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>数据</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>注: 字段后面括号中的数字是指该字段在ip数据包头部信息中所占的位数</p>
+<h3 id="ip地址分类">IP地址分类</h3>
+<table>
+<thead>
+<tr>
+<th>网络类别</th>
+<th>最大网络数</th>
+<th>IP地址范围</th>
+<th>最大主机数</th>
+<th>私有IP地址范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>2^7-2</td>
+<td>1.0.0.0 - 126.255.255.255</td>
+<td>2^24-2</td>
+<td>10.0.0.0 - 10.255.255.255</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2^14</td>
+<td>128.0.0.0 - 191.255.255.255</td>
+<td>2^16-2</td>
+<td>127.16.0.0 - 172.31.255.255</td>
+</tr>
+<tr>
+<td>C</td>
+<td>2^21</td>
+<td>192.0.0.0 - 223.255.255.255</td>
+<td>2^8-2</td>
+<td>192.168.0.0 - 192.168.255.255</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4子网掩码">4.子网掩码</h2>
+<p>255.255.255.0  C类标准网段<br>
+26 另外一种子网掩码的表示</p>
+<h2 id="5端口作用">5.端口作用</h2>
+<h3 id="tcp协议包头">TCP协议包头</h3>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th></th>
+<th>15</th>
+<th>16</th>
+<th>31</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>源端口(16))</td>
+<td></td>
+<td></td>
+<td>目的端口(16)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>序列号(32)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>确认号(32)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>数据偏移(4)</td>
+<td>保留(6)</td>
+<td>标识(13)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>校验和(16))</td>
+<td></td>
+<td></td>
+<td>紧急指针(16)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>选项</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>数据</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>注: 字段后面括号中的数字是指该字段在TCP头部信息中所占的位数</p>
+<h3 id="udp协议包头">UDP协议包头</h3>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>15</th>
+<th>16</th>
+<th>31</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>源端口(16)</td>
+<td></td>
+<td>目的端口(16)</td>
+<td></td>
+</tr>
+<tr>
+<td>长度(16)</td>
+<td></td>
+<td>校验和(16)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>数据</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>注: 字段后面括号中的数字是指该字段在UDP头部信息中所占的位数</p>
+<p>端口范围: 0-65535
+1万以内的端口系统用，以外自己用</p>
+<h3 id="查看本机启用的端口">查看本机启用的端口</h3>
+<p>netstat -an
+选项:<br>
+-a: 查看所有连接和监听端口<br>
+-n: 显示IP地址和端口号，而不显示域名和服务名</p>
+<h2 id="6dns作用">6.DNS作用</h2>
+<p>DNS: 域名系统</p>
+<ul>
+<li>在互联网中, 通过IP地址来进行通信</li>
+<li>IP地址用数字表示, 挤一起来台困难了</li>
+<li>人对域名跟家敏感</li>
+</ul>
+<p>DNS服务的作用: 将域名解析为IP地址</p>
+<h3 id="域名空间结构">域名空间结构</h3>
+<ol>
+<li>&ldquo;.&rdquo; 根域  根域名的服务器只有13台</li>
+<li>顶级域: (组织域, 国家或地区域)</li>
+<li>二级域</li>
+<li>主机名</li>
+</ol>
+<h2 id="7网关作用">7.网关作用</h2>
+<h3 id="网关作用">网关作用</h3>
+<ol>
+<li>网关(Gateway)又称网间连接器、协议转换器</li>
+<li>网关在网络层以上实现网络互连,是最复杂的网络互连设备, 仅用于两个高层协议不同的网络互连</li>
+<li>网关既可以用于广域网互连, 也可以用于局域网互连。</li>
+<li>网关是一种充当转换重任的服务器或路由器</li>
+</ol>
 </article>
  
       
@@ -716,10 +971,30 @@ IP地址负责外网通信</p>
         <li><a href="#tcpip模型与osi模型的比较">TCP/IP模型与OSI模型的比较</a></li>
       </ul>
     </li>
-    <li><a href="#3ip地址">3.IP地址</a></li>
-    <li><a href="#4端口作用">4.端口作用</a></li>
-    <li><a href="#5dns作用">5.DNS作用</a></li>
-    <li><a href="#6网关作用">6.网关作用</a></li>
+    <li><a href="#3ip地址">3.IP地址</a>
+      <ul>
+        <li><a href="#ip报文">IP报文</a></li>
+        <li><a href="#ip地址分类">IP地址分类</a></li>
+      </ul>
+    </li>
+    <li><a href="#4子网掩码">4.子网掩码</a></li>
+    <li><a href="#5端口作用">5.端口作用</a>
+      <ul>
+        <li><a href="#tcp协议包头">TCP协议包头</a></li>
+        <li><a href="#udp协议包头">UDP协议包头</a></li>
+        <li><a href="#查看本机启用的端口">查看本机启用的端口</a></li>
+      </ul>
+    </li>
+    <li><a href="#6dns作用">6.DNS作用</a>
+      <ul>
+        <li><a href="#域名空间结构">域名空间结构</a></li>
+      </ul>
+    </li>
+    <li><a href="#7网关作用">7.网关作用</a>
+      <ul>
+        <li><a href="#网关作用">网关作用</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
