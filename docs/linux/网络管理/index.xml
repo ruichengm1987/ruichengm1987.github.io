@@ -42,5 +42,39 @@ IP地址负责外网通信
 2. setup工具永久配置IP地址(rethat专有) 3. 修改网络配置文件  网卡信息文件  vi /etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 //网卡设备名 BOOTPROTO=none //是否自动获取IP(none、static、dhcp) HWADDR=00:0c:29:17:c4:09 //MAC地址 NM_CONTROLLED=yes //是否可以由network manager图形管理工具托管 ONBOOT=yes //是否随网络服务启动, eth0生效 TYPE=Ethernet //类型为以太网 UUID=&amp;quot;xxsfwafewfw&amp;quot; //唯一识别码 IPADDR=192.168.0.252 //IP地址 NETMASK=255.255.255.0 //子网掩码 GATEWAY=192.168.0.1 //网关 DNS1=202.106.0.20 //DNS IPV6INIT=no //IPv6没有启用 USERCTL=no //不允许非root用户控制此网卡  主机名文件  vi /etc/sysconfig/network NETWORKING=yes HOSTNAME=localhost.localdomain # 查看与临时设置主机名命令 [root@localhost ~]# hostname imooc  DNS配置文件  vi /etc/resolv.conf nameserver 202.106.0.20 search localhost 4.</description>
     </item>
     
+    <item>
+      <title>网络命令</title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/</guid>
+      <description>网络命令 网络环境查看命令 1. ifconfig 查看与配置网络状态命令
+2. 关闭与启动网卡 ifdown 网卡设备名 # 禁用该网卡设备
+ifup 网卡设备名 # 启用该网卡设备
+3. 查询网络状态 netstat 选项:
+-t 列出TCP协议端口
+-u 列出UDP协议端口
+-n 不适用域名与服务名, 而使用IP地址和端口号
+-l 仅列出在监听状态网络服务
+-a 列出所有的网络连接
+4. route命令 route -n # 查看路由列表(可以看到网关)
+route add default gw 192.168.1.1 # 临时设定网关
+在一台服务器里, 连内网的网卡是不能设置网关的
+5. 域名解析命令 nslookup [主机名或IP] # 进行域名或IP地址解析
+nslookup # 查看本机DNS服务器
+网络测试命令 1. ping 命令 ping -c 10 192.168.1.1 # ping 10次
+2. telnet 命令 telnet [域名或IP] 【端口】# 远程管理与端口探测命令(明文传输)</description>
+    </item>
+    
+    <item>
+      <title>远程登录工具</title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%B7%A5%E5%85%B7/</guid>
+      <description>远程登录工具 SSH协议原理 对称加密算法: 采用单秘钥密码系统的加密方法
+ ssh 用户名@ip scp [-r]  </description>
+    </item>
+    
   </channel>
 </rss>

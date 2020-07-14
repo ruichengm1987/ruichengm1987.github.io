@@ -68,6 +68,15 @@
     </item>
     
     <item>
+      <title>字符串</title>
+      <link>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>字符串 </description>
+    </item>
+    
+    <item>
       <title>安装</title>
       <link>https://ruichengm1987.github.io/docs/go/%E5%AE%89%E8%A3%85%E7%AF%87/%E5%AE%89%E8%A3%85/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -108,6 +117,15 @@ Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34
     </item>
     
     <item>
+      <title>defer</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/defer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/defer/</guid>
+      <description>defer 什么是defer  defer是Go语言的一种用于注册延迟调用的机制,使得函数或语句可以在当前函数执行完毕后执行.  为什么需要defer  Go语言提供的语法糖,减少资源泄露的发生.  如何使用defer  在创建资源语句的附近,使得defer语句释放资源.  例子 func f1() (r int) { t := 5 // 1. 赋值指令 r = t // 2. defer被插入到赋值与返回质检， 这个例子中返回值r没被修改过 defer func() { t = t + 5 }() // 3. 空的return指令 return t } 返回值是5 func f2() (r int) { defer func(r int) { r = r + 5 }(r) // 此处r是copy了一份 return 1 } 返回值是1 func f3() (r int) { defer func(r *int) { *r = *r + 5 }(&amp;amp;r) // 此处r是传址 return 1 } 返回值是6 defer 是先入先出 func e1() { var err error defer fmt.</description>
+    </item>
+    
+    <item>
       <title>iota</title>
       <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/iota/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -131,6 +149,17 @@ d = 1 &amp;laquo; iota // d==8 (iota == 3) )
       <guid>https://ruichengm1987.github.io/docs/example/table-of-contents/without-toc/</guid>
       <description>At me ipso nepotibus nunc celebratior genus Tanto oblite Lorem markdownum pectora novis patenti igne sua opus aurae feras materiaque illic demersit imago et aristas questaque posset. Vomit quoque suo inhaesuro clara. Esse cumque, per referri triste. Ut exponit solisque communis in tendens vincetis agisque iamque huic bene ante vetat omina Thebae rates. Aeacus servat admonitu concidit, ad resimas vultus et rugas vultu dignamque Siphnon.
 Quam iugulum regia simulacra, plus meruit humo pecorumque haesit, ab discedunt dixit: ritu pharetramque.</description>
+    </item>
+    
+    <item>
+      <title>列表vs元组</title>
+      <link>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%88%97%E8%A1%A8vs%E5%85%83%E7%BB%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%88%97%E8%A1%A8vs%E5%85%83%E7%BB%84/</guid>
+      <description>列表vs元组 列表 一、创建列表 1.创建空的列表 列表 = [] 2.创建包含元素的列表 列表 = [元素1, 元素2, ..., 元素N] 二、列表元素的获取 1.通过索引获取元素 元素 = 列表[索引] 2.通过元素获取索引 索引 = 列表.index(元素) 3.查看元素是否存在于列表中 布尔值 = 元素 in 列表 4.统计元素在列表中的个数 个数 = 列表.count(元素) 三、列表元素的添加 1.向列表末尾追加元素 列表.append(元素) 2.向列表的任意位置插入元素 列表.insert(索引, 元素) 3.列表末尾追加另一个列表的所有元素 列表.extend(另一列表) 四、列表元素的删除 1.按索引删除元素 元素 = 列表.pop(索引) 2.按索引删除元素（del方法) del 列表[索引] 3.直接删除元素 列表.remove(元素) 4.清空所有元素 列表.clear() 五、列表元素的修改 1.通过赋值修改列表元素 列表[索引] = 新元素 2.反转整个列表 列表.reverse() 3.列表元素排序 列表.sort() 元组 元组和列表非常相似，也是用于存放元素的有序序列。它用的圆括号（()）表示，元素写入圆括号中，多个元素时用逗号分隔，如 (1, 2, 3)。
+元组创建完成后，便不能向其中添加元素，也不能修改和删除其中的任何一个元素。所以它与列表相比，只能查找元素，也就是说只具备读的功能，不具备写的功能。元组的这一特性叫作不可变（性）（Immutable），而列表是可变的（Mutable）。
+一、创建元组 1.创建空的元组 元组 = () 2.</description>
     </item>
     
     <item>
@@ -210,6 +239,16 @@ go build ./...  迁移到go mod go mod init modtest2 go build ./... 增加依赖
     </item>
     
     <item>
+      <title>字典vs集合</title>
+      <link>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E5%85%B8vs%E9%9B%86%E5%90%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E5%85%B8vs%E9%9B%86%E5%90%88/</guid>
+      <description>字典vs集合 字典 字典是一种用来存放若干键值对的数据类型。
+一、创建字典 1.创建空的字典 字典 = {} 2.创建包含键值对的字典 字典 = {键1:值1, 键2:值2, ..., 键N:值N} 二、字典键值对的添加 1.向字典中增加键值对 字典[键] = 值 2.键值对的获取 1.通过键获取值 值 = 字典[键] 2.通过键获取值(get方法) 值 = 字典.get(键) 3.判断字典中是否包含某个键 布尔值 = 键 in 字典 4.获取所有键 键的列表 = 字典.keys() 5.获取所有值 值的列表 = 字典.values() 6.获取所有键值对的列表 值的列表 = 字典.items() 三、字典键值对的删除 1.通过键删除键值对 值 = 字典.pop(键) 2.通过键删除键值对（del 方法） del 字典[键] 3.随机删除一个键值对 键值二元组 = 字典.popitem() 4.清空所有键值对 键值二元组 = 字典.clear() 四、字典中键值对修改 1.修改键对应的值 字典[键] = 值 2.用字典批量更新键值对 字典.</description>
+    </item>
+    
+    <item>
       <title>常量值标识符(4个)</title>
       <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%B8%B8%E9%87%8F%E5%80%BC%E6%A0%87%E8%AF%86%E7%AC%A64%E4%B8%AA/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -227,6 +266,39 @@ go build ./...  迁移到go mod go mod init modtest2 go build ./... 增加依赖
       <description>#数据类型
 一、基本数据类型 Go 语言内置七类基本数据类型
 1.布尔类型  True False //不初始化默认为false  2.整型 byte int int8 int16 int32 int64 uint uint8 uint16 uint32 uint64 uintptr  3.浮点型 float32 float64  4.复数 complex64 complex128 // real返回复数的实部, image返回复数的虚部  5.字符 rune //rune是uint类型的别名  6.字符串: string 赋值: a := &amp;quot;hello&amp;quot; a := &amp;quot;hello world&amp;quot; b := []byte(a) c := []rune(a) b和c的结果都是:[104 101 108 108 111 44 32 119 111 114 108 100]  7.错误类型: error 8.</description>
+    </item>
+    
+    <item>
+      <title>网络命令</title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/</guid>
+      <description>网络命令 网络环境查看命令 1. ifconfig 查看与配置网络状态命令
+2. 关闭与启动网卡 ifdown 网卡设备名 # 禁用该网卡设备
+ifup 网卡设备名 # 启用该网卡设备
+3. 查询网络状态 netstat 选项:
+-t 列出TCP协议端口
+-u 列出UDP协议端口
+-n 不适用域名与服务名, 而使用IP地址和端口号
+-l 仅列出在监听状态网络服务
+-a 列出所有的网络连接
+4. route命令 route -n # 查看路由列表(可以看到网关)
+route add default gw 192.168.1.1 # 临时设定网关
+在一台服务器里, 连内网的网卡是不能设置网关的
+5. 域名解析命令 nslookup [主机名或IP] # 进行域名或IP地址解析
+nslookup # 查看本机DNS服务器
+网络测试命令 1. ping 命令 ping -c 10 192.168.1.1 # ping 10次
+2. telnet 命令 telnet [域名或IP] 【端口】# 远程管理与端口探测命令(明文传输)</description>
+    </item>
+    
+    <item>
+      <title>逃逸分析</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/</guid>
+      <description>逃逸分析 例子 /* * 闭包引用了x变量, a,b可以看做2个不同的实例,实例之间互不影响,实例内部,x变量是同一个地址,因此具有&amp;quot;累加效应&amp;quot; */ package main import &amp;quot;fmt&amp;quot; func main() { var a = acc() fmt.Printf(&amp;quot;%d\n&amp;quot;, a(1)) fmt.Printf(&amp;quot;%d\n&amp;quot;, a(10)) fmt.Printf(&amp;quot;%d\n&amp;quot;, a(100)) fmt.Println(&amp;quot;-------------------&amp;quot;) var b = acc() fmt.Printf(&amp;quot;%d\n&amp;quot;, b(1)) fmt.Printf(&amp;quot;%d\n&amp;quot;, b(10)) fmt.Printf(&amp;quot;%d\n&amp;quot;, b(100)) } func acc() func(int) int { var x int return func(delta int) int { fmt.Printf(&amp;quot;%+v, %+v&amp;quot;, &amp;amp;x, x) x += delta return x } } 结果: 0xc000016070, 01 0xc000016070, 111 0xc000016070, 11111 ------------------- 0xc0000160b0, 01 0xc0000160b0, 111 0xc0000160b0, 11111 </description>
     </item>
     
     <item>
@@ -255,6 +327,36 @@ Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34
       
       <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E7%A9%BA%E7%99%BD%E6%A0%87%E8%AF%86%E7%AC%A61%E4%B8%AA/</guid>
       <description>空白标识符(1个) _ // 空白标识符有特殊的含义, 用来声明一个匿名的变量,该变量在赋值表达式的左端,空白标识符引用通常被用作占位</description>
+    </item>
+    
+    <item>
+      <title>远程登录工具</title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%B7%A5%E5%85%B7/</guid>
+      <description>远程登录工具 SSH协议原理 对称加密算法: 采用单秘钥密码系统的加密方法
+ ssh 用户名@ip scp [-r]  </description>
+    </item>
+    
+    <item>
+      <title>迭代器和生成器</title>
+      <link>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/</guid>
+      <description>迭代器和生成器 迭代器 什么是迭代呢？在编程中，迭代指的是通过重复执行某个操作，不断获取被迭代对象中的数据。这样的每一次操作就是就是一次迭代。
+迭代器是具有迭代功能的对象。我们使用迭代器来进行迭代操作。
+迭代器 = iter(容器)
+&amp;gt;&amp;gt;&amp;gt; numbers=[1,2,3,4,5] &amp;gt;&amp;gt;&amp;gt; it = iter(numbers) &amp;gt;&amp;gt;&amp;gt; it &amp;lt;listiterator object at 0x1007e6950&amp;gt; &amp;gt;&amp;gt;&amp;gt; for 循环的迭代过程 for 循环的迭代就是通过使用迭代器来完成的。它在背后所做的事情是：
+ 对一个容器调用 iter() 函数，获取到该容器的迭代器 每次循环时对迭代器调用 next() 函数，以获取一个值 若捕获到 StopIteration 异常则结束循环  可迭代（Iterable）对象 并不是所有的对象都可以被 iter() 函数使用。
+什么是可迭代(的)？
+1、从表面来看，所有可用于 for 循环的对象是可迭代的，如列表、元组、字符串、集合、字典等容器
+2、从深层来看，定义了 iter() 方法的类对象就是可迭代的。当这个类对象被 iter() 函数使用时，将返回一个迭代器对象。如果对象具有__iter__() 方法，则可以说它支持迭代协议。
+判断一个已有的对象是否是可迭代的 1、 &amp;lsquo;iter&amp;rsquo; in dir(list)
+2、 isinstance(对象, Iterable)
+自定义迭代器 class MyIterator: def __next__(self): 代码块 def __iter__(self): return self 生成器 刚才我们自定义了迭代器，其实创建迭代器还有另一种方式，就是使用生成器。
+生成器是一个函数，这个函数的特殊之处在于它的 return 语句被 yield 语句替代。</description>
     </item>
     
     <item>

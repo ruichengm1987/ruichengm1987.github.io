@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="网络命令 网络环境查看命令 1. ifconfig 查看与配置网络状态命令
+2. 关闭与启动网卡 ifdown 网卡设备名 # 禁用该网卡设备
+ifup 网卡设备名 # 启用该网卡设备
+3. 查询网络状态 netstat 选项:
+-t 列出TCP协议端口
+-u 列出UDP协议端口
+-n 不适用域名与服务名, 而使用IP地址和端口号
+-l 仅列出在监听状态网络服务
+-a 列出所有的网络连接
+4. route命令 route -n # 查看路由列表(可以看到网关)
+route add default gw 192.168.1.1 # 临时设定网关
+在一台服务器里, 连内网的网卡是不能设置网关的
+5. 域名解析命令 nslookup [主机名或IP] # 进行域名或IP地址解析
+nslookup # 查看本机DNS服务器
+网络测试命令 1. ping 命令 ping -c 10 192.168.1.1 # ping 10次
+2. telnet 命令 telnet [域名或IP] 【端口】# 远程管理与端口探测命令(明文传输)">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="网络命令" />
+<meta property="og:description" content="网络命令 网络环境查看命令 1. ifconfig 查看与配置网络状态命令
+2. 关闭与启动网卡 ifdown 网卡设备名 # 禁用该网卡设备
+ifup 网卡设备名 # 启用该网卡设备
+3. 查询网络状态 netstat 选项:
+-t 列出TCP协议端口
+-u 列出UDP协议端口
+-n 不适用域名与服务名, 而使用IP地址和端口号
+-l 仅列出在监听状态网络服务
+-a 列出所有的网络连接
+4. route命令 route -n # 查看路由列表(可以看到网关)
+route add default gw 192.168.1.1 # 临时设定网关
+在一台服务器里, 连内网的网卡是不能设置网关的
+5. 域名解析命令 nslookup [主机名或IP] # 进行域名或IP地址解析
+nslookup # 查看本机DNS服务器
+网络测试命令 1. ping 命令 ping -c 10 192.168.1.1 # ping 10次
+2. telnet 命令 telnet [域名或IP] 【端口】# 远程管理与端口探测命令(明文传输)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/" />
+
+<title>网络命令 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.0fc622d6882e794c1d217a8516e0ebf483a7933b9fe7926a85b33088cc9e3b96.js" integrity="sha256-D8Yi1ogueUwdIXqFFuDr9IOnkzuf55JqhbMwiMyeO5Y="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docs/example/" class="">Example Site</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/collapsed/" class="collapsed ">Collapsed</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">GoLang</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="collapsed ">常用命令</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/" class="collapsed ">网络管理</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" class="">网络基础</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" class="">网络配置</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/" class="active">网络命令</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E5%B7%A5%E5%85%B7/" class="">远程登录工具</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Shortcodes</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>网络命令</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#网络环境查看命令">网络环境查看命令</a>
+      <ul>
+        <li><a href="#1-ifconfig">1. ifconfig</a></li>
+        <li><a href="#2-关闭与启动网卡">2. 关闭与启动网卡</a></li>
+        <li><a href="#3-查询网络状态">3. 查询网络状态</a></li>
+        <li><a href="#4-route命令">4. route命令</a></li>
+        <li><a href="#5-域名解析命令">5. 域名解析命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#网络测试命令">网络测试命令</a>
+      <ul>
+        <li><a href="#1-ping--命令">1. ping  命令</a></li>
+        <li><a href="#2-telnet-命令">2. telnet 命令</a></li>
+        <li><a href="#3-traceroute">3. traceroute</a></li>
+        <li><a href="#4-wget-命令">4. wget 命令</a></li>
+        <li><a href="#5-tcpdump">5. tcpdump</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="网络命令">网络命令</h1>
+<h2 id="网络环境查看命令">网络环境查看命令</h2>
+<h3 id="1-ifconfig">1. ifconfig</h3>
+<p>查看与配置网络状态命令</p>
+<h3 id="2-关闭与启动网卡">2. 关闭与启动网卡</h3>
+<p>ifdown 网卡设备名  # 禁用该网卡设备<br>
+ifup 网卡设备名    # 启用该网卡设备</p>
+<h3 id="3-查询网络状态">3. 查询网络状态</h3>
+<p>netstat
+选项:<br>
+-t  列出TCP协议端口<br>
+-u  列出UDP协议端口<br>
+-n  不适用域名与服务名, 而使用IP地址和端口号<br>
+-l  仅列出在监听状态网络服务<br>
+-a  列出所有的网络连接</p>
+<h3 id="4-route命令">4. route命令</h3>
+<p>route -n # 查看路由列表(可以看到网关)<br>
+route add default gw 192.168.1.1 # 临时设定网关<br>
+在一台服务器里, 连内网的网卡是不能设置网关的</p>
+<h3 id="5-域名解析命令">5. 域名解析命令</h3>
+<p>nslookup [主机名或IP]  # 进行域名或IP地址解析<br>
+nslookup  # 查看本机DNS服务器</p>
+<h2 id="网络测试命令">网络测试命令</h2>
+<h3 id="1-ping--命令">1. ping  命令</h3>
+<p>ping -c 10 192.168.1.1 # ping 10次</p>
+<h3 id="2-telnet-命令">2. telnet 命令</h3>
+<p>telnet [域名或IP] 【端口】# 远程管理与端口探测命令(明文传输)</p>
+<h3 id="3-traceroute">3. traceroute</h3>
+<p>traceroute [选项] IP或域名  #路由跟踪命令<br>
+选项:<br>
+-n 使用IP，不使用域名,速度更快</p>
+<h3 id="4-wget-命令">4. wget 命令</h3>
+<h3 id="5-tcpdump">5. tcpdump</h3>
+<p>tcpdump -i eth0 -nnX port 21<br>
+选项:<br>
+-i 指定网卡接口<br>
+-nn 将数据包中的域名和服务转为IP和端口<br>
+-X 以十六进制和ASCII码显示数据包内容<br>
+port 指定监听的端口</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#网络环境查看命令">网络环境查看命令</a>
+      <ul>
+        <li><a href="#1-ifconfig">1. ifconfig</a></li>
+        <li><a href="#2-关闭与启动网卡">2. 关闭与启动网卡</a></li>
+        <li><a href="#3-查询网络状态">3. 查询网络状态</a></li>
+        <li><a href="#4-route命令">4. route命令</a></li>
+        <li><a href="#5-域名解析命令">5. 域名解析命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#网络测试命令">网络测试命令</a>
+      <ul>
+        <li><a href="#1-ping--命令">1. ping  命令</a></li>
+        <li><a href="#2-telnet-命令">2. telnet 命令</a></li>
+        <li><a href="#3-traceroute">3. traceroute</a></li>
+        <li><a href="#4-wget-命令">4. wget 命令</a></li>
+        <li><a href="#5-tcpdump">5. tcpdump</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

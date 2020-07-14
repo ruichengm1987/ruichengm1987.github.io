@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>字符串</title>
+      <link>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>字符串 </description>
+    </item>
+    
+    <item>
+      <title>列表vs元组</title>
+      <link>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%88%97%E8%A1%A8vs%E5%85%83%E7%BB%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%88%97%E8%A1%A8vs%E5%85%83%E7%BB%84/</guid>
+      <description>列表vs元组 列表 一、创建列表 1.创建空的列表 列表 = [] 2.创建包含元素的列表 列表 = [元素1, 元素2, ..., 元素N] 二、列表元素的获取 1.通过索引获取元素 元素 = 列表[索引] 2.通过元素获取索引 索引 = 列表.index(元素) 3.查看元素是否存在于列表中 布尔值 = 元素 in 列表 4.统计元素在列表中的个数 个数 = 列表.count(元素) 三、列表元素的添加 1.向列表末尾追加元素 列表.append(元素) 2.向列表的任意位置插入元素 列表.insert(索引, 元素) 3.列表末尾追加另一个列表的所有元素 列表.extend(另一列表) 四、列表元素的删除 1.按索引删除元素 元素 = 列表.pop(索引) 2.按索引删除元素（del方法) del 列表[索引] 3.直接删除元素 列表.remove(元素) 4.清空所有元素 列表.clear() 五、列表元素的修改 1.通过赋值修改列表元素 列表[索引] = 新元素 2.反转整个列表 列表.reverse() 3.列表元素排序 列表.sort() 元组 元组和列表非常相似，也是用于存放元素的有序序列。它用的圆括号（()）表示，元素写入圆括号中，多个元素时用逗号分隔，如 (1, 2, 3)。
+元组创建完成后，便不能向其中添加元素，也不能修改和删除其中的任何一个元素。所以它与列表相比，只能查找元素，也就是说只具备读的功能，不具备写的功能。元组的这一特性叫作不可变（性）（Immutable），而列表是可变的（Mutable）。
+一、创建元组 1.创建空的元组 元组 = () 2.</description>
+    </item>
+    
+    <item>
+      <title>字典vs集合</title>
+      <link>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E5%85%B8vs%E9%9B%86%E5%90%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E5%85%B8vs%E9%9B%86%E5%90%88/</guid>
+      <description>字典vs集合 字典 字典是一种用来存放若干键值对的数据类型。
+一、创建字典 1.创建空的字典 字典 = {} 2.创建包含键值对的字典 字典 = {键1:值1, 键2:值2, ..., 键N:值N} 二、字典键值对的添加 1.向字典中增加键值对 字典[键] = 值 2.键值对的获取 1.通过键获取值 值 = 字典[键] 2.通过键获取值(get方法) 值 = 字典.get(键) 3.判断字典中是否包含某个键 布尔值 = 键 in 字典 4.获取所有键 键的列表 = 字典.keys() 5.获取所有值 值的列表 = 字典.values() 6.获取所有键值对的列表 值的列表 = 字典.items() 三、字典键值对的删除 1.通过键删除键值对 值 = 字典.pop(键) 2.通过键删除键值对（del 方法） del 字典[键] 3.随机删除一个键值对 键值二元组 = 字典.popitem() 4.清空所有键值对 键值二元组 = 字典.clear() 四、字典中键值对修改 1.修改键对应的值 字典[键] = 值 2.用字典批量更新键值对 字典.</description>
+    </item>
+    
+    <item>
+      <title>迭代器和生成器</title>
+      <link>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/</guid>
+      <description>迭代器和生成器 迭代器 什么是迭代呢？在编程中，迭代指的是通过重复执行某个操作，不断获取被迭代对象中的数据。这样的每一次操作就是就是一次迭代。
+迭代器是具有迭代功能的对象。我们使用迭代器来进行迭代操作。
+迭代器 = iter(容器)
+&amp;gt;&amp;gt;&amp;gt; numbers=[1,2,3,4,5] &amp;gt;&amp;gt;&amp;gt; it = iter(numbers) &amp;gt;&amp;gt;&amp;gt; it &amp;lt;listiterator object at 0x1007e6950&amp;gt; &amp;gt;&amp;gt;&amp;gt; for 循环的迭代过程 for 循环的迭代就是通过使用迭代器来完成的。它在背后所做的事情是：
+ 对一个容器调用 iter() 函数，获取到该容器的迭代器 每次循环时对迭代器调用 next() 函数，以获取一个值 若捕获到 StopIteration 异常则结束循环  可迭代（Iterable）对象 并不是所有的对象都可以被 iter() 函数使用。
+什么是可迭代(的)？
+1、从表面来看，所有可用于 for 循环的对象是可迭代的，如列表、元组、字符串、集合、字典等容器
+2、从深层来看，定义了 iter() 方法的类对象就是可迭代的。当这个类对象被 iter() 函数使用时，将返回一个迭代器对象。如果对象具有__iter__() 方法，则可以说它支持迭代协议。
+判断一个已有的对象是否是可迭代的 1、 &amp;lsquo;iter&amp;rsquo; in dir(list)
+2、 isinstance(对象, Iterable)
+自定义迭代器 class MyIterator: def __next__(self): 代码块 def __iter__(self): return self 生成器 刚才我们自定义了迭代器，其实创建迭代器还有另一种方式，就是使用生成器。
+生成器是一个函数，这个函数的特殊之处在于它的 return 语句被 yield 语句替代。</description>
+    </item>
+    
+  </channel>
+</rss>

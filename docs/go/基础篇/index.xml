@@ -20,6 +20,15 @@
     </item>
     
     <item>
+      <title>defer</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/defer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/defer/</guid>
+      <description>defer 什么是defer  defer是Go语言的一种用于注册延迟调用的机制,使得函数或语句可以在当前函数执行完毕后执行.  为什么需要defer  Go语言提供的语法糖,减少资源泄露的发生.  如何使用defer  在创建资源语句的附近,使得defer语句释放资源.  例子 func f1() (r int) { t := 5 // 1. 赋值指令 r = t // 2. defer被插入到赋值与返回质检， 这个例子中返回值r没被修改过 defer func() { t = t + 5 }() // 3. 空的return指令 return t } 返回值是5 func f2() (r int) { defer func(r int) { r = r + 5 }(r) // 此处r是copy了一份 return 1 } 返回值是1 func f3() (r int) { defer func(r *int) { *r = *r + 5 }(&amp;amp;r) // 此处r是传址 return 1 } 返回值是6 defer 是先入先出 func e1() { var err error defer fmt.</description>
+    </item>
+    
+    <item>
       <title>iota</title>
       <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/iota/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -53,6 +62,15 @@ d = 1 &amp;laquo; iota // d==8 (iota == 3) )
       <description>#数据类型
 一、基本数据类型 Go 语言内置七类基本数据类型
 1.布尔类型  True False //不初始化默认为false  2.整型 byte int int8 int16 int32 int64 uint uint8 uint16 uint32 uint64 uintptr  3.浮点型 float32 float64  4.复数 complex64 complex128 // real返回复数的实部, image返回复数的虚部  5.字符 rune //rune是uint类型的别名  6.字符串: string 赋值: a := &amp;quot;hello&amp;quot; a := &amp;quot;hello world&amp;quot; b := []byte(a) c := []rune(a) b和c的结果都是:[104 101 108 108 111 44 32 119 111 114 108 100]  7.错误类型: error 8.</description>
+    </item>
+    
+    <item>
+      <title>逃逸分析</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/</guid>
+      <description>逃逸分析 例子 /* * 闭包引用了x变量, a,b可以看做2个不同的实例,实例之间互不影响,实例内部,x变量是同一个地址,因此具有&amp;quot;累加效应&amp;quot; */ package main import &amp;quot;fmt&amp;quot; func main() { var a = acc() fmt.Printf(&amp;quot;%d\n&amp;quot;, a(1)) fmt.Printf(&amp;quot;%d\n&amp;quot;, a(10)) fmt.Printf(&amp;quot;%d\n&amp;quot;, a(100)) fmt.Println(&amp;quot;-------------------&amp;quot;) var b = acc() fmt.Printf(&amp;quot;%d\n&amp;quot;, b(1)) fmt.Printf(&amp;quot;%d\n&amp;quot;, b(10)) fmt.Printf(&amp;quot;%d\n&amp;quot;, b(100)) } func acc() func(int) int { var x int return func(delta int) int { fmt.Printf(&amp;quot;%+v, %+v&amp;quot;, &amp;amp;x, x) x += delta return x } } 结果: 0xc000016070, 01 0xc000016070, 111 0xc000016070, 11111 ------------------- 0xc0000160b0, 01 0xc0000160b0, 111 0xc0000160b0, 11111 </description>
     </item>
     
     <item>

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="迭代器和生成器 迭代器 什么是迭代呢？在编程中，迭代指的是通过重复执行某个操作，不断获取被迭代对象中的数据。这样的每一次操作就是就是一次迭代。
+迭代器是具有迭代功能的对象。我们使用迭代器来进行迭代操作。
+迭代器 = iter(容器)
+&gt;&gt;&gt; numbers=[1,2,3,4,5] &gt;&gt;&gt; it = iter(numbers) &gt;&gt;&gt; it &lt;listiterator object at 0x1007e6950&gt; &gt;&gt;&gt; for 循环的迭代过程 for 循环的迭代就是通过使用迭代器来完成的。它在背后所做的事情是：
+ 对一个容器调用 iter() 函数，获取到该容器的迭代器 每次循环时对迭代器调用 next() 函数，以获取一个值 若捕获到 StopIteration 异常则结束循环  可迭代（Iterable）对象 并不是所有的对象都可以被 iter() 函数使用。
+什么是可迭代(的)？
+1、从表面来看，所有可用于 for 循环的对象是可迭代的，如列表、元组、字符串、集合、字典等容器
+2、从深层来看，定义了 iter() 方法的类对象就是可迭代的。当这个类对象被 iter() 函数使用时，将返回一个迭代器对象。如果对象具有__iter__() 方法，则可以说它支持迭代协议。
+判断一个已有的对象是否是可迭代的 1、 &lsquo;iter&rsquo; in dir(list)
+2、 isinstance(对象, Iterable)
+自定义迭代器 class MyIterator: def __next__(self): 代码块 def __iter__(self): return self 生成器 刚才我们自定义了迭代器，其实创建迭代器还有另一种方式，就是使用生成器。
+生成器是一个函数，这个函数的特殊之处在于它的 return 语句被 yield 语句替代。">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="迭代器和生成器" />
+<meta property="og:description" content="迭代器和生成器 迭代器 什么是迭代呢？在编程中，迭代指的是通过重复执行某个操作，不断获取被迭代对象中的数据。这样的每一次操作就是就是一次迭代。
+迭代器是具有迭代功能的对象。我们使用迭代器来进行迭代操作。
+迭代器 = iter(容器)
+&gt;&gt;&gt; numbers=[1,2,3,4,5] &gt;&gt;&gt; it = iter(numbers) &gt;&gt;&gt; it &lt;listiterator object at 0x1007e6950&gt; &gt;&gt;&gt; for 循环的迭代过程 for 循环的迭代就是通过使用迭代器来完成的。它在背后所做的事情是：
+ 对一个容器调用 iter() 函数，获取到该容器的迭代器 每次循环时对迭代器调用 next() 函数，以获取一个值 若捕获到 StopIteration 异常则结束循环  可迭代（Iterable）对象 并不是所有的对象都可以被 iter() 函数使用。
+什么是可迭代(的)？
+1、从表面来看，所有可用于 for 循环的对象是可迭代的，如列表、元组、字符串、集合、字典等容器
+2、从深层来看，定义了 iter() 方法的类对象就是可迭代的。当这个类对象被 iter() 函数使用时，将返回一个迭代器对象。如果对象具有__iter__() 方法，则可以说它支持迭代协议。
+判断一个已有的对象是否是可迭代的 1、 &lsquo;iter&rsquo; in dir(list)
+2、 isinstance(对象, Iterable)
+自定义迭代器 class MyIterator: def __next__(self): 代码块 def __iter__(self): return self 生成器 刚才我们自定义了迭代器，其实创建迭代器还有另一种方式，就是使用生成器。
+生成器是一个函数，这个函数的特殊之处在于它的 return 语句被 yield 语句替代。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/" />
+
+<title>迭代器和生成器 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.0fc622d6882e794c1d217a8516e0ebf483a7933b9fe7926a85b33088cc9e3b96.js" integrity="sha256-D8Yi1ogueUwdIXqFFuDr9IOnkzuf55JqhbMwiMyeO5Y="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docs/example/" class="">Example Site</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/collapsed/" class="collapsed ">Collapsed</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">GoLang</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/" class="collapsed ">进阶语言特性</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="">字符串</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%88%97%E8%A1%A8vs%E5%85%83%E7%BB%84/" class="">列表vs元组</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E5%85%B8vs%E9%9B%86%E5%90%88/" class="">字典vs集合</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/" class="active">迭代器和生成器</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86/" class="collapsed ">必备知识</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E5%BA%93/" class="collapsed ">库</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Shortcodes</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>迭代器和生成器</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#迭代器">迭代器</a>
+      <ul>
+        <li><a href="#for-循环的迭代过程">for 循环的迭代过程</a></li>
+        <li><a href="#可迭代iterable对象">可迭代（Iterable）对象</a></li>
+        <li><a href="#判断一个已有的对象是否是可迭代的">判断一个已有的对象是否是可迭代的</a></li>
+        <li><a href="#自定义迭代器">自定义迭代器</a></li>
+      </ul>
+    </li>
+    <li><a href="#生成器">生成器</a>
+      <ul>
+        <li><a href="#生成器表达式generator-expression">生成器表达式（Generator Expression）</a></li>
+        <li><a href="#列表生成式">列表生成式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="迭代器和生成器">迭代器和生成器</h1>
+<h2 id="迭代器">迭代器</h2>
+<p>什么是迭代呢？在编程中，迭代指的是通过重复执行某个操作，不断获取被迭代对象中的数据。这样的每一次操作就是就是一次迭代。</p>
+<p>迭代器是具有迭代功能的对象。我们使用迭代器来进行迭代操作。</p>
+<p>迭代器 = iter(容器)</p>
+<pre><code class="language-$xslt" data-lang="$xslt">&gt;&gt;&gt; numbers=[1,2,3,4,5]
+&gt;&gt;&gt; it = iter(numbers)
+&gt;&gt;&gt; it
+&lt;listiterator object at 0x1007e6950&gt;
+&gt;&gt;&gt;
+</code></pre><h3 id="for-循环的迭代过程">for 循环的迭代过程</h3>
+<p>for 循环的迭代就是通过使用迭代器来完成的。它在背后所做的事情是：</p>
+<ol>
+<li>对一个容器调用 iter() 函数，获取到该容器的迭代器</li>
+<li>每次循环时对迭代器调用 next() 函数，以获取一个值</li>
+<li>若捕获到 StopIteration 异常则结束循环</li>
+</ol>
+<h3 id="可迭代iterable对象">可迭代（Iterable）对象</h3>
+<p>并不是所有的对象都可以被 iter() 函数使用。</p>
+<p>什么是可迭代(的)？<br>
+1、从表面来看，所有可用于 for 循环的对象是可迭代的，如列表、元组、字符串、集合、字典等容器<br>
+2、从深层来看，定义了 <strong>iter</strong>() 方法的类对象就是可迭代的。当这个类对象被 iter() 函数使用时，将返回一个迭代器对象。如果对象具有__iter__() 方法，则可以说它支持迭代协议。</p>
+<h3 id="判断一个已有的对象是否是可迭代的">判断一个已有的对象是否是可迭代的</h3>
+<p>1、 &lsquo;<strong>iter</strong>&rsquo; in dir(list)<br>
+2、 isinstance(对象, Iterable)</p>
+<h3 id="自定义迭代器">自定义迭代器</h3>
+<pre><code class="language-$xslt" data-lang="$xslt">class MyIterator:
+    def __next__(self):
+        代码块
+    def __iter__(self):
+        return self
+</code></pre><h2 id="生成器">生成器</h2>
+<p>刚才我们自定义了迭代器，其实创建迭代器还有另一种方式，就是使用生成器。</p>
+<p>生成器是一个函数，这个函数的特殊之处在于它的 return 语句被 yield 语句替代。</p>
+<pre><code class="language-$xslt" data-lang="$xslt">def power_of_two():
+	for exponent in range(11):	# range(11) 表示左闭右开区间 [0, 11)，不包含 11
+		yield 2 ** exponent		# 以 2 为底数求指数幂
+
+生成器使用方法：
+p = power_of_two()				# 以函数调用的方式创建生成器对象
+next(p)							# 同样使用 next() 来取值
+</code></pre><p>生成器的关键在于 yield 语句。yield 语句的作用和 return 语句有几分相似，都可以将结果返回。不同在于，生成器函数执行至 yield 语句，返回结果的同时记录下函数内的状态，下次执行这个生成器函数，将从上次退出的位置（yield 的下一句代码）继续执行。当生成器函数中的所有代码被执行完毕时，自动抛出 StopIteration 异常。</p>
+<p>我们可以看到，生成器的用法和迭代器相似，都使用 next() 来进行迭代。这是因为生成器其实就是创建迭代器的便捷方法，生产器会在背后自动定义 <strong>iter</strong>() 和 <strong>next</strong>() 方法。</p>
+<h3 id="生成器表达式generator-expression">生成器表达式（Generator Expression）</h3>
+<p>可以用一种非常简便的方式来创建生成器，就是通过生成器表达式。生成器的写法非常简单，但是灵活性也有限，所能表达的内容相对简单。</p>
+<p>生成器表达式的写法如下：<br>
+生成器 = (针对项的操作 for 项 in 可迭代对象)</p>
+<pre><code class="language-$xslt" data-lang="$xslt">&gt;&gt;&gt; letters = (item for item in 'abc')
+&gt;&gt;&gt; letters
+&lt;generator object &lt;genexpr&gt; at 0x1007d4960&gt;
+&gt;&gt;&gt; next(letters)
+'a'
+&gt;&gt;&gt; next(letters)
+'b'
+&gt;&gt;&gt;
+</code></pre><h3 id="列表生成式">列表生成式</h3>
+<p>[对项的操作 for 项 in 可迭代对象]</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#迭代器">迭代器</a>
+      <ul>
+        <li><a href="#for-循环的迭代过程">for 循环的迭代过程</a></li>
+        <li><a href="#可迭代iterable对象">可迭代（Iterable）对象</a></li>
+        <li><a href="#判断一个已有的对象是否是可迭代的">判断一个已有的对象是否是可迭代的</a></li>
+        <li><a href="#自定义迭代器">自定义迭代器</a></li>
+      </ul>
+    </li>
+    <li><a href="#生成器">生成器</a>
+      <ul>
+        <li><a href="#生成器表达式generator-expression">生成器表达式（Generator Expression）</a></li>
+        <li><a href="#列表生成式">列表生成式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
