@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="如何把修改后的代码提交到远程仓库 同步远程代码 git pull
+检查改动文件 git status
+ Untracked: 未跟踪,一般为新增文件，此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged. Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. deleted: 文件已删除，本地删除，服务器上还没有删除. renamed: 文件名称被改变  如果发现无意中编辑了某一个文件，但实际上并不想改变它，这里可以使用git checkout 文件名来撤销更改
+git checkout README.md 添加文件到缓存 git add index.php #添加所有使用 git add .
+提交代码 git commit . -m “这是备注信息”
+推送代码 git push
+开发中的提交 git add test1.php test2.log
+git commit #此刻会打开一个文件, 删除非提交的之后保存 git push origin branch/feature/1 #推送到指定分支
+notice  git add -A更好。因为git add .不会提交删除操作 git add abc.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="如何把修改后的代码提交到远程仓库" />
+<meta property="og:description" content="如何把修改后的代码提交到远程仓库 同步远程代码 git pull
+检查改动文件 git status
+ Untracked: 未跟踪,一般为新增文件，此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged. Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. deleted: 文件已删除，本地删除，服务器上还没有删除. renamed: 文件名称被改变  如果发现无意中编辑了某一个文件，但实际上并不想改变它，这里可以使用git checkout 文件名来撤销更改
+git checkout README.md 添加文件到缓存 git add index.php #添加所有使用 git add .
+提交代码 git commit . -m “这是备注信息”
+推送代码 git push
+开发中的提交 git add test1.php test2.log
+git commit #此刻会打开一个文件, 删除非提交的之后保存 git push origin branch/feature/1 #推送到指定分支
+notice  git add -A更好。因为git add .不会提交删除操作 git add abc." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/2.%E5%A6%82%E4%BD%95%E6%8A%8A%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/" />
+
+<title>如何把修改后的代码提交到远程仓库 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.a907eec150d9948971b226a0dcfed08169989895c7577d3fafdac36db4d910c4.js" integrity="sha256-qQfuwVDZlIlxsiag3P7QgWmYmJXHV30/r9rDbbTZEMQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docs/example/" class="">Example Site</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/collapsed/" class="collapsed ">Collapsed</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">GoLang</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" class="collapsed ">0.入门基础</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/0.%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAgit%E4%BB%93%E5%BA%93/" class="">初识Git:本地创建一个Git仓库</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.%E4%BD%BF%E7%94%A8git%E5%91%BD%E4%BB%A4%E4%B8%8B%E8%BD%BD%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0/" class="">使用Git命令下载远程仓库到本地</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/2.%E5%A6%82%E4%BD%95%E6%8A%8A%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/" class="active">如何把修改后的代码提交到远程仓库</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/3.%E4%BD%BF%E7%94%A8diff%E6%9F%A5%E7%9C%8B%E4%BF%AE%E6%94%B9%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BB%A3%E7%A0%81/" class="">使用diff查看修改了哪些代码</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/4.%E8%A7%A3%E5%86%B3%E6%8F%90%E7%A4%BA%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%A2%AB%E4%BF%AE%E6%94%B9%E9%97%AE%E9%A2%98/" class="">解决提示文件权限被修改问题</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/5.%E5%BF%BD%E7%95%A5%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/" class="">忽略指定文件或目录</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/1.%E8%BF%9B%E9%98%B6/" class="collapsed ">1.进阶</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/2.%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C/" class="collapsed ">2.团队协作</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Shortcodes</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>如何把修改后的代码提交到远程仓库</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#同步远程代码">同步远程代码</a></li>
+    <li><a href="#检查改动文件">检查改动文件</a></li>
+    <li><a href="#添加文件到缓存">添加文件到缓存</a></li>
+    <li><a href="#提交代码">提交代码</a></li>
+    <li><a href="#推送代码">推送代码</a></li>
+    <li><a href="#开发中的提交">开发中的提交</a></li>
+    <li><a href="#notice">notice</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="如何把修改后的代码提交到远程仓库">如何把修改后的代码提交到远程仓库</h1>
+<h2 id="同步远程代码">同步远程代码</h2>
+<p>git pull</p>
+<h2 id="检查改动文件">检查改动文件</h2>
+<p>git status</p>
+<ul>
+<li>Untracked: 未跟踪,一般为新增文件，此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged.</li>
+<li>Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作.</li>
+<li>deleted: 文件已删除，本地删除，服务器上还没有删除.</li>
+<li>renamed: 文件名称被改变</li>
+</ul>
+<p>如果发现无意中编辑了某一个文件，但实际上并不想改变它，这里可以使用git checkout 文件名来撤销更改</p>
+<pre><code class="language-$xslt" data-lang="$xslt">git checkout README.md
+</code></pre><h2 id="添加文件到缓存">添加文件到缓存</h2>
+<p>git add index.php  #添加所有使用 git add .</p>
+<h2 id="提交代码">提交代码</h2>
+<p>git commit . -m “这是备注信息”</p>
+<h2 id="推送代码">推送代码</h2>
+<p>git push</p>
+<h2 id="开发中的提交">开发中的提交</h2>
+<p>git add test1.php test2.log<br>
+git commit  #此刻会打开一个文件, 删除非提交的之后保存
+git push origin branch/feature/1  #推送到指定分支</p>
+<h2 id="notice">notice</h2>
+<ul>
+<li>git add -A更好。因为git add .不会提交删除操作</li>
+<li>git add abc.py报错‘fatal: pathspec &lsquo;phase1.py&rsquo; did not match any files’， 应该是这个文件，在于.gitignore文件的忽略规则里，所以Git不让你动，你可以首先把这个文件从.gitignore文件里移除，然后将.gitigore文件提交(或者将文件提交)，再次去处理abc.py文件就正常了~</li>
+<li>建议在修改代码前先执行 git pull命令，避免在commit并且push时候提示远程的版本比本地新 如果出现远程比本地版本更新的情况下，直接执行git pull命令有可能会自动进行合并，也有可能出现代码冲突的问题； 同理如果出现远程比本地版本更新的情况下，执行 git rebase 命令在不出现代码冲突的情况下会拉去远程的版本到本地，并且把本地的修改放在拉去下来版本的后方，但如果有冲突同样需要解决冲突问题</li>
+<li>在GitHub上新建版本库后，你可以得到一个仓库地址，这个时候回到本地Git仓库，然后将本地仓库和远程仓库进行关联，再执行推送即可：参考命令如下~ git remote add origin <a href="https://github.com/xxxxx/project_name.git">https://github.com/xxxxx/project_name.git</a> git push -u origin master</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#同步远程代码">同步远程代码</a></li>
+    <li><a href="#检查改动文件">检查改动文件</a></li>
+    <li><a href="#添加文件到缓存">添加文件到缓存</a></li>
+    <li><a href="#提交代码">提交代码</a></li>
+    <li><a href="#推送代码">推送代码</a></li>
+    <li><a href="#开发中的提交">开发中的提交</a></li>
+    <li><a href="#notice">notice</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

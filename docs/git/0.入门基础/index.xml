@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>初识Git:本地创建一个Git仓库</title>
+      <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/0.%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAgit%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/0.%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAgit%E4%BB%93%E5%BA%93/</guid>
+      <description>初识Git:本地创建一个Git仓库 ~ mkdir test ~ cd test ~/test git init 已初始化空的 Git 仓库于 /Users/ruichengm/test/.git/ ~/test(master) ls -al total 0 drwxr-xr-x 3 ruichengm staff 96 7 18 08:46 . drwxr-xr-x+ 107 ruichengm staff 3424 7 18 08:47 .. drwxr-xr-x 9 ruichengm staff 288 7 18 08:46 .git 认识.git ➜ .git git:(master) ls -al total 24 drwxr-xr-x 10 song staff 320 6 25 22:11 . drwxr-xr-x 3 song staff 96 6 25 22:11 .</description>
+    </item>
+    
+    <item>
+      <title>使用Git命令下载远程仓库到本地</title>
+      <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.%E4%BD%BF%E7%94%A8git%E5%91%BD%E4%BB%A4%E4%B8%8B%E8%BD%BD%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.%E4%BD%BF%E7%94%A8git%E5%91%BD%E4%BB%A4%E4%B8%8B%E8%BD%BD%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0/</guid>
+      <description>使用Git命令下载远程仓库到本地 HTTP(S)获取远程仓库 首次拉取 git clone 版本库地址	[本地文件夹名称]
+更新代码 git pull
+临时记住密码  git config –-global credential.helper cache #默认缓存15分钟 git config credential.helper &amp;lsquo;cache –timeout=3600&amp;rsquo; #自定义配置记住 1 小时的命令  永久记住密码 git config &amp;ndash;global credential.helper store
+修改配置文件.gitconfig
+[credential] helper = store 在上面的命令中，如果没有&amp;ndash;global，则会在当前项目下的.git/config文件增加配置
+SSH拉取 git clone git@gitee.com:xxx/xxxx.git xxxx
+创建一个ssh key 执行命令: ssh-keygen 之后一直回车
+查看公钥 cat ~/.ssh/id_rsa.pub
+添加公钥到服务器 把公钥粘贴上去</description>
+    </item>
+    
+    <item>
+      <title>如何把修改后的代码提交到远程仓库</title>
+      <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/2.%E5%A6%82%E4%BD%95%E6%8A%8A%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/2.%E5%A6%82%E4%BD%95%E6%8A%8A%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</guid>
+      <description>如何把修改后的代码提交到远程仓库 同步远程代码 git pull
+检查改动文件 git status
+ Untracked: 未跟踪,一般为新增文件，此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged. Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. deleted: 文件已删除，本地删除，服务器上还没有删除. renamed: 文件名称被改变  如果发现无意中编辑了某一个文件，但实际上并不想改变它，这里可以使用git checkout 文件名来撤销更改
+git checkout README.md 添加文件到缓存 git add index.php #添加所有使用 git add .
+提交代码 git commit . -m “这是备注信息”
+推送代码 git push
+开发中的提交 git add test1.php test2.log
+git commit #此刻会打开一个文件, 删除非提交的之后保存 git push origin branch/feature/1 #推送到指定分支
+notice  git add -A更好。因为git add .不会提交删除操作 git add abc.</description>
+    </item>
+    
+    <item>
+      <title>使用diff查看修改了哪些代码</title>
+      <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/3.%E4%BD%BF%E7%94%A8diff%E6%9F%A5%E7%9C%8B%E4%BF%AE%E6%94%B9%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/3.%E4%BD%BF%E7%94%A8diff%E6%9F%A5%E7%9C%8B%E4%BF%AE%E6%94%B9%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BB%A3%E7%A0%81/</guid>
+      <description>使用diff查看修改了哪些代码 名词定义 工作区 工作区，指的是当前正在编辑的文件，将还没有修改的内容通过git add命令暂存起来
+暂存区 暂存区，指的是文件修改之后并且通过git add命令临时存储到版本记录里了，但还没有正式通过git commit提交的阶段
+比较改动 git diff [文件]
+与指定记录比较 你可以先通过git log命令，找到历史提交记录的一个 hash 值。 将要比较的 hash 值复制下来，然后执行如下所示命令：git diff hash值
+与最新版本比较 git diff HEAD
+比较两个历史记录 git diff hash值1 hash值2
+查看暂存区的额外参数 &amp;ndash;cached </description>
+    </item>
+    
+    <item>
+      <title>解决提示文件权限被修改问题</title>
+      <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/4.%E8%A7%A3%E5%86%B3%E6%8F%90%E7%A4%BA%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%A2%AB%E4%BF%AE%E6%94%B9%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/4.%E8%A7%A3%E5%86%B3%E6%8F%90%E7%A4%BA%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%A2%AB%E4%BF%AE%E6%94%B9%E9%97%AE%E9%A2%98/</guid>
+      <description>解决提示文件权限被修改问题 当执行git diff 命令时出现:
+diff --git a/index.php b/index.php old mode 100644 new mode 100755 表示文件权限被修改了， 这时候我们git pull拉取下代码,会提示文件冲突: 例如:
+git pull eror: Your local changes to the following files would be overwritten by merge: index.php Please commit your changes or stash them before you merge. Aborting 解决方法 在Git进行代码管理时,如果不想让 Git 记录文件权限，可以通过 Git 配置让其忽略文件权限的信息，参考命令如下：
+#当前版本库 git config core.filemode false #所有版本库 git config --global core.fileMode false 当上面的命令被执行之后，就设置了忽略文件权限，此时通过cat查看配置文件.git/config，参考命令如下：
+cat .git/config 在配置文件中，如果看到fileMode false则代表配置成功.
+这时候再次使用git pull命令更新代码就不会再提示有冲突.</description>
+    </item>
+    
+    <item>
+      <title>忽略指定文件或目录</title>
+      <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/5.%E5%BF%BD%E7%95%A5%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/5.%E5%BF%BD%E7%95%A5%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/</guid>
+      <description>忽略指定文件或目录 我们可以在在Git工作区的根目录下创建一个.gitignore文件，把想忽略的文件名或者目录填进去，Git 就会自动忽略这些文件。
+vi .gitignore .DS_Store .idea 常见问题   无法添加.gitignore windows系统会出现
+  添加忽略文件 .gitignore 文件支持通配符，当你在文件中添加一些忽略规则之后，可能匹配过于宽松，导致某一个文件无法提交到 git ;这个时候你有两种方式来处理，
+  或者你发现，可能是 .gitignore 写得有问题，需要找出来到底哪个规则写错了，可以用git check-ignore命令检查：
+$ git check-ignore -v 文件名 .gitignore:1:.DS_Store .DS_Store Git 会告诉我们，.gitignore 的第 1 行规则忽略了该文件，于是我们就可以知道应该修订哪个规则。
+除了修改 .gitignore 文件的规则之外还可以使用强制添加的方式:
+git add -f .DS_Store </description>
+    </item>
+    
+  </channel>
+</rss>
