@@ -11,6 +11,17 @@
     
     
     <item>
+      <title>reset命令:将仓库记录和恢复指定历史位置</title>
+      <link>https://ruichengm1987.github.io/docs/git/1.%E8%BF%9B%E9%98%B6/0.reset%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BB%93%E5%BA%93%E8%AE%B0%E5%BD%95%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AE%9A%E5%8E%86%E5%8F%B2%E4%BD%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/1.%E8%BF%9B%E9%98%B6/0.reset%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BB%93%E5%BA%93%E8%AE%B0%E5%BD%95%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AE%9A%E5%8E%86%E5%8F%B2%E4%BD%8D%E7%BD%AE/</guid>
+      <description>0.reset命令:将仓库记录和恢复指定历史位置 有时候我们用 git commit 提交代码后发现这一次提交的内容是错误的，需要将代码复原，这个时候常见有两种做法。
+第一种是把代码错误内容修改正确，然后重新使用 commit 提交一次； 这种情况会多2条log记录
+第二种方法是使用 git reset 命令撤销上一次错误的 commit 记录。 git reset HEAD^ # 撤销我们最近一次提交 git reset 815ac616803fa89c75467618b2be44f85696543d # 指定回滚位置, commitid git reset 815ac616803fa89c75467618b2be44f85696543d filename # 回滚某个文件到某次提交 </description>
+    </item>
+    
+    <item>
       <title>shell基础</title>
       <link>https://ruichengm1987.github.io/docs/shell/shell%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -101,6 +112,15 @@
       
       <guid>https://ruichengm1987.github.io/docs/go/%E5%AE%89%E8%A3%85%E7%AF%87/%E5%AE%89%E8%A3%85/</guid>
       <description>安装 linux 下安装  wget https://dl.google.com/go/go1.x.x.linux-amd64.tar.gz 下载安装包 tar -C /usr/local -zxvf go1.x.x.linux-amd64.tar.gz 添加/usr/loacl/go/bin目录到PATH变量中。添加到/etc/profile 或$HOME/.profile都可以  vim /etc/profile export GOROOT=/usr/local/go #设置为go安装的路径,有些安装包会自动设置默认的goroot export GOPATH=/usr/local/goprojects/ #GO项目路径多个用&amp;rsquo;,&amp;lsquo;分开 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin #加载 source /etc/profile   执行go version，如果现实版本号，则Go环境安装成功.  </description>
+    </item>
+    
+    <item>
+      <title>环境搭建</title>
+      <link>https://ruichengm1987.github.io/docs/rust/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/0.%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/rust/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/0.%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+      <description>环境搭建 安装 1、 安装rustup $ curl https://sh.rustup.rs -sSf | sh 2、执行 $ source $HOME/.cargo/env 更新 $ rustup update 卸载Rust和rustup $ rustup self uninstall 故障排除 $ rustc --version # 看到rustc x.y.z (abcabcabc yyyy-mm-dd)表示安装成功 恭喜入坑！ </description>
     </item>
     
     <item>
@@ -557,6 +577,15 @@ Venasque repulsa Samos qui, exspectatum eram animosque hinc, aut manes, Assyrii.
       <guid>https://ruichengm1987.github.io/docs/example/hidden/</guid>
       <description>This page is hidden in menu Quondam non pater est dignior ille Eurotas Latent te facies Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus, frementes, qui in vel. Hippotades Peleus pennas conscia cuiquam Caeneus quas.
  Pater demittere evincitque reddunt Maxime adhuc pressit huc Danaas quid freta Soror ego Luctus linguam saxa ultroque prior Tatiumque inquit Saepe liquitur subita superata dederat Anius sudor  Cum honorum Latona O fallor in sustinui iussorum equidem.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/rust/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/1.helloworld/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/rust/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/1.helloworld/</guid>
+      <description></description>
     </item>
     
     <item>
