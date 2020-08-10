@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="字典vs集合 字典 字典是一种用来存放若干键值对的数据类型。
-一、创建字典 1.创建空的字典 字典 = {} 2.创建包含键值对的字典 字典 = {键1:值1, 键2:值2, ..., 键N:值N} 二、字典键值对的添加 1.向字典中增加键值对 字典[键] = 值 2.键值对的获取 1.通过键获取值 值 = 字典[键] 2.通过键获取值(get方法) 值 = 字典.get(键) 3.判断字典中是否包含某个键 布尔值 = 键 in 字典 4.获取所有键 键的列表 = 字典.keys() 5.获取所有值 值的列表 = 字典.values() 6.获取所有键值对的列表 值的列表 = 字典.items() 三、字典键值对的删除 1.通过键删除键值对 值 = 字典.pop(键) 2.通过键删除键值对（del 方法） del 字典[键] 3.随机删除一个键值对 键值二元组 = 字典.popitem() 4.清空所有键值对 键值二元组 = 字典.clear() 四、字典中键值对修改 1.修改键对应的值 字典[键] = 值 2.用字典批量更新键值对 字典.">
+一、创建字典 1.创建空的字典 字典 = {} 2.创建包含键值对的字典 字典 = {键1:值1, 键2:值2, ..., 键N:值N} 二、字典键值对的添加 1.向字典中增加键值对 字典[键] = 值 三、键值对的获取 1.通过键获取值 值 = 字典[键] 2.通过键获取值(get方法) 值 = 字典.get(键) 3.判断字典中是否包含某个键 布尔值 = 键 in 字典 4.获取所有键 键的列表 = 字典.keys() 5.获取所有值 值的列表 = 字典.values() 6.获取所有键值对的列表 值的列表 = 字典.items() 四、字典键值对的删除 1.通过键删除键值对 值 = 字典.pop(键) 2.通过键删除键值对（del 方法） del 字典[键] 3.随机删除一个键值对 键值二元组 = 字典.popitem() 4.清空所有键值对 键值二元组 = 字典.clear() 五、字典中键值对修改 1.修改键对应的值 字典[键] = 值 2.用字典批量更新键值对 字典.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="字典vs集合" />
 <meta property="og:description" content="字典vs集合 字典 字典是一种用来存放若干键值对的数据类型。
-一、创建字典 1.创建空的字典 字典 = {} 2.创建包含键值对的字典 字典 = {键1:值1, 键2:值2, ..., 键N:值N} 二、字典键值对的添加 1.向字典中增加键值对 字典[键] = 值 2.键值对的获取 1.通过键获取值 值 = 字典[键] 2.通过键获取值(get方法) 值 = 字典.get(键) 3.判断字典中是否包含某个键 布尔值 = 键 in 字典 4.获取所有键 键的列表 = 字典.keys() 5.获取所有值 值的列表 = 字典.values() 6.获取所有键值对的列表 值的列表 = 字典.items() 三、字典键值对的删除 1.通过键删除键值对 值 = 字典.pop(键) 2.通过键删除键值对（del 方法） del 字典[键] 3.随机删除一个键值对 键值二元组 = 字典.popitem() 4.清空所有键值对 键值二元组 = 字典.clear() 四、字典中键值对修改 1.修改键对应的值 字典[键] = 值 2.用字典批量更新键值对 字典." />
+一、创建字典 1.创建空的字典 字典 = {} 2.创建包含键值对的字典 字典 = {键1:值1, 键2:值2, ..., 键N:值N} 二、字典键值对的添加 1.向字典中增加键值对 字典[键] = 值 三、键值对的获取 1.通过键获取值 值 = 字典[键] 2.通过键获取值(get方法) 值 = 字典.get(键) 3.判断字典中是否包含某个键 布尔值 = 键 in 字典 4.获取所有键 键的列表 = 字典.keys() 5.获取所有值 值的列表 = 字典.values() 6.获取所有键值对的列表 值的列表 = 字典.items() 四、字典键值对的删除 1.通过键删除键值对 值 = 字典.pop(键) 2.通过键删除键值对（del 方法） del 字典[键] 3.随机删除一个键值对 键值二元组 = 字典.popitem() 4.清空所有键值对 键值二元组 = 字典.clear() 五、字典中键值对修改 1.修改键对应的值 字典[键] = 值 2.用字典批量更新键值对 字典." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E5%85%B8vs%E9%9B%86%E5%90%88/" />
 
@@ -16,7 +16,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
-<script defer src="/en.search.min.df4e52fa8b8b33aa907c21f43dde79cc23c605bcb6f9ef2df120b1e782a7799f.js" integrity="sha256-305S&#43;ouLM6qQfCH0Pd55zCPGBby2&#43;e8t8SCx54KneZ8="></script>
+<script defer src="/en.search.min.a3aeff7f12321f543a8586424f61512ef9281c43ae4ec65d95d47deea34f04d4.js" integrity="sha256-o67/fxIyH1Q6hYZCT2FRLvkoHEOuTsZdldR97qNPBNQ="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -299,6 +299,26 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E5%88%97%E8%A1%A8%E7%94%9F%E6%88%90%E5%BC%8F/" class="">生成器表达式和列表生成式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" class="">函数进阶</a>
+  
+
+        </li>
+      
+    
   </ul>
   
 
@@ -350,6 +370,23 @@ https://github.com/alex-shpak/hugo-book
           
   
     <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
   
 
           
@@ -585,10 +622,10 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#一创建字典">一、创建字典</a></li>
         <li><a href="#二字典键值对的添加">二、字典键值对的添加</a></li>
-        <li><a href="#2键值对的获取">2.键值对的获取</a></li>
-        <li><a href="#三字典键值对的删除">三、字典键值对的删除</a></li>
-        <li><a href="#四字典中键值对修改">四、字典中键值对修改</a></li>
-        <li><a href="#五什么时候用字典">五、什么时候用字典</a></li>
+        <li><a href="#三键值对的获取">三、键值对的获取</a></li>
+        <li><a href="#四字典键值对的删除">四、字典键值对的删除</a></li>
+        <li><a href="#五字典中键值对修改">五、字典中键值对修改</a></li>
+        <li><a href="#六什么时候用字典">六、什么时候用字典</a></li>
       </ul>
     </li>
     <li><a href="#集合">集合</a>
@@ -624,7 +661,7 @@ https://github.com/alex-shpak/hugo-book
 </code></pre><h3 id="二字典键值对的添加">二、字典键值对的添加</h3>
 <h4 id="1向字典中增加键值对">1.向字典中增加键值对</h4>
 <pre><code class="language-$xslt" data-lang="$xslt">字典[键] = 值
-</code></pre><h3 id="2键值对的获取">2.键值对的获取</h3>
+</code></pre><h3 id="三键值对的获取">三、键值对的获取</h3>
 <h4 id="1通过键获取值">1.通过键获取值</h4>
 <pre><code class="language-$xslt" data-lang="$xslt">值 = 字典[键]
 </code></pre><h4 id="2通过键获取值get方法">2.通过键获取值(get方法)</h4>
@@ -637,7 +674,7 @@ https://github.com/alex-shpak/hugo-book
 <pre><code class="language-$xslt" data-lang="$xslt">值的列表 = 字典.values()
 </code></pre><h4 id="6获取所有键值对的列表">6.获取所有键值对的列表</h4>
 <pre><code class="language-$xslt" data-lang="$xslt">值的列表 = 字典.items()
-</code></pre><h3 id="三字典键值对的删除">三、字典键值对的删除</h3>
+</code></pre><h3 id="四字典键值对的删除">四、字典键值对的删除</h3>
 <h4 id="1通过键删除键值对">1.通过键删除键值对</h4>
 <pre><code class="language-$xslt" data-lang="$xslt">值 = 字典.pop(键)
 </code></pre><h4 id="2通过键删除键值对del-方法">2.通过键删除键值对（del 方法）</h4>
@@ -646,12 +683,12 @@ https://github.com/alex-shpak/hugo-book
 <pre><code class="language-$xslt" data-lang="$xslt">键值二元组 = 字典.popitem()
 </code></pre><h4 id="4清空所有键值对">4.清空所有键值对</h4>
 <pre><code class="language-$xslt" data-lang="$xslt">键值二元组 = 字典.clear()
-</code></pre><h3 id="四字典中键值对修改">四、字典中键值对修改</h3>
+</code></pre><h3 id="五字典中键值对修改">五、字典中键值对修改</h3>
 <h4 id="1修改键对应的值">1.修改键对应的值</h4>
 <pre><code class="language-$xslt" data-lang="$xslt">字典[键] = 值
 </code></pre><h4 id="2用字典批量更新键值对">2.用字典批量更新键值对</h4>
 <pre><code class="language-$xslt" data-lang="$xslt">字典.update(另一字典)
-</code></pre><h3 id="五什么时候用字典">五、什么时候用字典</h3>
+</code></pre><h3 id="六什么时候用字典">六、什么时候用字典</h3>
 <p>字典的显著优势是可以通过键快速地查询数据。字典中的元素以键值对的形式存在，使用时通过键来获取和修改值，由于字典内部的特殊实现，字典通过键获取值的效率非常高。</p>
 <h2 id="集合">集合</h2>
 <p>集合是一个用于存放批量元素的数据类型，它不是有序的，其中的元素没有顺序关系。集合中的元素没有重复，重复的元素将被自动剔除最终只留下一个。</p>
@@ -732,10 +769,10 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#一创建字典">一、创建字典</a></li>
         <li><a href="#二字典键值对的添加">二、字典键值对的添加</a></li>
-        <li><a href="#2键值对的获取">2.键值对的获取</a></li>
-        <li><a href="#三字典键值对的删除">三、字典键值对的删除</a></li>
-        <li><a href="#四字典中键值对修改">四、字典中键值对修改</a></li>
-        <li><a href="#五什么时候用字典">五、什么时候用字典</a></li>
+        <li><a href="#三键值对的获取">三、键值对的获取</a></li>
+        <li><a href="#四字典键值对的删除">四、字典键值对的删除</a></li>
+        <li><a href="#五字典中键值对修改">五、字典中键值对修改</a></li>
+        <li><a href="#六什么时候用字典">六、什么时候用字典</a></li>
       </ul>
     </li>
     <li><a href="#集合">集合</a>

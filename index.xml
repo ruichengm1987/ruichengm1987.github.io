@@ -115,6 +115,15 @@
     </item>
     
     <item>
+      <title>清理无意义的分支数据</title>
+      <link>https://ruichengm1987.github.io/docs/git/1.%E8%BF%9B%E9%98%B6/1.%E6%B8%85%E7%90%86%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E5%88%86%E6%94%AF%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/1.%E8%BF%9B%E9%98%B6/1.%E6%B8%85%E7%90%86%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E5%88%86%E6%94%AF%E6%95%B0%E6%8D%AE/</guid>
+      <description>清理无意义的分支数据  本地不存在，远程存在该分支，但不需要了 远程不存在，本地存在该分支，也不需要了  清理远程分支 1. 查看分支, 远程分支显示红色 git branch -a remotes/origin/dev 2. 执行命令 git push origin --delete dev 清理本地分支 1. 模拟场景 git checkout -b test6 2. 查看当前版本库的分支 git branch -a 3. 将分支推送到远程服务器中 git push --set-upstream origin test6 4. 查看远程分支的信息 git remote show origin 5. 删除远程分支 git push origin --delete test1 </description>
+    </item>
+    
+    <item>
       <title>环境搭建</title>
       <link>https://ruichengm1987.github.io/docs/mysql/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/0.%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -326,7 +335,7 @@ notice  git add -A更好。因为git add .不会提交删除操作 git add abc.<
       
       <guid>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E5%85%B8vs%E9%9B%86%E5%90%88/</guid>
       <description>字典vs集合 字典 字典是一种用来存放若干键值对的数据类型。
-一、创建字典 1.创建空的字典 字典 = {} 2.创建包含键值对的字典 字典 = {键1:值1, 键2:值2, ..., 键N:值N} 二、字典键值对的添加 1.向字典中增加键值对 字典[键] = 值 2.键值对的获取 1.通过键获取值 值 = 字典[键] 2.通过键获取值(get方法) 值 = 字典.get(键) 3.判断字典中是否包含某个键 布尔值 = 键 in 字典 4.获取所有键 键的列表 = 字典.keys() 5.获取所有值 值的列表 = 字典.values() 6.获取所有键值对的列表 值的列表 = 字典.items() 三、字典键值对的删除 1.通过键删除键值对 值 = 字典.pop(键) 2.通过键删除键值对（del 方法） del 字典[键] 3.随机删除一个键值对 键值二元组 = 字典.popitem() 4.清空所有键值对 键值二元组 = 字典.clear() 四、字典中键值对修改 1.修改键对应的值 字典[键] = 值 2.用字典批量更新键值对 字典.</description>
+一、创建字典 1.创建空的字典 字典 = {} 2.创建包含键值对的字典 字典 = {键1:值1, 键2:值2, ..., 键N:值N} 二、字典键值对的添加 1.向字典中增加键值对 字典[键] = 值 三、键值对的获取 1.通过键获取值 值 = 字典[键] 2.通过键获取值(get方法) 值 = 字典.get(键) 3.判断字典中是否包含某个键 布尔值 = 键 in 字典 4.获取所有键 键的列表 = 字典.keys() 5.获取所有值 值的列表 = 字典.values() 6.获取所有键值对的列表 值的列表 = 字典.items() 四、字典键值对的删除 1.通过键删除键值对 值 = 字典.pop(键) 2.通过键删除键值对（del 方法） del 字典[键] 3.随机删除一个键值对 键值二元组 = 字典.popitem() 4.清空所有键值对 键值二元组 = 字典.clear() 五、字典中键值对修改 1.修改键对应的值 字典[键] = 值 2.用字典批量更新键值对 字典.</description>
     </item>
     
     <item>
@@ -484,6 +493,22 @@ Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34
     </item>
     
     <item>
+      <title>生成器表达式和列表生成式</title>
+      <link>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E5%88%97%E8%A1%A8%E7%94%9F%E6%88%90%E5%BC%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E5%88%97%E8%A1%A8%E7%94%9F%E6%88%90%E5%BC%8F/</guid>
+      <description>生成器表达式和列表生成式 列表生成式 nums = [2 ** i for i in range(1, 11)] 这行代码就是我们这个章节要所讲的列表生成式。顾名思义，列表生成式最终生成的是一个列表，它是用已有的可迭代对象来构造新列表的便捷方法。
+列表生成式的写法 列表生成式的语法如下： [对项的操作 for 项 in 可迭代对象]
+列表生成式中使用 if 在列表生成式的中，每次迭代的 项 是可以被筛选过滤的，使用 if 关键字。如： [对项的操作 for 项 in 可迭代对象 if 对项的判断]
+列表生成式中嵌套 for 列表生成式中的 for 中还可以再嵌套 for。如：[对项1和(或)项2的操作 for 项1 in 可迭代对象1 for 项2 in 可迭代对象2]
+字典生成式 便捷地构造列表可以使用列表生成式，同样的，想要通过已有的可迭代对象来便捷地构造字典，可以使用字典生成式。
+字典生成式的写法是：{键: 值 for 项 in 可迭代对象}
+集合生成式 你可能已经猜到了，只需要将列表生成式的方括号（[]）替换为花括号（{}）即可：{对项的操作 for 项 in 可迭代对象}
+生成器表达式 Python 中并没有「元组生成式」！虽然 Python 中确实有类似的圆括号的写法：(对项的操作 for 项 in 可迭代对象)</description>
+    </item>
+    
+    <item>
       <title>解决提示文件权限被修改问题</title>
       <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/4.%E8%A7%A3%E5%86%B3%E6%8F%90%E7%A4%BA%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%A2%AB%E4%BF%AE%E6%94%B9%E9%97%AE%E9%A2%98/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -495,6 +520,18 @@ git pull eror: Your local changes to the following files would be overwritten by
 #当前版本库 git config core.filemode false #所有版本库 git config --global core.fileMode false 当上面的命令被执行之后，就设置了忽略文件权限，此时通过cat查看配置文件.git/config，参考命令如下：
 cat .git/config 在配置文件中，如果看到fileMode false则代表配置成功.
 这时候再次使用git pull命令更新代码就不会再提示有冲突.</description>
+    </item>
+    
+    <item>
+      <title>函数进阶</title>
+      <link>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/</guid>
+      <description>函数进阶 位置参数 位置参数这个东西我们并不陌生，之前所编写的函数使用的就是位置参数。位置参数，顾名思义，传入函数时每个参数都是通过位置来作区分的。函数调用时，传入的值需按照位置与参数一一对应。
+def overspeed_rate(current, max, min): if current &amp;gt; max: return (current - max) / max # 超过最大时速，结果为正 elif current &amp;lt; min: return (current - min) / min # 超过最小时速，结果为负 else: return 0 # 不超速，结果为 0 参数默认值 def 函数(参数1, 参数2=默认值): pass 关键字参数 我们还可以在函数调用时，以 参数名=值 的形式来向指定的参数传入值。
+overspeed_rate(100, min=80) 任意参数列表 定义函数时，在参数列表中使用 **参数名，可以接收一切关键字参数。类似的，参数列表中使用 *参数名，就可以接受任意数量的非关键字参数，也就是可变参数。 如，计算任意个数的乘积：
+def multiply(*nums): result = 1 for n in nums: result *= n return result &amp;gt;&amp;gt;&amp;gt; multiply(1,3,5,7) 105 这个函数能接收任意个参数，这正是 *nums 所发挥的作用。函数所有接收到的非关键字参数组装成一个元组，并绑定到 nums 上。来试验一下：</description>
     </item>
     
     <item>

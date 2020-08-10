@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="生成器表达式和列表生成式 列表生成式 nums = [2 ** i for i in range(1, 11)] 这行代码就是我们这个章节要所讲的列表生成式。顾名思义，列表生成式最终生成的是一个列表，它是用已有的可迭代对象来构造新列表的便捷方法。
+列表生成式的写法 列表生成式的语法如下： [对项的操作 for 项 in 可迭代对象]
+列表生成式中使用 if 在列表生成式的中，每次迭代的 项 是可以被筛选过滤的，使用 if 关键字。如： [对项的操作 for 项 in 可迭代对象 if 对项的判断]
+列表生成式中嵌套 for 列表生成式中的 for 中还可以再嵌套 for。如：[对项1和(或)项2的操作 for 项1 in 可迭代对象1 for 项2 in 可迭代对象2]
+字典生成式 便捷地构造列表可以使用列表生成式，同样的，想要通过已有的可迭代对象来便捷地构造字典，可以使用字典生成式。
+字典生成式的写法是：{键: 值 for 项 in 可迭代对象}
+集合生成式 你可能已经猜到了，只需要将列表生成式的方括号（[]）替换为花括号（{}）即可：{对项的操作 for 项 in 可迭代对象}
+生成器表达式 Python 中并没有「元组生成式」！虽然 Python 中确实有类似的圆括号的写法：(对项的操作 for 项 in 可迭代对象)">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="生成器表达式和列表生成式" />
+<meta property="og:description" content="生成器表达式和列表生成式 列表生成式 nums = [2 ** i for i in range(1, 11)] 这行代码就是我们这个章节要所讲的列表生成式。顾名思义，列表生成式最终生成的是一个列表，它是用已有的可迭代对象来构造新列表的便捷方法。
+列表生成式的写法 列表生成式的语法如下： [对项的操作 for 项 in 可迭代对象]
+列表生成式中使用 if 在列表生成式的中，每次迭代的 项 是可以被筛选过滤的，使用 if 关键字。如： [对项的操作 for 项 in 可迭代对象 if 对项的判断]
+列表生成式中嵌套 for 列表生成式中的 for 中还可以再嵌套 for。如：[对项1和(或)项2的操作 for 项1 in 可迭代对象1 for 项2 in 可迭代对象2]
+字典生成式 便捷地构造列表可以使用列表生成式，同样的，想要通过已有的可迭代对象来便捷地构造字典，可以使用字典生成式。
+字典生成式的写法是：{键: 值 for 项 in 可迭代对象}
+集合生成式 你可能已经猜到了，只需要将列表生成式的方括号（[]）替换为花括号（{}）即可：{对项的操作 for 项 in 可迭代对象}
+生成器表达式 Python 中并没有「元组生成式」！虽然 Python 中确实有类似的圆括号的写法：(对项的操作 for 项 in 可迭代对象)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E5%88%97%E8%A1%A8%E7%94%9F%E6%88%90%E5%BC%8F/" />
+
+<title>生成器表达式和列表生成式 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.a3aeff7f12321f543a8586424f61512ef9281c43ae4ec65d95d47deea34f04d4.js" integrity="sha256-o67/fxIyH1Q6hYZCT2FRLvkoHEOuTsZdldR97qNPBNQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docs/example/" class="">Example Site</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/collapsed/" class="collapsed ">Collapsed</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">GoLang</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/" class="collapsed ">进阶语言特性</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="">字符串</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%88%97%E8%A1%A8vs%E5%85%83%E7%BB%84/" class="">列表vs元组</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E5%85%B8vs%E9%9B%86%E5%90%88/" class="">字典vs集合</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/" class="">迭代器和生成器</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E5%88%97%E8%A1%A8%E7%94%9F%E6%88%90%E5%BC%8F/" class="active">生成器表达式和列表生成式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" class="">函数进阶</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86/" class="collapsed ">必备知识</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E5%BA%93/" class="collapsed ">库</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Shortcodes</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>生成器表达式和列表生成式</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#列表生成式">列表生成式</a>
+      <ul>
+        <li><a href="#列表生成式的写法">列表生成式的写法</a></li>
+      </ul>
+    </li>
+    <li><a href="#字典生成式">字典生成式</a></li>
+    <li><a href="#集合生成式">集合生成式</a></li>
+    <li><a href="#生成器表达式">生成器表达式</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="生成器表达式和列表生成式">生成器表达式和列表生成式</h1>
+<h2 id="列表生成式">列表生成式</h2>
+<pre><code class="language-aidl" data-lang="aidl">nums = [2 ** i for i in range(1, 11)]
+</code></pre><p>这行代码就是我们这个章节要所讲的列表生成式。顾名思义，列表生成式最终生成的是一个列表，它是用已有的可迭代对象来构造新列表的便捷方法。</p>
+<h3 id="列表生成式的写法">列表生成式的写法</h3>
+<p>列表生成式的语法如下：
+[对项的操作 for 项 in 可迭代对象]</p>
+<h4 id="列表生成式中使用-if">列表生成式中使用 if</h4>
+<p>在列表生成式的中，每次迭代的 项 是可以被筛选过滤的，使用 if 关键字。如：
+[对项的操作 for 项 in 可迭代对象 if 对项的判断]</p>
+<h4 id="列表生成式中嵌套-for">列表生成式中嵌套 for</h4>
+<p>列表生成式中的 for 中还可以再嵌套 for。如：[对项1和(或)项2的操作 for 项1 in 可迭代对象1 for 项2 in 可迭代对象2]</p>
+<h2 id="字典生成式">字典生成式</h2>
+<p>便捷地构造列表可以使用列表生成式，同样的，想要通过已有的可迭代对象来便捷地构造字典，可以使用字典生成式。<br>
+字典生成式的写法是：{键: 值 for 项 in 可迭代对象}</p>
+<h2 id="集合生成式">集合生成式</h2>
+<p>你可能已经猜到了，只需要将列表生成式的方括号（[]）替换为花括号（{}）即可：{对项的操作 for 项 in 可迭代对象}</p>
+<h2 id="生成器表达式">生成器表达式</h2>
+<p>Python 中并没有「元组生成式」！虽然 Python 中确实有类似的圆括号的写法：(对项的操作 for 项 in 可迭代对象)<br>
+但这可不是什么「元组生成式」，而是我们上一章节学习过的生成器表达式。</p>
+<p>生成器表达式是一种创建生成器的便捷方法。虽然写法上和列表生成式、字典生成式、集合生成式相似，却有着本质的不同，因为它创建出来的是生成器，而不是列表、字典、集合这类容器。
+(char.lower() for char in &lsquo;ABCDEF&rsquo;)</p>
+<pre><code class="language-aidl" data-lang="aidl">&gt;&gt;&gt; g = (char.lower() for char in ‘ABCDEF’)
+&gt;&gt;&gt; g
+&lt;generator object at 0x103da6c78&gt;
+&gt;&gt;&gt; next(g)
+‘a’
+&gt;&gt;&gt; next(g)
+‘b’
+</code></pre><p>生成器表达式中同样可以使用 if 和嵌套 for，使用方法和列表生成式相同。</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#列表生成式">列表生成式</a>
+      <ul>
+        <li><a href="#列表生成式的写法">列表生成式的写法</a></li>
+      </ul>
+    </li>
+    <li><a href="#字典生成式">字典生成式</a></li>
+    <li><a href="#集合生成式">集合生成式</a></li>
+    <li><a href="#生成器表达式">生成器表达式</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

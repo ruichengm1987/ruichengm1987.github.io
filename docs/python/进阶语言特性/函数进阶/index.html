@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="函数进阶 位置参数 位置参数这个东西我们并不陌生，之前所编写的函数使用的就是位置参数。位置参数，顾名思义，传入函数时每个参数都是通过位置来作区分的。函数调用时，传入的值需按照位置与参数一一对应。
+def overspeed_rate(current, max, min): if current &gt; max: return (current - max) / max # 超过最大时速，结果为正 elif current &lt; min: return (current - min) / min # 超过最小时速，结果为负 else: return 0 # 不超速，结果为 0 参数默认值 def 函数(参数1, 参数2=默认值): pass 关键字参数 我们还可以在函数调用时，以 参数名=值 的形式来向指定的参数传入值。
+overspeed_rate(100, min=80) 任意参数列表 定义函数时，在参数列表中使用 **参数名，可以接收一切关键字参数。类似的，参数列表中使用 *参数名，就可以接受任意数量的非关键字参数，也就是可变参数。 如，计算任意个数的乘积：
+def multiply(*nums): result = 1 for n in nums: result *= n return result &gt;&gt;&gt; multiply(1,3,5,7) 105 这个函数能接收任意个参数，这正是 *nums 所发挥的作用。函数所有接收到的非关键字参数组装成一个元组，并绑定到 nums 上。来试验一下：">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="函数进阶" />
+<meta property="og:description" content="函数进阶 位置参数 位置参数这个东西我们并不陌生，之前所编写的函数使用的就是位置参数。位置参数，顾名思义，传入函数时每个参数都是通过位置来作区分的。函数调用时，传入的值需按照位置与参数一一对应。
+def overspeed_rate(current, max, min): if current &gt; max: return (current - max) / max # 超过最大时速，结果为正 elif current &lt; min: return (current - min) / min # 超过最小时速，结果为负 else: return 0 # 不超速，结果为 0 参数默认值 def 函数(参数1, 参数2=默认值): pass 关键字参数 我们还可以在函数调用时，以 参数名=值 的形式来向指定的参数传入值。
+overspeed_rate(100, min=80) 任意参数列表 定义函数时，在参数列表中使用 **参数名，可以接收一切关键字参数。类似的，参数列表中使用 *参数名，就可以接受任意数量的非关键字参数，也就是可变参数。 如，计算任意个数的乘积：
+def multiply(*nums): result = 1 for n in nums: result *= n return result &gt;&gt;&gt; multiply(1,3,5,7) 105 这个函数能接收任意个参数，这正是 *nums 所发挥的作用。函数所有接收到的非关键字参数组装成一个元组，并绑定到 nums 上。来试验一下：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" />
+
+<title>函数进阶 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.a3aeff7f12321f543a8586424f61512ef9281c43ae4ec65d95d47deea34f04d4.js" integrity="sha256-o67/fxIyH1Q6hYZCT2FRLvkoHEOuTsZdldR97qNPBNQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docs/example/" class="">Example Site</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/collapsed/" class="collapsed ">Collapsed</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">GoLang</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/" class="collapsed ">进阶语言特性</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="">字符串</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%88%97%E8%A1%A8vs%E5%85%83%E7%BB%84/" class="">列表vs元组</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E5%85%B8vs%E9%9B%86%E5%90%88/" class="">字典vs集合</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/" class="">迭代器和生成器</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E5%88%97%E8%A1%A8%E7%94%9F%E6%88%90%E5%BC%8F/" class="">生成器表达式和列表生成式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" class="active">函数进阶</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86/" class="collapsed ">必备知识</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/%E5%BA%93/" class="collapsed ">库</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Shortcodes</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>函数进阶</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#位置参数">位置参数</a></li>
+    <li><a href="#参数默认值">参数默认值</a></li>
+    <li><a href="#关键字参数">关键字参数</a></li>
+    <li><a href="#任意参数列表">任意参数列表</a></li>
+    <li><a href="#多返回值">多返回值</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="函数进阶">函数进阶</h1>
+<h2 id="位置参数">位置参数</h2>
+<p>位置参数这个东西我们并不陌生，之前所编写的函数使用的就是位置参数。位置参数，顾名思义，传入函数时每个参数都是通过位置来作区分的。函数调用时，传入的值需按照位置与参数一一对应。</p>
+<pre><code class="language-aidl" data-lang="aidl">def overspeed_rate(current, max, min):
+    if current &gt; max:
+        return (current - max) / max    # 超过最大时速，结果为正
+    elif current &lt; min:
+        return (current - min) / min    # 超过最小时速，结果为负
+    else:
+        return 0                        # 不超速，结果为 0
+</code></pre><h2 id="参数默认值">参数默认值</h2>
+<pre><code class="language-aidl" data-lang="aidl">def 函数(参数1, 参数2=默认值):
+    pass
+</code></pre><h2 id="关键字参数">关键字参数</h2>
+<p>我们还可以在函数调用时，以 参数名=值 的形式来向指定的参数传入值。</p>
+<pre><code class="language-aidl" data-lang="aidl">overspeed_rate(100, min=80)
+</code></pre><h2 id="任意参数列表">任意参数列表</h2>
+<p>定义函数时，在参数列表中使用 **参数名，可以接收一切关键字参数。类似的，参数列表中使用 *参数名，就可以接受任意数量的非关键字参数，也就是可变参数。
+如，计算任意个数的乘积：</p>
+<pre><code class="language-aidl" data-lang="aidl">def multiply(*nums):
+    result = 1
+    for n in nums:
+        result *= n
+    return result
+
+&gt;&gt;&gt; multiply(1,3,5,7)
+105
+</code></pre><p>这个函数能接收任意个参数，这正是 *nums 所发挥的作用。函数所有接收到的非关键字参数组装成一个元组，并绑定到 nums 上。来试验一下：</p>
+<pre><code class="language-aidl" data-lang="aidl">&gt;&gt;&gt; def multiply(*nums):
+…     print(nums)
+…
+&gt;&gt;&gt; multiply(1, 2, 3, 4, 5)
+(1, 2, 3, 4, 5)
+</code></pre><h2 id="多返回值">多返回值</h2>
+<p>典型情况下，函数只有一个返回值，但是 Python 也支持函数返回多个返回值。</p>
+<p>要返回多个返回值，只需在 return 关键字后跟多个值（依次用逗号分隔）。</p>
+<pre><code class="language-aidl" data-lang="aidl">def date():
+    import datetime
+    d = datetime.date.today()
+    return d.year, d.month, d.day
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#位置参数">位置参数</a></li>
+    <li><a href="#参数默认值">参数默认值</a></li>
+    <li><a href="#关键字参数">关键字参数</a></li>
+    <li><a href="#任意参数列表">任意参数列表</a></li>
+    <li><a href="#多返回值">多返回值</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
