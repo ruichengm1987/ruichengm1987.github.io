@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>架构师 on 坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/</link>
+    <description>Recent content in 架构师 on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/restapi%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/restapi%E8%A7%84%E8%8C%83/</guid>
+      <description>restapi规范 规范 URI 设计原则  资源必须使用复数名词表示集合，如果该词语没有合适的复数形式，则应该使用单数形式  例如： GET /employees GET /weather 必须使用正斜杠（/）表示层次关系 正斜杠（/）字符用于URI的路径部分，以指示资源之间的层次关系。 例如： GET /employees/56   不应该在URI中使用尾部正斜杠（/）
+  应该使用连字符（ - ）来提高URI的可读性，不应该使用下划线（ _ ）
+  必须在URI中使用小写字母
+  资源包含父子嵌套关系必须遵循以下原则
+  如果该资源脱离父资源后没有意义，则如下设计，例如：文件的某行与文件的关系 GET /file/1000/line/20 如果该资源可以独立访问或可以从属于多个父资源，则不用嵌套显示， 例如：专辑和歌曲的关系 GET /albums/151 GET /songs/10 版本控制 由于一个API服务可以提供多个API接口，如果有不兼容和破坏性的更改，版本号将让你能更容易的发布API。版本控制格式约定为：vN（N=1,2,3&amp;hellip;）
+例如: GET /api/v1/employees/123 GET /api/v2/employees/123 资源操作 HTTP方法 资源操作必须尽可能使用正确的HTTP方法，并且必须遵守操作幂等性。HTTP方法通常被称为HTTP动词。
+   方法 安全 幂等     GET 是 是   POST 否 否   PUT 否 是   DELETE 否 是   PATCH 否 否   OPTIONS 是 是   HEAD 是 是    关于以上方法的说明：</description>
+    </item>
+    
+  </channel>
+</rss>

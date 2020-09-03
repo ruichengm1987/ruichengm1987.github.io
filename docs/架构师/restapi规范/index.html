@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="restapi规范 规范 URI 设计原则  资源必须使用复数名词表示集合，如果该词语没有合适的复数形式，则应该使用单数形式  例如： GET /employees GET /weather 必须使用正斜杠（/）表示层次关系 正斜杠（/）字符用于URI的路径部分，以指示资源之间的层次关系。 例如： GET /employees/56   不应该在URI中使用尾部正斜杠（/）
+  应该使用连字符（ - ）来提高URI的可读性，不应该使用下划线（ _ ）
+  必须在URI中使用小写字母
+  资源包含父子嵌套关系必须遵循以下原则
+  如果该资源脱离父资源后没有意义，则如下设计，例如：文件的某行与文件的关系 GET /file/1000/line/20 如果该资源可以独立访问或可以从属于多个父资源，则不用嵌套显示， 例如：专辑和歌曲的关系 GET /albums/151 GET /songs/10 版本控制 由于一个API服务可以提供多个API接口，如果有不兼容和破坏性的更改，版本号将让你能更容易的发布API。版本控制格式约定为：vN（N=1,2,3&hellip;）
+例如: GET /api/v1/employees/123 GET /api/v2/employees/123 资源操作 HTTP方法 资源操作必须尽可能使用正确的HTTP方法，并且必须遵守操作幂等性。HTTP方法通常被称为HTTP动词。
+   方法 安全 幂等     GET 是 是   POST 否 否   PUT 否 是   DELETE 否 是   PATCH 否 否   OPTIONS 是 是   HEAD 是 是    关于以上方法的说明：">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="restapi规范 规范 URI 设计原则  资源必须使用复数名词表示集合，如果该词语没有合适的复数形式，则应该使用单数形式  例如： GET /employees GET /weather 必须使用正斜杠（/）表示层次关系 正斜杠（/）字符用于URI的路径部分，以指示资源之间的层次关系。 例如： GET /employees/56   不应该在URI中使用尾部正斜杠（/）
+  应该使用连字符（ - ）来提高URI的可读性，不应该使用下划线（ _ ）
+  必须在URI中使用小写字母
+  资源包含父子嵌套关系必须遵循以下原则
+  如果该资源脱离父资源后没有意义，则如下设计，例如：文件的某行与文件的关系 GET /file/1000/line/20 如果该资源可以独立访问或可以从属于多个父资源，则不用嵌套显示， 例如：专辑和歌曲的关系 GET /albums/151 GET /songs/10 版本控制 由于一个API服务可以提供多个API接口，如果有不兼容和破坏性的更改，版本号将让你能更容易的发布API。版本控制格式约定为：vN（N=1,2,3&hellip;）
+例如: GET /api/v1/employees/123 GET /api/v2/employees/123 资源操作 HTTP方法 资源操作必须尽可能使用正确的HTTP方法，并且必须遵守操作幂等性。HTTP方法通常被称为HTTP动词。
+   方法 安全 幂等     GET 是 是   POST 否 否   PUT 否 是   DELETE 否 是   PATCH 否 否   OPTIONS 是 是   HEAD 是 是    关于以上方法的说明：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/restapi%E8%A7%84%E8%8C%83/" />
+
+<title>Restapi规范 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.a0e369c4e9ab5162ecde2359af1344975be0282cffca074dea49775893becc76.js" integrity="sha256-oONpxOmrUWLs3iNZrxNEl1vgKCz/ygdN6kl3WJO&#43;zHY="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docs/example/" class="">Example Site</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/collapsed/" class="collapsed ">Collapsed</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">GoLang</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/restapi%E8%A7%84%E8%8C%83/" class="active">Restapi规范</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Shortcodes</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Restapi规范</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#规范">规范</a>
+      <ul>
+        <li><a href="#uri">URI</a></li>
+        <li><a href="#资源操作">资源操作</a></li>
+        <li><a href="#请求约束">请求约束</a></li>
+        <li><a href="#响应约束">响应约束</a></li>
+        <li><a href="#数据类型">数据类型</a></li>
+        <li><a href="#安全">安全</a></li>
+      </ul>
+    </li>
+    <li><a href="#特殊场景">特殊场景</a>
+      <ul>
+        <li><a href="#分页">分页</a></li>
+        <li><a href="#过滤">过滤</a></li>
+        <li><a href="#排序">排序</a></li>
+        <li><a href="#跨域">跨域</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="restapi规范">restapi规范</h1>
+<h2 id="规范">规范</h2>
+<h3 id="uri">URI</h3>
+<h4 id="设计原则">设计原则</h4>
+<ul>
+<li>资源必须使用复数名词表示集合，如果该词语没有合适的复数形式，则应该使用单数形式</li>
+</ul>
+<pre><code class="language-aidl" data-lang="aidl">例如：
+  GET /employees
+  GET /weather
+  
+必须使用正斜杠（/）表示层次关系
+正斜杠（/）字符用于URI的路径部分，以指示资源之间的层次关系。
+例如：
+   GET /employees/56
+</code></pre><ul>
+<li>
+<p>不应该在URI中使用尾部正斜杠（/）</p>
+</li>
+<li>
+<p>应该使用连字符（ - ）来提高URI的可读性，不应该使用下划线（ _ ）</p>
+</li>
+<li>
+<p>必须在URI中使用小写字母</p>
+</li>
+<li>
+<p>资源包含父子嵌套关系必须遵循以下原则</p>
+</li>
+</ul>
+<pre><code class="language-aidl" data-lang="aidl">如果该资源脱离父资源后没有意义，则如下设计，例如：文件的某行与文件的关系
+  GET /file/1000/line/20
+如果该资源可以独立访问或可以从属于多个父资源，则不用嵌套显示，
+例如：专辑和歌曲的关系
+  GET /albums/151
+  GET /songs/10
+</code></pre><h4 id="版本控制">版本控制</h4>
+<p>由于一个API服务可以提供多个API接口，如果有不兼容和破坏性的更改，版本号将让你能更容易的发布API。版本控制格式约定为：vN（N=1,2,3&hellip;）</p>
+<pre><code class="language-aidl" data-lang="aidl">例如:
+GET /api/v1/employees/123
+GET /api/v2/employees/123
+</code></pre><h3 id="资源操作">资源操作</h3>
+<h4 id="http方法">HTTP方法</h4>
+<p>资源操作必须尽可能使用正确的HTTP方法，并且必须遵守操作幂等性。HTTP方法通常被称为HTTP动词。</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="right">安全</th>
+<th align="center">幂等</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">GET</td>
+<td align="right">是</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="left">POST</td>
+<td align="right">否</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="left">PUT</td>
+<td align="right">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="left">DELETE</td>
+<td align="right">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="left">PATCH</td>
+<td align="right">否</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="left">OPTIONS</td>
+<td align="right">是</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="left">HEAD</td>
+<td align="right">是</td>
+<td align="center">是</td>
+</tr>
+</tbody>
+</table>
+<p>关于以上方法的说明：</p>
+<ul>
+<li>GET 用于从服务器获取某个资源的信息
+<ul>
+<li>完成请求后返回状态码 200 OK</li>
+<li>完成请求后需要返回被请求的资源详细信息</li>
+</ul>
+</li>
+<li>POST 用于创建新资源
+<ul>
+<li>创建完成后返回状态码 201 Created</li>
+<li>完成请求后需要返回被创建的资源详细信息</li>
+</ul>
+</li>
+<li>PUT 用于完整的替换资源，比如修改 id 为 123 的某个资源
+<ul>
+<li>如果是替换了资源，则返回 200 OK</li>
+<li>完成请求后需要返回被修改的资源详细信息</li>
+</ul>
+</li>
+<li>PATCH 用于局部更新资源
+<ul>
+<li>完成请求后返回状态码 200 OK</li>
+<li>完成请求后需要返回被修改的资源详细信息</li>
+</ul>
+</li>
+<li>DELETE 用于删除某个资源
+<ul>
+<li>完成请求后返回状态码 204 No Content</li>
+</ul>
+</li>
+<li>OPTIONS 用于获取资源支持的所有 HTTP 方法</li>
+<li>HEAD 用于只获取请求某个资源返回的头信息</li>
+</ul>
+<h4 id="自定义动词">自定义动词</h4>
+<p>实际业务场景中，对资源对象的控制，如升级、上传、移动等操作，用以上规范约束并不能保证API语义的唯一性、可理解性、易用性，因此，允许使用自定义动词去显示表达API的语义，统一格式为：</p>
+<pre><code class="language-aidl" data-lang="aidl">/{prefix}/{version}/{resources}:{action}
+</code></pre><p>动词命名请参照自定义动词命名规范
+例如，文件导入导出：</p>
+<pre><code class="language-aidl" data-lang="aidl">/v1/some/resource:import
+/v1/some/resource:export
+</code></pre><p>除此之外，撤销操作则使用cancel关键字与该动词用英文连字符-相连。<br>
+例如，停止导入：</p>
+<pre><code class="language-aidl" data-lang="aidl">/v1/some/resource/name:import-cancel
+</code></pre><h3 id="请求约束">请求约束</h3>
+<h4 id="请求约束-1">请求约束</h4>
+<ul>
+<li>GET, DELETE, HEAD 方法，参数风格必须为标准的 GET 风格的参数，如 ?a=1&amp;b=2</li>
+<li>POST, PUT, PATCH, OPTIONS 方法 默认情况下请求实体会被视作标准 json 字符串进行处理，应该设置头信息的 Content-Type 为 application/json，在一些特殊接口中，可以允许 Content-Type 为 application/x-www-form-urlencoded 或者 multipart/form-data ，此时请求实体会被视作标准 POST 风格的参数进行处理</li>
+<li>在特殊场景下，例如查询参数长度超过浏览器限制、不允许使用DELETE方法等，可以使用POST方法代替</li>
+<li>使用过滤查询时，基本查询和高级查询必须不能同时使用</li>
+</ul>
+<h4 id="参数命名">参数命名</h4>
+<ul>
+<li>参数定义必须使用 lower_case_underscore_separated_names 格式</li>
+<li>参数名称必须是英文或英文和数字的组合</li>
+<li>参数名称不应该包含介词（例如for、during、at）</li>
+</ul>
+<pre><code class="language-例如：" data-lang="例如：">reason_for_error 应该改成 error_reason
+cpu_usage_at_time_of_failure 应该改成 failure_time_cpu_usage
+</code></pre><ul>
+<li>参数名称不应该使用后置形容词（名词后面的修饰符</li>
+</ul>
+<pre><code>例如：
+items_collected 应该改成 collected_items
+objects_imported 应该改成 imported_objects
+</code></pre><h3 id="响应约束">响应约束</h3>
+<h4 id="响应约束-1">响应约束</h4>
+<p>客户端请求头如果没有提供Accept，默认的响应结果格式应该是application/json，否则应该使用请求头中Accept指定的格式响应。</p>
+<p>响应结果必须使用HTTP标准响应码</p>
+<ul>
+<li>成功，响应数据为资源本身的描述</li>
+<li>失败，响应数据为错误描述，且必须包含error对象
+响应示例</li>
+</ul>
+<h4 id="调用成功">调用成功</h4>
+<pre><code class="language-aidl" data-lang="aidl">HTTP/1.1 200 OK
+Content-Type: application/json
+{
+    &quot;total&quot;: 910,
+    &quot;items&quot;:[{}, {} ...]
+}
+</code></pre><p>调用失败，详见错误示例</p>
+<h4 id="错误">错误</h4>
+<p>如果是一个不支持的请求或者请求失败，服务必须提供一个错误响应结果，这个错误响应结果必须是一个标准的HTTP 错误码。</p>
+<h4 id="响应示例">响应示例</h4>
+<pre><code class="language-aidl" data-lang="aidl">错误响应信息必须使用 error 字段，例如：
+
+</code></pre><h3 id="数据类型">数据类型</h3>
+<h3 id="安全">安全</h3>
+<h2 id="特殊场景">特殊场景</h2>
+<h3 id="分页">分页</h3>
+<h3 id="过滤">过滤</h3>
+<h3 id="排序">排序</h3>
+<h3 id="跨域">跨域</h3>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#规范">规范</a>
+      <ul>
+        <li><a href="#uri">URI</a></li>
+        <li><a href="#资源操作">资源操作</a></li>
+        <li><a href="#请求约束">请求约束</a></li>
+        <li><a href="#响应约束">响应约束</a></li>
+        <li><a href="#数据类型">数据类型</a></li>
+        <li><a href="#安全">安全</a></li>
+      </ul>
+    </li>
+    <li><a href="#特殊场景">特殊场景</a>
+      <ul>
+        <li><a href="#分页">分页</a></li>
+        <li><a href="#过滤">过滤</a></li>
+        <li><a href="#排序">排序</a></li>
+        <li><a href="#跨域">跨域</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

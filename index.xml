@@ -11,6 +11,26 @@
     
     
     <item>
+      <title>Linux命令行快捷键</title>
+      <link>https://ruichengm1987.github.io/docs/linux/1.linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/1.linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>Linux命令行快捷键 涉及在linux命令行下进行快速移动光标、命令编辑、编辑后执行历史命令、Bang(!)命令、控制命令等。让basher更有效率。
+常用 ctrl+左右键:在单词之间跳转 * ctrl+a:跳到本行的行首 * ctrl+e:跳到页尾 Ctrl+u：删除当前光标前面的文字 （还有剪切功能） ctrl+k：删除当前光标后面的文字(还有剪切功能) Ctrl+L：进行清屏操作 Ctrl+y:粘贴Ctrl+u或ctrl+k剪切的内容 Ctrl+w:删除光标前面的单词的字符 Alt – d ：由光标位置开始，往右删除单词。往行尾删 说明 Ctrl – k: 先按住 Ctrl 键，然后再按 k 键； Alt – k: 先按住 Alt 键，然后再按 k 键； M – k：先单击 Esc 键，然后再按 k 键。 移动光标 Ctrl – a ：移到行首 Ctrl – e ：移到行尾 Ctrl – b ：往回(左)移动一个字符 Ctrl – f ：往后(右)移动一个字符 Alt – b ：往回(左)移动一个单词 Alt – f ：往后(右)移动一个单词 Ctrl – xx ：在命令行尾和光标之间移动 M-b ：往回(左)移动一个单词 M-f ：往后(右)移动一个单词 编辑命令 Ctrl – h ：删除光标左方位置的字符 Ctrl – d ：删除光标右方位置的字符（注意：当前命令行没有任何字符时，会注销系统或结束终端） Ctrl – w ：由光标位置开始，往左删除单词。往行首删 Alt – d ：由光标位置开始，往右删除单词。往行尾删 M – d ：由光标位置开始，删除单词，直到该单词结束。 Ctrl – k ：由光标所在位置开始，删除右方所有的字符，直到该行结束。 Ctrl – u ：由光标所在位置开始，删除左方所有的字符，直到该行开始。 Ctrl – y ：粘贴之前删除的内容到光标后。 ctrl – t ：交换光标处和之前两个字符的位置。 Alt + .</description>
+    </item>
+    
+    <item>
+      <title>Linux如何关闭某个占用端口的进程</title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E7%AB%AF%E5%8F%A3%E8%BF%9B%E7%A8%8B/linux%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%AD%E6%9F%90%E4%B8%AA%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E7%AB%AF%E5%8F%A3%E8%BF%9B%E7%A8%8B/linux%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%AD%E6%9F%90%E4%B8%AA%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B/</guid>
+      <description>Linux如何关闭某个占用端口的进程 1）查找被占用的端口: netstat -tln | grep 8000 tcp 0 0 192.168.2.106:8000 0.0.0.0:* LISTEN 2）查看被占用端口的PID： sudo lsof -i:8000 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME nginx 850 root 6u IPv4 15078 0t0 TCP 192.168.2.106:8000 (LISTEN) nginx 851 www-data 6u IPv4 15078 0t0 TCP 192.168.2.106:8000 (LISTEN) nginx 852 www-data 6u IPv4 15078 0t0 TCP 192.168.2.106:8000 (LISTEN) 3）kill掉该进程
+sudo kill -9 850 </description>
+    </item>
+    
+    <item>
       <title>reset命令:将仓库记录和恢复指定历史位置</title>
       <link>https://ruichengm1987.github.io/docs/git/1.%E8%BF%9B%E9%98%B6/0.reset%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BB%93%E5%BA%93%E8%AE%B0%E5%BD%95%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AE%9A%E5%8E%86%E5%8F%B2%E4%BD%8D%E7%BD%AE/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -86,6 +106,18 @@
     </item>
     
     <item>
+      <title>垃圾回收算法</title>
+      <link>https://ruichengm1987.github.io/docs/datas_tructure/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/datas_tructure/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/</guid>
+      <description>常见垃圾回收算法   引用计数：对每个对象维护一个引用计数，当引用该对象的对象被销毁时，引用计数减1，当引用计数器为0是回收该对象。
+ 优点：对象可以很快的被回收，不会出现内存耗尽或达到某个阀值时才回收。 缺点：不能很好的处理循环引用，而且实时维护引用计数，有也一定的代价。 代表语言：Python、PHP、Swift    标记-清除：从根变量开始遍历所有引用的对象，引用的对象标记为&amp;quot;被引用&amp;rdquo;，没有被标记的进行回收。
+ 优点：解决了引用计数的缺点。 缺点：需要STW，即要暂时停掉程序运行。 代表语言：Golang(其采用三色标记法)    分代收集：按照对象生命周期长短划分不同的代空间，生命周期长的放入老年代，而短的放入新生代，不同代有不能的回收算法和回收频率。
+ 优点：回收性能好 缺点：算法复杂 代表语言： JAVA    </description>
+    </item>
+    
+    <item>
       <title>复杂度</title>
       <link>https://ruichengm1987.github.io/docs/datas_tructure/%E5%85%A5%E9%97%A8/%E5%A6%82%E4%BD%95%E8%A1%A1%E9%87%8F%E4%B8%80%E4%B8%AA%E7%AE%97%E6%B3%95%E7%9A%84%E5%A5%BD%E5%9D%8F/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -115,6 +147,15 @@
     </item>
     
     <item>
+      <title>栈逃逸</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E8%BF%90%E8%A1%8C%E6%97%B6%E7%AF%87/%E6%A0%88%E9%80%83%E9%80%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E8%BF%90%E8%A1%8C%E6%97%B6%E7%AF%87/%E6%A0%88%E9%80%83%E9%80%B8/</guid>
+      <description>栈逃逸 </description>
+    </item>
+    
+    <item>
       <title>清理无意义的分支数据</title>
       <link>https://ruichengm1987.github.io/docs/git/1.%E8%BF%9B%E9%98%B6/1.%E6%B8%85%E7%90%86%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E5%88%86%E6%94%AF%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -139,6 +180,15 @@
       
       <guid>https://ruichengm1987.github.io/docs/rust/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/0.%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
       <description>环境搭建 安装 1、 安装rustup $ curl https://sh.rustup.rs -sSf | sh 2、执行 $ source $HOME/.cargo/env 更新 $ rustup update 卸载Rust和rustup $ rustup self uninstall 故障排除 $ rustc --version # 看到rustc x.y.z (abcabcabc yyyy-mm-dd)表示安装成功 恭喜入坑！ </description>
+    </item>
+    
+    <item>
+      <title>简介</title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/1.%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/1.%E7%AE%80%E4%BB%8B/</guid>
+      <description>简介 软件包分类  源码包  脚本安装包   二进制包(RPM包、系统默认包)  </description>
     </item>
     
     <item>
@@ -182,6 +232,15 @@ Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34
     </item>
     
     <item>
+      <title>GC垃圾回收</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E8%BF%90%E8%A1%8C%E6%97%B6%E7%AF%87/gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E8%BF%90%E8%A1%8C%E6%97%B6%E7%AF%87/gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <description>垃圾回收 </description>
+    </item>
+    
+    <item>
       <title>iota</title>
       <link>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/iota/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -195,6 +254,19 @@ d = 1 &amp;laquo; iota // d==8 (iota == 3) )
   const x = iota // x==0
   const y = iota // y==0 分开的const语句,iota每次都从0开始
   </description>
+    </item>
+    
+    <item>
+      <title>RPM</title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/rpm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/rpm/</guid>
+      <description>RPM RPM包在系统光盘中 RPM包命名规则 httpd-2.2.15-15.el6.CENTOS.1.i686.rpm
+-httpd 软件包名
+-2.2.15 软件版本 -15 软件包发布的次数
+-el6.centos 适合的Linux平台 -i686 适合的硬件平台 -rpm rpm包扩展名
+RPM包依赖性  树形依赖: a -&amp;gt; b -&amp;gt; c 环形依赖: a -&amp;gt; b -&amp;gt; c -&amp;gt; a 模块依赖: 模块依赖, 查询网站: www.rpmfind.net  包全名与报名  包全名 操作的包是没有安装的软件包时,使用包全名,而且要注意路径 报名 操作已经安装的软件包时,使用包名,是搜索/var/lib/rpm中的数据库  RPM安装  rpm -ivh 包全名 选项: -i (install) 安装 -v (verbose) 显示详细信息 -h (hash) 显示进度 &amp;ndash;nodeps 不检测依赖性  RPM升级与卸载  rpm -Uvh 包全名 选项: -U (upgrade) 升级  RPM </description>
     </item>
     
     <item>
@@ -627,6 +699,53 @@ Venasque repulsa Samos qui, exspectatum eram animosque hinc, aut manes, Assyrii.
     
     <item>
       <title></title>
+      <link>https://ruichengm1987.github.io/docs/go/git%E7%A7%BB%E9%99%A4%E5%B7%B2%E7%BB%8Fadd%E7%9A%84%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/git%E7%A7%BB%E9%99%A4%E5%B7%B2%E7%BB%8Fadd%E7%9A%84%E6%96%87%E4%BB%B6/</guid>
+      <description>git 移除已经add的文件 使用 git rm 命令即可，有两种选择,  一种是 git rm &amp;ndash;cached “文件路径”，不删除物理文件，仅将该文件从缓存中删除； 一种是 git rm &amp;ndash;f “文件路径”，不仅将该文件从缓存中删除，还会将物理文件删除（不会回收到垃圾桶）。  请问 git rm &amp;ndash;cache 和 git reset HEAD 的区别到底在哪里呢？ 如果要删除文件，最好用 git rm file_name，而不应该直接在工作区直接 rm file_name。
+如果一个文件已经add到暂存区，还没有 commit，此时如果不想要这个文件了 有两种方法：
+ 1，用版本库内容清空暂存区，git reset HEAD 但要慎重使用 2，只把特定文件从暂存区删除，git rm &amp;ndash;cached xxx  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/go/%E8%BF%90%E8%A1%8C%E6%97%B6%E7%AF%87/%E4%B8%8D%E8%83%BD%E5%8F%96%E5%9C%B0%E5%9D%80/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E8%BF%90%E8%A1%8C%E6%97%B6%E7%AF%87/%E4%B8%8D%E8%83%BD%E5%8F%96%E5%9C%B0%E5%9D%80/</guid>
+      <description>cannot take address of temporary variables</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/yum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/yum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/%E6%BA%90%E7%A0%81%E5%8C%85%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/%E6%BA%90%E7%A0%81%E5%8C%85%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85%E5%8C%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85%E5%8C%85/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://ruichengm1987.github.io/docs/rust/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/1.helloworld/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -715,6 +834,30 @@ Example {{&amp;lt; mermaid [class=&amp;#34;text-center&amp;#34;]&amp;gt;}} seque
       <description>Tabs Tabs let you organize content by context, for example installation instructions for each supported platform.
 {{&amp;lt; tabs &amp;#34;uniqueid&amp;#34; &amp;gt;}} {{&amp;lt; tab &amp;#34;MacOS&amp;#34; &amp;gt;}} # MacOS Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; tab &amp;#34;Linux&amp;#34; &amp;gt;}} # Linux Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; tab &amp;#34;Windows&amp;#34; &amp;gt;}} # Windows Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; /tabs &amp;gt;}} Example MacOS MacOS This is tab MacOS content.
 Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/restapi%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/restapi%E8%A7%84%E8%8C%83/</guid>
+      <description>restapi规范 规范 URI 设计原则  资源必须使用复数名词表示集合，如果该词语没有合适的复数形式，则应该使用单数形式  例如： GET /employees GET /weather 必须使用正斜杠（/）表示层次关系 正斜杠（/）字符用于URI的路径部分，以指示资源之间的层次关系。 例如： GET /employees/56   不应该在URI中使用尾部正斜杠（/）
+  应该使用连字符（ - ）来提高URI的可读性，不应该使用下划线（ _ ）
+  必须在URI中使用小写字母
+  资源包含父子嵌套关系必须遵循以下原则
+  如果该资源脱离父资源后没有意义，则如下设计，例如：文件的某行与文件的关系 GET /file/1000/line/20 如果该资源可以独立访问或可以从属于多个父资源，则不用嵌套显示， 例如：专辑和歌曲的关系 GET /albums/151 GET /songs/10 版本控制 由于一个API服务可以提供多个API接口，如果有不兼容和破坏性的更改，版本号将让你能更容易的发布API。版本控制格式约定为：vN（N=1,2,3&amp;hellip;）
+例如: GET /api/v1/employees/123 GET /api/v2/employees/123 资源操作 HTTP方法 资源操作必须尽可能使用正确的HTTP方法，并且必须遵守操作幂等性。HTTP方法通常被称为HTTP动词。
+   方法 安全 幂等     GET 是 是   POST 否 否   PUT 否 是   DELETE 否 是   PATCH 否 否   OPTIONS 是 是   HEAD 是 是    关于以上方法的说明：</description>
+    </item>
+    
+    <item>
+      <title>堆栈</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E8%BF%90%E8%A1%8C%E6%97%B6%E7%AF%87/%E5%A0%86%E6%A0%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E8%BF%90%E8%A1%8C%E6%97%B6%E7%AF%87/%E5%A0%86%E6%A0%88/</guid>
+      <description>堆栈 </description>
     </item>
     
   </channel>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/linux/%E7%AB%AF%E5%8F%A3%E8%BF%9B%E7%A8%8B/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/linux/%E7%AB%AF%E5%8F%A3%E8%BF%9B%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux如何关闭某个占用端口的进程</title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E7%AB%AF%E5%8F%A3%E8%BF%9B%E7%A8%8B/linux%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%AD%E6%9F%90%E4%B8%AA%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E7%AB%AF%E5%8F%A3%E8%BF%9B%E7%A8%8B/linux%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%AD%E6%9F%90%E4%B8%AA%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B/</guid>
+      <description>Linux如何关闭某个占用端口的进程 1）查找被占用的端口: netstat -tln | grep 8000 tcp 0 0 192.168.2.106:8000 0.0.0.0:* LISTEN 2）查看被占用端口的PID： sudo lsof -i:8000 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME nginx 850 root 6u IPv4 15078 0t0 TCP 192.168.2.106:8000 (LISTEN) nginx 851 www-data 6u IPv4 15078 0t0 TCP 192.168.2.106:8000 (LISTEN) nginx 852 www-data 6u IPv4 15078 0t0 TCP 192.168.2.106:8000 (LISTEN) 3）kill掉该进程
+sudo kill -9 850 </description>
+    </item>
+    
+  </channel>
+</rss>

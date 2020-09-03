@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Linux命令行快捷键 涉及在linux命令行下进行快速移动光标、命令编辑、编辑后执行历史命令、Bang(!)命令、控制命令等。让basher更有效率。
+常用 ctrl&#43;左右键:在单词之间跳转 * ctrl&#43;a:跳到本行的行首 * ctrl&#43;e:跳到页尾 Ctrl&#43;u：删除当前光标前面的文字 （还有剪切功能） ctrl&#43;k：删除当前光标后面的文字(还有剪切功能) Ctrl&#43;L：进行清屏操作 Ctrl&#43;y:粘贴Ctrl&#43;u或ctrl&#43;k剪切的内容 Ctrl&#43;w:删除光标前面的单词的字符 Alt – d ：由光标位置开始，往右删除单词。往行尾删 说明 Ctrl – k: 先按住 Ctrl 键，然后再按 k 键； Alt – k: 先按住 Alt 键，然后再按 k 键； M – k：先单击 Esc 键，然后再按 k 键。 移动光标 Ctrl – a ：移到行首 Ctrl – e ：移到行尾 Ctrl – b ：往回(左)移动一个字符 Ctrl – f ：往后(右)移动一个字符 Alt – b ：往回(左)移动一个单词 Alt – f ：往后(右)移动一个单词 Ctrl – xx ：在命令行尾和光标之间移动 M-b ：往回(左)移动一个单词 M-f ：往后(右)移动一个单词 编辑命令 Ctrl – h ：删除光标左方位置的字符 Ctrl – d ：删除光标右方位置的字符（注意：当前命令行没有任何字符时，会注销系统或结束终端） Ctrl – w ：由光标位置开始，往左删除单词。往行首删 Alt – d ：由光标位置开始，往右删除单词。往行尾删 M – d ：由光标位置开始，删除单词，直到该单词结束。 Ctrl – k ：由光标所在位置开始，删除右方所有的字符，直到该行结束。 Ctrl – u ：由光标所在位置开始，删除左方所有的字符，直到该行开始。 Ctrl – y ：粘贴之前删除的内容到光标后。 ctrl – t ：交换光标处和之前两个字符的位置。 Alt &#43; .">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Linux命令行快捷键" />
+<meta property="og:description" content="Linux命令行快捷键 涉及在linux命令行下进行快速移动光标、命令编辑、编辑后执行历史命令、Bang(!)命令、控制命令等。让basher更有效率。
+常用 ctrl&#43;左右键:在单词之间跳转 * ctrl&#43;a:跳到本行的行首 * ctrl&#43;e:跳到页尾 Ctrl&#43;u：删除当前光标前面的文字 （还有剪切功能） ctrl&#43;k：删除当前光标后面的文字(还有剪切功能) Ctrl&#43;L：进行清屏操作 Ctrl&#43;y:粘贴Ctrl&#43;u或ctrl&#43;k剪切的内容 Ctrl&#43;w:删除光标前面的单词的字符 Alt – d ：由光标位置开始，往右删除单词。往行尾删 说明 Ctrl – k: 先按住 Ctrl 键，然后再按 k 键； Alt – k: 先按住 Alt 键，然后再按 k 键； M – k：先单击 Esc 键，然后再按 k 键。 移动光标 Ctrl – a ：移到行首 Ctrl – e ：移到行尾 Ctrl – b ：往回(左)移动一个字符 Ctrl – f ：往后(右)移动一个字符 Alt – b ：往回(左)移动一个单词 Alt – f ：往后(右)移动一个单词 Ctrl – xx ：在命令行尾和光标之间移动 M-b ：往回(左)移动一个单词 M-f ：往后(右)移动一个单词 编辑命令 Ctrl – h ：删除光标左方位置的字符 Ctrl – d ：删除光标右方位置的字符（注意：当前命令行没有任何字符时，会注销系统或结束终端） Ctrl – w ：由光标位置开始，往左删除单词。往行首删 Alt – d ：由光标位置开始，往右删除单词。往行尾删 M – d ：由光标位置开始，删除单词，直到该单词结束。 Ctrl – k ：由光标所在位置开始，删除右方所有的字符，直到该行结束。 Ctrl – u ：由光标所在位置开始，删除左方所有的字符，直到该行开始。 Ctrl – y ：粘贴之前删除的内容到光标后。 ctrl – t ：交换光标处和之前两个字符的位置。 Alt &#43; ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/linux/1.linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/" />
+
+<title>Linux命令行快捷键 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.a0e369c4e9ab5162ecde2359af1344975be0282cffca074dea49775893becc76.js" integrity="sha256-oONpxOmrUWLs3iNZrxNEl1vgKCz/ygdN6kl3WJO&#43;zHY="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docs/example/" class="">Example Site</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/example/collapsed/" class="collapsed ">Collapsed</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">GoLang</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="collapsed ">常用命令</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/" class="collapsed ">网络管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/" class="collapsed ">软件安装管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/1.linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="active">Linux命令行快捷键</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/%E7%AB%AF%E5%8F%A3%E8%BF%9B%E7%A8%8B/" class="collapsed ">端口进程</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Shortcodes</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Linux命令行快捷键</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#常用">常用</a>
+      <ul>
+        <li><a href="#移动光标">移动光标</a></li>
+        <li><a href="#编辑命令">编辑命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#bang命令">Bang(!)命令</a>
+      <ul>
+        <li><a href="#查找历史命令">查找历史命令</a></li>
+        <li><a href="#控制命令">控制命令</a></li>
+        <li><a href="#重复执行操作动作">重复执行操作动作</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="linux命令行快捷键">Linux命令行快捷键</h1>
+<p>涉及在linux命令行下进行快速移动光标、命令编辑、编辑后执行历史命令、Bang(!)命令、控制命令等。让basher更有效率。</p>
+<h2 id="常用">常用</h2>
+<pre><code class="language-aidl" data-lang="aidl">ctrl+左右键:在单词之间跳转  
+* ctrl+a:跳到本行的行首  
+* ctrl+e:跳到页尾  
+Ctrl+u：删除当前光标前面的文字 （还有剪切功能）  
+ctrl+k：删除当前光标后面的文字(还有剪切功能)  
+Ctrl+L：进行清屏操作  
+Ctrl+y:粘贴Ctrl+u或ctrl+k剪切的内容  
+Ctrl+w:删除光标前面的单词的字符  
+Alt – d ：由光标位置开始，往右删除单词。往行尾删  
+说明  
+Ctrl – k: 先按住 Ctrl 键，然后再按 k 键；  
+Alt – k: 先按住 Alt 键，然后再按 k 键；  
+M – k：先单击 Esc 键，然后再按 k 键。  
+</code></pre><h3 id="移动光标">移动光标</h3>
+<pre><code class="language-aidl" data-lang="aidl">Ctrl – a ：移到行首  
+Ctrl – e ：移到行尾    
+Ctrl – b ：往回(左)移动一个字符  
+Ctrl – f ：往后(右)移动一个字符  
+Alt – b ：往回(左)移动一个单词  
+Alt – f ：往后(右)移动一个单词  
+Ctrl – xx ：在命令行尾和光标之间移动  
+M-b ：往回(左)移动一个单词  
+M-f ：往后(右)移动一个单词  
+</code></pre><h3 id="编辑命令">编辑命令</h3>
+<pre><code class="language-aidl" data-lang="aidl">Ctrl – h ：删除光标左方位置的字符  
+Ctrl – d ：删除光标右方位置的字符（注意：当前命令行没有任何字符时，会注销系统或结束终端）  
+Ctrl – w ：由光标位置开始，往左删除单词。往行首删  
+Alt – d ：由光标位置开始，往右删除单词。往行尾删  
+M – d ：由光标位置开始，删除单词，直到该单词结束。  
+Ctrl – k ：由光标所在位置开始，删除右方所有的字符，直到该行结束。  
+Ctrl – u ：由光标所在位置开始，删除左方所有的字符，直到该行开始。  
+Ctrl – y ：粘贴之前删除的内容到光标后。  
+ctrl – t ：交换光标处和之前两个字符的位置。  
+Alt + . ：使用上一条命令的最后一个参数。  
+Ctrl – _ ：回复之前的状态。撤销操作。  
+Ctrl -a + Ctrl -k 或 Ctrl -e + Ctrl -u 或 Ctrl -k + Ctrl -u 组合可删除整行。  
+</code></pre><h2 id="bang命令">Bang(!)命令</h2>
+<pre><code class="language-aidl" data-lang="aidl">!! ：执行上一条命令。  
+^foo^bar ：把上一条命令里的foo替换为bar，并执行。  
+!wget ：执行最近的以wget开头的命令。  
+!wget:p ：仅打印最近的以wget开头的命令，不执行。  
+!$ ：上一条命令的最后一个参数， 与 Alt - . 和 $_ 相同。  
+!* ：上一条命令的所有参数  
+!*:p ：打印上一条命令是所有参数，也即 !*的内容。  
+^abc ：删除上一条命令中的abc。  
+^foo^bar ：将上一条命令中的 foo 替换为 bar  
+^foo^bar^ ：将上一条命令中的 foo 替换为 bar  
+!-n ：执行前n条命令，执行上一条命令： !-1， 执行前5条命令的格式是： !-5  
+</code></pre><h3 id="查找历史命令">查找历史命令</h3>
+<pre><code class="language-aidl" data-lang="aidl">Ctrl – p ：显示当前命令的上一条历史命令
+Ctrl – n ：显示当前命令的下一条历史命令
+* Ctrl – r ：搜索历史命令，随着输入会显示历史命令中的一条匹配命令，Enter键执行匹配命令；ESC键在命令行显示而不执行匹配命令。
+Ctrl – g ：从历史搜索模式（Ctrl – r）退出。
+</code></pre><h3 id="控制命令">控制命令</h3>
+<pre><code class="language-aidl" data-lang="aidl">Ctrl – l ：清除屏幕，然后，在最上面重新显示目前光标所在的这一行的内容。
+Ctrl – o ：执行当前命令，并选择上一条命令。
+Ctrl – s ：阻止屏幕输出
+Ctrl – q ：允许屏幕输出
+Ctrl – c ：终止命令
+Ctrl – z ：挂起命令
+</code></pre><h3 id="重复执行操作动作">重复执行操作动作</h3>
+<pre><code class="language-aidl" data-lang="aidl">M – 操作次数 操作动作 ： 指定操作次数，重复执行指定的操作。
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#常用">常用</a>
+      <ul>
+        <li><a href="#移动光标">移动光标</a></li>
+        <li><a href="#编辑命令">编辑命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#bang命令">Bang(!)命令</a>
+      <ul>
+        <li><a href="#查找历史命令">查找历史命令</a></li>
+        <li><a href="#控制命令">控制命令</a></li>
+        <li><a href="#重复执行操作动作">重复执行操作动作</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

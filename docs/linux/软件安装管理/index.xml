@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>简介</title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/1.%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/1.%E7%AE%80%E4%BB%8B/</guid>
+      <description>简介 软件包分类  源码包  脚本安装包   二进制包(RPM包、系统默认包)  </description>
+    </item>
+    
+    <item>
+      <title>RPM</title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/rpm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/rpm/</guid>
+      <description>RPM RPM包在系统光盘中 RPM包命名规则 httpd-2.2.15-15.el6.CENTOS.1.i686.rpm
+-httpd 软件包名
+-2.2.15 软件版本 -15 软件包发布的次数
+-el6.centos 适合的Linux平台 -i686 适合的硬件平台 -rpm rpm包扩展名
+RPM包依赖性  树形依赖: a -&amp;gt; b -&amp;gt; c 环形依赖: a -&amp;gt; b -&amp;gt; c -&amp;gt; a 模块依赖: 模块依赖, 查询网站: www.rpmfind.net  包全名与报名  包全名 操作的包是没有安装的软件包时,使用包全名,而且要注意路径 报名 操作已经安装的软件包时,使用包名,是搜索/var/lib/rpm中的数据库  RPM安装  rpm -ivh 包全名 选项: -i (install) 安装 -v (verbose) 显示详细信息 -h (hash) 显示进度 &amp;ndash;nodeps 不检测依赖性  RPM升级与卸载  rpm -Uvh 包全名 选项: -U (upgrade) 升级  RPM </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/yum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/yum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/%E6%BA%90%E7%A0%81%E5%8C%85%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/%E6%BA%90%E7%A0%81%E5%8C%85%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85%E5%8C%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85%E5%8C%85/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
