@@ -11,6 +11,22 @@
     
     
     <item>
+      <title>Go Test 单元测试简明教程</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/test/</guid>
+      <description>Go Test 单元测试简明教程 1.如何写好单元测试 单元测试(Unit Tests, UT) 是一个优秀项目不可或缺的一部分，特别是在一些频繁变动和多人合作开发的项目中尤为重要。你或多或少都会有因为自己的提交，导致应用挂掉或服务宕机的经历。如果这个时候你的修改导致测试用例失败，你再重新审视自己的修改，发现之前的修改还有一些特殊场景没有包含，恭喜你减少了一次上库失误。也会有这样的情况，项目很大，启动环境很复杂，你优化了一个函数的性能，或是添加了某个新的特性，如果部署在正式环境上之后再进行测试，成本太高。对于这种场景，几个小小的测试用例或许就能够覆盖大部分的测试场景。而且在开发过程中，效率最高的莫过于所见即所得了，单元测试也能够帮助你做到这一点，试想一下，假如你一口气写完一千行代码，debug 的过程也不会轻松，如果在这个过程中，对于一些逻辑较为复杂的函数，同时添加一些测试用例，即时确保正确性，最后集成的时候，会是另外一番体验。
+如何写好单元测试呢？
+首先，学会写测试用例。比如如何测试单个函数/方法；比如如何做基准测试；比如如何写出简洁精炼的测试代码；再比如遇到数据库访问等的方法调用时，如何 mock。
+然后，写可测试的代码。&amp;ldquo;高内聚,低耦合&amp;rdquo; 是软件工程的原则，同样，对测试而言，函数/方法写法不同，测试难度也是不一样的。职责单一，参数类型简单，与其他函数耦合度低的函数往往更容易测试。我们经常会说，“这种代码没法测试”，这种时候，就得思考函数的写法可不可以改得更好一些。为了代码可测试而重构是值得的。
+接下来将介绍如何使用 Go 语言的标准库 testing 进行单元测试。
+2.一个简单例子 Go 语言推荐测试文件和源代码文件放在一块，测试文件以 _test.go 结尾。比如，当前 package 有 calc.go 一个文件，我们想测试 calc.go 中的 Add 和 Mul 函数，那么应该新建 calc_test.go 作为测试文件。
+example/ |--calc.go |--calc_test.go 假如 calc.go 的代码如下:
+package main func Add(a int, b int) int { return a + b } func Mul(a int, b int) int { return a * b } 那么 calc_test.go 中的测试用例可以这么写：</description>
+    </item>
+    
+    <item>
       <title>Linux命令行快捷键</title>
       <link>https://ruichengm1987.github.io/docs/linux/1.linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -51,13 +67,52 @@ sudo kill -9 850 </description>
     </item>
     
     <item>
-      <title>With ToC</title>
-      <link>https://ruichengm1987.github.io/docs/example/table-of-contents/with-toc/</link>
+      <title>UML</title>
+      <link>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml%E5%9B%BE/%E7%B1%BB%E5%9B%BE%E5%9F%BA%E7%A1%80%E5%B1%9E%E6%80%A7/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ruichengm1987.github.io/docs/example/table-of-contents/with-toc/</guid>
-      <description>Caput vino delphine in tamen vias Cognita laeva illo fracta Lorem markdownum pavent auras, surgit nunc cingentibus libet Laomedonque que est. Pastor An arbor filia foedat, ne fugit aliter, per. Helicona illas et callida neptem est Oresitrophos caput, dentibus est venit. Tenet reddite famuli praesentem fortibus, quaeque vis foret si frondes gelidos gravidae circumtulit inpulit armenta nativum.
- Te at cruciabere vides rubentis manebo Maturuit in praetemptat ruborem ignara postquam habitasse Subitarum supplevit quoque fontesque venabula spretis modo Montis tot est mali quasque gravis Quinquennem domus arsit ipse Pellem turis pugnabant locavit  Natus quaerere Pectora et sine mulcere, coniuge dum tincta incurvae.</description>
+      <guid>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml%E5%9B%BE/%E7%B1%BB%E5%9B%BE%E5%9F%BA%E7%A1%80%E5%B1%9E%E6%80%A7/</guid>
+      <description>UML类图 1.类图基础属性   +表示public -表示private #表示protected ~表示default,也就是包权限 _下划线表示static 斜体表示抽象  2.类与类之间关系 在UML类图中，常见的有以下几种关系: 泛化（Generalization）, 实现（Realization），关联（Association)，聚合（Aggregation），组合(Composition)，依赖(Dependency)
+泛化 介绍： 泛化(Generalization)表示类与类之间的继承关系，接口与接口之间的继承关系，或类对接口的实现关系
+(1) 继承
+介绍：
+继承表示是一个类（称为子类、子接口）继承另外的一个类（称为父类、父接口）的功能，并可以增加它自己的新功能的能力。 表示方法：
+继承使用空心三角形+实线表示。
+示例：
+鸟类继承抽象类动物
+ （2）实现
+介绍：
+实现表示一个class类实现interface接口（可以是多个）的功能。
+表示方法：
+1）矩形表示法
+使用空心三角形+虚线表示
+比如：大雁需要飞行，就要实现飞()接口
+ 2）棒棒糖表示法
+使用实线表示
+ 依赖 介绍：
+对于两个相对独立的对象，当一个对象负责构造另一个对象的实例，或者依赖另一个对象的服务时，这两个对象之间主要体现为依赖关系。
+表示方法：
+依赖关系用虚线箭头表示。
+示例：
+动物依赖氧气和水。调用新陈代谢方法需要氧气类与水类的实例作为参数
+ 关联 介绍：
+对于两个相对独立的对象，当一个对象的实例与另一个对象的一些特定实例存在固定的对应关系时，这两个对象之间为关联关系。
+表示方法：
+关联关系用实线箭头表示。
+示例：
+企鹅需要‘知道’气候的变化，需要‘了解’气候规律。当一个类‘知道’另一个类时，可以用关联。
+ 聚合 介绍：
+表示一种弱的‘拥有’关系，即has-a的关系，体现的是A对象可以包含B对象，但B对象不是A对象的一部分。 两个对象具有各自的生命周期。
+表示方法：
+聚合关系用空心的菱形+实线箭头表示。
+示例：
+每一只大雁都属于一个大雁群，一个大雁群可以有多只大雁。当大雁死去后大雁群并不会消失，两个对象生命周期不同。
+ 组合 介绍：
+组合是一种强的‘拥有’关系，是一种contains-a的关系，体现了严格的部分和整体关系，部分和整体的生命周期一样。
+表示方法：
+组合关系用实心的菱形+实线箭头表示，还可以使用连线两端的数字表示某一端有几个实例。
+示例：
+鸟和翅膀就是组合关系，因为它们是部分和整体的关系，并且翅膀和鸟的生命周期是相同的。</description>
     </item>
     
     <item>
@@ -147,6 +202,25 @@ sudo kill -9 850 </description>
     </item>
     
     <item>
+      <title>容错，高可用和灾备</title>
+      <link>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/%E5%AE%B9%E9%94%99%E9%AB%98%E5%8F%AF%E7%94%A8%E5%92%8C%E7%81%BE%E5%A4%87/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/%E5%AE%B9%E9%94%99%E9%AB%98%E5%8F%AF%E7%94%A8%E5%92%8C%E7%81%BE%E5%A4%87/</guid>
+      <description>容错，高可用和灾备 容错 容错（fault tolerance）指的是， 发生故障时，系统还能继续运行。
+飞机有四个引擎，如果一个引擎坏了，剩下三个引擎，还能继续飞，这就是&amp;quot;容错&amp;rdquo;。同样的，汽车的一个轮子扎破了，剩下三个轮子，也还是勉强能行驶。
+容错的目的是，发生故障时，系统的运行水平可能有所下降，但是依然可用，不会完全失败。
+高可用 高可用（high availability）指的是， 系统能够比正常时间更久地保持一定的运行水平。
+汽车的备胎就是一个高可用的例子。如果没有备胎，轮胎坏了，车就开不久了。备胎延长了汽车行驶的可用时间。
+注意，高可用不是指系统不中断（那是容错能力），而是指一旦中断能够快速恢复，即中断必须是短暂的。如果需要很长时间才能恢复可用性，就不叫高可用了。上面例子中，更换备胎就必须停车，但只要装上去，就能回到行驶状态。
+灾备 灾备（又称灾难恢复，disaster recovery）指的是， 发生灾难时恢复业务的能力。
+上图中，飞机是你的 IT 基础设施，飞行员是你的业务，飞行员弹射装置就是灾备措施。一旦飞机即将坠毁，你的基础设施就要没了，灾备可以让你的业务幸存下来。
+灾备的目的就是，保存系统的核心部分。一个好的灾备方案，就是从失败的基础设施中获取企业最宝贵的数据，然后在新的基础设施上恢复它们。注意，灾备不是为了挽救基础设置，而是为了挽救业务。
+总结 上面三个方面可以结合起来，设计一个可靠的系统。
+ 容错：发生故障时，如何让系统继续运行。 高可用：系统中断时，如何尽快恢复。 灾备：系统毁灭时，如何抢救数据。  </description>
+    </item>
+    
+    <item>
       <title>栈逃逸</title>
       <link>https://ruichengm1987.github.io/docs/go/%E8%BF%90%E8%A1%8C%E6%97%B6%E7%AF%87/%E6%A0%88%E9%80%83%E9%80%B8/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -213,6 +287,31 @@ IP地址负责外网通信
     </item>
     
     <item>
+      <title>进程与线程的一个简单解释</title>
+      <link>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/02%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/02%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A/</guid>
+      <description>进程与线程的一个简单解释 进程（process）和线程（thread）是操作系统的基本概念，但是它们比较抽象，不容易掌握。
+最近，我读到一篇材料，发现有一个很好的类比，可以把它们解释地清晰易懂。
+ 计算机的核心是CPU，它承担了所有的计算任务。它就像一座工厂，时刻在运行。
+ 假定工厂的电力有限，一次只能供给一个车间使用。也就是说，一个车间开工的时候，其他车间都必须停工。背后的含义就是，单个CPU一次只能运行一个任务。
+ 进程就好比工厂的车间，它代表CPU所能处理的单个任务。任一时刻，CPU总是运行一个进程，其他进程处于非运行状态。
+ 一个车间里，可以有很多工人。他们协同完成一个任务。
+ 线程就好比车间里的工人。一个进程可以包括多个线程。
+ 车间的空间是工人们共享的，比如许多房间是每个工人都可以进出的。这象征一个进程的内存空间是共享的，每个线程都可以使用这些共享内存。
+ 可是，每间房间的大小不同，有些房间最多只能容纳一个人，比如厕所。里面有人的时候，其他人就不能进去了。这代表一个线程使用某些共享内存时，其他线程必须等它结束，才能使用这一块内存。
+ 一个防止他人进入的简单方法，就是门口加一把锁。先到的人锁上门，后到的人看到上锁，就在门口排队，等锁打开再进去。这就叫&amp;quot;互斥锁&amp;rdquo;（Mutual exclusion，缩写 Mutex），防止多个线程同时读写某一块内存区域。
+ 还有些房间，可以同时容纳n个人，比如厨房。也就是说，如果人数大于n，多出来的人只能在外面等着。这好比某些内存区域，只能供给固定数目的线程使用。
+ 这时的解决方法，就是在门口挂n把钥匙。进去的人就取一把钥匙，出来时再把钥匙挂回原处。后到的人发现钥匙架空了，就知道必须在门口排队等着了。这种做法叫做&amp;quot;信号量&amp;rdquo;（Semaphore），用来保证多个线程不会互相冲突。
+不难看出，mutex是semaphore的一种特殊情况（n=1时）。也就是说，完全可以用后者替代前者。但是，因为mutex较为简单，且效率高，所以在必须保证资源独占的情况下，还是采用这种设计。
+ 操作系统的设计，因此可以归结为三点：
+（1）以多进程形式，允许多个任务同时运行；
+（2）以多线程形式，允许单个任务分成不同的部分运行；
+（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。</description>
+    </item>
+    
+    <item>
       <title>Bash变量</title>
       <link>https://ruichengm1987.github.io/docs/shell/bash%E5%8F%98%E9%87%8F/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -238,6 +337,18 @@ Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34
       
       <guid>https://ruichengm1987.github.io/docs/go/%E8%BF%90%E8%A1%8C%E6%97%B6%E7%AF%87/gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
       <description>垃圾回收 </description>
+    </item>
+    
+    <item>
+      <title>Go Mock (gomock)简明教程</title>
+      <link>https://ruichengm1987.github.io/docs/go/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/mock/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/mock/</guid>
+      <description>Go Mock (gomock)简明教程 1.gomock 简介 上一篇文章 Go Test 单元测试简明教程 介绍了 Go 语言中单元测试的常用方法，包括子测试(subtests)、表格驱动测试(table-driven tests)、帮助函数(helpers)、网络测试和基准测试(Benchmark)等。这篇文章介绍一种新的测试方法，mock/stub 测试，当待测试的函数/对象的依赖关系很复杂，并且有些依赖不能直接创建，例如数据库连接、文件I/O等。这种场景就非常适合使用 mock/stub 测试。简单来说，就是用 mock 对象模拟依赖项的行为。
+GoMock is a mocking framework for the Go programming language. It integrates well with Go’s built-in testing package, but can be used in other contexts too. gomock 是官方提供的 mock 框架，同时还提供了 mockgen 工具用来辅助生成测试代码。
+使用如下命令即可安装：
+go get -u github.com/golang/mock/gomock go get -u github.com/golang/mock/mockgen 2.一个简单的 Demo // db.go type DB interface { Get(key string) (int, error) } func GetFromDB(db DB, key string) int { if value, err := db.</description>
     </item>
     
     <item>
@@ -267,16 +378,6 @@ d = 1 &amp;laquo; iota // d==8 (iota == 3) )
 -2.2.15 软件版本 -15 软件包发布的次数
 -el6.centos 适合的Linux平台 -i686 适合的硬件平台 -rpm rpm包扩展名
 RPM包依赖性  树形依赖: a -&amp;gt; b -&amp;gt; c 环形依赖: a -&amp;gt; b -&amp;gt; c -&amp;gt; a 模块依赖: 模块依赖, 查询网站: www.rpmfind.net  包全名与报名  包全名 操作的包是没有安装的软件包时,使用包全名,而且要注意路径 报名 操作已经安装的软件包时,使用包名,是搜索/var/lib/rpm中的数据库  RPM安装  rpm -ivh 包全名 选项: -i (install) 安装 -v (verbose) 显示详细信息 -h (hash) 显示进度 &amp;ndash;nodeps 不检测依赖性  RPM升级与卸载  rpm -Uvh 包全名 选项: -U (upgrade) 升级  RPM </description>
-    </item>
-    
-    <item>
-      <title>Without ToC</title>
-      <link>https://ruichengm1987.github.io/docs/example/table-of-contents/without-toc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/example/table-of-contents/without-toc/</guid>
-      <description>At me ipso nepotibus nunc celebratior genus Tanto oblite Lorem markdownum pectora novis patenti igne sua opus aurae feras materiaque illic demersit imago et aristas questaque posset. Vomit quoque suo inhaesuro clara. Esse cumque, per referri triste. Ut exponit solisque communis in tendens vincetis agisque iamque huic bene ante vetat omina Thebae rates. Aeacus servat admonitu concidit, ad resimas vultus et rugas vultu dignamque Siphnon.
-Quam iugulum regia simulacra, plus meruit humo pecorumque haesit, ab discedunt dixit: ritu pharetramque.</description>
     </item>
     
     <item>
@@ -679,26 +780,6 @@ Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34
     
     <item>
       <title></title>
-      <link>https://ruichengm1987.github.io/docs/example/collapsed/3rd-level/4th-level/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/example/collapsed/3rd-level/4th-level/</guid>
-      <description>4th Level of Menu Caesorum illa tu sentit micat vestes papyriferi Inde aderam facti; Theseus vis de tauri illa peream. Oculos uberaque non regisque vobis cursuque, opus venit quam vulnera. Et maiora necemque, lege modo; gestanda nitidi, vero? Dum ne pectoraque testantur.
-Venasque repulsa Samos qui, exspectatum eram animosque hinc, aut manes, Assyrii. Cupiens auctoribus pariter rubet, profana magni super nocens. Vos ius sibilat inpar turba visae iusto! Sedes ante dum superest extrema.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ruichengm1987.github.io/docs/example/hidden/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/example/hidden/</guid>
-      <description>This page is hidden in menu Quondam non pater est dignior ille Eurotas Latent te facies Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus, frementes, qui in vel. Hippotades Peleus pennas conscia cuiquam Caeneus quas.
- Pater demittere evincitque reddunt Maxime adhuc pressit huc Danaas quid freta Soror ego Luctus linguam saxa ultroque prior Tatiumque inquit Saepe liquitur subita superata dederat Anius sudor  Cum honorum Latona O fallor in sustinui iussorum equidem.</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://ruichengm1987.github.io/docs/go/git%E7%A7%BB%E9%99%A4%E5%B7%B2%E7%BB%8Fadd%E7%9A%84%E6%96%87%E4%BB%B6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -751,89 +832,6 @@ Venasque repulsa Samos qui, exspectatum eram animosque hinc, aut manes, Assyrii.
       
       <guid>https://ruichengm1987.github.io/docs/rust/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/1.helloworld/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ruichengm1987.github.io/docs/shortcodes/buttons/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/shortcodes/buttons/</guid>
-      <description>Buttons Buttons are styled links that can lead to local page or external link.
-Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ruichengm1987.github.io/docs/shortcodes/columns/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/shortcodes/columns/</guid>
-      <description>Columns Columns help organize shorter pieces of content horizontally for readability.
-{{&amp;lt; columns &amp;gt;}} &amp;lt;!-- begin columns block --&amp;gt; # Left Content Lorem markdownum insigne... &amp;lt;---&amp;gt; &amp;lt;!-- magic sparator, between columns --&amp;gt; # Mid Content Lorem markdownum insigne... &amp;lt;---&amp;gt; &amp;lt;!-- magic sparator, between columns --&amp;gt; # Right Content Lorem markdownum insigne... {{&amp;lt; /columns &amp;gt;}} Example Left Content Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter!</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ruichengm1987.github.io/docs/shortcodes/details/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/shortcodes/details/</guid>
-      <description>Details Details shortcode is a helper for details html5 element. It is going to replace expand shortcode.
-Example {{&amp;lt; details &amp;#34;Title&amp;#34; [open] &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /details &amp;gt;}} {{&amp;lt; details title=&amp;#34;Title&amp;#34; open=true &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /details &amp;gt;}} Title Markdown content Lorem markdownum insigne&amp;hellip;   </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ruichengm1987.github.io/docs/shortcodes/expand/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/shortcodes/expand/</guid>
-      <description>Expand Expand shortcode can help to decrease clutter on screen by hiding part of text. Expand content by clicking on it.
-Example Default {{&amp;lt; expand &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /expand &amp;gt;}}   Expand ↕  Markdown content Lorem markdownum insigne&amp;hellip;    With Custom Label {{&amp;lt; expand &amp;#34;Custom Label&amp;#34; &amp;#34;...&amp;#34; &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /expand &amp;gt;}}   Custom Label .</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ruichengm1987.github.io/docs/shortcodes/hints/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/shortcodes/hints/</guid>
-      <description>Hints Hint shortcode can be used as hint/alerts/notification block.
-There are 3 colors to choose: info, warning and danger.
-{{&amp;lt; hint [info|warning|danger] &amp;gt;}} **Markdown content** Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa {{&amp;lt; /hint &amp;gt;}} Example Markdown content
-Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa  Markdown content</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ruichengm1987.github.io/docs/shortcodes/katex/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/shortcodes/katex/</guid>
-      <description>KaTeX KaTeX shortcode let you render math typesetting in markdown document. See KaTeX
-Example {{&amp;lt; katex [display] [class=&amp;#34;text-center&amp;#34;] &amp;gt;}} f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi {{&amp;lt; /katex &amp;gt;}}     Display Mode Example Here is some inline example:  \(\pi(x)\)  , rendered in the same line. And below is display example, having display: block  \[f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi\]  Text continues here.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ruichengm1987.github.io/docs/shortcodes/mermaid/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/shortcodes/mermaid/</guid>
-      <description>Mermaid Chart Mermaid is library for generating svg charts and diagrams from text.
-Example {{&amp;lt; mermaid [class=&amp;#34;text-center&amp;#34;]&amp;gt;}} sequenceDiagram Alice-&amp;gt;&amp;gt;Bob: Hello Bob, how are you? alt is sick Bob-&amp;gt;&amp;gt;Alice: Not so good :( else is well Bob-&amp;gt;&amp;gt;Alice: Feeling fresh like a daisy end opt Extra response Bob-&amp;gt;&amp;gt;Alice: Thanks for asking end {{&amp;lt; /mermaid &amp;gt;}}     </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ruichengm1987.github.io/docs/shortcodes/tabs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/shortcodes/tabs/</guid>
-      <description>Tabs Tabs let you organize content by context, for example installation instructions for each supported platform.
-{{&amp;lt; tabs &amp;#34;uniqueid&amp;#34; &amp;gt;}} {{&amp;lt; tab &amp;#34;MacOS&amp;#34; &amp;gt;}} # MacOS Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; tab &amp;#34;Linux&amp;#34; &amp;gt;}} # Linux Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; tab &amp;#34;Windows&amp;#34; &amp;gt;}} # Windows Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; /tabs &amp;gt;}} Example MacOS MacOS This is tab MacOS content.
-Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter!</description>
     </item>
     
     <item>

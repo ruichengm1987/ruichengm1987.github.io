@@ -47,6 +47,10 @@
   </url>
   
   <url>
+    <loc>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml%E5%9B%BE/</loc>
+  </url>
+  
+  <url>
     <loc>https://ruichengm1987.github.io/docs/c&#43;&#43;/</loc>
   </url>
   
@@ -55,7 +59,7 @@
   </url>
   
   <url>
-    <loc>https://ruichengm1987.github.io/docs/example/</loc>
+    <loc>https://ruichengm1987.github.io/docs/go/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/test/</loc>
   </url>
   
   <url>
@@ -87,7 +91,7 @@
   </url>
   
   <url>
-    <loc>https://ruichengm1987.github.io/docs/example/table-of-contents/with-toc/</loc>
+    <loc>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml%E5%9B%BE/%E7%B1%BB%E5%9B%BE%E5%9F%BA%E7%A1%80%E5%B1%9E%E6%80%A7/</loc>
   </url>
   
   <url>
@@ -127,6 +131,10 @@
   </url>
   
   <url>
+    <loc>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/%E5%AE%B9%E9%94%99%E9%AB%98%E5%8F%AF%E7%94%A8%E5%92%8C%E7%81%BE%E5%A4%87/</loc>
+  </url>
+  
+  <url>
     <loc>https://ruichengm1987.github.io/docs/go/%E8%BF%90%E8%A1%8C%E6%97%B6%E7%AF%87/%E6%A0%88%E9%80%83%E9%80%B8/</loc>
   </url>
   
@@ -148,6 +156,10 @@
   
   <url>
     <loc>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/02%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A/</loc>
   </url>
   
   <url>
@@ -191,15 +203,15 @@
   </url>
   
   <url>
+    <loc>https://ruichengm1987.github.io/docs/go/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/mock/</loc>
+  </url>
+  
+  <url>
     <loc>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/iota/</loc>
   </url>
   
   <url>
     <loc>https://ruichengm1987.github.io/docs/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86/rpm/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ruichengm1987.github.io/docs/example/table-of-contents/without-toc/</loc>
   </url>
   
   <url>
@@ -311,6 +323,10 @@
   </url>
   
   <url>
+    <loc>https://ruichengm1987.github.io/docs/go/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</loc>
+  </url>
+  
+  <url>
     <loc>https://ruichengm1987.github.io/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B015%E4%B8%AA/</loc>
   </url>
   
@@ -359,10 +375,6 @@
   </url>
   
   <url>
-    <loc>https://ruichengm1987.github.io/docs/example/table-of-contents/</loc>
-  </url>
-  
-  <url>
     <loc>https://ruichengm1987.github.io/docs/chart/</loc>
   </url>
   
@@ -383,23 +395,7 @@
   </url>
   
   <url>
-    <loc>https://ruichengm1987.github.io/docs/example/collapsed/</loc>
-  </url>
-  
-  <url>
     <loc>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ruichengm1987.github.io/docs/example/collapsed/3rd-level/4th-level/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ruichengm1987.github.io/docs/example/collapsed/3rd-level/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ruichengm1987.github.io/docs/example/hidden/</loc>
   </url>
   
   <url>
@@ -424,42 +420,6 @@
   
   <url>
     <loc>https://ruichengm1987.github.io/docs/rust/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/1.helloworld/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ruichengm1987.github.io/docs/shortcodes/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ruichengm1987.github.io/docs/shortcodes/buttons/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ruichengm1987.github.io/docs/shortcodes/columns/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ruichengm1987.github.io/docs/shortcodes/details/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ruichengm1987.github.io/docs/shortcodes/expand/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ruichengm1987.github.io/docs/shortcodes/hints/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ruichengm1987.github.io/docs/shortcodes/katex/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ruichengm1987.github.io/docs/shortcodes/mermaid/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ruichengm1987.github.io/docs/shortcodes/tabs/</loc>
   </url>
   
   <url>
