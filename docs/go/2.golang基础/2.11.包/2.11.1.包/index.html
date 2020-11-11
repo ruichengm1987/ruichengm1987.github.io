@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="2.11.1.包 在工程化的Go语言开发项目中，Go语言的源码复用是建立在包（package）基础之上的。本文介绍了Go语言中如何定义包、如何导出包的内容及如何导入其他包。
+包介绍 包（package）是多个Go源码的集合，是一种高级的代码复用方案，Go语言为我们提供了很多内置包，如fmt、os、io等。
+定义包 我们还可以根据自己的需要创建自己的包。一个包可以简单理解为一个存放.go文件的文件夹。 该文件夹下面的所有go文件都要在代码的第一行添加如下代码，声明该文件归属的包。
+package 包名 注意事项：
+ 一个文件夹下面直接包含的文件只能归属一个package，同样一个package的文件不能在多个文件夹下。 包名可以不和文件夹的名字一样，包名不能包含 - 符号。 包名为main的包为应用程序的入口包，这种包编译后会得到一个可执行文件，而编译不包含main包的源代码则不会得到可执行文件。  可见性 如果想在一个包中引用另外一个包里的标识符（如变量、常量、类型、函数等）时，该标识符必须是对外可见的（public）。在Go语言中只需要将标识符的首字母大写就可以让标识符对外可见了。
+举个例子， 我们定义一个包名为pkg2的包，代码如下：
+package pkg2 import &quot;fmt&quot; // 包变量可见性 var a = 100 // 首字母小写，外部包不可见，只能在当前包内使用 // 首字母大写外部包可见，可在其他包中使用 const Mode = 1 type person struct { // 首字母小写，外部包不可见，只能在当前包内使用 name string } // 首字母大写，外部包可见，可在其他包中使用 func Add(x, y int) int { return x &#43; y } func age() { // 首字母小写，外部包不可见，只能在当前包内使用 var Age = 18 // 函数局部变量，外部包不可见，只能在当前函数内使用 fmt.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="2.11.1.包" />
+<meta property="og:description" content="2.11.1.包 在工程化的Go语言开发项目中，Go语言的源码复用是建立在包（package）基础之上的。本文介绍了Go语言中如何定义包、如何导出包的内容及如何导入其他包。
+包介绍 包（package）是多个Go源码的集合，是一种高级的代码复用方案，Go语言为我们提供了很多内置包，如fmt、os、io等。
+定义包 我们还可以根据自己的需要创建自己的包。一个包可以简单理解为一个存放.go文件的文件夹。 该文件夹下面的所有go文件都要在代码的第一行添加如下代码，声明该文件归属的包。
+package 包名 注意事项：
+ 一个文件夹下面直接包含的文件只能归属一个package，同样一个package的文件不能在多个文件夹下。 包名可以不和文件夹的名字一样，包名不能包含 - 符号。 包名为main的包为应用程序的入口包，这种包编译后会得到一个可执行文件，而编译不包含main包的源代码则不会得到可执行文件。  可见性 如果想在一个包中引用另外一个包里的标识符（如变量、常量、类型、函数等）时，该标识符必须是对外可见的（public）。在Go语言中只需要将标识符的首字母大写就可以让标识符对外可见了。
+举个例子， 我们定义一个包名为pkg2的包，代码如下：
+package pkg2 import &quot;fmt&quot; // 包变量可见性 var a = 100 // 首字母小写，外部包不可见，只能在当前包内使用 // 首字母大写外部包可见，可在其他包中使用 const Mode = 1 type person struct { // 首字母小写，外部包不可见，只能在当前包内使用 name string } // 首字母大写，外部包可见，可在其他包中使用 func Add(x, y int) int { return x &#43; y } func age() { // 首字母小写，外部包不可见，只能在当前包内使用 var Age = 18 // 函数局部变量，外部包不可见，只能在当前函数内使用 fmt." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.11.%E5%8C%85/2.11.1.%E5%8C%85/" />
+
+<title>2.11.1.包 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.e725a6788373038fb22ac5793cb68ef5b90b8a2a0f6b4f0bbfaee9141ec53b4f.js" integrity="sha256-5yWmeINzA4&#43;yKsV5PLaO9bkLiioPa08Lv67pFB7FO08="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">GoLang</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="collapsed ">1.开发环境</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/" class="collapsed ">2. Golang基础</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.1.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/" class="collapsed ">2.1.变量和常量</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="collapsed ">2.2.基本数据类型</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.3.%E8%BF%90%E7%AE%97%E7%AC%A6/" class="collapsed ">2.3.运算符</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="collapsed ">2.4.流程控制</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.5.%E6%95%B0%E7%BB%84/" class="collapsed ">2.5.数组</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.6.%E5%88%87%E7%89%87/" class="collapsed ">2.6.切片</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.7.map/" class="collapsed ">2.7.map</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/" class="collapsed ">2.8.函数</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.11.%E5%8C%85/" class="collapsed ">2.11.包</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.11.%E5%8C%85/2.11.1.%E5%8C%85/" class="active">2.11.1.包</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.11.%E5%8C%85/a/" class="">aa</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/" class="collapsed ">3.标准库</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/4.web%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/" class="collapsed ">4. Web开发相关</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/5.golang%E9%AB%98%E7%BA%A7/" class="collapsed ">5. Golang高级</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/6.golang%E6%BA%90%E7%A0%81/" class="collapsed ">6. Golang源码</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/7.%E5%BA%94%E7%94%A8/" class="collapsed ">7.应用</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>2.11.1.包</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#包介绍">包介绍</a></li>
+    <li><a href="#定义包">定义包</a></li>
+    <li><a href="#可见性">可见性</a></li>
+    <li><a href="#包的导入">包的导入</a>
+      <ul>
+        <li><a href="#单行导入">单行导入</a></li>
+        <li><a href="#多行导入">多行导入</a></li>
+      </ul>
+    </li>
+    <li><a href="#自定义包名">自定义包名</a></li>
+    <li><a href="#匿名导入包">匿名导入包</a></li>
+    <li><a href="#init初始化函数">init()初始化函数</a>
+      <ul>
+        <li><a href="#init函数介绍">init()函数介绍</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="2111包">2.11.1.包</h1>
+<p>在工程化的Go语言开发项目中，Go语言的源码复用是建立在包（package）基础之上的。本文介绍了Go语言中如何定义包、如何导出包的内容及如何导入其他包。</p>
+<h2 id="包介绍">包介绍</h2>
+<p>包（package）是多个Go源码的集合，是一种高级的代码复用方案，Go语言为我们提供了很多内置包，如fmt、os、io等。</p>
+<h2 id="定义包">定义包</h2>
+<p>我们还可以根据自己的需要创建自己的包。一个包可以简单理解为一个存放.go文件的文件夹。 该文件夹下面的所有go文件都要在代码的第一行添加如下代码，声明该文件归属的包。</p>
+<pre><code class="language-aidl" data-lang="aidl">package 包名
+</code></pre><p>注意事项：</p>
+<ul>
+<li>一个文件夹下面直接包含的文件只能归属一个package，同样一个package的文件不能在多个文件夹下。</li>
+<li>包名可以不和文件夹的名字一样，包名不能包含 - 符号。</li>
+<li>包名为main的包为应用程序的入口包，这种包编译后会得到一个可执行文件，而编译不包含main包的源代码则不会得到可执行文件。</li>
+</ul>
+<h2 id="可见性">可见性</h2>
+<p>如果想在一个包中引用另外一个包里的标识符（如变量、常量、类型、函数等）时，该标识符必须是对外可见的（public）。在Go语言中只需要将标识符的首字母大写就可以让标识符对外可见了。</p>
+<p>举个例子， 我们定义一个包名为pkg2的包，代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">package pkg2
+
+import &quot;fmt&quot;
+
+// 包变量可见性
+
+var a = 100 // 首字母小写，外部包不可见，只能在当前包内使用
+
+// 首字母大写外部包可见，可在其他包中使用
+const Mode = 1
+
+type person struct { // 首字母小写，外部包不可见，只能在当前包内使用
+	name string
+}
+
+// 首字母大写，外部包可见，可在其他包中使用
+func Add(x, y int) int {
+	return x + y
+}
+
+func age() { // 首字母小写，外部包不可见，只能在当前包内使用
+	var Age = 18 // 函数局部变量，外部包不可见，只能在当前函数内使用
+	fmt.Println(Age)
+}
+
+</code></pre><p>结构体中的字段名和接口中的方法名如果首字母都是大写，外部包可以访问这些字段和方法。例如：</p>
+<pre><code class="language-aidl" data-lang="aidl">type Student struct {
+	Name  string //可在包外访问的方法
+	class string //仅限包内访问的字段
+}
+
+type Payer interface {
+	init() //仅限包内访问的方法
+	Pay()  //可在包外访问的方法
+}
+
+</code></pre><h2 id="包的导入">包的导入</h2>
+<p>要在代码中引用其他包的内容，需要使用import关键字导入使用的包。具体语法如下:</p>
+<pre><code class="language-aidl" data-lang="aidl">import &quot;包的路径&quot;
+</code></pre><p>注意事项：</p>
+<ul>
+<li>import导入语句通常放在文件开头包声明语句的下面。</li>
+<li>导入的包名需要使用双引号包裹起来。</li>
+<li>包名是从$GOPATH/src/后开始计算的，使用/进行路径分隔。</li>
+<li>Go语言中禁止循环导入包。</li>
+</ul>
+<h3 id="单行导入">单行导入</h3>
+<p>单行导入的格式如下:</p>
+<pre><code class="language-aidl" data-lang="aidl">import &quot;包1&quot;
+import &quot;包2&quot;
+</code></pre><h3 id="多行导入">多行导入</h3>
+<p>多行导入的格式如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">import (
+    &quot;包1&quot;
+    &quot;包2&quot;
+)
+</code></pre><h2 id="自定义包名">自定义包名</h2>
+<p>在导入包名的时候，我们还可以为导入的包设置别名。通常用于导入的包名太长或者导入的包名冲突的情况。具体语法格式如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">import 别名 &quot;包的路径&quot;
+</code></pre><p>单行导入方式定义别名：</p>
+<pre><code class="language-aidl" data-lang="aidl">import &quot;fmt&quot;
+import m &quot;github.com/Q1mi/studygo/pkg_test&quot;
+
+func main() {
+	fmt.Println(m.Add(100, 200))
+	fmt.Println(m.Mode)
+}
+</code></pre><p>多行导入方式定义别名：</p>
+<pre><code class="language-aidl" data-lang="aidl">import (
+    &quot;fmt&quot;
+    m &quot;github.com/Q1mi/studygo/pkg_test&quot;
+ )
+
+func main() {
+	fmt.Println(m.Add(100, 200))
+	fmt.Println(m.Mode)
+}
+</code></pre><h2 id="匿名导入包">匿名导入包</h2>
+<p>如果只希望导入包，而不使用包内部的数据时，可以使用匿名导入包。具体的格式如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">import _ &quot;包的路径&quot;
+</code></pre><p>匿名导入的包与其他方式导入的包一样都会被编译到可执行文件中。</p>
+<h2 id="init初始化函数">init()初始化函数</h2>
+<h3 id="init函数介绍">init()函数介绍</h3>
+<p>在Go语言程序执行时导入包语句会自动触发包内部init()函数的调用。需要注意的是： init()函数没有参数也没有返回值。 init()函数在程序运行时自动被调用执行，不能在代码中主动调用它。</p>
+<p>包初始化执行的顺序如下图所示：</p>
+<p>
+<figure >
+
+    <img src="/architect/02/11.png"  />
+    
+
+</figure>
+
+
+<figure >
+
+    <img src="/architect/02/17.png"  />
+    
+
+</figure>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#包介绍">包介绍</a></li>
+    <li><a href="#定义包">定义包</a></li>
+    <li><a href="#可见性">可见性</a></li>
+    <li><a href="#包的导入">包的导入</a>
+      <ul>
+        <li><a href="#单行导入">单行导入</a></li>
+        <li><a href="#多行导入">多行导入</a></li>
+      </ul>
+    </li>
+    <li><a href="#自定义包名">自定义包名</a></li>
+    <li><a href="#匿名导入包">匿名导入包</a></li>
+    <li><a href="#init初始化函数">init()初始化函数</a>
+      <ul>
+        <li><a href="#init函数介绍">init()函数介绍</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

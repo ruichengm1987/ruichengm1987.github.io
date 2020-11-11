@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="并发 进程、线程、协程   进程:
+ 进程是什么? 一种系统运行行动 进程的定位是什么? 程序的执行实体 进程长什么样子? 在terminal中查看 进程怎么使用? [一般情况]一个程序一个进程, [多进程]一个程序多个进程    线程:
+ 线程是什么? 运算调度的最小单元 线程的作用是什么? 同时运算多个任务 和进程有什么区别? 大哥和小弟的关系 线程内存大小?
+怎么&quot;切&rdquo;? 内核控制
+&ldquo;切多大&rdquo;? 缓存&#43;内核控制
+&ldquo;等长吗&rdquo;? 不等长 线程观摩  回到我们的terminal 输入命令ps -M [pid] 查看对应pid的线程      协程
+ 协程(Coroutine)是什么? 轻量级的线程 协程的定位是什么? 用户控制的函数 有什么样的优势? 协程优势  协程的内存消耗更小  一个线程可以包含多个协程 线程大约8MB的内存申请量 协程大概2kb的内存申请量   上下文切换更快  协程少一道手续 线程申请内存, 需要走过内核 协程申请内存，不需要走过内核        灵魂Goroutine">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="并发" />
+<meta property="og:description" content="并发 进程、线程、协程   进程:
+ 进程是什么? 一种系统运行行动 进程的定位是什么? 程序的执行实体 进程长什么样子? 在terminal中查看 进程怎么使用? [一般情况]一个程序一个进程, [多进程]一个程序多个进程    线程:
+ 线程是什么? 运算调度的最小单元 线程的作用是什么? 同时运算多个任务 和进程有什么区别? 大哥和小弟的关系 线程内存大小?
+怎么&quot;切&rdquo;? 内核控制
+&ldquo;切多大&rdquo;? 缓存&#43;内核控制
+&ldquo;等长吗&rdquo;? 不等长 线程观摩  回到我们的terminal 输入命令ps -M [pid] 查看对应pid的线程      协程
+ 协程(Coroutine)是什么? 轻量级的线程 协程的定位是什么? 用户控制的函数 有什么样的优势? 协程优势  协程的内存消耗更小  一个线程可以包含多个协程 线程大约8MB的内存申请量 协程大概2kb的内存申请量   上下文切换更快  协程少一道手续 线程申请内存, 需要走过内核 协程申请内存，不需要走过内核        灵魂Goroutine" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%B9%B6%E5%8F%91/" />
+
+<title>并发 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.e725a6788373038fb22ac5793cb68ef5b90b8a2a0f6b4f0bbfaee9141ec53b4f.js" integrity="sha256-5yWmeINzA4&#43;yKsV5PLaO9bkLiioPa08Lv67pFB7FO08="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">GoLang</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="collapsed ">1.开发环境</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/" class="collapsed ">2. Golang基础</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/" class="collapsed ">3.标准库</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/4.web%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/" class="collapsed ">4. Web开发相关</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/5.golang%E9%AB%98%E7%BA%A7/" class="collapsed ">5. Golang高级</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/6.golang%E6%BA%90%E7%A0%81/" class="collapsed ">6. Golang源码</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/7.%E5%BA%94%E7%94%A8/" class="collapsed ">7.应用</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>并发</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#进程线程协程">进程、线程、协程</a></li>
+    <li><a href="#多协程的核心机理">多协程的核心机理</a>
+      <ul>
+        <li><a href="#什么是多协程">什么是多协程?</a></li>
+        <li><a href="#多协程的相对性">多协程的相对性</a></li>
+      </ul>
+    </li>
+    <li><a href="#多协程的使用场景">多协程的使用场景</a></li>
+    <li><a href="#channel阻塞">channel阻塞</a></li>
+    <li><a href="#channel阻塞的严重后果">channel阻塞的严重后果</a></li>
+    <li><a href="#channel解决办法">channel解决办法</a></li>
+    <li><a href="#如何利用channel阻塞">如何利用channel阻塞</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="并发">并发</h1>
+<h2 id="进程线程协程">进程、线程、协程</h2>
+<ul>
+<li>
+<p>进程:</p>
+<ol>
+<li>进程是什么? 一种系统运行行动</li>
+<li>进程的定位是什么? 程序的执行实体</li>
+<li>进程长什么样子? 在terminal中查看</li>
+<li>进程怎么使用? [一般情况]一个程序一个进程, [多进程]一个程序多个进程</li>
+</ol>
+</li>
+<li>
+<p>线程:</p>
+<ol>
+<li>线程是什么? 运算调度的最小单元</li>
+<li>线程的作用是什么? 同时运算多个任务</li>
+<li>和进程有什么区别? 大哥和小弟的关系</li>
+<li>线程内存大小?<br>
+怎么&quot;切&rdquo;? 内核控制<br>
+&ldquo;切多大&rdquo;? 缓存+内核控制<br>
+&ldquo;等长吗&rdquo;? 不等长</li>
+<li>线程观摩
+<ol>
+<li>回到我们的terminal</li>
+<li>输入命令ps -M [pid]</li>
+<li>查看对应pid的线程</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>协程</p>
+<ol>
+<li>协程(Coroutine)是什么? 轻量级的线程</li>
+<li>协程的定位是什么? 用户控制的函数</li>
+<li>有什么样的优势?</li>
+<li>协程优势
+<ol>
+<li>协程的内存消耗更小
+<ol>
+<li>一个线程可以包含多个协程</li>
+<li>线程大约8MB的内存申请量</li>
+<li>协程大概2kb的内存申请量</li>
+</ol>
+</li>
+<li>上下文切换更快
+<ol>
+<li>协程少一道手续</li>
+<li>线程申请内存, 需要走过内核</li>
+<li>协程申请内存，不需要走过内核</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>灵魂Goroutine</p>
+<ol>
+<li>Goroutine是什么? 一种协程(Coroutine)</li>
+<li>Goroutine和协程有怎样的关系? 一种优化</li>
+<li>为什么使用Goroutine?
+<ol>
+<li>去掉了冗余的协程声明周期管理
+<ol>
+<li>协程创建</li>
+<li>协程完成</li>
+<li>协程重用</li>
+</ol>
+</li>
+<li>降低额外的延迟和开销
+<ol>
+<li>由于协程简频繁交互导致的</li>
+</ol>
+</li>
+<li>降低加锁/解锁的频率
+a. 降低一部分额外的开销</li>
+</ol>
+</li>
+<li>Goroutine如何使用</li>
+</ol>
+</li>
+</ul>
+<h2 id="多协程的核心机理">多协程的核心机理</h2>
+<h3 id="什么是多协程">什么是多协程?</h3>
+<ol>
+<li>官方定义: 一段时间内协程的并行</li>
+<li>实际应用: 某个任务使用多个协程同时进行处理</li>
+</ol>
+<h3 id="多协程的相对性">多协程的相对性</h3>
+<ol>
+<li>同时处理非同一道菜的食材   不算多协程</li>
+<li>同时处理同一道菜的食材     算多协程</li>
+<li>同时处理同一道菜的同一种食材 算多协程</li>
+</ol>
+<h2 id="多协程的使用场景">多协程的使用场景</h2>
+<ol>
+<li>运算比较多的流程上</li>
+<li>协程间依赖性比较弱</li>
+</ol>
+<h2 id="channel阻塞">channel阻塞</h2>
+<p>阻塞条件:<br>
+输入channel的数据量不等于channel能接受的量</p>
+<h2 id="channel阻塞的严重后果">channel阻塞的严重后果</h2>
+<p>程序位置: 非主流程
+channel下游获取不到结果， 造成数据丢失</p>
+<p>程序位置: 主流课
+主流程卡带，整个程序沉睡，股中昂级别P0级别</p>
+<h2 id="channel解决办法">channel解决办法</h2>
+<p>设定channel缓冲:<br>
+make(chan int, 10) 10=channel的大小,即可以放多少个元素
+channel的大小如何设定: 一般根据业务场景需求来</p>
+<h2 id="如何利用channel阻塞">如何利用channel阻塞</h2>
+<p>实现资源争抢<br>
+实现多协程锁, 变相的&quot;锁&rdquo;<br>
+实现消息定额消费</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#进程线程协程">进程、线程、协程</a></li>
+    <li><a href="#多协程的核心机理">多协程的核心机理</a>
+      <ul>
+        <li><a href="#什么是多协程">什么是多协程?</a></li>
+        <li><a href="#多协程的相对性">多协程的相对性</a></li>
+      </ul>
+    </li>
+    <li><a href="#多协程的使用场景">多协程的使用场景</a></li>
+    <li><a href="#channel阻塞">channel阻塞</a></li>
+    <li><a href="#channel阻塞的严重后果">channel阻塞的严重后果</a></li>
+    <li><a href="#channel解决办法">channel解决办法</a></li>
+    <li><a href="#如何利用channel阻塞">如何利用channel阻塞</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

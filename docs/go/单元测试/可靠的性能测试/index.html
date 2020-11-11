@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="可靠的性能测试 主要内容  可靠的测试环境 benchstat 例子与实践  对代码进行性能调优 Benchmark的正确性分析 其他的影响因素   假设检验的原理 局限与应对措施 总结  性能测试方法论 1、搜索需求
+2、编写测试用例
+3、自动化性能测试用例
+4、执行性能测试用例
+5、分析性能测试结果
+6、性能调优
+7、性能基准测试(Performance Benchmarking)
+8、向客户推荐合适的配合
+影响测试环境的软硬件因素  硬件: CPU型号、温度、IO等 软件: 操作系统版本、当前系统调度的负载等  性能基准测试的两个基本目标 可重复性: 在其他外在的条件不变的情况下, 性能度量结果是稳定、可重复的(能复现的才叫bug)
+可比较性: 总是存在一个可以比较的基本线(有比较才有伤害)
+benchstat go get golang.org/x/perf/cmd/benchstat benchstat --help usage: benchstat [options] old.txt [new.txt] [more.txt ...] options: -alpha α consider change significant if p &lt; α (default 0.05) -csv print results in CSV form -delta-test test significance test to apply to delta: utest, ttest, or none (default &quot;utest&quot;) -geomean print the geometric mean of each file -html print results as an HTML table -norange suppress range columns (CSV only) -sort order sort by order: [-]delta, [-]name, none (default &quot;none&quot;) -split labels split benchmarks by labels (default &quot;pkg,goos,goarch&quot;) ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="可靠的性能测试" />
+<meta property="og:description" content="可靠的性能测试 主要内容  可靠的测试环境 benchstat 例子与实践  对代码进行性能调优 Benchmark的正确性分析 其他的影响因素   假设检验的原理 局限与应对措施 总结  性能测试方法论 1、搜索需求
+2、编写测试用例
+3、自动化性能测试用例
+4、执行性能测试用例
+5、分析性能测试结果
+6、性能调优
+7、性能基准测试(Performance Benchmarking)
+8、向客户推荐合适的配合
+影响测试环境的软硬件因素  硬件: CPU型号、温度、IO等 软件: 操作系统版本、当前系统调度的负载等  性能基准测试的两个基本目标 可重复性: 在其他外在的条件不变的情况下, 性能度量结果是稳定、可重复的(能复现的才叫bug)
+可比较性: 总是存在一个可以比较的基本线(有比较才有伤害)
+benchstat go get golang.org/x/perf/cmd/benchstat benchstat --help usage: benchstat [options] old.txt [new.txt] [more.txt ...] options: -alpha α consider change significant if p &lt; α (default 0.05) -csv print results in CSV form -delta-test test significance test to apply to delta: utest, ttest, or none (default &quot;utest&quot;) -geomean print the geometric mean of each file -html print results as an HTML table -norange suppress range columns (CSV only) -sort order sort by order: [-]delta, [-]name, none (default &quot;none&quot;) -split labels split benchmarks by labels (default &quot;pkg,goos,goarch&quot;) " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/go/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/%E5%8F%AF%E9%9D%A0%E7%9A%84%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" />
+
+<title>可靠的性能测试 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.24fc3461e299f793b83d1ae7601073c8f7251397f74dc0bd22f98ee955daadfc.js" integrity="sha256-JPw0YeKZ95O4PRrnYBBzyPclE5f3TcC9IvmO6VXarfw="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">GoLang</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/%E5%85%A5%E9%97%A8/" class="collapsed ">入门</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/%E5%AE%89%E8%A3%85%E7%AF%87/" class="collapsed ">安装篇</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/%E5%9F%BA%E7%A1%80%E7%AF%87/" class="collapsed ">基础篇</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/%E8%BF%90%E8%A1%8C%E6%97%B6%E7%AF%87/" class="collapsed ">运行时篇</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/%E5%B7%A5%E5%85%B7%E9%93%BE%E7%AF%87/" class="collapsed ">工具链篇</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/go%E9%98%85%E8%AF%BB/" class="collapsed ">Go阅读</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="collapsed ">单元测试</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/test/" class="">Go Test 单元测试简明教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/mock/" class="">Go Mock (gomock)简明教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/%E5%8F%AF%E9%9D%A0%E7%9A%84%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" class="active">可靠的性能测试</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/git%E7%A7%BB%E9%99%A4%E5%B7%B2%E7%BB%8Fadd%E7%9A%84%E6%96%87%E4%BB%B6/" class="">Git移除已经add的文件</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>可靠的性能测试</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#主要内容">主要内容</a></li>
+    <li><a href="#性能测试方法论">性能测试方法论</a></li>
+    <li><a href="#影响测试环境的软硬件因素">影响测试环境的软硬件因素</a></li>
+    <li><a href="#性能基准测试的两个基本目标">性能基准测试的两个基本目标</a></li>
+    <li><a href="#benchstat">benchstat</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="可靠的性能测试">可靠的性能测试</h1>
+<h2 id="主要内容">主要内容</h2>
+<ul>
+<li>可靠的测试环境</li>
+<li>benchstat</li>
+<li>例子与实践
+<ul>
+<li>对代码进行性能调优</li>
+<li>Benchmark的正确性分析</li>
+<li>其他的影响因素</li>
+</ul>
+</li>
+<li>假设检验的原理</li>
+<li>局限与应对措施</li>
+<li>总结</li>
+</ul>
+<h2 id="性能测试方法论">性能测试方法论</h2>
+<p>1、搜索需求<br>
+2、编写测试用例<br>
+3、自动化性能测试用例<br>
+4、执行性能测试用例<br>
+5、分析性能测试结果<br>
+6、性能调优<br>
+7、性能基准测试(Performance Benchmarking)<br>
+8、向客户推荐合适的配合</p>
+<h2 id="影响测试环境的软硬件因素">影响测试环境的软硬件因素</h2>
+<ul>
+<li>硬件: CPU型号、温度、IO等</li>
+<li>软件: 操作系统版本、当前系统调度的负载等</li>
+</ul>
+<h2 id="性能基准测试的两个基本目标">性能基准测试的两个基本目标</h2>
+<p>可重复性: 在其他外在的条件不变的情况下, 性能度量结果是稳定、可重复的(能复现的才叫bug)<br>
+可比较性: 总是存在一个可以比较的基本线(有比较才有伤害)</p>
+<h2 id="benchstat">benchstat</h2>
+<pre><code class="language-aidl" data-lang="aidl">go get golang.org/x/perf/cmd/benchstat
+benchstat --help
+usage: benchstat [options] old.txt [new.txt] [more.txt ...]
+options:
+  -alpha α
+    	consider change significant if p &lt; α (default 0.05)
+  -csv
+    	print results in CSV form
+  -delta-test test
+    	significance test to apply to delta: utest, ttest, or none (default &quot;utest&quot;)
+  -geomean
+    	print the geometric mean of each file
+  -html
+    	print results as an HTML table
+  -norange
+    	suppress range columns (CSV only)
+  -sort order
+    	sort by order: [-]delta, [-]name, none (default &quot;none&quot;)
+  -split labels
+    	split benchmarks by labels (default &quot;pkg,goos,goarch&quot;)
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#主要内容">主要内容</a></li>
+    <li><a href="#性能测试方法论">性能测试方法论</a></li>
+    <li><a href="#影响测试环境的软硬件因素">影响测试环境的软硬件因素</a></li>
+    <li><a href="#性能基准测试的两个基本目标">性能基准测试的两个基本目标</a></li>
+    <li><a href="#benchstat">benchstat</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

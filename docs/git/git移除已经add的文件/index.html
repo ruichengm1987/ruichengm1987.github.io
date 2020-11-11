@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="git 移除已经add的文件 使用 git rm 命令即可，有两种选择,  一种是 git rm &ndash;cached “文件路径”，不删除物理文件，仅将该文件从缓存中删除； 一种是 git rm &ndash;f “文件路径”，不仅将该文件从缓存中删除，还会将物理文件删除（不会回收到垃圾桶）。  请问 git rm &ndash;cache 和 git reset HEAD 的区别到底在哪里呢？ 如果要删除文件，最好用 git rm file_name，而不应该直接在工作区直接 rm file_name。
+如果一个文件已经add到暂存区，还没有 commit，此时如果不想要这个文件了 有两种方法：
+ 1，用版本库内容清空暂存区，git reset HEAD 但要慎重使用 2，只把特定文件从暂存区删除，git rm &ndash;cached xxx  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="git 移除已经add的文件 使用 git rm 命令即可，有两种选择,  一种是 git rm &ndash;cached “文件路径”，不删除物理文件，仅将该文件从缓存中删除； 一种是 git rm &ndash;f “文件路径”，不仅将该文件从缓存中删除，还会将物理文件删除（不会回收到垃圾桶）。  请问 git rm &ndash;cache 和 git reset HEAD 的区别到底在哪里呢？ 如果要删除文件，最好用 git rm file_name，而不应该直接在工作区直接 rm file_name。
+如果一个文件已经add到暂存区，还没有 commit，此时如果不想要这个文件了 有两种方法：
+ 1，用版本库内容清空暂存区，git reset HEAD 但要慎重使用 2，只把特定文件从暂存区删除，git rm &ndash;cached xxx  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/git/git%E7%A7%BB%E9%99%A4%E5%B7%B2%E7%BB%8Fadd%E7%9A%84%E6%96%87%E4%BB%B6/" />
+
+<title>Git移除已经add的文件 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.e725a6788373038fb22ac5793cb68ef5b90b8a2a0f6b4f0bbfaee9141ec53b4f.js" integrity="sha256-5yWmeINzA4&#43;yKsV5PLaO9bkLiioPa08Lv67pFB7FO08="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">GoLang</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" class="collapsed ">0.入门基础</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/1.%E8%BF%9B%E9%98%B6/" class="collapsed ">1.进阶</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/2.%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C/" class="collapsed ">2.团队协作</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/git%E7%A7%BB%E9%99%A4%E5%B7%B2%E7%BB%8Fadd%E7%9A%84%E6%96%87%E4%BB%B6/" class="active">Git移除已经add的文件</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Git移除已经add的文件</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#使用-git-rm-命令即可有两种选择">使用 git rm 命令即可，有两种选择,</a></li>
+    <li><a href="#请问-git-rm---cache-和-git-reset-head-的区别到底在哪里呢">请问 git rm &ndash;cache 和 git reset HEAD 的区别到底在哪里呢？</a>
+      <ul>
+        <li><a href="#如果一个文件已经add到暂存区还没有-commit此时如果不想要这个文件了">如果一个文件已经add到暂存区，还没有 commit，此时如果不想要这个文件了</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="git-移除已经add的文件">git 移除已经add的文件</h1>
+<h2 id="使用-git-rm-命令即可有两种选择">使用 git rm 命令即可，有两种选择,</h2>
+<ul>
+<li>一种是 git rm &ndash;cached “文件路径”，不删除物理文件，仅将该文件从缓存中删除；</li>
+<li>一种是 git rm &ndash;f “文件路径”，不仅将该文件从缓存中删除，还会将物理文件删除（不会回收到垃圾桶）。</li>
+</ul>
+<h2 id="请问-git-rm---cache-和-git-reset-head-的区别到底在哪里呢">请问 git rm &ndash;cache 和 git reset HEAD 的区别到底在哪里呢？</h2>
+<p>如果要删除文件，最好用 git rm file_name，而不应该直接在工作区直接 rm file_name。</p>
+<h3 id="如果一个文件已经add到暂存区还没有-commit此时如果不想要这个文件了">如果一个文件已经add到暂存区，还没有 commit，此时如果不想要这个文件了</h3>
+<p>有两种方法：</p>
+<ul>
+<li>1，用版本库内容清空暂存区，git reset HEAD 但要慎重使用</li>
+<li>2，只把特定文件从暂存区删除，git rm &ndash;cached xxx</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#使用-git-rm-命令即可有两种选择">使用 git rm 命令即可，有两种选择,</a></li>
+    <li><a href="#请问-git-rm---cache-和-git-reset-head-的区别到底在哪里呢">请问 git rm &ndash;cache 和 git reset HEAD 的区别到底在哪里呢？</a>
+      <ul>
+        <li><a href="#如果一个文件已经add到暂存区还没有-commit此时如果不想要这个文件了">如果一个文件已经add到暂存区，还没有 commit，此时如果不想要这个文件了</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

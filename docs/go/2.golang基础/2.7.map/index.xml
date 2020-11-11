@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.7.map/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.7.map/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2.7.map</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.7.map/2.7.map/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.7.map/2.7.map/</guid>
+      <description>2.7.map Go语言中提供的映射关系容器为map，其内部使用散列表（hash）实现。
+map是一种无序的基于key-value的数据结构，Go语言中的map是引用类型，必须初始化才能使用。
+map定义 Go语言中 map的定义语法如下：
+map[KeyType]ValueType 其中
+ KeyType:表示键的类型。 ValueType:表示键对应的值的类型。 map类型的变量默认初始值为nil，需要使用make()函数来分配内存。语法为：  make(map[KeyType]ValueType, [cap]) 其中cap表示map的容量，该参数虽然不是必须的，但是我们应该在初始化map的时候就为其指定一个合适的容量。
+map基本使用 map中的数据都是成对出现的，map的基本使用示例代码如下：
+func main() { scoreMap := make(map[string]int, 8) scoreMap[&amp;quot;张三&amp;quot;] = 90 scoreMap[&amp;quot;小明&amp;quot;] = 100 fmt.Println(scoreMap) fmt.Println(scoreMap[&amp;quot;小明&amp;quot;]) fmt.Printf(&amp;quot;type of a:%T\n&amp;quot;, scoreMap) } 输出：
+map[小明:100 张三:90] 100 type of a:map[string]int map也支持在声明的时候填充元素，例如：
+func main() { userInfo := map[string]string{ &amp;quot;username&amp;quot;: &amp;quot;沙河小王子&amp;quot;, &amp;quot;password&amp;quot;: &amp;quot;123456&amp;quot;, } fmt.Println(userInfo) // } 判断某个键是否存在 Go语言中有个判断map中键是否存在的特殊写法，格式如下:
+value, ok := map[key] 举个例子：
+func main() { scoreMap := make(map[string]int) scoreMap[&amp;quot;张三&amp;quot;] = 90 scoreMap[&amp;quot;小明&amp;quot;] = 100 // 如果key存在ok为true,v为对应的值；不存在ok为false,v为值类型的零值 v, ok := scoreMap[&amp;quot;张三&amp;quot;] if ok { fmt.</description>
+    </item>
+    
+  </channel>
+</rss>

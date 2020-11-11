@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.6.%E5%88%87%E7%89%87/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.6.%E5%88%87%E7%89%87/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2.6.切片</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.6.%E5%88%87%E7%89%87/2.6.%E5%88%87%E7%89%87/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.6.%E5%88%87%E7%89%87/2.6.%E5%88%87%E7%89%87/</guid>
+      <description>切片 引子 因为数组的长度是固定的并且数组长度属于类型的一部分，所以数组有很多的局限性。 例如：
+func arraySum(x [3]int) int{ sum := 0 for _, v := range x{ sum = sum + v } return sum } 这个求和函数只能接受[3]int类型，其他的都不支持。 再比如，
+a := [3]int{1, 2, 3} 数组a中已经有三个元素了，我们不能再继续往数组a中添加新元素了。
+切片 切片（Slice）是一个拥有相同类型元素的可变长度的序列。它是基于数组类型做的一层封装。它非常灵活，支持自动扩容。
+切片是一个引用类型，它的内部结构包含地址、长度和容量。切片一般用于快速地操作一块数据集合。
+切片的定义 声明切片类型的基本语法如下：
+var name []T 其中，
+ name:表示变量名 T:表示切片中的元素类型 举个例子：  func main() { // 声明切片类型 var a []string //声明一个字符串切片 var b = []int{} //声明一个整型切片并初始化 var c = []bool{false, true} //声明一个布尔切片并初始化 var d = []bool{false, true} //声明一个布尔切片并初始化 fmt.</description>
+    </item>
+    
+  </channel>
+</rss>

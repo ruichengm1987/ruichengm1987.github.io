@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/go/readgo/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go Test 单元测试简明教程</title>
+      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/test/</guid>
+      <description>Go Test 单元测试简明教程 1.如何写好单元测试 单元测试(Unit Tests, UT) 是一个优秀项目不可或缺的一部分，特别是在一些频繁变动和多人合作开发的项目中尤为重要。你或多或少都会有因为自己的提交，导致应用挂掉或服务宕机的经历。如果这个时候你的修改导致测试用例失败，你再重新审视自己的修改，发现之前的修改还有一些特殊场景没有包含，恭喜你减少了一次上库失误。也会有这样的情况，项目很大，启动环境很复杂，你优化了一个函数的性能，或是添加了某个新的特性，如果部署在正式环境上之后再进行测试，成本太高。对于这种场景，几个小小的测试用例或许就能够覆盖大部分的测试场景。而且在开发过程中，效率最高的莫过于所见即所得了，单元测试也能够帮助你做到这一点，试想一下，假如你一口气写完一千行代码，debug 的过程也不会轻松，如果在这个过程中，对于一些逻辑较为复杂的函数，同时添加一些测试用例，即时确保正确性，最后集成的时候，会是另外一番体验。
+如何写好单元测试呢？
+首先，学会写测试用例。比如如何测试单个函数/方法；比如如何做基准测试；比如如何写出简洁精炼的测试代码；再比如遇到数据库访问等的方法调用时，如何 mock。
+然后，写可测试的代码。&amp;ldquo;高内聚,低耦合&amp;rdquo; 是软件工程的原则，同样，对测试而言，函数/方法写法不同，测试难度也是不一样的。职责单一，参数类型简单，与其他函数耦合度低的函数往往更容易测试。我们经常会说，“这种代码没法测试”，这种时候，就得思考函数的写法可不可以改得更好一些。为了代码可测试而重构是值得的。
+接下来将介绍如何使用 Go 语言的标准库 testing 进行单元测试。
+2.一个简单例子 Go 语言推荐测试文件和源代码文件放在一块，测试文件以 _test.go 结尾。比如，当前 package 有 calc.go 一个文件，我们想测试 calc.go 中的 Add 和 Mul 函数，那么应该新建 calc_test.go 作为测试文件。
+example/ |--calc.go |--calc_test.go 假如 calc.go 的代码如下:
+package main func Add(a int, b int) int { return a + b } func Mul(a int, b int) int { return a * b } 那么 calc_test.go 中的测试用例可以这么写：</description>
+    </item>
+    
+    <item>
+      <title>Go Mock (gomock)简明教程</title>
+      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/mock/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/mock/</guid>
+      <description>Go Mock (gomock)简明教程 1.gomock 简介 上一篇文章 Go Test 单元测试简明教程 介绍了 Go 语言中单元测试的常用方法，包括子测试(subtests)、表格驱动测试(table-driven tests)、帮助函数(helpers)、网络测试和基准测试(Benchmark)等。这篇文章介绍一种新的测试方法，mock/stub 测试，当待测试的函数/对象的依赖关系很复杂，并且有些依赖不能直接创建，例如数据库连接、文件I/O等。这种场景就非常适合使用 mock/stub 测试。简单来说，就是用 mock 对象模拟依赖项的行为。
+GoMock is a mocking framework for the Go programming language. It integrates well with Go’s built-in testing package, but can be used in other contexts too. gomock 是官方提供的 mock 框架，同时还提供了 mockgen 工具用来辅助生成测试代码。
+使用如下命令即可安装：
+go get -u github.com/golang/mock/gomock go get -u github.com/golang/mock/mockgen 2.一个简单的 Demo // db.go type DB interface { Get(key string) (int, error) } func GetFromDB(db DB, key string) int { if value, err := db.</description>
+    </item>
+    
+    <item>
+      <title>可靠的性能测试</title>
+      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/%E5%8F%AF%E9%9D%A0%E7%9A%84%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/%E5%8F%AF%E9%9D%A0%E7%9A%84%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/</guid>
+      <description>可靠的性能测试 主要内容  可靠的测试环境 benchstat 例子与实践  对代码进行性能调优 Benchmark的正确性分析 其他的影响因素   假设检验的原理 局限与应对措施 总结  性能测试方法论 1、搜索需求
+2、编写测试用例
+3、自动化性能测试用例
+4、执行性能测试用例
+5、分析性能测试结果
+6、性能调优
+7、性能基准测试(Performance Benchmarking)
+8、向客户推荐合适的配合
+影响测试环境的软硬件因素  硬件: CPU型号、温度、IO等 软件: 操作系统版本、当前系统调度的负载等  性能基准测试的两个基本目标 可重复性: 在其他外在的条件不变的情况下, 性能度量结果是稳定、可重复的(能复现的才叫bug)
+可比较性: 总是存在一个可以比较的基本线(有比较才有伤害)
+benchstat go get golang.org/x/perf/cmd/benchstat benchstat --help usage: benchstat [options] old.txt [new.txt] [more.txt ...] options: -alpha α consider change significant if p &amp;lt; α (default 0.05) -csv print results in CSV form -delta-test test significance test to apply to delta: utest, ttest, or none (default &amp;quot;utest&amp;quot;) -geomean print the geometric mean of each file -html print results as an HTML table -norange suppress range columns (CSV only) -sort order sort by order: [-]delta, [-]name, none (default &amp;quot;none&amp;quot;) -split labels split benchmarks by labels (default &amp;quot;pkg,goos,goarch&amp;quot;) </description>
+    </item>
+    
+  </channel>
+</rss>

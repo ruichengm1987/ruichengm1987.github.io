@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2.8.函数</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.%E5%87%BD%E6%95%B0/</guid>
+      <description>2.8.函数 Go语言中支持函数、匿名函数和闭包，并且函数在Go语言中属于“一等公民”。
+函数定义 Go语言中定义函数使用func关键字，具体格式如下：
+func 函数名(参数)(返回值){ 函数体 } 其中:
+ 函数名：由字母、数字、下划线组成。但函数名的第一个字母不能是数字。在同一个包内，函数名也称不能重名 参数：参数由参数变量和参数变量的类型组成，多个参数之间使用,分隔。 返回值：返回值由返回值变量和其变量类型组成，也可以只写返回值的类型，多个返回值必须用()包裹，并用,分隔。 函数体：实现指定功能的代码块。  我们先来定义一个求两个数之和的函数：
+func intSum(x int, y int) int { return x + y } 函数的参数和返回值都是可选的，例如我们可以实现一个既不需要参数也没有返回值的函数：
+func sayHello() { fmt.Println(&amp;quot;Hello 沙河&amp;quot;) } 函数的调用 定义了函数之后，我们可以通过函数名()的方式调用函数。 例如我们调用上面定义的两个函数，代码如下：
+func main() { sayHello() ret := intSum(10, 20) fmt.Println(ret) } 注意，调用有返回值的函数时，可以不接收其返回值。
+参数 类型简写 函数的参数中如果相邻变量的类型相同，则可以省略类型，例如：
+func intSum(x, y int) int { return x + y } 上面的代码中，intSum函数有两个参数，这两个参数的类型均为int，因此可以省略x的类型，因为y后面有类型说明，x参数也是该类型。
+可变参数 可变参数是指函数的参数数量不固定。Go语言中的可变参数通过在参数名后加&amp;hellip;来标识。
+注意：可变参数通常要作为函数的最后一个参数。
+举个例子：
+func intSum2(x .</description>
+    </item>
+    
+    <item>
+      <title>2.8.2.函数进阶</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.2.%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.2.%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/</guid>
+      <description>2.8.2.函数进阶 变量作用域 全局变量 全局变量是定义在函数外部的变量，它在程序整个运行周期内都有效。 在函数中可以访问到全局变量。
+package main import &amp;quot;fmt&amp;quot; //定义全局变量num var num int64 = 10 func testGlobalVar() { fmt.Printf(&amp;quot;num=%d\n&amp;quot;, num) //函数中可以访问全局变量num } func main() { testGlobalVar() //num=10 } 局部变量 局部变量又分为两种： 函数内定义的变量无法在该函数外使用，例如下面的示例代码main函数中无法使用testLocalVar函数中定义的变量x：
+func testLocalVar() { //定义一个函数局部变量x,仅在该函数内生效 var x int64 = 100 fmt.Printf(&amp;quot;x=%d\n&amp;quot;, x) } func main() { testLocalVar() fmt.Println(x) // 此时无法使用变量x } 如果局部变量和全局变量重名，优先访问局部变量。
+package main import &amp;quot;fmt&amp;quot; //定义全局变量num var num int64 = 10 func testNum() { num := 100 fmt.Printf(&amp;quot;num=%d\n&amp;quot;, num) // 函数中优先使用局部变量 } func main() { testNum() // num=100 } 接下来我们来看一下语句块定义的变量，通常我们会在if条件判断、for循环、switch语句上使用这种定义变量的方式。</description>
+    </item>
+    
+  </channel>
+</rss>

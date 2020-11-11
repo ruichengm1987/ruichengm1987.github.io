@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关键字(25个)</title>
+      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%85%B3%E9%94%AE%E5%AD%9725%E4%B8%AA/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%85%B3%E9%94%AE%E5%AD%9725%E4%B8%AA/</guid>
+      <description>关键字(25个) 引导程序整体结构的8个关键字  package // 定义包名的关键字 import //导入包名关键字 const //常量声明关键字 var //变量声明关键字 func //函数定义关键字 defer //延迟执行关键字 go //并发语法糖关键字 return //函数返回关键字  声明复合数据结构的4个关键字  struct //定义结构类型关键字 interface //定义接口类型关键字 map //声明或创建map类型关键字 chan //声明或创建通道类型关键字  控制程序结构的13个关键宇  if else //if else语句关键字 for range break continue //for循环使用的关键字 switch select type case default fallthrough //switch和select语句使用的关键字 goto //goto跳转语句关键字  </description>
+    </item>
+    
+    <item>
+      <title>类型标识符(20个)</title>
+      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E7%B1%BB%E5%9E%8B%E6%A0%87%E8%AF%86%E7%AC%A620%E4%B8%AA/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E7%B1%BB%E5%9E%8B%E6%A0%87%E8%AF%86%E7%AC%A620%E4%B8%AA/</guid>
+      <description>类型标识符(20个) 数值（16个） 整型（12个） byte
+int
+int8 int16 int32 int64
+uint unint8 uint16 uint32 uint64
+uintprt
+浮点型（2个） float32
+float64
+复数型（2个） complex64
+complex128
+字符和字符串型（ 2 个） string rune
+接口型（1个） error
+布尔型（1个） bool</description>
+    </item>
+    
+    <item>
+      <title>常量值标识符(4个)</title>
+      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%B8%B8%E9%87%8F%E5%80%BC%E6%A0%87%E8%AF%86%E7%AC%A64%E4%B8%AA/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%B8%B8%E9%87%8F%E5%80%BC%E6%A0%87%E8%AF%86%E7%AC%A64%E4%B8%AA/</guid>
+      <description>常量值标识符(4个) true false //true 和 false 表示 bool 类型的两常量值 iota //用在连续的枚举类型的声明中 nil //指针／引用型的变量的默认值就是 nil</description>
+    </item>
+    
+    <item>
+      <title>空白标识符(1个)</title>
+      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E7%A9%BA%E7%99%BD%E6%A0%87%E8%AF%86%E7%AC%A61%E4%B8%AA/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E7%A9%BA%E7%99%BD%E6%A0%87%E8%AF%86%E7%AC%A61%E4%B8%AA/</guid>
+      <description>空白标识符(1个) _ // 空白标识符有特殊的含义, 用来声明一个匿名的变量,该变量在赋值表达式的左端,空白标识符引用通常被用作占位</description>
+    </item>
+    
+    <item>
+      <title>内置函数(15个)</title>
+      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B015%E4%B8%AA/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B015%E4%B8%AA/</guid>
+      <description>内置函数(15个) make new len cap append copy delete panic recover close complex real image Print Printin</description>
+    </item>
+    
+    <item>
+      <title>操作符和分隔符(47个)</title>
+      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%92%8C%E5%88%86%E9%9A%94%E7%AC%A647%E4%B8%AA/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%92%8C%E5%88%86%E9%9A%94%E7%AC%A647%E4%B8%AA/</guid>
+      <description>操作符和分隔符(47个) 算术运算符(5个) ＋ － ＊ ／ %  位运算符(6个) &amp;amp; | &amp;lt; &amp;amp;^ &amp;gt;&amp;gt; &amp;lt;&amp;lt;  赋值和赋值复核运算符(13个) :＝ ＝ += -= *= /= %= &amp;amp;= |= ^= &amp;amp;^= &amp;gt;&amp;gt;= &amp;lt;&amp;lt;=  比较运算符(6个) &amp;gt; &amp;gt;= &amp;lt; &amp;lt;= == !=  括号(6个) () {} []  逻辑运算符(3个) &amp;amp;&amp;amp; || !  自增自减操作符(2个) ++ -- //go语言里面自增、自减操作符是语句而不是表达式  其他运算符(6个) : , ; . ... &amp;lt;-  </description>
+    </item>
+    
+  </channel>
+</rss>
