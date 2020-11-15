@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="2.14.7.并发安全和锁 有时候在Go代码中可能会存在多个goroutine同时操作一个资源（临界区），这种情况会发生竞态问题（数据竞态）。类比现实生活中的例子有十字路口被各个方向的的汽车竞争；还有火车上的卫生间被车厢里的人竞争。
+举个例子：
+var x int64 var wg sync.WaitGroup func add() { for i := 0; i &lt; 5000; i&#43;&#43; { x = x &#43; 1 } wg.Done() } func main() { wg.Add(2) go add() go add() wg.Wait() fmt.Println(x) } 上面的代码中我们开启了两个goroutine去累加变量x的值，这两个goroutine在访问和修改x变量的时候就会存在数据竞争，导致最后的结果与期待的不符。
+互斥锁 互斥锁是一种常用的控制共享资源访问的方法，它能够保证同时只有一个goroutine可以访问共享资源。Go语言中使用sync包的Mutex类型来实现互斥锁。 使用互斥锁来修复上面代码的问题：
+var x int64 var wg sync.WaitGroup var lock sync.Mutex func add() { for i := 0; i &lt; 5000; i&#43;&#43; { lock.Lock() // 加锁 x = x &#43; 1 lock.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="2.14.7.并发安全和锁" />
+<meta property="og:description" content="2.14.7.并发安全和锁 有时候在Go代码中可能会存在多个goroutine同时操作一个资源（临界区），这种情况会发生竞态问题（数据竞态）。类比现实生活中的例子有十字路口被各个方向的的汽车竞争；还有火车上的卫生间被车厢里的人竞争。
+举个例子：
+var x int64 var wg sync.WaitGroup func add() { for i := 0; i &lt; 5000; i&#43;&#43; { x = x &#43; 1 } wg.Done() } func main() { wg.Add(2) go add() go add() wg.Wait() fmt.Println(x) } 上面的代码中我们开启了两个goroutine去累加变量x的值，这两个goroutine在访问和修改x变量的时候就会存在数据竞争，导致最后的结果与期待的不符。
+互斥锁 互斥锁是一种常用的控制共享资源访问的方法，它能够保证同时只有一个goroutine可以访问共享资源。Go语言中使用sync包的Mutex类型来实现互斥锁。 使用互斥锁来修复上面代码的问题：
+var x int64 var wg sync.WaitGroup var lock sync.Mutex func add() { for i := 0; i &lt; 5000; i&#43;&#43; { lock.Lock() // 加锁 x = x &#43; 1 lock." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.7.%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8%E5%92%8C%E9%94%81/" />
+
+<title>2.14.7.并发安全和锁 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.61eb3b61578f29aa949dcd8a8d21fc8e67880fe1b96b1b90100f127eecb0a2ef.js" integrity="sha256-Yes7YVePKaqUnc2KjSH8jmeID&#43;G5axuQEA8Sfuywou8="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">Go</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="collapsed ">1.开发环境</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/" class="collapsed ">2. Golang基础</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.1.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/" class="collapsed ">2.1.变量和常量</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="collapsed ">2.2.基本数据类型</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.3.%E8%BF%90%E7%AE%97%E7%AC%A6/" class="collapsed ">2.3.运算符</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="collapsed ">2.4.流程控制</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.5.%E6%95%B0%E7%BB%84/" class="collapsed ">2.5.数组</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.6.%E5%88%87%E7%89%87/" class="collapsed ">2.6.切片</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.7.map/" class="collapsed ">2.7.map</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/" class="collapsed ">2.8.函数</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.9.%E6%8C%87%E9%92%88/" class="collapsed ">2.9.指针</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.10.%E7%BB%93%E6%9E%84%E4%BD%93/" class="collapsed ">2.10.结构体</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.11.%E5%8C%85/" class="collapsed ">2.11.包</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.12.%E6%8E%A5%E5%8F%A3/" class="collapsed ">2.12.接口</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.13.%E5%8F%8D%E5%B0%84/" class="collapsed ">2.13.反射</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/" class="collapsed ">2.14.并发</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.1.%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%B9%B6%E8%A1%8C/" class="">2.14.1.并发与并行</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.2.goroutine/" class="">2.14.2.goroutine</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.3.goroutine%E4%B8%8E%E7%BA%BF%E7%A8%8B/" class="">2.14.3.goroutine与线程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.4.channel/" class="">2.14.4.channel</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.5.worker_pool/" class="">2.14.5.worker pool（goroutine池）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.6.select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" class="">2.14.6.select多路复用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.7.%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8%E5%92%8C%E9%94%81/" class="active">2.14.7.并发安全和锁</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.8.%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C/" class="">2.14.8.原子操作</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="collapsed ">2.16.单元测试</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/" class="collapsed ">3.标准库</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/4.web%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/" class="collapsed ">4. Web开发相关</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/5.golang%E9%AB%98%E7%BA%A7/" class="collapsed ">5. Golang高级</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/6.golang%E6%BA%90%E7%A0%81/" class="collapsed ">6. Golang源码</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/7.%E5%BA%94%E7%94%A8/" class="collapsed ">7.应用</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" class="collapsed ">数据结构&amp;算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>2.14.7.并发安全和锁</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#互斥锁">互斥锁</a></li>
+    <li><a href="#读写互斥锁">读写互斥锁</a></li>
+    <li><a href="#syncwaitgroup">sync.WaitGroup</a></li>
+    <li><a href="#synconce">sync.Once</a>
+      <ul>
+        <li><a href="#加载配置文件示例">加载配置文件示例</a></li>
+        <li><a href="#并发安全的单例模式">并发安全的单例模式</a></li>
+      </ul>
+    </li>
+    <li><a href="#syncmap">sync.Map</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="2147并发安全和锁">2.14.7.并发安全和锁</h1>
+<p>有时候在Go代码中可能会存在多个goroutine同时操作一个资源（临界区），这种情况会发生竞态问题（数据竞态）。类比现实生活中的例子有十字路口被各个方向的的汽车竞争；还有火车上的卫生间被车厢里的人竞争。</p>
+<p>举个例子：</p>
+<pre><code class="language-aidl" data-lang="aidl">var x int64
+var wg sync.WaitGroup
+
+func add() {
+	for i := 0; i &lt; 5000; i++ {
+		x = x + 1
+	}
+	wg.Done()
+}
+func main() {
+	wg.Add(2)
+	go add()
+	go add()
+	wg.Wait()
+	fmt.Println(x)
+}
+</code></pre><p>上面的代码中我们开启了两个goroutine去累加变量x的值，这两个goroutine在访问和修改x变量的时候就会存在数据竞争，导致最后的结果与期待的不符。</p>
+<h2 id="互斥锁">互斥锁</h2>
+<p>互斥锁是一种常用的控制共享资源访问的方法，它能够保证同时只有一个goroutine可以访问共享资源。Go语言中使用sync包的Mutex类型来实现互斥锁。 使用互斥锁来修复上面代码的问题：</p>
+<pre><code class="language-aidl" data-lang="aidl">var x int64
+var wg sync.WaitGroup
+var lock sync.Mutex
+
+func add() {
+	for i := 0; i &lt; 5000; i++ {
+		lock.Lock() // 加锁
+		x = x + 1
+		lock.Unlock() // 解锁
+	}
+	wg.Done()
+}
+func main() {
+	wg.Add(2)
+	go add()
+	go add()
+	wg.Wait()
+	fmt.Println(x)
+}
+</code></pre><p>使用互斥锁能够保证同一时间有且只有一个goroutine进入临界区，其他的goroutine则在等待锁；当互斥锁释放后，等待的goroutine才可以获取锁进入临界区，多个goroutine同时等待一个锁时，唤醒的策略是随机的。</p>
+<h2 id="读写互斥锁">读写互斥锁</h2>
+<p>互斥锁是完全互斥的，但是有很多实际的场景下是读多写少的，当我们并发的去读取一个资源不涉及资源修改的时候是没有必要加锁的，这种场景下使用读写锁是更好的一种选择。读写锁在Go语言中使用sync包中的RWMutex类型。</p>
+<p>读写锁分为两种：读锁和写锁。当一个goroutine获取读锁之后，其他的goroutine如果是获取读锁会继续获得锁，如果是获取写锁就会等待；当一个goroutine获取写锁之后，其他的goroutine无论是获取读锁还是写锁都会等待。</p>
+<p>读写锁示例：</p>
+<pre><code class="language-aidl" data-lang="aidl">var (
+	x      int64
+	wg     sync.WaitGroup
+	rwlock sync.RWMutex
+)
+
+func write() {
+	// lock.Lock()   // 加互斥锁
+	rwlock.Lock() // 加写锁
+	x = x + 1
+	time.Sleep(10 * time.Millisecond) // 假设写操作耗时10毫秒
+	rwlock.Unlock()                   // 解写锁
+	// lock.Unlock()                     // 解互斥锁
+	wg.Done()
+}
+
+func read() {
+	// lock.Lock()                  // 加互斥锁
+	rwlock.RLock()               // 加读锁
+	time.Sleep(time.Millisecond) // 假设读操作耗时1毫秒
+	rwlock.RUnlock()             // 解读锁
+	// lock.Unlock()                // 解互斥锁
+	wg.Done()
+}
+
+func main() {
+	start := time.Now()
+	for i := 0; i &lt; 10; i++ {
+		wg.Add(1)
+		go write()
+	}
+
+	for i := 0; i &lt; 1000; i++ {
+		wg.Add(1)
+		go read()
+	}
+
+	wg.Wait()
+	end := time.Now()
+	fmt.Println(end.Sub(start))
+}
+</code></pre><p>需要注意的是读写锁非常适合读多写少的场景，如果读和写的操作差别不大，读写锁的优势就发挥不出来。</p>
+<h2 id="syncwaitgroup">sync.WaitGroup</h2>
+<p>在代码中生硬的使用time.Sleep肯定是不合适的，Go语言中可以使用sync.WaitGroup来实现并发任务的同步。 sync.WaitGroup有以下几个方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(wg * WaitGroup) Add(delta int)</td>
+<td>计数器+delta</td>
+</tr>
+<tr>
+<td>(wg *WaitGroup) Done()</td>
+<td>计数器-1</td>
+</tr>
+<tr>
+<td>(wg *WaitGroup) Wait()</td>
+<td>阻塞直到计数器变为0</td>
+</tr>
+</tbody>
+</table>
+<p>sync.WaitGroup内部维护着一个计数器，计数器的值可以增加和减少。例如当我们启动了N 个并发任务时，就将计数器值增加N。每个任务完成时通过调用Done()方法将计数器减1。通过调用Wait()来等待并发任务执行完，当计数器值为0时，表示所有并发任务已经完成。</p>
+<p>我们利用sync.WaitGroup将上面的代码优化一下：</p>
+<pre><code class="language-aidl" data-lang="aidl">var wg sync.WaitGroup
+
+func hello() {
+	defer wg.Done()
+	fmt.Println(&quot;Hello Goroutine!&quot;)
+}
+func main() {
+	wg.Add(1)
+	go hello() // 启动另外一个goroutine去执行hello函数
+	fmt.Println(&quot;main goroutine done!&quot;)
+	wg.Wait()
+}
+</code></pre><p>需要注意sync.WaitGroup是一个结构体，传递的时候要传递指针。</p>
+<h2 id="synconce">sync.Once</h2>
+<p>说在前面的话：这是一个进阶知识点。</p>
+<p>在编程的很多场景下我们需要确保某些操作在高并发的场景下只执行一次，例如只加载一次配置文件、只关闭一次通道等。</p>
+<p>Go语言中的sync包中提供了一个针对只执行一次场景的解决方案–sync.Once。</p>
+<p>sync.Once只有一个Do方法，其签名如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func (o *Once) Do(f func()) {}
+</code></pre><p>备注：如果要执行的函数f需要传递参数就需要搭配闭包来使用。</p>
+<h3 id="加载配置文件示例">加载配置文件示例</h3>
+<p>延迟一个开销很大的初始化操作到真正用到它的时候再执行是一个很好的实践。因为预先初始化一个变量（比如在init函数中完成初始化）会增加程序的启动耗时，而且有可能实际执行过程中这个变量没有用上，那么这个初始化操作就不是必须要做的。我们来看一个例子：</p>
+<pre><code class="language-aidl" data-lang="aidl">var icons map[string]image.Image
+
+func loadIcons() {
+	icons = map[string]image.Image{
+		&quot;left&quot;:  loadIcon(&quot;left.png&quot;),
+		&quot;up&quot;:    loadIcon(&quot;up.png&quot;),
+		&quot;right&quot;: loadIcon(&quot;right.png&quot;),
+		&quot;down&quot;:  loadIcon(&quot;down.png&quot;),
+	}
+}
+
+// Icon 被多个goroutine调用时不是并发安全的
+func Icon(name string) image.Image {
+	if icons == nil {
+		loadIcons()
+	}
+	return icons[name]
+}
+</code></pre><p>多个goroutine并发调用Icon函数时不是并发安全的，现代的编译器和CPU可能会在保证每个goroutine都满足串行一致的基础上自由地重排访问内存的顺序。loadIcons函数可能会被重排为以下结果：</p>
+<pre><code class="language-aidl" data-lang="aidl">func loadIcons() {
+	icons = make(map[string]image.Image)
+	icons[&quot;left&quot;] = loadIcon(&quot;left.png&quot;)
+	icons[&quot;up&quot;] = loadIcon(&quot;up.png&quot;)
+	icons[&quot;right&quot;] = loadIcon(&quot;right.png&quot;)
+	icons[&quot;down&quot;] = loadIcon(&quot;down.png&quot;)
+}
+
+</code></pre><p>在这种情况下就会出现即使判断了icons不是nil也不意味着变量初始化完成了。考虑到这种情况，我们能想到的办法就是添加互斥锁，保证初始化icons的时候不会被其他的goroutine操作，但是这样做又会引发性能问题。</p>
+<p>使用sync.Once改造的示例代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">var icons map[string]image.Image
+
+var loadIconsOnce sync.Once
+
+func loadIcons() {
+	icons = map[string]image.Image{
+		&quot;left&quot;:  loadIcon(&quot;left.png&quot;),
+		&quot;up&quot;:    loadIcon(&quot;up.png&quot;),
+		&quot;right&quot;: loadIcon(&quot;right.png&quot;),
+		&quot;down&quot;:  loadIcon(&quot;down.png&quot;),
+	}
+}
+
+// Icon 是并发安全的
+func Icon(name string) image.Image {
+	loadIconsOnce.Do(loadIcons)
+	return icons[name]
+}
+</code></pre><h3 id="并发安全的单例模式">并发安全的单例模式</h3>
+<p>下面是借助sync.Once实现的并发安全的单例模式：</p>
+<pre><code class="language-aidl" data-lang="aidl">package singleton
+
+import (
+    &quot;sync&quot;
+)
+
+type singleton struct {}
+
+var instance *singleton
+var once sync.Once
+
+func GetInstance() *singleton {
+    once.Do(func() {
+        instance = &amp;singleton{}
+    })
+    return instance
+}
+</code></pre><p>sync.Once其实内部包含一个互斥锁和一个布尔值，互斥锁保证布尔值和数据的安全，而布尔值用来记录初始化是否完成。这样设计就能保证初始化操作的时候是并发安全的并且初始化操作也不会被执行多次。</p>
+<h2 id="syncmap">sync.Map</h2>
+<p>Go语言中内置的map不是并发安全的。请看下面的示例：</p>
+<pre><code class="language-aidl" data-lang="aidl">var m = make(map[string]int)
+
+func get(key string) int {
+	return m[key]
+}
+
+func set(key string, value int) {
+	m[key] = value
+}
+
+func main() {
+	wg := sync.WaitGroup{}
+	for i := 0; i &lt; 20; i++ {
+		wg.Add(1)
+		go func(n int) {
+			key := strconv.Itoa(n)
+			set(key, n)
+			fmt.Printf(&quot;k=:%v,v:=%v\n&quot;, key, get(key))
+			wg.Done()
+		}(i)
+	}
+	wg.Wait()
+}
+</code></pre><p>上面的代码开启少量几个goroutine的时候可能没什么问题，当并发多了之后执行上面的代码就会报fatal error: concurrent map writes错误。</p>
+<p>像这种场景下就需要为map加锁来保证并发的安全性了，Go语言的sync包中提供了一个开箱即用的并发安全版map–sync.Map。开箱即用表示不用像内置的map一样使用make函数初始化就能直接使用。同时sync.Map内置了诸如Store、Load、LoadOrStore、Delete、Range等操作方法。</p>
+<pre><code class="language-aidl" data-lang="aidl">var m = sync.Map{}
+
+func main() {
+	wg := sync.WaitGroup{}
+	for i := 0; i &lt; 20; i++ {
+		wg.Add(1)
+		go func(n int) {
+			key := strconv.Itoa(n)
+			m.Store(key, n)
+			value, _ := m.Load(key)
+			fmt.Printf(&quot;k=:%v,v:=%v\n&quot;, key, value)
+			wg.Done()
+		}(i)
+	}
+	wg.Wait()
+}
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#互斥锁">互斥锁</a></li>
+    <li><a href="#读写互斥锁">读写互斥锁</a></li>
+    <li><a href="#syncwaitgroup">sync.WaitGroup</a></li>
+    <li><a href="#synconce">sync.Once</a>
+      <ul>
+        <li><a href="#加载配置文件示例">加载配置文件示例</a></li>
+        <li><a href="#并发安全的单例模式">并发安全的单例模式</a></li>
+      </ul>
+    </li>
+    <li><a href="#syncmap">sync.Map</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,5 +10,23 @@
 	<atom:link href="https://ruichengm1987.github.io/docs/go/5.golang%E9%AB%98%E7%BA%A7/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/go/5.golang%E9%AB%98%E7%BA%A7/%E5%9C%A8-go-%E4%B8%AD%E6%81%B0%E5%88%B0%E5%A5%BD%E5%A4%84%E7%9A%84%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/5.golang%E9%AB%98%E7%BA%A7/%E5%9C%A8-go-%E4%B8%AD%E6%81%B0%E5%88%B0%E5%A5%BD%E5%A4%84%E7%9A%84%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/</guid>
+      <description>https://segmentfault.com/a/1190000017527311</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/go/5.golang%E9%AB%98%E7%BA%A7/%E6%B7%B1%E5%85%A5golang%E8%B0%83%E5%BA%A6%E5%99%A8%E4%B9%8Bgmp%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/5.golang%E9%AB%98%E7%BA%A7/%E6%B7%B1%E5%85%A5golang%E8%B0%83%E5%BA%A6%E5%99%A8%E4%B9%8Bgmp%E6%A8%A1%E5%9E%8B/</guid>
+      <description>https://www.cnblogs.com/sunsky303/p/9705727.html</description>
+    </item>
+    
   </channel>
 </rss>

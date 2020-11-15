@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="2.14.2.goroutine 在java/c&#43;&#43;中我们要实现并发编程的时候，我们通常需要自己维护一个线程池，并且需要自己去包装一个又一个的任务，同时需要自己去调度线程执行任务并维护上下文切换，这一切通常会耗费程序员大量的心智。那么能不能有一种机制，程序员只需要定义很多个任务，让系统去帮助我们把这些任务分配到CPU上实现并发执行呢？
+Go语言中的goroutine就是这样一种机制，goroutine的概念类似于线程，但 goroutine是由Go的运行时（runtime）调度和管理的。Go程序会智能地将 goroutine 中的任务合理地分配给每个CPU。Go语言之所以被称为现代化的编程语言，就是因为它在语言层面已经内置了调度和上下文切换的机制。
+在Go语言编程中你不需要去自己写进程、线程、协程，你的技能包里只有一个技能–goroutine，当你需要让某个任务并发执行的时候，你只需要把这个任务包装成一个函数，开启一个goroutine去执行这个函数就可以了，就是这么简单粗暴。
+使用goroutine Go语言中使用goroutine非常简单，只需要在调用函数的时候在前面加上go关键字，就可以为一个函数创建一个goroutine。
+一个goroutine必定对应一个函数，可以创建多个goroutine去执行相同的函数。
+启动单个goroutine 启动goroutine的方式非常简单，只需要在调用的函数（普通函数和匿名函数）前面加上一个go关键字。
+举个例子如下：
+func hello() { fmt.Println(&quot;Hello Goroutine!&quot;) } func main() { hello() fmt.Println(&quot;main goroutine done!&quot;) } 这个示例中hello函数和下面的语句是串行的，执行的结果是打印完Hello Goroutine!后打印main goroutine done!。
+接下来我们在调用hello函数前面加上关键字go，也就是启动一个goroutine去执行hello这个函数。
+func main() { go hello() // 启动另外一个goroutine去执行hello函数 fmt.Println(&quot;main goroutine done!&quot;) } 这一次的执行结果只打印了main goroutine done!，并没有打印Hello Goroutine!。为什么呢？
+在程序启动时，Go程序就会为main()函数创建一个默认的goroutine。
+当main()函数返回的时候该goroutine就结束了，所有在main()函数中启动的goroutine会一同结束，main函数所在的goroutine就像是权利的游戏中的夜王，其他的goroutine都是异鬼，夜王一死它转化的那些异鬼也就全部GG了。
+所以我们要想办法让main函数等一等hello函数，最简单粗暴的方式就是time.Sleep了。
+func main() { go hello() // 启动另外一个goroutine去执行hello函数 fmt.Println(&quot;main goroutine done!&quot;) time.Sleep(time.Second) } 执行上面的代码你会发现，这一次先打印main goroutine done!，然后紧接着打印Hello Goroutine!。
+首先为什么会先打印main goroutine done!是因为我们在创建新的goroutine的时候需要花费一些时间，而此时main函数所在的goroutine是继续执行的。
+启动多个goroutine 在Go语言中实现并发就是这样简单，我们还可以启动多个goroutine。让我们再来一个例子： （这里使用了sync.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="2.14.2.goroutine" />
+<meta property="og:description" content="2.14.2.goroutine 在java/c&#43;&#43;中我们要实现并发编程的时候，我们通常需要自己维护一个线程池，并且需要自己去包装一个又一个的任务，同时需要自己去调度线程执行任务并维护上下文切换，这一切通常会耗费程序员大量的心智。那么能不能有一种机制，程序员只需要定义很多个任务，让系统去帮助我们把这些任务分配到CPU上实现并发执行呢？
+Go语言中的goroutine就是这样一种机制，goroutine的概念类似于线程，但 goroutine是由Go的运行时（runtime）调度和管理的。Go程序会智能地将 goroutine 中的任务合理地分配给每个CPU。Go语言之所以被称为现代化的编程语言，就是因为它在语言层面已经内置了调度和上下文切换的机制。
+在Go语言编程中你不需要去自己写进程、线程、协程，你的技能包里只有一个技能–goroutine，当你需要让某个任务并发执行的时候，你只需要把这个任务包装成一个函数，开启一个goroutine去执行这个函数就可以了，就是这么简单粗暴。
+使用goroutine Go语言中使用goroutine非常简单，只需要在调用函数的时候在前面加上go关键字，就可以为一个函数创建一个goroutine。
+一个goroutine必定对应一个函数，可以创建多个goroutine去执行相同的函数。
+启动单个goroutine 启动goroutine的方式非常简单，只需要在调用的函数（普通函数和匿名函数）前面加上一个go关键字。
+举个例子如下：
+func hello() { fmt.Println(&quot;Hello Goroutine!&quot;) } func main() { hello() fmt.Println(&quot;main goroutine done!&quot;) } 这个示例中hello函数和下面的语句是串行的，执行的结果是打印完Hello Goroutine!后打印main goroutine done!。
+接下来我们在调用hello函数前面加上关键字go，也就是启动一个goroutine去执行hello这个函数。
+func main() { go hello() // 启动另外一个goroutine去执行hello函数 fmt.Println(&quot;main goroutine done!&quot;) } 这一次的执行结果只打印了main goroutine done!，并没有打印Hello Goroutine!。为什么呢？
+在程序启动时，Go程序就会为main()函数创建一个默认的goroutine。
+当main()函数返回的时候该goroutine就结束了，所有在main()函数中启动的goroutine会一同结束，main函数所在的goroutine就像是权利的游戏中的夜王，其他的goroutine都是异鬼，夜王一死它转化的那些异鬼也就全部GG了。
+所以我们要想办法让main函数等一等hello函数，最简单粗暴的方式就是time.Sleep了。
+func main() { go hello() // 启动另外一个goroutine去执行hello函数 fmt.Println(&quot;main goroutine done!&quot;) time.Sleep(time.Second) } 执行上面的代码你会发现，这一次先打印main goroutine done!，然后紧接着打印Hello Goroutine!。
+首先为什么会先打印main goroutine done!是因为我们在创建新的goroutine的时候需要花费一些时间，而此时main函数所在的goroutine是继续执行的。
+启动多个goroutine 在Go语言中实现并发就是这样简单，我们还可以启动多个goroutine。让我们再来一个例子： （这里使用了sync." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.2.goroutine/" />
+
+<title>2.14.2.goroutine | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.61eb3b61578f29aa949dcd8a8d21fc8e67880fe1b96b1b90100f127eecb0a2ef.js" integrity="sha256-Yes7YVePKaqUnc2KjSH8jmeID&#43;G5axuQEA8Sfuywou8="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">Go</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="collapsed ">1.开发环境</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/" class="collapsed ">2. Golang基础</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.1.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/" class="collapsed ">2.1.变量和常量</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="collapsed ">2.2.基本数据类型</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.3.%E8%BF%90%E7%AE%97%E7%AC%A6/" class="collapsed ">2.3.运算符</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="collapsed ">2.4.流程控制</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.5.%E6%95%B0%E7%BB%84/" class="collapsed ">2.5.数组</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.6.%E5%88%87%E7%89%87/" class="collapsed ">2.6.切片</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.7.map/" class="collapsed ">2.7.map</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/" class="collapsed ">2.8.函数</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.9.%E6%8C%87%E9%92%88/" class="collapsed ">2.9.指针</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.10.%E7%BB%93%E6%9E%84%E4%BD%93/" class="collapsed ">2.10.结构体</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.11.%E5%8C%85/" class="collapsed ">2.11.包</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.12.%E6%8E%A5%E5%8F%A3/" class="collapsed ">2.12.接口</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.13.%E5%8F%8D%E5%B0%84/" class="collapsed ">2.13.反射</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/" class="collapsed ">2.14.并发</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.1.%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%B9%B6%E8%A1%8C/" class="">2.14.1.并发与并行</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.2.goroutine/" class="active">2.14.2.goroutine</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.3.goroutine%E4%B8%8E%E7%BA%BF%E7%A8%8B/" class="">2.14.3.goroutine与线程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.4.channel/" class="">2.14.4.channel</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.5.worker_pool/" class="">2.14.5.worker pool（goroutine池）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.6.select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" class="">2.14.6.select多路复用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.7.%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8%E5%92%8C%E9%94%81/" class="">2.14.7.并发安全和锁</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.8.%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C/" class="">2.14.8.原子操作</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="collapsed ">2.16.单元测试</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/" class="collapsed ">3.标准库</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/4.web%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/" class="collapsed ">4. Web开发相关</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/5.golang%E9%AB%98%E7%BA%A7/" class="collapsed ">5. Golang高级</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/6.golang%E6%BA%90%E7%A0%81/" class="collapsed ">6. Golang源码</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/7.%E5%BA%94%E7%94%A8/" class="collapsed ">7.应用</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" class="collapsed ">数据结构&amp;算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>2.14.2.goroutine</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#使用goroutine">使用goroutine</a></li>
+    <li><a href="#启动单个goroutine">启动单个goroutine</a></li>
+    <li><a href="#启动多个goroutine">启动多个goroutine</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="2142goroutine">2.14.2.goroutine</h1>
+<p>在java/c++中我们要实现并发编程的时候，我们通常需要自己维护一个线程池，并且需要自己去包装一个又一个的任务，同时需要自己去调度线程执行任务并维护上下文切换，这一切通常会耗费程序员大量的心智。那么能不能有一种机制，程序员只需要定义很多个任务，让系统去帮助我们把这些任务分配到CPU上实现并发执行呢？</p>
+<p>Go语言中的goroutine就是这样一种机制，goroutine的概念类似于线程，但 goroutine是由Go的运行时（runtime）调度和管理的。Go程序会智能地将 goroutine 中的任务合理地分配给每个CPU。Go语言之所以被称为现代化的编程语言，就是因为它在语言层面已经内置了调度和上下文切换的机制。</p>
+<p>在Go语言编程中你不需要去自己写进程、线程、协程，你的技能包里只有一个技能–goroutine，当你需要让某个任务并发执行的时候，你只需要把这个任务包装成一个函数，开启一个goroutine去执行这个函数就可以了，就是这么简单粗暴。</p>
+<h2 id="使用goroutine">使用goroutine</h2>
+<p>Go语言中使用goroutine非常简单，只需要在调用函数的时候在前面加上go关键字，就可以为一个函数创建一个goroutine。</p>
+<p>一个goroutine必定对应一个函数，可以创建多个goroutine去执行相同的函数。</p>
+<h2 id="启动单个goroutine">启动单个goroutine</h2>
+<p>启动goroutine的方式非常简单，只需要在调用的函数（普通函数和匿名函数）前面加上一个go关键字。</p>
+<p>举个例子如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func hello() {
+	fmt.Println(&quot;Hello Goroutine!&quot;)
+}
+func main() {
+	hello()
+	fmt.Println(&quot;main goroutine done!&quot;)
+}
+</code></pre><p>这个示例中hello函数和下面的语句是串行的，执行的结果是打印完Hello Goroutine!后打印main goroutine done!。</p>
+<p>接下来我们在调用hello函数前面加上关键字go，也就是启动一个goroutine去执行hello这个函数。</p>
+<pre><code class="language-aidl" data-lang="aidl">func main() {
+	go hello() // 启动另外一个goroutine去执行hello函数
+	fmt.Println(&quot;main goroutine done!&quot;)
+}
+</code></pre><p>这一次的执行结果只打印了main goroutine done!，并没有打印Hello Goroutine!。为什么呢？</p>
+<p>在程序启动时，Go程序就会为main()函数创建一个默认的goroutine。</p>
+<p>当main()函数返回的时候该goroutine就结束了，所有在main()函数中启动的goroutine会一同结束，main函数所在的goroutine就像是权利的游戏中的夜王，其他的goroutine都是异鬼，夜王一死它转化的那些异鬼也就全部GG了。</p>
+<p>所以我们要想办法让main函数等一等hello函数，最简单粗暴的方式就是time.Sleep了。</p>
+<pre><code class="language-aidl" data-lang="aidl">func main() {
+	go hello() // 启动另外一个goroutine去执行hello函数
+	fmt.Println(&quot;main goroutine done!&quot;)
+	time.Sleep(time.Second)
+}
+</code></pre><p>执行上面的代码你会发现，这一次先打印main goroutine done!，然后紧接着打印Hello Goroutine!。</p>
+<p>首先为什么会先打印main goroutine done!是因为我们在创建新的goroutine的时候需要花费一些时间，而此时main函数所在的goroutine是继续执行的。</p>
+<h2 id="启动多个goroutine">启动多个goroutine</h2>
+<p>在Go语言中实现并发就是这样简单，我们还可以启动多个goroutine。让我们再来一个例子： （这里使用了sync.WaitGroup来实现goroutine的同步）</p>
+<pre><code class="language-aidl" data-lang="aidl">var wg sync.WaitGroup
+
+func hello(i int) {
+	defer wg.Done() // goroutine结束就登记-1
+	fmt.Println(&quot;Hello Goroutine!&quot;, i)
+}
+func main() {
+
+	for i := 0; i &lt; 10; i++ {
+		wg.Add(1) // 启动一个goroutine就登记+1
+		go hello(i)
+	}
+	wg.Wait() // 等待所有登记的goroutine都结束
+}
+</code></pre><p>多次执行上面的代码，会发现每次打印的数字的顺序都不一致。这是因为10个goroutine是并发执行的，而goroutine的调度是随机的。</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#使用goroutine">使用goroutine</a></li>
+    <li><a href="#启动单个goroutine">启动单个goroutine</a></li>
+    <li><a href="#启动多个goroutine">启动多个goroutine</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

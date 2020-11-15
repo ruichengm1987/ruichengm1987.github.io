@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="2.13.4.结构体反射 与结构体相关的方法 任意值通过reflect.TypeOf()获得反射对象信息后，如果它的类型是结构体，可以通过反射值对象（reflect.Type）的NumField()和Field()方法获得结构体成员的详细信息。
+reflect.Type中与获取结构体成员相关的的方法如下表所示。
+   方法 说明     Field(i int) StructField 根据索引，返回索引对应的结构体字段的信息。   NumField() int 返回结构体成员字段数量。   FieldByName(name string) (StructField, bool) 根据给定字符串返回字符串对应的结构体字段的信息。   FieldByIndex(index []int) StructField 多层成员访问时，根据 []int 提供的每个结构体的字段索引，返回字段的信息。   FieldByNameFunc(match func(string) bool) (StructField,bool) 根据传入的匹配函数匹配需要的字段。   NumMethod() int 返回该类型的方法集中方法的数目   Method(int) Method 返回该类型方法集中的第i个方法   MethodByName(string)(Method, bool) 根据方法名返回该类型方法集中的方法    StructField类型 StructField类型用来描述结构体中的一个字段的信息。
+StructField的定义如下：
+type StructField struct { // Name是字段的名字。PkgPath是非导出字段的包路径，对导出字段该字段为&quot;&quot;。 // 参见http://golang.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="2.13.4.结构体反射" />
+<meta property="og:description" content="2.13.4.结构体反射 与结构体相关的方法 任意值通过reflect.TypeOf()获得反射对象信息后，如果它的类型是结构体，可以通过反射值对象（reflect.Type）的NumField()和Field()方法获得结构体成员的详细信息。
+reflect.Type中与获取结构体成员相关的的方法如下表所示。
+   方法 说明     Field(i int) StructField 根据索引，返回索引对应的结构体字段的信息。   NumField() int 返回结构体成员字段数量。   FieldByName(name string) (StructField, bool) 根据给定字符串返回字符串对应的结构体字段的信息。   FieldByIndex(index []int) StructField 多层成员访问时，根据 []int 提供的每个结构体的字段索引，返回字段的信息。   FieldByNameFunc(match func(string) bool) (StructField,bool) 根据传入的匹配函数匹配需要的字段。   NumMethod() int 返回该类型的方法集中方法的数目   Method(int) Method 返回该类型方法集中的第i个方法   MethodByName(string)(Method, bool) 根据方法名返回该类型方法集中的方法    StructField类型 StructField类型用来描述结构体中的一个字段的信息。
+StructField的定义如下：
+type StructField struct { // Name是字段的名字。PkgPath是非导出字段的包路径，对导出字段该字段为&quot;&quot;。 // 参见http://golang." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.13.%E5%8F%8D%E5%B0%84/2.13.4.%E7%BB%93%E6%9E%84%E4%BD%93%E5%8F%8D%E5%B0%84/" />
+
+<title>2.13.4.结构体反射 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.61eb3b61578f29aa949dcd8a8d21fc8e67880fe1b96b1b90100f127eecb0a2ef.js" integrity="sha256-Yes7YVePKaqUnc2KjSH8jmeID&#43;G5axuQEA8Sfuywou8="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">Go</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="collapsed ">1.开发环境</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/" class="collapsed ">2. Golang基础</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.1.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/" class="collapsed ">2.1.变量和常量</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="collapsed ">2.2.基本数据类型</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.3.%E8%BF%90%E7%AE%97%E7%AC%A6/" class="collapsed ">2.3.运算符</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="collapsed ">2.4.流程控制</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.5.%E6%95%B0%E7%BB%84/" class="collapsed ">2.5.数组</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.6.%E5%88%87%E7%89%87/" class="collapsed ">2.6.切片</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.7.map/" class="collapsed ">2.7.map</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/" class="collapsed ">2.8.函数</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.9.%E6%8C%87%E9%92%88/" class="collapsed ">2.9.指针</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.10.%E7%BB%93%E6%9E%84%E4%BD%93/" class="collapsed ">2.10.结构体</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.11.%E5%8C%85/" class="collapsed ">2.11.包</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.12.%E6%8E%A5%E5%8F%A3/" class="collapsed ">2.12.接口</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.13.%E5%8F%8D%E5%B0%84/" class="collapsed ">2.13.反射</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.13.%E5%8F%8D%E5%B0%84/2.13.1.%E5%8F%98%E9%87%8F%E7%9A%84%E5%86%85%E5%9C%A8%E6%9C%BA%E5%88%B6/" class="">2.13.1.变量的内在机制</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.13.%E5%8F%8D%E5%B0%84/2.13.2.%E5%8F%8D%E5%B0%84%E4%BB%8B%E7%BB%8D/" class="">2.13.2.反射介绍</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.13.%E5%8F%8D%E5%B0%84/2.13.3.reflect%E5%8C%85/" class="">2.13.3.reflect包</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.13.%E5%8F%8D%E5%B0%84/2.13.4.%E7%BB%93%E6%9E%84%E4%BD%93%E5%8F%8D%E5%B0%84/" class="active">2.13.4.结构体反射</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/" class="collapsed ">2.14.并发</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="collapsed ">2.16.单元测试</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/" class="collapsed ">3.标准库</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/4.web%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/" class="collapsed ">4. Web开发相关</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/5.golang%E9%AB%98%E7%BA%A7/" class="collapsed ">5. Golang高级</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/6.golang%E6%BA%90%E7%A0%81/" class="collapsed ">6. Golang源码</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/7.%E5%BA%94%E7%94%A8/" class="collapsed ">7.应用</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" class="collapsed ">数据结构&amp;算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>2.13.4.结构体反射</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#与结构体相关的方法">与结构体相关的方法</a></li>
+    <li><a href="#structfield类型">StructField类型</a></li>
+    <li><a href="#结构体反射示例">结构体反射示例</a></li>
+    <li><a href="#反射是把双刃剑">反射是把双刃剑</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="2134结构体反射">2.13.4.结构体反射</h1>
+<h2 id="与结构体相关的方法">与结构体相关的方法</h2>
+<p>任意值通过reflect.TypeOf()获得反射对象信息后，如果它的类型是结构体，可以通过反射值对象（reflect.Type）的NumField()和Field()方法获得结构体成员的详细信息。</p>
+<p>reflect.Type中与获取结构体成员相关的的方法如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Field(i int) StructField</td>
+<td>根据索引，返回索引对应的结构体字段的信息。</td>
+</tr>
+<tr>
+<td>NumField() int</td>
+<td>返回结构体成员字段数量。</td>
+</tr>
+<tr>
+<td>FieldByName(name string) (StructField, bool)</td>
+<td>根据给定字符串返回字符串对应的结构体字段的信息。</td>
+</tr>
+<tr>
+<td>FieldByIndex(index []int) StructField</td>
+<td>多层成员访问时，根据 []int 提供的每个结构体的字段索引，返回字段的信息。</td>
+</tr>
+<tr>
+<td>FieldByNameFunc(match func(string) bool) (StructField,bool)</td>
+<td>根据传入的匹配函数匹配需要的字段。</td>
+</tr>
+<tr>
+<td>NumMethod() int</td>
+<td>返回该类型的方法集中方法的数目</td>
+</tr>
+<tr>
+<td>Method(int) Method</td>
+<td>返回该类型方法集中的第i个方法</td>
+</tr>
+<tr>
+<td>MethodByName(string)(Method, bool)</td>
+<td>根据方法名返回该类型方法集中的方法</td>
+</tr>
+</tbody>
+</table>
+<h2 id="structfield类型">StructField类型</h2>
+<p>StructField类型用来描述结构体中的一个字段的信息。</p>
+<p>StructField的定义如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">type StructField struct {
+    // Name是字段的名字。PkgPath是非导出字段的包路径，对导出字段该字段为&quot;&quot;。
+    // 参见http://golang.org/ref/spec#Uniqueness_of_identifiers
+    Name    string
+    PkgPath string
+    Type      Type      // 字段的类型
+    Tag       StructTag // 字段的标签
+    Offset    uintptr   // 字段在结构体中的字节偏移量
+    Index     []int     // 用于Type.FieldByIndex时的索引切片
+    Anonymous bool      // 是否匿名字段
+}
+</code></pre><h2 id="结构体反射示例">结构体反射示例</h2>
+<p>当我们使用反射得到一个结构体数据之后可以通过索引依次获取其字段信息，也可以通过字段名去获取指定的字段信息。</p>
+<pre><code class="language-aidl" data-lang="aidl">type student struct {
+	Name  string `json:&quot;name&quot;`
+	Score int    `json:&quot;score&quot;`
+}
+
+func main() {
+	stu1 := student{
+		Name:  &quot;小王子&quot;,
+		Score: 90,
+	}
+
+	t := reflect.TypeOf(stu1)
+	fmt.Println(t.Name(), t.Kind()) // student struct
+	// 通过for循环遍历结构体的所有字段信息
+	for i := 0; i &lt; t.NumField(); i++ {
+		field := t.Field(i)
+		fmt.Printf(&quot;name:%s index:%d type:%v json tag:%v\n&quot;, field.Name, field.Index, field.Type, field.Tag.Get(&quot;json&quot;))
+	}
+
+	// 通过字段名获取指定结构体字段信息
+	if scoreField, ok := t.FieldByName(&quot;Score&quot;); ok {
+		fmt.Printf(&quot;name:%s index:%d type:%v json tag:%v\n&quot;, scoreField.Name, scoreField.Index, scoreField.Type, scoreField.Tag.Get(&quot;json&quot;))
+	}
+}
+</code></pre><p>接下来编写一个函数printMethod(s interface{})来遍历打印s包含的方法。</p>
+<pre><code class="language-aidl" data-lang="aidl">// 给student添加两个方法 Study和Sleep(注意首字母大写)
+func (s student) Study() string {
+	msg := &quot;好好学习，天天向上。&quot;
+	fmt.Println(msg)
+	return msg
+}
+
+func (s student) Sleep() string {
+	msg := &quot;好好睡觉，快快长大。&quot;
+	fmt.Println(msg)
+	return msg
+}
+
+func printMethod(x interface{}) {
+	t := reflect.TypeOf(x)
+	v := reflect.ValueOf(x)
+
+	fmt.Println(t.NumMethod())
+	for i := 0; i &lt; v.NumMethod(); i++ {
+		methodType := v.Method(i).Type()
+		fmt.Printf(&quot;method name:%s\n&quot;, t.Method(i).Name)
+		fmt.Printf(&quot;method:%s\n&quot;, methodType)
+		// 通过反射调用方法传递的参数必须是 []reflect.Value 类型
+		var args = []reflect.Value{}
+		v.Method(i).Call(args)
+	}
+}
+</code></pre><h2 id="反射是把双刃剑">反射是把双刃剑</h2>
+<p>反射是一个强大并富有表现力的工具，能让我们写出更灵活的代码。但是反射不应该被滥用，原因有以下三个。</p>
+<ul>
+<li>基于反射的代码是极其脆弱的，反射中的类型错误会在真正运行的时候才会引发panic，那很可能是在代码写完的很长时间之后。</li>
+<li>大量使用反射的代码通常难以理解。</li>
+<li>反射的性能低下，基于反射实现的代码通常比正常代码运行速度慢一到两个数量级。</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#与结构体相关的方法">与结构体相关的方法</a></li>
+    <li><a href="#structfield类型">StructField类型</a></li>
+    <li><a href="#结构体反射示例">结构体反射示例</a></li>
+    <li><a href="#反射是把双刃剑">反射是把双刃剑</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

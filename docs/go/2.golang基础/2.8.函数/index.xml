@@ -11,12 +11,12 @@
     
     
     <item>
-      <title>2.8.函数</title>
-      <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.%E5%87%BD%E6%95%B0/</link>
+      <title>2.8.1.函数</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.1.%E5%87%BD%E6%95%B0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.%E5%87%BD%E6%95%B0/</guid>
-      <description>2.8.函数 Go语言中支持函数、匿名函数和闭包，并且函数在Go语言中属于“一等公民”。
+      <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.1.%E5%87%BD%E6%95%B0/</guid>
+      <description>2.8.1.函数 Go语言中支持函数、匿名函数和闭包，并且函数在Go语言中属于“一等公民”。
 函数定义 Go语言中定义函数使用func关键字，具体格式如下：
 func 函数名(参数)(返回值){ 函数体 } 其中:
  函数名：由字母、数字、下划线组成。但函数名的第一个字母不能是数字。在同一个包内，函数名也称不能重名 参数：参数由参数变量和参数变量的类型组成，多个参数之间使用,分隔。 返回值：返回值由返回值变量和其变量类型组成，也可以只写返回值的类型，多个返回值必须用()包裹，并用,分隔。 函数体：实现指定功能的代码块。  我们先来定义一个求两个数之和的函数：
@@ -41,6 +41,17 @@ func intSum2(x .</description>
 package main import &amp;quot;fmt&amp;quot; //定义全局变量num var num int64 = 10 func testGlobalVar() { fmt.Printf(&amp;quot;num=%d\n&amp;quot;, num) //函数中可以访问全局变量num } func main() { testGlobalVar() //num=10 } 局部变量 局部变量又分为两种： 函数内定义的变量无法在该函数外使用，例如下面的示例代码main函数中无法使用testLocalVar函数中定义的变量x：
 func testLocalVar() { //定义一个函数局部变量x,仅在该函数内生效 var x int64 = 100 fmt.Printf(&amp;quot;x=%d\n&amp;quot;, x) } func main() { testLocalVar() fmt.Println(x) // 此时无法使用变量x } 如果局部变量和全局变量重名，优先访问局部变量。
 package main import &amp;quot;fmt&amp;quot; //定义全局变量num var num int64 = 10 func testNum() { num := 100 fmt.Printf(&amp;quot;num=%d\n&amp;quot;, num) // 函数中优先使用局部变量 } func main() { testNum() // num=100 } 接下来我们来看一下语句块定义的变量，通常我们会在if条件判断、for循环、switch语句上使用这种定义变量的方式。</description>
+    </item>
+    
+    <item>
+      <title>2.8.3.内置函数</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.3.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.3.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/</guid>
+      <description>2.8.3.内置函数    内置函数 介绍     close 主要用来关闭channel   len 用来求长度,比如string、array、slice、map、channel   new 用来分配内存,主要用来分配值类型,比如int、struct. 返回的是指针   make 用来分配内存,主要用来分配应用类型, 比如chan、map、slice   append 用来追加元素到数组、slice中   panic和recover 用来做错误处理    panic/recover Go语言中目前（Go1.12）是没有异常机制，但是使用panic/recover模式来处理错误。 panic可以在任何地方引发，但recover只有在defer调用的函数中有效。 首先来看一个例子：
+func funcA() { fmt.Println(&amp;quot;func A&amp;quot;) } func funcB() { panic(&amp;quot;panic in B&amp;quot;) } func funcC() { fmt.Println(&amp;quot;func C&amp;quot;) } func main() { funcA() funcB() funcC() } 输出:
+func A panic: panic in B goroutine 1 [running]: main.</description>
     </item>
     
   </channel>

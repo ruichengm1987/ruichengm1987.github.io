@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="2.8.1.函数 Go语言中支持函数、匿名函数和闭包，并且函数在Go语言中属于“一等公民”。
+函数定义 Go语言中定义函数使用func关键字，具体格式如下：
+func 函数名(参数)(返回值){ 函数体 } 其中:
+ 函数名：由字母、数字、下划线组成。但函数名的第一个字母不能是数字。在同一个包内，函数名也称不能重名 参数：参数由参数变量和参数变量的类型组成，多个参数之间使用,分隔。 返回值：返回值由返回值变量和其变量类型组成，也可以只写返回值的类型，多个返回值必须用()包裹，并用,分隔。 函数体：实现指定功能的代码块。  我们先来定义一个求两个数之和的函数：
+func intSum(x int, y int) int { return x &#43; y } 函数的参数和返回值都是可选的，例如我们可以实现一个既不需要参数也没有返回值的函数：
+func sayHello() { fmt.Println(&quot;Hello 沙河&quot;) } 函数的调用 定义了函数之后，我们可以通过函数名()的方式调用函数。 例如我们调用上面定义的两个函数，代码如下：
+func main() { sayHello() ret := intSum(10, 20) fmt.Println(ret) } 注意，调用有返回值的函数时，可以不接收其返回值。
+参数 类型简写 函数的参数中如果相邻变量的类型相同，则可以省略类型，例如：
+func intSum(x, y int) int { return x &#43; y } 上面的代码中，intSum函数有两个参数，这两个参数的类型均为int，因此可以省略x的类型，因为y后面有类型说明，x参数也是该类型。
+可变参数 可变参数是指函数的参数数量不固定。Go语言中的可变参数通过在参数名后加&hellip;来标识。
+注意：可变参数通常要作为函数的最后一个参数。
+举个例子：
+func intSum2(x .">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="2.8.1.函数" />
+<meta property="og:description" content="2.8.1.函数 Go语言中支持函数、匿名函数和闭包，并且函数在Go语言中属于“一等公民”。
+函数定义 Go语言中定义函数使用func关键字，具体格式如下：
+func 函数名(参数)(返回值){ 函数体 } 其中:
+ 函数名：由字母、数字、下划线组成。但函数名的第一个字母不能是数字。在同一个包内，函数名也称不能重名 参数：参数由参数变量和参数变量的类型组成，多个参数之间使用,分隔。 返回值：返回值由返回值变量和其变量类型组成，也可以只写返回值的类型，多个返回值必须用()包裹，并用,分隔。 函数体：实现指定功能的代码块。  我们先来定义一个求两个数之和的函数：
+func intSum(x int, y int) int { return x &#43; y } 函数的参数和返回值都是可选的，例如我们可以实现一个既不需要参数也没有返回值的函数：
+func sayHello() { fmt.Println(&quot;Hello 沙河&quot;) } 函数的调用 定义了函数之后，我们可以通过函数名()的方式调用函数。 例如我们调用上面定义的两个函数，代码如下：
+func main() { sayHello() ret := intSum(10, 20) fmt.Println(ret) } 注意，调用有返回值的函数时，可以不接收其返回值。
+参数 类型简写 函数的参数中如果相邻变量的类型相同，则可以省略类型，例如：
+func intSum(x, y int) int { return x &#43; y } 上面的代码中，intSum函数有两个参数，这两个参数的类型均为int，因此可以省略x的类型，因为y后面有类型说明，x参数也是该类型。
+可变参数 可变参数是指函数的参数数量不固定。Go语言中的可变参数通过在参数名后加&hellip;来标识。
+注意：可变参数通常要作为函数的最后一个参数。
+举个例子：
+func intSum2(x ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.1.%E5%87%BD%E6%95%B0/" />
+
+<title>2.8.1.函数 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.61eb3b61578f29aa949dcd8a8d21fc8e67880fe1b96b1b90100f127eecb0a2ef.js" integrity="sha256-Yes7YVePKaqUnc2KjSH8jmeID&#43;G5axuQEA8Sfuywou8="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">Go</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="collapsed ">1.开发环境</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/" class="collapsed ">2. Golang基础</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.1.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/" class="collapsed ">2.1.变量和常量</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="collapsed ">2.2.基本数据类型</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.3.%E8%BF%90%E7%AE%97%E7%AC%A6/" class="collapsed ">2.3.运算符</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="collapsed ">2.4.流程控制</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.5.%E6%95%B0%E7%BB%84/" class="collapsed ">2.5.数组</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.6.%E5%88%87%E7%89%87/" class="collapsed ">2.6.切片</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.7.map/" class="collapsed ">2.7.map</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/" class="collapsed ">2.8.函数</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.1.%E5%87%BD%E6%95%B0/" class="active">2.8.1.函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.2.%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" class="">2.8.2.函数进阶</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.8.%E5%87%BD%E6%95%B0/2.8.3.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" class="">2.8.3.内置函数</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.9.%E6%8C%87%E9%92%88/" class="collapsed ">2.9.指针</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.10.%E7%BB%93%E6%9E%84%E4%BD%93/" class="collapsed ">2.10.结构体</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.11.%E5%8C%85/" class="collapsed ">2.11.包</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.12.%E6%8E%A5%E5%8F%A3/" class="collapsed ">2.12.接口</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.13.%E5%8F%8D%E5%B0%84/" class="collapsed ">2.13.反射</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/" class="collapsed ">2.14.并发</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="collapsed ">2.16.单元测试</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/" class="collapsed ">3.标准库</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/4.web%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/" class="collapsed ">4. Web开发相关</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/5.golang%E9%AB%98%E7%BA%A7/" class="collapsed ">5. Golang高级</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/6.golang%E6%BA%90%E7%A0%81/" class="collapsed ">6. Golang源码</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/7.%E5%BA%94%E7%94%A8/" class="collapsed ">7.应用</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" class="collapsed ">数据结构&amp;算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>2.8.1.函数</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#函数定义">函数定义</a></li>
+    <li><a href="#函数的调用">函数的调用</a></li>
+    <li><a href="#参数">参数</a>
+      <ul>
+        <li><a href="#类型简写">类型简写</a></li>
+        <li><a href="#可变参数">可变参数</a></li>
+      </ul>
+    </li>
+    <li><a href="#返回值">返回值</a>
+      <ul>
+        <li><a href="#多返回值">多返回值</a></li>
+        <li><a href="#返回值命名">返回值命名</a></li>
+        <li><a href="#返回值补充">返回值补充</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="281函数">2.8.1.函数</h1>
+<p>Go语言中支持函数、匿名函数和闭包，并且函数在Go语言中属于“一等公民”。</p>
+<h2 id="函数定义">函数定义</h2>
+<p>Go语言中定义函数使用func关键字，具体格式如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func 函数名(参数)(返回值){
+    函数体
+}
+</code></pre><p>其中:</p>
+<ul>
+<li>函数名：由字母、数字、下划线组成。但函数名的第一个字母不能是数字。在同一个包内，函数名也称不能重名</li>
+<li>参数：参数由参数变量和参数变量的类型组成，多个参数之间使用,分隔。</li>
+<li>返回值：返回值由返回值变量和其变量类型组成，也可以只写返回值的类型，多个返回值必须用()包裹，并用,分隔。</li>
+<li>函数体：实现指定功能的代码块。</li>
+</ul>
+<p>我们先来定义一个求两个数之和的函数：</p>
+<pre><code class="language-aidl" data-lang="aidl">func intSum(x int, y int) int {
+	return x + y
+}
+</code></pre><p>函数的参数和返回值都是可选的，例如我们可以实现一个既不需要参数也没有返回值的函数：</p>
+<pre><code class="language-aidl" data-lang="aidl">func sayHello() {
+	fmt.Println(&quot;Hello 沙河&quot;)
+}
+</code></pre><h2 id="函数的调用">函数的调用</h2>
+<p>定义了函数之后，我们可以通过函数名()的方式调用函数。 例如我们调用上面定义的两个函数，代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func main() {
+	sayHello()
+	ret := intSum(10, 20)
+	fmt.Println(ret)
+}
+
+</code></pre><p>注意，调用有返回值的函数时，可以不接收其返回值。</p>
+<h2 id="参数">参数</h2>
+<h3 id="类型简写">类型简写</h3>
+<p>函数的参数中如果相邻变量的类型相同，则可以省略类型，例如：</p>
+<pre><code class="language-aidl" data-lang="aidl">func intSum(x, y int) int {
+	return x + y
+}
+</code></pre><p>上面的代码中，intSum函数有两个参数，这两个参数的类型均为int，因此可以省略x的类型，因为y后面有类型说明，x参数也是该类型。</p>
+<h3 id="可变参数">可变参数</h3>
+<p>可变参数是指函数的参数数量不固定。Go语言中的可变参数通过在参数名后加&hellip;来标识。</p>
+<p>注意：可变参数通常要作为函数的最后一个参数。</p>
+<p>举个例子：</p>
+<pre><code class="language-aidl" data-lang="aidl">func intSum2(x ...int) int {
+	fmt.Println(x) //x是一个切片
+	sum := 0
+	for _, v := range x {
+		sum = sum + v
+	}
+	return sum
+}
+</code></pre><p>调用上面的函数：</p>
+<pre><code class="language-aidl" data-lang="aidl">ret1 := intSum2()
+ret2 := intSum2(10)
+ret3 := intSum2(10, 20)
+ret4 := intSum2(10, 20, 30)
+fmt.Println(ret1, ret2, ret3, ret4) //0 10 30 60
+
+</code></pre><p>固定参数搭配可变参数使用时，可变参数要放在固定参数的后面，示例代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func intSum3(x int, y ...int) int {
+	fmt.Println(x, y)
+	sum := x
+	for _, v := range y {
+		sum = sum + v
+	}
+	return sum
+}
+
+</code></pre><p>调用上述函数：</p>
+<pre><code class="language-aidl" data-lang="aidl">ret5 := intSum3(100)
+ret6 := intSum3(100, 10)
+ret7 := intSum3(100, 10, 20)
+ret8 := intSum3(100, 10, 20, 30)
+fmt.Println(ret5, ret6, ret7, ret8) //100 110 130 160
+</code></pre><p>本质上，函数的可变参数是通过切片来实现的。</p>
+<h2 id="返回值">返回值</h2>
+<p>Go语言中通过return关键字向外输出返回值。</p>
+<h3 id="多返回值">多返回值</h3>
+<p>Go语言中函数支持多返回值，函数如果有多个返回值时必须用()将所有返回值包裹起来。
+举个例子：</p>
+<pre><code class="language-aidl" data-lang="aidl">func calc(x, y int) (int, int) {
+	sum := x + y
+	sub := x - y
+	return sum, sub
+}
+</code></pre><h3 id="返回值命名">返回值命名</h3>
+<p>函数定义时可以给返回值命名，并在函数体中直接使用这些变量，最后通过return关键字返回。</p>
+<p>例如:</p>
+<pre><code class="language-aidl" data-lang="aidl">func calc(x, y int) (sum, sub int) {
+	sum = x + y
+	sub = x - y
+	return
+}
+
+</code></pre><h3 id="返回值补充">返回值补充</h3>
+<p>当我们的一个函数返回值类型为slice时，nil可以看做是一个有效的slice，没必要显示返回一个长度为0的切片。</p>
+<pre><code class="language-aidl" data-lang="aidl">func someFunc(x string) []int {
+	if x == &quot;&quot; {
+		return nil // 没必要返回[]int{}
+	}
+	...
+}
+
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#函数定义">函数定义</a></li>
+    <li><a href="#函数的调用">函数的调用</a></li>
+    <li><a href="#参数">参数</a>
+      <ul>
+        <li><a href="#类型简写">类型简写</a></li>
+        <li><a href="#可变参数">可变参数</a></li>
+      </ul>
+    </li>
+    <li><a href="#返回值">返回值</a>
+      <ul>
+        <li><a href="#多返回值">多返回值</a></li>
+        <li><a href="#返回值命名">返回值命名</a></li>
+        <li><a href="#返回值补充">返回值补充</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
