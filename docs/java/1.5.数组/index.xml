@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1.5.数组 on 坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/java/1.5.%E6%95%B0%E7%BB%84/</link>
+    <description>Recent content in 1.5.数组 on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/java/1.5.%E6%95%B0%E7%BB%84/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1.5.1.数组</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.5.%E6%95%B0%E7%BB%84/1.5.1.%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.5.%E6%95%B0%E7%BB%84/1.5.1.%E6%95%B0%E7%BB%84/</guid>
+      <description>1.5.1 数组  声明数组 语法： 数据类型[ ] 数组名；
+或者 数据类型 数组名[ ]；
+ 分配空间 语法： 数组名 = new 数据类型 [ 数组长度 ];
+ 话说，我们也可以将上面的两个步骤合并，在声明数组的同时为它分配空间，如：
+ 赋值 分配空间后就可以向数组中放数据了，数组中元素都是通过下标来访问的，例如向 scores 数组中存放学生成绩
+scores[0] = 89; 处理数组中数据 在 Java 中还提供了另外一种直接创建数组的方式，它将声明数组、分配空间和赋值合并完成，如  等价于:  使用循环操作 Java 中的数组   其中， 数组名.length 用于获取数组的长度</description>
+    </item>
+    
+  </channel>
+</rss>

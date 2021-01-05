@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2.1.类和对象 on 坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/</link>
+    <description>Recent content in 2.1.类和对象 on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2.1.1.类和对象</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/</guid>
+      <description>2.1.1.类和对象 类的定义  类的实例化  局部变量和全局变量  作用域  局部变量: 仅限于定义它的方法 成员变量: 整个类的内部  构造方法    static静态变量  static静态方法  1、静态方法中可以直接调用同类中的静态成员，但不能直接调用非静态成员。如：  如果希望在静态方法中调用非静态变量，可以通过创建类的对象，然后通过对象来访问非静态变量。如：  2、在普通成员方法中，则可以直接访问同类的非静态变量和静态变量，如下所示：  3、静态方法中不能直接调用非静态方法，需要通过对象来访问非静态方法。如：  static静态初始化块  在类的声明中，可以包含多个初始化块，当创建类的实例时，就会依次执行这些代码块。如果使用 static 修饰初始化块，就称为静态初始化块。
+需要特别注意：静态初始化块只在类加载时执行，且只会执行一次，同时静态初始化块只能给静态变量赋值，不能初始化普通的成员变量。
+ </description>
+    </item>
+    
+    <item>
+      <title>2.1.2.封装</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.2.%E5%B0%81%E8%A3%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.2.%E5%B0%81%E8%A3%85/</guid>
+      <description>2.1.2.封装 修饰符 public
+protecd
+private
+this修饰符  this关键字代表当前对象 this.属性 操作当前对象的属性 this.方法 调用当前对象的方法 封装对象的属性的时候,经常会使用this关键字  </description>
+    </item>
+    
+    <item>
+      <title>2.1.3.继承</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.3.%E7%BB%A7%E6%89%BF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.3.%E7%BB%A7%E6%89%BF/</guid>
+      <description>2.1.3.继承 语法规则 class 子类 extends 父类 例: class Dog extends Animal {
+}
+方法重写 子类不满父类的类, 子类重写方法
+final关键字 使用final关键字做标识有&amp;quot;最终的&amp;quot;含义
+final可以修饰类、方法、属性、变量
+ 修饰类, 则该类不允许被继承 修饰方法, 则该方法不允许被覆盖 修饰属性 则该类的属性不会进行隐式的初始化(类的初始化属性必须有值)
+或在构造方法中赋值(但只能选其一) 修饰变量, 则该变量的值只能赋一次值,即变为常量  super关键字 在对象内部使用,可以代表父类对象
+1.访问父类的属性: super.age
+2.访问父类的方法: super.eat()
+Object类 Object类是所有类的父类,如果一个类没有使用extends关键字明确标识继承另外一个类, 那么这个类默认继承Object类
+Object类中的方法,适合所有子类
+toString()方法 转换为字符串，所有类可以重写
+equals() 方法 比较的是对象的引用是否指向同一块内存地址</description>
+    </item>
+    
+    <item>
+      <title>2.1.4.多台</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.4.%E5%A4%9A%E6%80%81/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.4.%E5%A4%9A%E6%80%81/</guid>
+      <description>2.1.4.多台 对象的多种形态 引用多台 父类的引用可以指向本类的对象 父类的引用可以指向子类的对象  方法多台 创建本类对象时, 调用的方法为本类的方法 创建子类对象时, 调用的方法为子类重写的方法或继承的方法  多态中的引用类型转换  向上类型的转换(隐式/自动类型转换),是小类型到大类型的转换 向下类型转换(强制类型转换), 是大类型到小类型 instanceof运算符, 来解决引用对象的类型,避免类型转换的安全性问题 它的作用是测试它左边的对象是否是它右边的类的实例  </description>
+    </item>
+    
+    <item>
+      <title>2.1.5.包</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.5.%E5%8C%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.5.%E5%8C%85/</guid>
+      <description>2.1.5.包 包的作用 管理Java文件 解决同名文件冲突  定义包:package包名 注: 必须放在Java源程序的第一行, 包名间可以使用&amp;quot;.&amp;quot;号隔开 eg: com.imooc.MyClass  系统中的包 java.(功能).(类) java.lang.(类) 包含java语言基础的类 java.util.(类) 包含java语言中的各种工具类 java.io.(类) 包含输入、输出相关功能的类
+包的使用 (1) 可以通过import关键字,在某个文件使用其它文件中的类。
+import com.immoc.music.MyClass
+(2) java中, 包的命名规范是全小写字母拼写
+(3) 使用的时候不但可以加载某个包下的所有文件 eg: com.immoc.*
+也可以加载某个具体子包下的所有文件
+eg: com.immoc.music.*</description>
+    </item>
+    
+    <item>
+      <title>2.1.6.抽象类</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.6.%E6%8A%BD%E8%B1%A1%E7%B1%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.6.%E6%8A%BD%E8%B1%A1%E7%B1%BB/</guid>
+      <description>2.1.6.抽象类 使用规则  abstract定义抽象类 abstract定义抽象方法,只有声明,不需要实现 包含抽象方法的类是抽象类 抽象类中可以包含普通的方法, 也可以没有抽象方法 抽象类不能直接创建, 可以定义引用变量  public abstract class Telphone { public abstract void call() } </description>
+    </item>
+    
+    <item>
+      <title>2.1.7.接口</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.7.%E6%8E%A5%E5%8F%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.7.%E6%8E%A5%E5%8F%A3/</guid>
+      <description>2.1.7.接口 接口定义的基本语法 [修饰符] interface 接口名 [extends 父接口1, 父接口2&amp;hellip;] { 零个到多个常量定义 零个到的讴歌抽象方法的定义 }
+接口定义 常量:
+接口中的属性是常量,即使定义时不添加public static final 修饰符, 系统也会自动加上
+方法:
+接口中的方法只能是抽象方法,总是使用, 即使定义时不添加public abstract修饰符,系统也会自动加上。
+使用接口 一个类可以实现一个或多个接口, 实现接口使用implements关键字. java中一个类只能继承一个父类,是不够灵活的，通过 实现多个接口可以做补充
+继承父类实现接口的语法为: [修饰符] class 类名 extends 父类 implements 接口1, 接口2&amp;hellip; { 类体部分 //如果继承了抽象类，需要实现继承的抽象方法;要实现接口中的抽象方法 }
+如果要继承父类,继承父类必须在实现接口之前</description>
+    </item>
+    
+  </channel>
+</rss>

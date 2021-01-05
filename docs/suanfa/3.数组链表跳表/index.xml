@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/suanfa/3.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/suanfa/3.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>3.1.数组链表跳表</title>
+      <link>https://ruichengm1987.github.io/docs/suanfa/3.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/3.1.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/suanfa/3.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/3.1.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/</guid>
+      <description>3.1.数组链表跳表 数组 时间复杂度:
+   操作 时间复杂度     查找 O(1)   插入 O(n)   删除 O(n)    链表 时间复杂度:
+   操作 时间复杂度     头部增加 O(1)   尾部增加 O(1)   查找 O(n)   插入 O(1)   删除 O(1)    思想:
+ 空间换时间 升维  单链表 node节点有next
+双链表 node节点有next和privious
+循环链表 node节点的next指向头节点
+跳表    操作 时间复杂度     查找 O(logn)    空间复杂度: O(n)</description>
+    </item>
+    
+  </channel>
+</rss>

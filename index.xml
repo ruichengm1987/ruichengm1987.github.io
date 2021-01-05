@@ -11,6 +11,102 @@
     
     
     <item>
+      <title>1.1.1 java的特性与版本</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.1.java%E5%88%9D%E4%BD%93%E9%AA%8C/1.1.1.java%E7%9A%84%E7%89%B9%E6%80%A7%E4%B8%8E%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.1.java%E5%88%9D%E4%BD%93%E9%AA%8C/1.1.1.java%E7%9A%84%E7%89%B9%E6%80%A7%E4%B8%8E%E7%89%88%E6%9C%AC/</guid>
+      <description>1.2.1 关键字 java的特性 开源、跨平台
+java的版本 j2se 1.8</description>
+    </item>
+    
+    <item>
+      <title>1.1.名词</title>
+      <link>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.1.%E5%90%8D%E8%AF%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.1.%E5%90%8D%E8%AF%8D/</guid>
+      <description>1.1.名词 1️⃣ 名词分类 1.1.1.专有名词  专有名词是个别的人、地、物、团体、机构等的专用名称 专有名词中实词的第一个字母要大写
+Beijing, Tom, the People&amp;rsquo;s Republic of China 专有名词如含有普通名词的短语,必须用定冠词the the Great Wall 长城 姓氏名采用复数形式
+the Greens 格林一家人  1.1.2.普通名词  普通名词: 是许多人或事物的共有名称 pupil, family, man, foot  1.2.1.可数名词  可数名词是可以用数词进行计算的名词  box, child, orange
+1.2.2.不可数名词  不可数名词是不可以数词进行计数的名词  water, news, oil
+2️⃣ 单数-复数 规则  +s map-&amp;gt;maps, boy-&amp;gt;bodys, horse-&amp;gt;horses, table-&amp;gt;tables s, o, x, sh, ch 结尾的词加es class-&amp;gt;classes, box-&amp;gt;boxes, hero-&amp;gt;heroes, dish-&amp;gt;dishes bench-&amp;gt;benches
+【注】:少数以o结尾的词,变复数时只加s photo-&amp;gt;photos, piano-&amp;gt;pianos 以辅音字母加y结尾的名词,变y为i,再加es family-&amp;gt;families, city-&amp;gt;cities, party-&amp;gt;parties 以f或fe结尾的名词,变f或fe为v,再加es shelf-&amp;gt;shelves, wolf-&amp;gt;wolves, life-&amp;gt;lives, knife-&amp;gt;knives  不规则 man-&amp;gt;men</description>
+    </item>
+    
+    <item>
+      <title>1.1.安装</title>
+      <link>https://ruichengm1987.github.io/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1.1.%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1.1.%E5%AE%89%E8%A3%85/</guid>
+      <description>1.1.安装 linux 下安装  wget https://dl.google.com/go/go1.x.x.linux-amd64.tar.gz 下载安装包 tar -C /usr/local -zxvf go1.x.x.linux-amd64.tar.gz 添加/usr/loacl/go/bin目录到PATH变量中。添加到/etc/profile 或$HOME/.profile都可以  vim /etc/profile export GOROOT=/usr/local/go #设置为go安装的路径,有些安装包会自动设置默认的goroot export GOPATH=/usr/local/goprojects/ #GO项目路径多个用&amp;rsquo;,&amp;lsquo;分开 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin #加载 source /etc/profile   执行go version，如果现实版本号，则Go环境安装成功.  </description>
+    </item>
+    
+    <item>
+      <title>1.1.本地创建一个Git仓库</title>
+      <link>https://ruichengm1987.github.io/docs/git/1.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.1.%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAgit%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/1.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.1.%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAgit%E4%BB%93%E5%BA%93/</guid>
+      <description>1.1.本地创建一个Git仓库 ~ mkdir test ~ cd test ~/test git init 已初始化空的 Git 仓库于 /Users/ruichengm/test/.git/ ~/test(master) ls -al total 0 drwxr-xr-x 3 ruichengm staff 96 7 18 08:46 . drwxr-xr-x+ 107 ruichengm staff 3424 7 18 08:47 .. drwxr-xr-x 9 ruichengm staff 288 7 18 08:46 .git 认识.git ➜ .git git:(master) ls -al total 24 drwxr-xr-x 10 song staff 320 6 25 22:11 . drwxr-xr-x 3 song staff 96 6 25 22:11 .</description>
+    </item>
+    
+    <item>
+      <title>1.1.线性表</title>
+      <link>https://ruichengm1987.github.io/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1.%E7%BA%BF%E6%80%A7%E8%A1%A8/1.1.%E7%BA%BF%E6%80%A7%E8%A1%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1.%E7%BA%BF%E6%80%A7%E8%A1%A8/1.1.%E7%BA%BF%E6%80%A7%E8%A1%A8/</guid>
+      <description>1.1.线性表 1.1.1 线性表的定义和特点  1.1.2 </description>
+    </item>
+    
+    <item>
+      <title>1.2.1 关键字</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.2.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/1.2.1.%E5%85%B3%E9%94%AE%E5%AD%97/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.2.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/1.2.1.%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
+      <description>1.2.1 关键字 Java 中常用关键字：
+ Java 关键字是区分大小写的哦！所以 void 是关键字，但 Void 就不是了~~</description>
+    </item>
+    
+    <item>
+      <title>1.4.1 if</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/1.4.1.if/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/1.4.1.if/</guid>
+      <description>1.4.1 if if  if else  多重if  嵌套if  </description>
+    </item>
+    
+    <item>
+      <title>1.5.1.数组</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.5.%E6%95%B0%E7%BB%84/1.5.1.%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.5.%E6%95%B0%E7%BB%84/1.5.1.%E6%95%B0%E7%BB%84/</guid>
+      <description>1.5.1 数组  声明数组 语法： 数据类型[ ] 数组名；
+或者 数据类型 数组名[ ]；
+ 分配空间 语法： 数组名 = new 数据类型 [ 数组长度 ];
+ 话说，我们也可以将上面的两个步骤合并，在声明数组的同时为它分配空间，如：
+ 赋值 分配空间后就可以向数组中放数据了，数组中元素都是通过下标来访问的，例如向 scores 数组中存放学生成绩
+scores[0] = 89; 处理数组中数据 在 Java 中还提供了另外一种直接创建数组的方式，它将声明数组、分配空间和赋值合并完成，如  等价于:  使用循环操作 Java 中的数组   其中， 数组名.length 用于获取数组的长度</description>
+    </item>
+    
+    <item>
+      <title>1.kafka概述</title>
+      <link>https://ruichengm1987.github.io/docs/kafka/1.kafka%E6%A6%82%E8%BF%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/kafka/1.kafka%E6%A6%82%E8%BF%B0/</guid>
+      <description>1.kafka概述 定义 kafka 是一个分布式的基于发布/订阅模式的消息队列, 主要应用于大数据实时处理领域
+消息队列的作用 削峰、解耦
+消息队列的两种模式 点对点模式、发布/订阅模式 发布/订阅模式:分为消息队列主动推，消费者主动拉，这2种模式， kafka属于后种(但是这种有个缺点需要客户端维护轮训)
+kafka基础架构 </description>
+    </item>
+    
+    <item>
       <title>1.优先队列</title>
       <link>https://ruichengm1987.github.io/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1.%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -47,6 +143,37 @@
 Go语言中有25个关键字：
 break default func interface select case defer go map struct chan else goto package switch const fallthrough if range type continue for import return var 此外，Go语言中还有37个保留字。
 Constants: true false iota nil Types: int int8 int16 int32 int64 uint uint8 uint16 uint32 uint64 uintptr float32 float64 complex128 complex64 bool byte rune string error Functions: make len cap new append copy close delete complex real imag panic recover </description>
+    </item>
+    
+    <item>
+      <title>2.1.1.类和对象</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/</guid>
+      <description>2.1.1.类和对象 类的定义  类的实例化  局部变量和全局变量  作用域  局部变量: 仅限于定义它的方法 成员变量: 整个类的内部  构造方法    static静态变量  static静态方法  1、静态方法中可以直接调用同类中的静态成员，但不能直接调用非静态成员。如：  如果希望在静态方法中调用非静态变量，可以通过创建类的对象，然后通过对象来访问非静态变量。如：  2、在普通成员方法中，则可以直接访问同类的非静态变量和静态变量，如下所示：  3、静态方法中不能直接调用非静态方法，需要通过对象来访问非静态方法。如：  static静态初始化块  在类的声明中，可以包含多个初始化块，当创建类的实例时，就会依次执行这些代码块。如果使用 static 修饰初始化块，就称为静态初始化块。
+需要特别注意：静态初始化块只在类加载时执行，且只会执行一次，同时静态初始化块只能给静态变量赋值，不能初始化普通的成员变量。
+ </description>
+    </item>
+    
+    <item>
+      <title>2.1.主语</title>
+      <link>https://ruichengm1987.github.io/docs/english/2.%E5%8F%A5%E5%AD%90%E6%88%90%E5%88%86/2.1.%E4%B8%BB%E8%AF%AD/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/english/2.%E5%8F%A5%E5%AD%90%E6%88%90%E5%88%86/2.1.%E4%B8%BB%E8%AF%AD/</guid>
+      <description>2.1.主语 </description>
+    </item>
+    
+    <item>
+      <title>2.1.常用命令</title>
+      <link>https://ruichengm1987.github.io/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.1.%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.1.%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>2.1.常用命令 镜像相关命令 查看镜像 docker images 搜索镜像 docker search centos 镜像拉取 docker pull centos:7 删除镜像 # 按镜像id删除镜像 docker rmi 镜像id(imageId) # 删除所有镜像 docker rmi `docker images -q` 容器相关命令 查看容器 # 查看正在运行的容器 docker ps # 查看所有容器 docker ps -a # 查看最后一次运行的容器 docker ps -l # 查看停止的容器 docker ps -f status=exited 创建与启动容器 创建容器常用的参数说明:
+创建容器命令:
+docker run  -i: 表示运行容器 -t: 表示容器启动后进入其命令行。加入这个两个参数后, 容器创建就能登录进去。即分配一个伪终端 &amp;ndash;name: 为创建的容器命名 -v: 表示目录映射关系(前者是宿主机目录,后者是映射到宿主机上的目录), 可以使用多个v做多个目录或文件映射.注意: 最好做目录映射,在宿主机上做修改,然后共享到容器上。 -d:在run后面加上-d参数,则会创建一个守护式容器在后台运行(这样创建容器后不会自动登录容器,如果只加-i-t两个参数，创建后就会自动进去容器)。 -p: 表示端口映射,前者是宿主机端口,后者是容器内的映射端口,可以使用多个-p做多个端口映射 更多参数执行: docker run &amp;ndash;help 查看  1.</description>
     </item>
     
     <item>
@@ -122,6 +249,18 @@ type 接口类型名 interface{ 方法名1( 参数列表1 ) 返回值列表1 方
 并行：同一时刻执行多个任务（你和你朋友都在用微信和女朋友聊天）。
 Go语言的并发通过goroutine实现。goroutine类似于线程，属于用户态的线程，我们可以根据需要创建成千上万个goroutine并发工作。goroutine是由Go语言的运行时（runtime）调度完成，而线程是由操作系统调度完成。
 Go语言还提供channel在多个goroutine间进行通信。goroutine和channel是 Go 语言秉承的 CSP（Communicating Sequential Process）并发模式的重要实现基础。</description>
+    </item>
+    
+    <item>
+      <title>2.16.1.gotest工具</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/2.16.1.gotest%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/2.16.1.gotest%E5%B7%A5%E5%85%B7/</guid>
+      <description>gotest工具 Go语言中的测试依赖go test命令。编写测试代码和编写普通的Go代码过程是类似的，并不需要学习新的语法、规则或工具。
+go test命令是一个按照一定约定和组织的测试代码的驱动程序。在包目录内，所有以_test.go为后缀名的源代码文件都是go test测试的一部分，不会被go build编译到最终的可执行文件中。
+在*_test.go文件中有三种类型的函数，单元测试函数、基准测试函数和示例函数。
+   类型 格式 作用     测试函数 函数名前缀为Test 测试程序的一些逻辑行为是否正确   基准函数 函数名前缀为Benchmark 测试函数的性能   示例函数 函数名前缀为Example 为文档提供示例文档    go test命令会遍历所有的*_test.go文件中符合上述命名规则的函数，然后生成一个临时的main包用于调用相应的测试函数，然后构建并运行、报告测试结果，最后清理测试中生成的临时文件。</description>
     </item>
     
     <item>
@@ -249,6 +388,45 @@ func main() { //指针取值 a := 10 b := &amp;amp;a // 取变量a的地址，�
     </item>
     
     <item>
+      <title>3.1.fmt</title>
+      <link>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.1.fmt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.1.fmt/</guid>
+      <description>3.1.fmt fmt包实现了类似C语言printf和scanf的格式化I/O。主要分为向外输出内容和获取输入内容两大部分。
+向外输出 标准库fmt提供了以下几种输出相关函数。
+print Print系列函数会将内容输出到系统的标准输出，区别在于Print函数直接输出内容，Printf函数支持格式化输出字符串，Println函数会在输出内容的结尾添加一个换行符。
+func Print(a ...interface{}) (n int, err error) func Printf(format string, a ...interface{}) (n int, err error) func Println(a ...interface{}) (n int, err error) 举个简单的例子：
+func main() { fmt.Print(&amp;quot;在终端打印该信息。&amp;quot;) name := &amp;quot;沙河小王子&amp;quot; fmt.Printf(&amp;quot;我是：%s\n&amp;quot;, name) fmt.Println(&amp;quot;在终端打印单独一行显示&amp;quot;) } 执行上面的代码输出：
+在终端打印该信息。我是：沙河小王子 在终端打印单独一行显示 Fprint Fprint系列函数会将内容输出到一个io.Writer接口类型的变量w中，我们通常用这个函数往文件中写入内容。
+func Fprint(w io.Writer, a ...interface{}) (n int, err error) func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) func Fprintln(w io.Writer, a .</description>
+    </item>
+    
+    <item>
+      <title>3.1.数组链表跳表</title>
+      <link>https://ruichengm1987.github.io/docs/suanfa/3.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/3.1.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/suanfa/3.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/3.1.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/</guid>
+      <description>3.1.数组链表跳表 数组 时间复杂度:
+   操作 时间复杂度     查找 O(1)   插入 O(n)   删除 O(n)    链表 时间复杂度:
+   操作 时间复杂度     头部增加 O(1)   尾部增加 O(1)   查找 O(n)   插入 O(1)   删除 O(1)    思想:
+ 空间换时间 升维  单链表 node节点有next
+双链表 node节点有next和privious
+循环链表 node节点的next指向头节点
+跳表    操作 时间复杂度     查找 O(logn)    空间复杂度: O(n)</description>
+    </item>
+    
+    <item>
+      <title>4.2.1.spring</title>
+      <link>https://ruichengm1987.github.io/docs/java/4.2.spring/4.2.1.spring/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/4.2.spring/4.2.1.spring/</guid>
+      <description>4.2.1.spring 核心 Ioc(控制反转)    Di(依赖注入) </description>
+    </item>
+    
+    <item>
       <title>Go Test 单元测试简明教程</title>
       <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -286,10 +464,10 @@ sudo kill -9 850 </description>
     
     <item>
       <title>reset命令:将仓库记录和恢复指定历史位置</title>
-      <link>https://ruichengm1987.github.io/docs/git/1.%E8%BF%9B%E9%98%B6/0.reset%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BB%93%E5%BA%93%E8%AE%B0%E5%BD%95%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AE%9A%E5%8E%86%E5%8F%B2%E4%BD%8D%E7%BD%AE/</link>
+      <link>https://ruichengm1987.github.io/docs/git/2.%E8%BF%9B%E9%98%B6/0.reset%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BB%93%E5%BA%93%E8%AE%B0%E5%BD%95%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AE%9A%E5%8E%86%E5%8F%B2%E4%BD%8D%E7%BD%AE/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ruichengm1987.github.io/docs/git/1.%E8%BF%9B%E9%98%B6/0.reset%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BB%93%E5%BA%93%E8%AE%B0%E5%BD%95%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AE%9A%E5%8E%86%E5%8F%B2%E4%BD%8D%E7%BD%AE/</guid>
+      <guid>https://ruichengm1987.github.io/docs/git/2.%E8%BF%9B%E9%98%B6/0.reset%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BB%93%E5%BA%93%E8%AE%B0%E5%BD%95%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AE%9A%E5%8E%86%E5%8F%B2%E4%BD%8D%E7%BD%AE/</guid>
       <description>0.reset命令:将仓库记录和恢复指定历史位置 有时候我们用 git commit 提交代码后发现这一次提交的内容是错误的，需要将代码复原，这个时候常见有两种做法。
 第一种是把代码错误内容修改正确，然后重新使用 commit 提交一次； 这种情况会多2条log记录
 第二种方法是使用 git reset 命令撤销上一次错误的 commit 记录。 git reset HEAD^ # 撤销我们最近一次提交 git reset 815ac616803fa89c75467618b2be44f85696543d # 指定回滚位置, commitid git reset 815ac616803fa89c75467618b2be44f85696543d filename # 回滚某个文件到某次提交 </description>
@@ -363,39 +541,12 @@ sudo kill -9 850 </description>
     </item>
     
     <item>
-      <title>关键字(25个)</title>
-      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%85%B3%E9%94%AE%E5%AD%9725%E4%B8%AA/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%85%B3%E9%94%AE%E5%AD%9725%E4%B8%AA/</guid>
-      <description>关键字(25个) 引导程序整体结构的8个关键字  package // 定义包名的关键字 import //导入包名关键字 const //常量声明关键字 var //变量声明关键字 func //函数定义关键字 defer //延迟执行关键字 go //并发语法糖关键字 return //函数返回关键字  声明复合数据结构的4个关键字  struct //定义结构类型关键字 interface //定义接口类型关键字 map //声明或创建map类型关键字 chan //声明或创建通道类型关键字  控制程序结构的13个关键宇  if else //if else语句关键字 for range break continue //for循环使用的关键字 switch select type case default fallthrough //switch和select语句使用的关键字 goto //goto跳转语句关键字  </description>
-    </item>
-    
-    <item>
-      <title>初识Git:本地创建一个Git仓库</title>
-      <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/0.%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAgit%E4%BB%93%E5%BA%93/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/0.%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAgit%E4%BB%93%E5%BA%93/</guid>
-      <description>初识Git:本地创建一个Git仓库 ~ mkdir test ~ cd test ~/test git init 已初始化空的 Git 仓库于 /Users/ruichengm/test/.git/ ~/test(master) ls -al total 0 drwxr-xr-x 3 ruichengm staff 96 7 18 08:46 . drwxr-xr-x+ 107 ruichengm staff 3424 7 18 08:47 .. drwxr-xr-x 9 ruichengm staff 288 7 18 08:46 .git 认识.git ➜ .git git:(master) ls -al total 24 drwxr-xr-x 10 song staff 320 6 25 22:11 . drwxr-xr-x 3 song staff 96 6 25 22:11 .</description>
-    </item>
-    
-    <item>
       <title>变量&amp;常量</title>
       <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%8F%98%E9%87%8F%E5%B8%B8%E9%87%8F/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%8F%98%E9%87%8F%E5%B8%B8%E9%87%8F/</guid>
       <description>变量&amp;amp;常量 变量 1、显式的完整声明 var varName dataType [ = value] 说明: 关键字var用于变量声明 varName 是变量名称标识符 dataType 数据类型 value 初始化值 例子: var a int = 1 2、短类型声明 varName := value := 声明只能出现在函数内（包括在方法内） 此时Go编译器自动进行数据类型推断 a, b := 1, &amp;quot;hello&amp;quot;  常量 const a = 1 const ( a = iota ) </description>
-    </item>
-    
-    <item>
-      <title>名词</title>
-      <link>https://ruichengm1987.github.io/docs/english/%E8%AF%8D%E7%B1%BB/%E5%90%8D%E8%AF%8D/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/english/%E8%AF%8D%E7%B1%BB/%E5%90%8D%E8%AF%8D/</guid>
-      <description>名词 </description>
     </item>
     
     <item>
@@ -440,15 +591,6 @@ sudo kill -9 850 </description>
     </item>
     
     <item>
-      <title>安装</title>
-      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%AE%89%E8%A3%85%E7%AF%87/%E5%AE%89%E8%A3%85/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%AE%89%E8%A3%85%E7%AF%87/%E5%AE%89%E8%A3%85/</guid>
-      <description>安装 linux 下安装  wget https://dl.google.com/go/go1.x.x.linux-amd64.tar.gz 下载安装包 tar -C /usr/local -zxvf go1.x.x.linux-amd64.tar.gz 添加/usr/loacl/go/bin目录到PATH变量中。添加到/etc/profile 或$HOME/.profile都可以  vim /etc/profile export GOROOT=/usr/local/go #设置为go安装的路径,有些安装包会自动设置默认的goroot export GOPATH=/usr/local/goprojects/ #GO项目路径多个用&amp;rsquo;,&amp;lsquo;分开 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin #加载 source /etc/profile   执行go version，如果现实版本号，则Go环境安装成功.  </description>
-    </item>
-    
-    <item>
       <title>容错，高可用和灾备</title>
       <link>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/%E5%AE%B9%E9%94%99%E9%AB%98%E5%8F%AF%E7%94%A8%E5%92%8C%E7%81%BE%E5%A4%87/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -478,10 +620,10 @@ sudo kill -9 850 </description>
     
     <item>
       <title>清理无意义的分支数据</title>
-      <link>https://ruichengm1987.github.io/docs/git/1.%E8%BF%9B%E9%98%B6/1.%E6%B8%85%E7%90%86%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E5%88%86%E6%94%AF%E6%95%B0%E6%8D%AE/</link>
+      <link>https://ruichengm1987.github.io/docs/git/2.%E8%BF%9B%E9%98%B6/1.%E6%B8%85%E7%90%86%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E5%88%86%E6%94%AF%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ruichengm1987.github.io/docs/git/1.%E8%BF%9B%E9%98%B6/1.%E6%B8%85%E7%90%86%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E5%88%86%E6%94%AF%E6%95%B0%E6%8D%AE/</guid>
+      <guid>https://ruichengm1987.github.io/docs/git/2.%E8%BF%9B%E9%98%B6/1.%E6%B8%85%E7%90%86%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E5%88%86%E6%94%AF%E6%95%B0%E6%8D%AE/</guid>
       <description>清理无意义的分支数据  本地不存在，远程存在该分支，但不需要了 远程不存在，本地存在该分支，也不需要了  清理远程分支 1. 查看分支, 远程分支显示红色 git branch -a remotes/origin/dev 2. 执行命令 git push origin --delete dev 清理本地分支 1. 模拟场景 git checkout -b test6 2. 查看当前版本库的分支 git branch -a 3. 将分支推送到远程服务器中 git push --set-upstream origin test6 4. 查看远程分支的信息 git remote show origin 5. 删除远程分支 git push origin --delete test1 </description>
     </item>
     
@@ -559,6 +701,65 @@ IP地址负责外网通信
     </item>
     
     <item>
+      <title>1.2.2 标识符</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.2.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/1.2.2.%E6%A0%87%E8%AF%86%E7%AC%A6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.2.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/1.2.2.%E6%A0%87%E8%AF%86%E7%AC%A6/</guid>
+      <description>1.2.2 标识符 标识符就是用于给 Java 程序中变量、类、方法等命名的符号
+ 使用标识符时，需要遵守几条规则：
+  标识符可以由字母、数字、下划线（_）、美元符（$）组成，但不能包含 @、%、空格等其它特殊字符，不能以数字开头。譬如：123name 就是不合法滴
+  标识符不能是 Java 关键字和保留字（ Java 预留的关键字，以后的升级版本中有可能作为关键字），但可以包含关键字和保留字。如：不可以使用 void 作为标识符，但是 Myvoid 可以
+  标识符是严格区分大小写的。 所以涅，一定要分清楚 imooc 和 IMooc 是两个不同的标识符哦！
+  标识符的命名最好能反映出其作用，做到见名知意。
+  </description>
+    </item>
+    
+    <item>
+      <title>1.2.代词</title>
+      <link>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.2.%E4%BB%A3%E8%AF%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.2.%E4%BB%A3%E8%AF%8D/</guid>
+      <description>1.2.代词 </description>
+    </item>
+    
+    <item>
+      <title>1.2.使用Git命令下载远程仓库到本地</title>
+      <link>https://ruichengm1987.github.io/docs/git/1.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.2.%E4%BD%BF%E7%94%A8git%E5%91%BD%E4%BB%A4%E4%B8%8B%E8%BD%BD%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/1.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.2.%E4%BD%BF%E7%94%A8git%E5%91%BD%E4%BB%A4%E4%B8%8B%E8%BD%BD%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0/</guid>
+      <description>1.2.使用Git命令下载远程仓库到本地 HTTP(S)获取远程仓库 首次拉取 git clone 版本库地址	[本地文件夹名称]
+更新代码 git pull
+临时记住密码  git config –-global credential.helper cache #默认缓存15分钟 git config credential.helper &amp;lsquo;cache –timeout=3600&amp;rsquo; #自定义配置记住 1 小时的命令  永久记住密码 git config &amp;ndash;global credential.helper store
+修改配置文件.gitconfig
+[credential] helper = store 在上面的命令中，如果没有&amp;ndash;global，则会在当前项目下的.git/config文件增加配置
+SSH拉取 git clone git@gitee.com:xxx/xxxx.git xxxx
+创建一个ssh key 执行命令: ssh-keygen 之后一直回车
+查看公钥 cat ~/.ssh/id_rsa.pub
+添加公钥到服务器 把公钥粘贴上去</description>
+    </item>
+    
+    <item>
+      <title>1.2.国内镜像配置</title>
+      <link>https://ruichengm1987.github.io/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1.2.%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1.2.%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE/</guid>
+      <description>1.2.国内镜像配置 Go 1.13及以上(推荐) 打开你的终端并执行: go env -w GOPROXY=https://goproxy.cn,direct  Go module 打开你的终端并执行: go env -w GO111MODULE=on  go imports go imports包的引入可以让代码书写变得更加快捷 $ go get -v golang.org/x/tools/cmd/goimports  </description>
+    </item>
+    
+    <item>
+      <title>1.4.2 switch</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/1.4.2.switch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/1.4.2.switch/</guid>
+      <description>1.4.2 switch switch  </description>
+    </item>
+    
+    <item>
       <title>2.1.2.变量</title>
       <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.1.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/2.1.2.%E5%8F%98%E9%87%8F/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -576,6 +777,18 @@ var ( a string b int c bool d float32 ) 变量的初始化 Go语言在声明变�
 var 变量名 类型 = 表达式 举个例子：
 var name string = &amp;quot;Q1mi&amp;quot; var age int = 18 或者一次初始化多个变量
 var name, age = &amp;quot;Q1mi&amp;quot;, 20 类型推导 有时候我们会将变量的类型省略，这个时候编译器会根据等号右边的值来推导变量的类型完成初始化。</description>
+    </item>
+    
+    <item>
+      <title>2.1.2.封装</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.2.%E5%B0%81%E8%A3%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.2.%E5%B0%81%E8%A3%85/</guid>
+      <description>2.1.2.封装 修饰符 public
+protecd
+private
+this修饰符  this关键字代表当前对象 this.属性 操作当前对象的属性 this.方法 调用当前对象的方法 封装对象的属性的时候,经常会使用this关键字  </description>
     </item>
     
     <item>
@@ -635,6 +848,18 @@ func main() { go hello() // 启动另外一个goroutine去执行hello函数 fmt.
     </item>
     
     <item>
+      <title>2.16.2.测试函数</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/2.16.2.%E6%B5%8B%E8%AF%95%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/2.16.2.%E6%B5%8B%E8%AF%95%E5%87%BD%E6%95%B0/</guid>
+      <description>2.16.2.测试函数 测试函数的格式 每个测试函数必须导入testing包，测试函数的基本格式（签名）如下：
+func TestName(t *testing.T){ // ... } 测试函数的名字必须以Test开头，可选的后缀名必须以大写字母开头，举几个例子：
+func TestAdd(t *testing.T){ ... } func TestSum(t *testing.T){ ... } func TestLog(t *testing.T){ ... } 其中参数t用于报告测试失败和附加的日志信息。 testing.T的拥有的方法如下：
+func (c *T) Error(args ...interface{}) func (c *T) Errorf(format string, args ...interface{}) func (c *T) Fail() func (c *T) FailNow() func (c *T) Failed() bool func (c *T) Fatal(args ...interface{}) func (c *T) Fatalf(format string, args ...interface{}) func (c *T) Log(args ...interface{}) func (c *T) Logf(format string, args .</description>
+    </item>
+    
+    <item>
       <title>2.2.2.浮点型</title>
       <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/2.2.2.%E6%B5%AE%E7%82%B9%E5%9E%8B/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -643,6 +868,15 @@ func main() { go hello() // 启动另外一个goroutine去执行hello函数 fmt.
       <description>2.2.2.浮点型 Go语言支持两种浮点型数：float32和float64。这两种浮点型数据格式遵循IEEE 754标准： float32 的浮点数的最大范围约为 3.4e38，可以使用常量定义：math.MaxFloat32。 float64 的浮点数的最大范围约为 1.8e308，可以使用一个常量定义：math.MaxFloat64。
 打印浮点数时，可以使用fmt包配合动词%f，代码如下：
 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;math&amp;quot; ) func main() { fmt.Printf(&amp;quot;%f\n&amp;quot;, math.Pi) fmt.Printf(&amp;quot;%.2f\n&amp;quot;, math.Pi) } </description>
+    </item>
+    
+    <item>
+      <title>2.2.应用部署样例</title>
+      <link>https://ruichengm1987.github.io/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.2.%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E6%A0%B7%E4%BE%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.2.%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E6%A0%B7%E4%BE%8B/</guid>
+      <description>2.2.应用部署样例 https://www.bilibili.com/video/BV1tK411A7iQ?p=10</description>
     </item>
     
     <item>
@@ -710,6 +944,19 @@ package main import &amp;quot;fmt&amp;quot; //定义全局变量num var num int6
 2. 构建一个虚假的链表头 一般用在要返回新的链表的题目中，比如，给定两个排好序的链表，要求将它们整合在一起并排好序。又比如，将一个链表中的奇数和偶数按照原定的顺序分开后重新组合成一个新的链表，链表的头一半是奇数，后一半是偶数。
 在这类问题里，如果不用一个虚假的链表头，那么在创建新链表的第一个元素时，我们都得要判断一下链表的头指针是否为空，也就是要多写一条 if else 语句。比较简洁的写法是创建一个空的链表头，直接往其后面添加元素即可，最后返回这个空的链表头的下一个节点即可。
 建议：在解决链表的题目时，可以在纸上或者白板上画出节点之间的相互关系，然后画出修改的方法，既可以帮助你分析问题，又可以在面试的时候，帮助面试官清楚地看到你的思路。</description>
+    </item>
+    
+    <item>
+      <title>3.2.time</title>
+      <link>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.2.time/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.2.time/</guid>
+      <description>3.2.time 时间类型 time.Time类型表示时间。我们可以通过time.Now()函数获取当前的时间对象，然后获取时间对象的年月日时分秒等信息。示例代码如下：
+func timeDemo() { now := time.Now() //获取当前时间 fmt.Printf(&amp;quot;current time:%v\n&amp;quot;, now) year := now.Year() //年 month := now.Month() //月 day := now.Day() //日 hour := now.Hour() //小时 minute := now.Minute() //分钟 second := now.Second() //秒 fmt.Printf(&amp;quot;%d-%02d-%02d %02d:%02d:%02d\n&amp;quot;, year, month, day, hour, minute, second) } 输出结果:
+current time:2020-11-16 18:19:06.066198 +0800 CST m=+0.000058943 2020-11-16 18:19:06 时间戳 时间戳是自1970年1月1日（08:00:00GMT）至当前时间的总毫秒数。它也被称为Unix时间戳（UnixTimestamp）。
+基于时间对象获取时间戳的示例代码如下：
+func timestampDemo() { now := time.Now() //获取当前时间 timestamp1 := now.Unix() //时间戳 timestamp2 := now.</description>
     </item>
     
     <item>
@@ -782,23 +1029,6 @@ RPM包依赖性  树形依赖: a -&amp;gt; b -&amp;gt; c 环形依赖: a -&amp;g
     </item>
     
     <item>
-      <title>使用Git命令下载远程仓库到本地</title>
-      <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.%E4%BD%BF%E7%94%A8git%E5%91%BD%E4%BB%A4%E4%B8%8B%E8%BD%BD%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.%E4%BD%BF%E7%94%A8git%E5%91%BD%E4%BB%A4%E4%B8%8B%E8%BD%BD%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0/</guid>
-      <description>使用Git命令下载远程仓库到本地 HTTP(S)获取远程仓库 首次拉取 git clone 版本库地址	[本地文件夹名称]
-更新代码 git pull
-临时记住密码  git config –-global credential.helper cache #默认缓存15分钟 git config credential.helper &amp;lsquo;cache –timeout=3600&amp;rsquo; #自定义配置记住 1 小时的命令  永久记住密码 git config &amp;ndash;global credential.helper store
-修改配置文件.gitconfig
-[credential] helper = store 在上面的命令中，如果没有&amp;ndash;global，则会在当前项目下的.git/config文件增加配置
-SSH拉取 git clone git@gitee.com:xxx/xxxx.git xxxx
-创建一个ssh key 执行命令: ssh-keygen 之后一直回车
-查看公钥 cat ~/.ssh/id_rsa.pub
-添加公钥到服务器 把公钥粘贴上去</description>
-    </item>
-    
-    <item>
       <title>列表vs元组</title>
       <link>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%88%97%E8%A1%A8vs%E5%85%83%E7%BB%84/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -807,15 +1037,6 @@ SSH拉取 git clone git@gitee.com:xxx/xxxx.git xxxx
       <description>列表vs元组 列表 一、创建列表 1.创建空的列表 列表 = [] 2.创建包含元素的列表 列表 = [元素1, 元素2, ..., 元素N] 二、列表元素的获取 1.通过索引获取元素 元素 = 列表[索引] 2.通过元素获取索引 索引 = 列表.index(元素) 3.查看元素是否存在于列表中 布尔值 = 元素 in 列表 4.统计元素在列表中的个数 个数 = 列表.count(元素) 三、列表元素的添加 1.向列表末尾追加元素 列表.append(元素) 2.向列表的任意位置插入元素 列表.insert(索引, 元素) 3.列表末尾追加另一个列表的所有元素 列表.extend(另一列表) 四、列表元素的删除 1.按索引删除元素 元素 = 列表.pop(索引) 2.按索引删除元素（del方法) del 列表[索引] 3.直接删除元素 列表.remove(元素) 4.清空所有元素 列表.clear() 五、列表元素的修改 1.通过赋值修改列表元素 列表[索引] = 新元素 2.反转整个列表 列表.reverse() 3.列表元素排序 列表.sort() 元组 元组和列表非常相似，也是用于存放元素的有序序列。它用的圆括号（()）表示，元素写入圆括号中，多个元素时用逗号分隔，如 (1, 2, 3)。
 元组创建完成后，便不能向其中添加元素，也不能修改和删除其中的任何一个元素。所以它与列表相比，只能查找元素，也就是说只具备读的功能，不具备写的功能。元组的这一特性叫作不可变（性）（Immutable），而列表是可变的（Mutable）。
 一、创建元组 1.创建空的元组 元组 = () 2.</description>
-    </item>
-    
-    <item>
-      <title>国内镜像配置</title>
-      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%AE%89%E8%A3%85%E7%AF%87/%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%AE%89%E8%A3%85%E7%AF%87/%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE/</guid>
-      <description>国内镜像配置 Go 1.13及以上(推荐) 打开你的终端并执行: go env -w GOPROXY=https://goproxy.cn,direct  Go module 打开你的终端并执行: go env -w GO111MODULE=on  go imports go imports包的引入可以让代码书写变得更加快捷 $ go get -v golang.org/x/tools/cmd/goimports  </description>
     </item>
     
     <item>
@@ -837,26 +1058,6 @@ SSH拉取 git clone git@gitee.com:xxx/xxxx.git xxxx
     </item>
     
     <item>
-      <title>类型标识符(20个)</title>
-      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E7%B1%BB%E5%9E%8B%E6%A0%87%E8%AF%86%E7%AC%A620%E4%B8%AA/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E7%B1%BB%E5%9E%8B%E6%A0%87%E8%AF%86%E7%AC%A620%E4%B8%AA/</guid>
-      <description>类型标识符(20个) 数值（16个） 整型（12个） byte
-int
-int8 int16 int32 int64
-uint unint8 uint16 uint32 uint64
-uintprt
-浮点型（2个） float32
-float64
-复数型（2个） complex64
-complex128
-字符和字符串型（ 2 个） string rune
-接口型（1个） error
-布尔型（1个） bool</description>
-    </item>
-    
-    <item>
       <title>网络配置</title>
       <link>https://ruichengm1987.github.io/docs/linux/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -865,6 +1066,69 @@ complex128
       <description>网络配置 配置IP地址 1. ifconfig命令临时配置ip地址 ifconfig命令: 查看与配置网络状态命令
 #临时设置eth0网卡的IP地址与子网掩码 ifconfig eth0 192.168.0.200 netmask 255.255.255.0
 2. setup工具永久配置IP地址(rethat专有) 3. 修改网络配置文件  网卡信息文件  vi /etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 //网卡设备名 BOOTPROTO=none //是否自动获取IP(none、static、dhcp) HWADDR=00:0c:29:17:c4:09 //MAC地址 NM_CONTROLLED=yes //是否可以由network manager图形管理工具托管 ONBOOT=yes //是否随网络服务启动, eth0生效 TYPE=Ethernet //类型为以太网 UUID=&amp;quot;xxsfwafewfw&amp;quot; //唯一识别码 IPADDR=192.168.0.252 //IP地址 NETMASK=255.255.255.0 //子网掩码 GATEWAY=192.168.0.1 //网关 DNS1=202.106.0.20 //DNS IPV6INIT=no //IPv6没有启用 USERCTL=no //不允许非root用户控制此网卡  主机名文件  vi /etc/sysconfig/network NETWORKING=yes HOSTNAME=localhost.localdomain # 查看与临时设置主机名命令 [root@localhost ~]# hostname imooc  DNS配置文件  vi /etc/resolv.conf nameserver 202.106.0.20 search localhost 4.</description>
+    </item>
+    
+    <item>
+      <title>1.2.3 变量</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.2.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/1.2.3.%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.2.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/1.2.3.%E5%8F%98%E9%87%8F/</guid>
+      <description>1.2.3 变量 通过三个元素描述变量：变量类型、变量名以及变量值。
+ 变量使用规则
+ 1、Java 中的变量需要先声明后使用 2、变量使用时，可以声明变量的同时进行初始化, 也可以先声明后赋值 3、变量中每次只能赋一个值，但可以修改多次 4、main 方法中定义的变量必须先赋值，然后才能输出 5、虽然语法中没有提示错误，但在实际开发中，变量名不建议使用中文，容易产生安全隐患，譬如后期跨平台操作时出现乱码等等  </description>
+    </item>
+    
+    <item>
+      <title>1.3.依赖管理</title>
+      <link>https://ruichengm1987.github.io/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1.3.%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1.3.%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/</guid>
+      <description>1.3.依赖管理 依赖管理的三个阶段: GOPATH, GOVENDOR, go mod
+GOPATH 默认在~/go
+go mod的使用 使用intelij Idea创建项目  打开Intelij Idea, File-&amp;gt;new-&amp;gt;project 选择Go MOdules(vgo), 将Proxy: 改为https://goproxy.cn,direct 打开ide的terminal输入go env查看GO111MODULE是否为on，和查看GOPROXY是否为: https://goproxy.cn,direct 继续在terminal输入: go get -u go.uber.org/zap  获取某个固定版本: go get -u go.uber.org/zap@1.11
+获取最新的版本: go get -u go.uber.org/zap
+清洁: go mod tidy
+增加依赖：
+1. go get
+2. 代码直接写, 点run的时候自动下载
+go build ./...  迁移到go mod go mod init modtest2 go build ./... 增加依赖 go get  总结  由go命令统一的管理, 用户不必关心目录结构 初始化: go mode init [名称] 增加依赖: go get 或者 直接写代码,在build的时候把依赖加进去 更新依赖: go get [@v&amp;hellip;], go mod tidy # 不加@v表示拿最新版本 将旧项目迁移到go mod: go mod init, go build .</description>
+    </item>
+    
+    <item>
+      <title>1.3.如何把修改后的代码提交到远程仓库</title>
+      <link>https://ruichengm1987.github.io/docs/git/1.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.3.%E5%A6%82%E4%BD%95%E6%8A%8A%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/1.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.3.%E5%A6%82%E4%BD%95%E6%8A%8A%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</guid>
+      <description>1.3.如何把修改后的代码提交到远程仓库 同步远程代码 git pull
+检查改动文件 git status
+ Untracked: 未跟踪,一般为新增文件，此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged. Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. deleted: 文件已删除，本地删除，服务器上还没有删除. renamed: 文件名称被改变  如果发现无意中编辑了某一个文件，但实际上并不想改变它，这里可以使用git checkout 文件名来撤销更改
+git checkout README.md 添加文件到缓存 git add index.php #添加所有使用 git add .
+提交代码 git commit . -m “这是备注信息”
+推送代码 git push
+开发中的提交 git add test1.php test2.log
+git commit #此刻会打开一个文件, 删除非提交的之后保存 git push origin branch/feature/1 #推送到指定分支
+notice  git add -A更好。因为git add .不会提交删除操作 git add abc.</description>
+    </item>
+    
+    <item>
+      <title>1.3.形容词</title>
+      <link>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.3.%E5%BD%A2%E5%AE%B9%E8%AF%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.3.%E5%BD%A2%E5%AE%B9%E8%AF%8D/</guid>
+      <description>1.3.形容词 </description>
+    </item>
+    
+    <item>
+      <title>1.4.3.while</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/1.4.3.while/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/1.4.3.while/</guid>
+      <description>1.4.3.while while  </description>
     </item>
     
     <item>
@@ -882,6 +1146,27 @@ iota iota是go语言的常量计数器，只能在常量的表达式中使用。
 iota在const关键字出现时将被重置为0。const中每新增一行常量声明将使iota计数一次(iota可理解为const语句块中的行索引)。 使用iota能简化定义，在定义枚举时很有用。
 举个例子：
 const ( n1 = iota //0 n2 //1 n3 //2 n4 //3 ) 使用_跳过某些值 const ( n1 = iota //0 n2 //1 _ n4 //3 ) iota声明中间插队 const ( n1 = iota //0 n2 = 100 //100 n3 = iota //2 n4 //3 ) const n5 = iota //0 定义数量级 （这里的&amp;laquo;表示左移操作，1&amp;laquo;10表示将1的二进制表示向左移10位，也就是由1变成了10000000000，也就是十进制的1024。同理2&amp;laquo;2表示将2的二进制表示向左移2位，也就是由10变成了1000，也就是十进制的8。）</description>
+    </item>
+    
+    <item>
+      <title>2.1.3.继承</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.3.%E7%BB%A7%E6%89%BF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.3.%E7%BB%A7%E6%89%BF/</guid>
+      <description>2.1.3.继承 语法规则 class 子类 extends 父类 例: class Dog extends Animal {
+}
+方法重写 子类不满父类的类, 子类重写方法
+final关键字 使用final关键字做标识有&amp;quot;最终的&amp;quot;含义
+final可以修饰类、方法、属性、变量
+ 修饰类, 则该类不允许被继承 修饰方法, 则该方法不允许被覆盖 修饰属性 则该类的属性不会进行隐式的初始化(类的初始化属性必须有值)
+或在构造方法中赋值(但只能选其一) 修饰变量, 则该变量的值只能赋一次值,即变为常量  super关键字 在对象内部使用,可以代表父类对象
+1.访问父类的属性: super.age
+2.访问父类的方法: super.eat()
+Object类 Object类是所有类的父类,如果一个类没有使用extends关键字明确标识继承另外一个类, 那么这个类默认继承Object类
+Object类中的方法,适合所有子类
+toString()方法 转换为字符串，所有类可以重写
+equals() 方法 比较的是对象的引用是否指向同一块内存地址</description>
     </item>
     
     <item>
@@ -924,6 +1209,17 @@ func a() { for i := 1; i &amp;lt; 10; i++ { fmt.Println(&amp;quot;A:&amp;quot;, 
     </item>
     
     <item>
+      <title>2.16.3.基准测试</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/2.16.3.%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/2.16.3.%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/</guid>
+      <description>2.16.3.基准测试 基准测试函数格式 基准测试就是在一定的工作负载之下检测程序性能的一种方法。基准测试的基本格式如下：
+func BenchmarkName(b *testing.B){ // ... } 基准测试以Benchmark为前缀，需要一个*testing.B类型的参数b，基准测试必须要执行b.N次，这样的测试才有对照性，b.N的值是系统根据实际情况去调整的，从而保证测试的稳定性。 testing.B拥有的方法如下：
+func (c *B) Error(args ...interface{}) func (c *B) Errorf(format string, args ...interface{}) func (c *B) Fail() func (c *B) FailNow() func (c *B) Failed() bool func (c *B) Fatal(args ...interface{}) func (c *B) Fatalf(format string, args ...interface{}) func (c *B) Log(args ...interface{}) func (c *B) Logf(format string, args ...interface{}) func (c *B) Name() string func (b *B) ReportAllocs() func (b *B) ResetTimer() func (b *B) Run(name string, f func(b *B)) bool func (b *B) RunParallel(body func(*PB)) func (b *B) SetBytes(n int64) func (b *B) SetParallelism(p int) func (c *B) Skip(args .</description>
+    </item>
+    
+    <item>
       <title>2.2.3.复数</title>
       <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/2.2.3.%E5%A4%8D%E6%95%B0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -940,6 +1236,18 @@ package main import &amp;quot;fmt&amp;quot; func main() { var c1 complex64 c1 = 
       
       <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.3.%E8%BF%90%E7%AE%97%E7%AC%A6/2.3.3.%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
       <description>2.3.3.逻辑运算符    运算符 描述     &amp;amp;&amp;amp; 逻辑 AND 运算符。 如果两边的操作数都是 True，则为 True，否则为 False。   || 逻辑 OR 运算符。 如果两边的操作数有一个 True，则为 True，否则为 False。   ! 逻辑 NOT 运算符。 如果条件为 True，则为 False，否则为 True。    </description>
+    </item>
+    
+    <item>
+      <title>2.3.迁移与备份</title>
+      <link>https://ruichengm1987.github.io/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.3.%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.3.%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/</guid>
+      <description>2.3.迁移与备份 容器保存为镜像 语法: docker commit 容器名称|容器id 镜像 docker commit redis myredis 镜像备份 我们可以通过以下命令将镜像保存为tar文件
+docker save -o myredis.tar myredis 镜像恢复与迁移 首先我们先删除掉myredis镜像,然后执行此命令恢复
+docker load -i myredis.tar  -i 输入的文件
+执行后再次查看镜像,可以看到镜像已经恢复  </description>
     </item>
     
     <item>
@@ -999,23 +1307,6 @@ Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34
     </item>
     
     <item>
-      <title>依赖管理</title>
-      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%AE%89%E8%A3%85%E7%AF%87/%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%AE%89%E8%A3%85%E7%AF%87/%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/</guid>
-      <description>依赖管理 依赖管理的三个阶段: GOPATH, GOVENDOR, go mod
-GOPATH 默认在~/go
-go mod的使用 使用intelij Idea创建项目  打开Intelij Idea, File-&amp;gt;new-&amp;gt;project 选择Go MOdules(vgo), 将Proxy: 改为https://goproxy.cn,direct 打开ide的terminal输入go env查看GO111MODULE是否为on，和查看GOPROXY是否为: https://goproxy.cn,direct 继续在terminal输入: go get -u go.uber.org/zap  获取某个固定版本: go get -u go.uber.org/zap@1.11
-获取最新的版本: go get -u go.uber.org/zap
-清洁: go mod tidy
-增加依赖：
-1. go get
-2. 代码直接写, 点run的时候自动下载
-go build ./...  迁移到go mod go mod init modtest2 go build ./... 增加依赖 go get  总结  由go命令统一的管理, 用户不必关心目录结构 初始化: go mode init [名称] 增加依赖: go get 或者 直接写代码,在build的时候把依赖加进去 更新依赖: go get [@v&amp;hellip;], go mod tidy # 不加@v表示拿最新版本 将旧项目迁移到go mod: go mod init, go build .</description>
-    </item>
-    
-    <item>
       <title>切片操作</title>
       <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%B8%B8%E7%94%A8/%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1044,23 +1335,6 @@ benchstat go get golang.org/x/perf/cmd/benchstat benchstat --help usage: benchst
     </item>
     
     <item>
-      <title>如何把修改后的代码提交到远程仓库</title>
-      <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/2.%E5%A6%82%E4%BD%95%E6%8A%8A%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/2.%E5%A6%82%E4%BD%95%E6%8A%8A%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</guid>
-      <description>如何把修改后的代码提交到远程仓库 同步远程代码 git pull
-检查改动文件 git status
- Untracked: 未跟踪,一般为新增文件，此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged. Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. deleted: 文件已删除，本地删除，服务器上还没有删除. renamed: 文件名称被改变  如果发现无意中编辑了某一个文件，但实际上并不想改变它，这里可以使用git checkout 文件名来撤销更改
-git checkout README.md 添加文件到缓存 git add index.php #添加所有使用 git add .
-提交代码 git commit . -m “这是备注信息”
-推送代码 git push
-开发中的提交 git add test1.php test2.log
-git commit #此刻会打开一个文件, 删除非提交的之后保存 git push origin branch/feature/1 #推送到指定分支
-notice  git add -A更好。因为git add .不会提交删除操作 git add abc.</description>
-    </item>
-    
-    <item>
       <title>字典vs集合</title>
       <link>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E5%85%B8vs%E9%9B%86%E5%90%88/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1068,15 +1342,6 @@ notice  git add -A更好。因为git add .不会提交删除操作 git add abc.<
       <guid>https://ruichengm1987.github.io/docs/python/%E8%BF%9B%E9%98%B6%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/%E5%AD%97%E5%85%B8vs%E9%9B%86%E5%90%88/</guid>
       <description>字典vs集合 字典 字典是一种用来存放若干键值对的数据类型。
 一、创建字典 1.创建空的字典 字典 = {} 2.创建包含键值对的字典 字典 = {键1:值1, 键2:值2, ..., 键N:值N} 二、字典键值对的添加 1.向字典中增加键值对 字典[键] = 值 三、键值对的获取 1.通过键获取值 值 = 字典[键] 2.通过键获取值(get方法) 值 = 字典.get(键) 3.判断字典中是否包含某个键 布尔值 = 键 in 字典 4.获取所有键 键的列表 = 字典.keys() 5.获取所有值 值的列表 = 字典.values() 6.获取所有键值对的列表 值的列表 = 字典.items() 四、字典键值对的删除 1.通过键删除键值对 值 = 字典.pop(键) 2.通过键删除键值对（del 方法） del 字典[键] 3.随机删除一个键值对 键值二元组 = 字典.popitem() 4.清空所有键值对 键值二元组 = 字典.clear() 五、字典中键值对修改 1.修改键对应的值 字典[键] = 值 2.用字典批量更新键值对 字典.</description>
-    </item>
-    
-    <item>
-      <title>常量值标识符(4个)</title>
-      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%B8%B8%E9%87%8F%E5%80%BC%E6%A0%87%E8%AF%86%E7%AC%A64%E4%B8%AA/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%B8%B8%E9%87%8F%E5%80%BC%E6%A0%87%E8%AF%86%E7%AC%A64%E4%B8%AA/</guid>
-      <description>常量值标识符(4个) true false //true 和 false 表示 bool 类型的两常量值 iota //用在连续的枚举类型的声明中 nil //指针／引用型的变量的默认值就是 nil</description>
     </item>
     
     <item>
@@ -1124,6 +1389,62 @@ nslookup # 查看本机DNS服务器
     </item>
     
     <item>
+      <title>1.2.4 数据类型</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.2.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/1.2.4.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.2.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/1.2.4.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      <description>1.2.4 数据类型 Java 语言是一种强类型语言。
+  基本数据类型变量存的是数据本身 引用类型变量存的是保存数据的空间地址  说白了，基本数据类型变量里存储的是直接放在抽屉里的东西，而引用数据类型变量里存储的是这个抽屉的钥匙，钥匙和抽屉一一对应。
+常用的基本数据类型有：  你可能已经注意到了：   String 是一种常见的引用数据类型，用来表示字符串。  自动类型转换 int score1=82; double score2=score1 System.out.println(score2) 运行结果: 82.0
+自动类型转换需要满足的条件:
+   目标类型能与源类型兼容，如 double 型兼容 int 型，但是 char 型不能兼容 int 型    目标类型大于源类型，如 double 类型长度为 8 字节， int 类型为 4 字节，因此 double 类型的变量里直接可以存放 int 类型的数据，但反过来就不可以了    强制类型转换 语法：( 数据类型 ) 数值
+double avg1 = 75.8 int avg2=(int)avg1 强制类型转换可能会造成数据的丢失哦</description>
+    </item>
+    
+    <item>
+      <title>1.4.4 do while</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/1.4.4.dowhile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/1.4.4.dowhile/</guid>
+      <description>1.4.4 do while do while  </description>
+    </item>
+    
+    <item>
+      <title>1.4.使用diff查看修改了哪些代码</title>
+      <link>https://ruichengm1987.github.io/docs/git/1.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.4.%E4%BD%BF%E7%94%A8diff%E6%9F%A5%E7%9C%8B%E4%BF%AE%E6%94%B9%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/1.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.4.%E4%BD%BF%E7%94%A8diff%E6%9F%A5%E7%9C%8B%E4%BF%AE%E6%94%B9%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BB%A3%E7%A0%81/</guid>
+      <description>1.4.使用diff查看修改了哪些代码 名词定义 工作区 工作区，指的是当前正在编辑的文件，将还没有修改的内容通过git add命令暂存起来
+暂存区 暂存区，指的是文件修改之后并且通过git add命令临时存储到版本记录里了，但还没有正式通过git commit提交的阶段
+比较改动 git diff [文件]
+与指定记录比较 你可以先通过git log命令，找到历史提交记录的一个 hash 值。 将要比较的 hash 值复制下来，然后执行如下所示命令：git diff hash值
+与最新版本比较 git diff HEAD
+比较两个历史记录 git diff hash值1 hash值2
+查看暂存区的额外参数 &amp;ndash;cached </description>
+    </item>
+    
+    <item>
+      <title>1.4.数词</title>
+      <link>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.4.%E6%95%B0%E8%AF%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.4.%E6%95%B0%E8%AF%8D/</guid>
+      <description>1.4.数词 </description>
+    </item>
+    
+    <item>
+      <title>2.1.4.多台</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.4.%E5%A4%9A%E6%80%81/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.4.%E5%A4%9A%E6%80%81/</guid>
+      <description>2.1.4.多台 对象的多种形态 引用多台 父类的引用可以指向本类的对象 父类的引用可以指向子类的对象  方法多台 创建本类对象时, 调用的方法为本类的方法 创建子类对象时, 调用的方法为子类重写的方法或继承的方法  多态中的引用类型转换  向上类型的转换(隐式/自动类型转换),是小类型到大类型的转换 向下类型转换(强制类型转换), 是大类型到小类型 instanceof运算符, 来解决引用对象的类型,避免类型转换的安全性问题 它的作用是测试它左边的对象是否是它右边的类的实例  </description>
+    </item>
+    
+    <item>
       <title>2.13.4.结构体反射</title>
       <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.13.%E5%8F%8D%E5%B0%84/2.13.4.%E7%BB%93%E6%9E%84%E4%BD%93%E5%8F%8D%E5%B0%84/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1160,6 +1481,21 @@ ch := make(chan int) 发送 将一个值发送到通道中。</description>
     </item>
     
     <item>
+      <title>2.16.4.Setup与TearDown</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/2.16.4.setup%E4%B8%8Eteardown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/2.16.4.setup%E4%B8%8Eteardown/</guid>
+      <description>2.16.4.Setup与TearDown 测试程序有时需要在测试之前进行额外的设置（setup）或在测试之后进行拆卸（teardown）。
+TestMain 通过在*_test.go文件中定义TestMain函数来可以在测试之前进行额外的设置（setup）或在测试之后进行拆卸（teardown）操作。
+如果测试文件包含函数:func TestMain(m *testing.M)那么生成的测试会先调用 TestMain(m)，然后再运行具体测试。TestMain运行在主goroutine中, 可以在调用 m.Run前后做任何设置（setup）和拆卸（teardown）。退出测试的时候应该使用m.Run的返回值作为参数调用os.Exit。
+一个使用TestMain来设置Setup和TearDown的示例如下：
+func TestMain(m *testing.M) { fmt.Println(&amp;quot;write setup code here...&amp;quot;) // 测试之前的做一些设置 // 如果 TestMain 使用了 flags，这里应该加上flag.Parse() retCode := m.Run() // 执行测试 fmt.Println(&amp;quot;write teardown code here...&amp;quot;) // 测试之后做一些拆卸工作 os.Exit(retCode) // 退出测试 } 需要注意的是：在调用TestMain时, flag.Parse并没有被调用。所以如果TestMain 依赖于command-line标志 (包括 testing 包的标记), 则应该显示的调用flag.Parse。
+子测试的Setup与Teardown 有时候我们可能需要为每个测试集设置Setup与Teardown，也有可能需要为每个子测试设置Setup与Teardown。下面我们定义两个函数工具函数如下：
+// 测试集的Setup与Teardown func setupTestCase(t *testing.T) func(t *testing.T) { t.Log(&amp;quot;如有需要在此执行:测试之前的setup&amp;quot;) return func(t *testing.T) { t.Log(&amp;quot;如有需要在此执行:测试之后的teardown&amp;quot;) } } // 子测试的Setup与Teardown func setupSubTest(t *testing.</description>
+    </item>
+    
+    <item>
       <title>2.2.4.布尔值</title>
       <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/2.2.4.%E5%B8%83%E5%B0%94%E5%80%BC/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1192,6 +1528,16 @@ func gotoDemo2() { for i := 0; i &amp;lt; 10; i++ { for j := 0; j &amp;lt; 10; j
     </item>
     
     <item>
+      <title>2.4.Dockerfile</title>
+      <link>https://ruichengm1987.github.io/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.4.dockerfile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.4.dockerfile/</guid>
+      <description>2.4.Dockerfile Dockerfile是由一系列命令和参数构成的脚本,这些命令应用于基础镜像并最终创建一个新的镜像
+   命令 作用     FROM image_name:tag 定义了使用哪个基础镜像启动构建流程   MAINTAINER user_name 声明镜像的创建者   ENV key value 设置环境变量(可以写多条)   RUN command 是Dockfile的核心部分(可以写多条)   ADD source_dir/file_dest_dir/file 将宿主机的文件复制到容器内, 如果是一个压缩文件，将会在复制后自动解压   COPY source_dir/file_desc_dir/file 和ADD相似, 但是如果有压缩文件并不能解压   WORKDIR path_dir 设置工作目录    构建命令 docker build -t=&#39;jdk1.8&#39; #构建名为jdk1.8 </description>
+    </item>
+    
+    <item>
       <title>4.线段树</title>
       <link>https://ruichengm1987.github.io/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/4.%E7%BA%BF%E6%AE%B5%E6%A0%91/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1221,21 +1567,6 @@ func gotoDemo2() { for i := 0; i &amp;lt; 10; i++ { for j := 0; j &amp;lt; 10; j
     </item>
     
     <item>
-      <title>使用diff查看修改了哪些代码</title>
-      <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/3.%E4%BD%BF%E7%94%A8diff%E6%9F%A5%E7%9C%8B%E4%BF%AE%E6%94%B9%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BB%A3%E7%A0%81/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/3.%E4%BD%BF%E7%94%A8diff%E6%9F%A5%E7%9C%8B%E4%BF%AE%E6%94%B9%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BB%A3%E7%A0%81/</guid>
-      <description>使用diff查看修改了哪些代码 名词定义 工作区 工作区，指的是当前正在编辑的文件，将还没有修改的内容通过git add命令暂存起来
-暂存区 暂存区，指的是文件修改之后并且通过git add命令临时存储到版本记录里了，但还没有正式通过git commit提交的阶段
-比较改动 git diff [文件]
-与指定记录比较 你可以先通过git log命令，找到历史提交记录的一个 hash 值。 将要比较的 hash 值复制下来，然后执行如下所示命令：git diff hash值
-与最新版本比较 git diff HEAD
-比较两个历史记录 git diff hash值1 hash值2
-查看暂存区的额外参数 &amp;ndash;cached </description>
-    </item>
-    
-    <item>
       <title>控制结构</title>
       <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1252,15 +1583,6 @@ func gotoDemo2() { for i := 0; i &amp;lt; 10; i++ { for j := 0; j &amp;lt; 10; j
       <guid>https://ruichengm1987.github.io/docs/shell/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
       <description>shell基础 Buttons are styled links that can lead to local page or external link.
 Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  </description>
-    </item>
-    
-    <item>
-      <title>空白标识符(1个)</title>
-      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E7%A9%BA%E7%99%BD%E6%A0%87%E8%AF%86%E7%AC%A61%E4%B8%AA/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E7%A9%BA%E7%99%BD%E6%A0%87%E8%AF%86%E7%AC%A61%E4%B8%AA/</guid>
-      <description>空白标识符(1个) _ // 空白标识符有特殊的含义, 用来声明一个匿名的变量,该变量在赋值表达式的左端,空白标识符引用通常被用作占位</description>
     </item>
     
     <item>
@@ -1294,6 +1616,63 @@ Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34
     </item>
     
     <item>
+      <title>1.2.5 常量</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.2.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/1.2.5.%E5%B8%B8%E9%87%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.2.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/1.2.5.%E5%B8%B8%E9%87%8F/</guid>
+      <description>1.2.5 常量 语法：final 常量名 = 值;
+ 常量名一般使用大写字符</description>
+    </item>
+    
+    <item>
+      <title>1.4.5.for</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/1.4.5.for/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.4.%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/1.4.5.for/</guid>
+      <description>1.4.5 for for  </description>
+    </item>
+    
+    <item>
+      <title>1.5.动词</title>
+      <link>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.5.%E5%8A%A8%E8%AF%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.5.%E5%8A%A8%E8%AF%8D/</guid>
+      <description>1.5.动词 </description>
+    </item>
+    
+    <item>
+      <title>1.5.解决提示文件权限被修改问题</title>
+      <link>https://ruichengm1987.github.io/docs/git/1.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.5.%E8%A7%A3%E5%86%B3%E6%8F%90%E7%A4%BA%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%A2%AB%E4%BF%AE%E6%94%B9%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/1.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.5.%E8%A7%A3%E5%86%B3%E6%8F%90%E7%A4%BA%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%A2%AB%E4%BF%AE%E6%94%B9%E9%97%AE%E9%A2%98/</guid>
+      <description>1.5.解决提示文件权限被修改问题 当执行git diff 命令时出现:
+diff --git a/index.php b/index.php old mode 100644 new mode 100755 表示文件权限被修改了， 这时候我们git pull拉取下代码,会提示文件冲突: 例如:
+git pull eror: Your local changes to the following files would be overwritten by merge: index.php Please commit your changes or stash them before you merge. Aborting 解决方法 在Git进行代码管理时,如果不想让 Git 记录文件权限，可以通过 Git 配置让其忽略文件权限的信息，参考命令如下：
+#当前版本库 git config core.filemode false #所有版本库 git config --global core.fileMode false 当上面的命令被执行之后，就设置了忽略文件权限，此时通过cat查看配置文件.git/config，参考命令如下：
+cat .git/config 在配置文件中，如果看到fileMode false则代表配置成功.
+这时候再次使用git pull命令更新代码就不会再提示有冲突.</description>
+    </item>
+    
+    <item>
+      <title>2.1.5.包</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.5.%E5%8C%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.5.%E5%8C%85/</guid>
+      <description>2.1.5.包 包的作用 管理Java文件 解决同名文件冲突  定义包:package包名 注: 必须放在Java源程序的第一行, 包名间可以使用&amp;quot;.&amp;quot;号隔开 eg: com.imooc.MyClass  系统中的包 java.(功能).(类) java.lang.(类) 包含java语言基础的类 java.util.(类) 包含java语言中的各种工具类 java.io.(类) 包含输入、输出相关功能的类
+包的使用 (1) 可以通过import关键字,在某个文件使用其它文件中的类。
+import com.immoc.music.MyClass
+(2) java中, 包的命名规范是全小写字母拼写
+(3) 使用的时候不但可以加载某个包下的所有文件 eg: com.immoc.*
+也可以加载某个具体子包下的所有文件
+eg: com.immoc.music.*</description>
+    </item>
+    
+    <item>
       <title>2.14.5.worker pool（goroutine池）</title>
       <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.5.worker_pool/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1302,6 +1681,20 @@ Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34
       <description>2.14.5.worker pool（goroutine池） 在工作中我们通常会使用可以指定启动的goroutine数量–worker pool模式，控制goroutine的数量，防止goroutine泄漏和暴涨。
 一个简易的work pool示例代码如下：
 func worker(id int, jobs &amp;lt;-chan int, results chan&amp;lt;- int) { for j := range jobs { fmt.Printf(&amp;quot;worker:%d start job:%d\n&amp;quot;, id, j) time.Sleep(time.Second) fmt.Printf(&amp;quot;worker:%d end job:%d\n&amp;quot;, id, j) results &amp;lt;- j * 2 } } func main() { jobs := make(chan int, 100) results := make(chan int, 100) // 开启3个goroutine for w := 1; w &amp;lt;= 3; w++ { go worker(w, jobs, results) } // 5个任务 for j := 1; j &amp;lt;= 5; j++ { jobs &amp;lt;- j } close(jobs) // 输出结果 for a := 1; a &amp;lt;= 5; a++ { &amp;lt;-results } } </description>
+    </item>
+    
+    <item>
+      <title>2.16.5.示例函数</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/2.16.5.%E7%A4%BA%E4%BE%8B%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.16.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/2.16.5.%E7%A4%BA%E4%BE%8B%E5%87%BD%E6%95%B0/</guid>
+      <description>2.16.5.示例函数 示例函数的格式 被go test特殊对待的第三种函数就是示例函数，它们的函数名以Example为前缀。它们既没有参数也没有返回值。标准格式如下：
+func ExampleName() { // ... } 示例函数示例 下面的代码是我们为Split函数编写的一个示例函数：
+func ExampleSplit() { fmt.Println(split.Split(&amp;quot;a:b:c&amp;quot;, &amp;quot;:&amp;quot;)) fmt.Println(split.Split(&amp;quot;沙河有沙又有河&amp;quot;, &amp;quot;沙&amp;quot;)) // Output: // [a b c] // [ 河有 又有河] } 为你的代码编写示例代码有如下三个用处：
+  示例函数能够作为文档直接使用，例如基于web的godoc中能把示例函数与对应的函数或包相关联。
+  示例函数只要包含了// Output:也是可以通过go test运行的可执行测试。
+  split $ go test -run Example PASS ok github.com/Q1mi/studygo/code_demo/test_demo/split 0.006s  示例函数提供了可以直接运行的示例代码，可以直接在golang.org的godoc文档服务器上使用Go Playground运行示例代码。下图为strings.ToUpper函数在Playground的示例函数效果。   </description>
     </item>
     
     <item>
@@ -1338,6 +1731,37 @@ func breakDemo1() { BREAKDEMO1: for i := 0; i &amp;lt; 10; i++ { for j := 0; j &
     </item>
     
     <item>
+      <title>2.5.Docker私有仓库</title>
+      <link>https://ruichengm1987.github.io/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.5.docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.5.docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/</guid>
+      <description>2.5.Docker私有仓库 私有仓库搭建与配置 拉取私有仓库镜像
+docker pull registry 启动私有仓库容器
+docker run -di --name=registry -p 5000:5000 registry 打开终端输入: curl http://127.0.0.1:5000/v2/_catalog 看到{&amp;ldquo;repositories&amp;rdquo;:[]}表示私有仓库搭建成功并且内容为空
+修改daemon.json
+vim /etc/docker/daemon.json 添加以下内容,保存退出
+{ &amp;quot;insecure-registries&amp;quot;: [&amp;quot;127.0.0.1:5000&amp;quot;] } 此步用于docker信任私有仓库地址
+重启docker服务
+systemctl restart docker 私有仓库镜像上传 docker tag 镜像名称 # docker tag centosofme 127.0.0.1:5000/centosofme # docker images REPOSITORY TAG IMAGE ID CREATED SIZE 127.0.0.1:5000/centosofme latest 30615ec12063 5 hours ago 204MB centosofme latest 30615ec12063 5 hours ago 204MB centos 7 8652b9f0cb4c # docker push 127.0.0.1:5000/centosofme # curl http://127.</description>
+    </item>
+    
+    <item>
+      <title>3.5.net/http</title>
+      <link>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.5.net.http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.5.net.http/</guid>
+      <description>3.5.net/http Go语言内置的net/http包十分的优秀，提供了HTTP客户端和服务端的实现。
+net/http介绍 Go语言内置的net/http包提供了HTTP客户端和服务端的实现。
+HTTP协议 超文本传输协议（HTTP，HyperText Transfer Protocol)是互联网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法。
+HTTP客户端 基本的HTTP/HTTPS请求 Get、Head、Post和PostForm函数发出HTTP/HTTPS请求。
+resp, err := http.Get(&amp;quot;http://example.com/&amp;quot;) ... resp, err := http.Post(&amp;quot;http://example.com/upload&amp;quot;, &amp;quot;image/jpeg&amp;quot;, &amp;amp;buf) ... resp, err := http.PostForm(&amp;quot;http://example.com/form&amp;quot;, url.Values{&amp;quot;key&amp;quot;: {&amp;quot;Value&amp;quot;}, &amp;quot;id&amp;quot;: {&amp;quot;123&amp;quot;}}) 程序在使用完response后必须关闭回复的主体。
+resp, err := http.Get(&amp;quot;http://example.com/&amp;quot;) if err != nil { // handle error } defer resp.Body.Close() body, err := ioutil.ReadAll(resp.Body) // ... GET请求示例 使用net/http包编写一个简单的发送HTTP请求的Client端，代码如下：
+package main import ( &amp;quot;fmt&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;net/http&amp;quot; ) func main() { resp, err := http.Get(&amp;quot;https://www.liwenzhou.com/&amp;quot;) if err !</description>
+    </item>
+    
+    <item>
       <title>5.双端队列</title>
       <link>https://ruichengm1987.github.io/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/5.%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1355,15 +1779,6 @@ func breakDemo1() { BREAKDEMO1: for i := 0; i &amp;lt; 10; i++ { for j := 0; j &
       
       <guid>https://ruichengm1987.github.io/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/5.%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</guid>
       <description>5.树状数组 </description>
-    </item>
-    
-    <item>
-      <title>内置函数(15个)</title>
-      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B015%E4%B8%AA/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B015%E4%B8%AA/</guid>
-      <description>内置函数(15个) make new len cap append copy delete panic recover close complex real image Print Printin</description>
     </item>
     
     <item>
@@ -1411,17 +1826,47 @@ Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34
     </item>
     
     <item>
-      <title>解决提示文件权限被修改问题</title>
-      <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/4.%E8%A7%A3%E5%86%B3%E6%8F%90%E7%A4%BA%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%A2%AB%E4%BF%AE%E6%94%B9%E9%97%AE%E9%A2%98/</link>
+      <title>1.2.6 注释</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.2.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/1.2.6.%E6%B3%A8%E9%87%8A/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/4.%E8%A7%A3%E5%86%B3%E6%8F%90%E7%A4%BA%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E8%A2%AB%E4%BF%AE%E6%94%B9%E9%97%AE%E9%A2%98/</guid>
-      <description>解决提示文件权限被修改问题 当执行git diff 命令时出现:
-diff --git a/index.php b/index.php old mode 100644 new mode 100755 表示文件权限被修改了， 这时候我们git pull拉取下代码,会提示文件冲突: 例如:
-git pull eror: Your local changes to the following files would be overwritten by merge: index.php Please commit your changes or stash them before you merge. Aborting 解决方法 在Git进行代码管理时,如果不想让 Git 记录文件权限，可以通过 Git 配置让其忽略文件权限的信息，参考命令如下：
-#当前版本库 git config core.filemode false #所有版本库 git config --global core.fileMode false 当上面的命令被执行之后，就设置了忽略文件权限，此时通过cat查看配置文件.git/config，参考命令如下：
-cat .git/config 在配置文件中，如果看到fileMode false则代表配置成功.
-这时候再次使用git pull命令更新代码就不会再提示有冲突.</description>
+      <guid>https://ruichengm1987.github.io/docs/java/1.2.%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/1.2.6.%E6%B3%A8%E9%87%8A/</guid>
+      <description>1.2.6 注释 注释有三种类型：单行注释、多行注释、文档
+ PS：使用文档注释时还可以使用 javadoc 标记，生成更详细的文档信息：
+ @author 标明开发该类模块的作者 @version 标明该类模块的版本 @see 参考转向，也就是相关主题 @param 对方法中某参数的说明 @return 对方法返回值的说明 @exception 对方法可能抛出的异常进行说明  </description>
+    </item>
+    
+    <item>
+      <title>1.6.副词</title>
+      <link>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.6.%E5%89%AF%E8%AF%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.6.%E5%89%AF%E8%AF%8D/</guid>
+      <description>1.6.副词 </description>
+    </item>
+    
+    <item>
+      <title>1.6.忽略指定文件或目录</title>
+      <link>https://ruichengm1987.github.io/docs/git/1.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.6.%E5%BF%BD%E7%95%A5%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/1.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/1.6.%E5%BF%BD%E7%95%A5%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/</guid>
+      <description>1.6.忽略指定文件或目录 我们可以在在Git工作区的根目录下创建一个.gitignore文件，把想忽略的文件名或者目录填进去，Git 就会自动忽略这些文件。
+vi .gitignore .DS_Store .idea 常见问题   无法添加.gitignore windows系统会出现
+  添加忽略文件 .gitignore 文件支持通配符，当你在文件中添加一些忽略规则之后，可能匹配过于宽松，导致某一个文件无法提交到 git ;这个时候你有两种方式来处理，
+  或者你发现，可能是 .gitignore 写得有问题，需要找出来到底哪个规则写错了，可以用git check-ignore命令检查：
+$ git check-ignore -v 文件名 .gitignore:1:.DS_Store .DS_Store Git 会告诉我们，.gitignore 的第 1 行规则忽略了该文件，于是我们就可以知道应该修订哪个规则。
+除了修改 .gitignore 文件的规则之外还可以使用强制添加的方式:
+git add -f .DS_Store </description>
+    </item>
+    
+    <item>
+      <title>2.1.6.抽象类</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.6.%E6%8A%BD%E8%B1%A1%E7%B1%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.6.%E6%8A%BD%E8%B1%A1%E7%B1%BB/</guid>
+      <description>2.1.6.抽象类 使用规则  abstract定义抽象类 abstract定义抽象方法,只有声明,不需要实现 包含抽象方法的类是抽象类 抽象类中可以包含普通的方法, 也可以没有抽象方法 抽象类不能直接创建, 可以定义引用变量  public abstract class Telphone { public abstract void call() } </description>
     </item>
     
     <item>
@@ -1462,6 +1907,28 @@ func continueDemo() { forloop1: for i := 0; i &amp;lt; 5; i++ { // forloop2: for
     </item>
     
     <item>
+      <title>2.6.DockerMaven插件</title>
+      <link>https://ruichengm1987.github.io/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.6.dockermaven%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.6.dockermaven%E6%8F%92%E4%BB%B6/</guid>
+      <description>2.6.DockerMaven插件 微服务部署有两种方法:
+ 手动部署: 首先基于源码打包生成jar包, (或war包), 将jar包上传至虚拟机并拷贝到JDK容器 通过Maven插件自动部署  修改宿主机的docker配置,让其可以远程访问 vim /lib/systemd/system/docker.service 修改以ExecStart开头的行
+ExecStart= ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375 刷新一下配置
+systemctl daemon-reload systemctl restart docker docker start registry </description>
+    </item>
+    
+    <item>
+      <title>3.6.context</title>
+      <link>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.6.context/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.6.context/</guid>
+      <description>3.6.context 在 Go http包的Server中，每一个请求在都有一个对应的 goroutine 去处理。请求处理函数通常会启动额外的 goroutine 用来访问后端服务，比如数据库和RPC服务。用来处理一个请求的 goroutine 通常需要访问一些与请求特定的数据，比如终端用户的身份认证信息、验证相关的token、请求的截止时间。 当一个请求被取消或超时时，所有用来处理该请求的 goroutine 都应该迅速退出，然后系统才能释放这些 goroutine 占用的资源。
+为什么需要Context 基本示例 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;sync&amp;quot; &amp;quot;time&amp;quot; ) var wg sync.WaitGroup // 初始的例子 func worker() { for { fmt.Println(&amp;quot;worker&amp;quot;) time.Sleep(time.Second) } // 如何接收外部命令实现退出？？？ wg.Done() } func main() { wg.Add(1) go worker() // 如何优雅的实现结束子goroutine？？？ wg.Wait() fmt.Println(&amp;quot;over&amp;quot;) } 全局变量方式 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;sync&amp;quot; &amp;quot;time&amp;quot; ) var wg sync.WaitGroup var exit bool // 全局变量方式存在的问题： // 1.</description>
+    </item>
+    
+    <item>
       <title>6.树</title>
       <link>https://ruichengm1987.github.io/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/6.%E6%A0%91/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1492,30 +1959,6 @@ def multiply(*nums): result = 1 for n in nums: result *= n return result &amp;gt
     </item>
     
     <item>
-      <title>忽略指定文件或目录</title>
-      <link>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/5.%E5%BF%BD%E7%95%A5%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/git/0.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/5.%E5%BF%BD%E7%95%A5%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/</guid>
-      <description>忽略指定文件或目录 我们可以在在Git工作区的根目录下创建一个.gitignore文件，把想忽略的文件名或者目录填进去，Git 就会自动忽略这些文件。
-vi .gitignore .DS_Store .idea 常见问题   无法添加.gitignore windows系统会出现
-  添加忽略文件 .gitignore 文件支持通配符，当你在文件中添加一些忽略规则之后，可能匹配过于宽松，导致某一个文件无法提交到 git ;这个时候你有两种方式来处理，
-  或者你发现，可能是 .gitignore 写得有问题，需要找出来到底哪个规则写错了，可以用git check-ignore命令检查：
-$ git check-ignore -v 文件名 .gitignore:1:.DS_Store .DS_Store Git 会告诉我们，.gitignore 的第 1 行规则忽略了该文件，于是我们就可以知道应该修订哪个规则。
-除了修改 .gitignore 文件的规则之外还可以使用强制添加的方式:
-git add -f .DS_Store </description>
-    </item>
-    
-    <item>
-      <title>操作符和分隔符(47个)</title>
-      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%92%8C%E5%88%86%E9%9A%94%E7%AC%A647%E4%B8%AA/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E6%A0%87%E8%AF%86%E7%AC%A6/%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%92%8C%E5%88%86%E9%9A%94%E7%AC%A647%E4%B8%AA/</guid>
-      <description>操作符和分隔符(47个) 算术运算符(5个) ＋ － ＊ ／ %  位运算符(6个) &amp;amp; | &amp;lt; &amp;amp;^ &amp;gt;&amp;gt; &amp;lt;&amp;lt;  赋值和赋值复核运算符(13个) :＝ ＝ += -= *= /= %= &amp;amp;= |= ^= &amp;amp;^= &amp;gt;&amp;gt;= &amp;lt;&amp;lt;=  比较运算符(6个) &amp;gt; &amp;gt;= &amp;lt; &amp;lt;= == !=  括号(6个) () {} []  逻辑运算符(3个) &amp;amp;&amp;amp; || !  自增自减操作符(2个) ++ -- //go语言里面自增、自减操作符是语句而不是表达式  其他运算符(6个) : , ; . ... &amp;lt;-  </description>
-    </item>
-    
-    <item>
       <title>流量控制语句</title>
       <link>https://ruichengm1987.github.io/docs/shell/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1523,6 +1966,31 @@ git add -f .DS_Store </description>
       <guid>https://ruichengm1987.github.io/docs/shell/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/</guid>
       <description>shell基础 Buttons are styled links that can lead to local page or external link.
 Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  </description>
+    </item>
+    
+    <item>
+      <title>1.7.冠词</title>
+      <link>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.7.%E5%86%A0%E8%AF%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.7.%E5%86%A0%E8%AF%8D/</guid>
+      <description>1.7.冠词 </description>
+    </item>
+    
+    <item>
+      <title>2.1.7.接口</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.7.%E6%8E%A5%E5%8F%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/2.1.7.%E6%8E%A5%E5%8F%A3/</guid>
+      <description>2.1.7.接口 接口定义的基本语法 [修饰符] interface 接口名 [extends 父接口1, 父接口2&amp;hellip;] { 零个到多个常量定义 零个到的讴歌抽象方法的定义 }
+接口定义 常量:
+接口中的属性是常量,即使定义时不添加public static final 修饰符, 系统也会自动加上
+方法:
+接口中的方法只能是抽象方法,总是使用, 即使定义时不添加public abstract修饰符,系统也会自动加上。
+使用接口 一个类可以实现一个或多个接口, 实现接口使用implements关键字. java中一个类只能继承一个父类,是不够灵活的，通过 实现多个接口可以做补充
+继承父类实现接口的语法为: [修饰符] class 类名 extends 父类 implements 接口1, 接口2&amp;hellip; { 类体部分 //如果继承了抽象类，需要实现继承的抽象方法;要实现接口中的抽象方法 }
+如果要继承父类,继承父类必须在实现接口之前</description>
     </item>
     
     <item>
@@ -1544,11 +2012,14 @@ var x int64 var wg sync.WaitGroup var lock sync.Mutex func add() { for i := 0; i
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/2.2.7.%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</guid>
-      <description>2.2.7.类型转换 Go语言中只有强制类型转换，没有隐式类型转换。该语法只能在两个类型之间支持相互转换的时候使用。
+      <description>2.2.7.类型转换 类型强转 Go语言中只有强制类型转换，没有隐式类型转换。该语法只能在两个类型之间支持相互转换的时候使用。
 强制类型转换的基本语法如下：
 T(表达式) 其中，T表示要转换的类型。表达式包括变量、复杂算子和函数返回值等.
 比如计算直角三角形的斜边长时使用math包的Sqrt()函数，该函数接收的是float64类型的参数，而变量a和b都是int类型的，这个时候就需要将a和b强制类型转换为float64类型。
-func sqrtDemo() { var a, b = 3, 4 var c int // math.Sqrt()接收的参数是float64类型，需要强制转换 c = int(math.Sqrt(float64(a*a + b*b))) fmt.Println(c) } </description>
+func sqrtDemo() { var a, b = 3, 4 var c int // math.Sqrt()接收的参数是float64类型，需要强制转换 c = int(math.Sqrt(float64(a*a + b*b))) fmt.Println(c) } 使用sprintf 把其它类型转换string类型 int:%d, float:%f, bool:%t, byte:%c
+类型使用 %T
+通过strconv 把其它类型转换string类型 strconv.FormatInt()
+string类型转成整型 </description>
     </item>
     
     <item>
@@ -1558,6 +2029,15 @@ func sqrtDemo() { var a, b = 3, 4 var c int // math.Sqrt()接收的参数是floa
       
       <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%87%BD%E6%95%B0/</guid>
       <description>函数  函数是一种类型,函数类型变量可以像其他类型变量一样使用,可以作为其他函数的参数或返回值,也可以直接调用执行。 函数支持多值返回 支持闭包 函数支持可变参数  基本概念 函数定义 func funcName(param-list) (result-list) { function-body }  函数的特点 1、函数可以没有输入, 也可以没有返回值(默认返回0) 2、多个相邻的相同类型的参数可以使用简写模式: func add(a, b int) int { //a int, b int 简写为 a,b int return a + b } 3、支持有名的返回值,参数名就相当于函数体内最外层的局部变量，命名返回值变量会被初始化为类型零值， 最后的return可以不带参数名直接返回 func add(a, b int) (sum int) { sum = a + b return //return sum的简写模式 // sum := a + b // 如果是 sum:=a + b, 则相当于新声明一个sum变量命名返回变量sum覆盖 // return sum //最后需要显示的调用return sum } 4、不支持默认值参数 5、不支持函数重载 6、不支持函数嵌套，严格地说是不支持命名函数的嵌套定义，但支持嵌套匿名函数 func add(a, b int) (sum int) { anonymouse := function(x, y int) int { return x + y } return anonymouse(a, b) }  多值返回 func swap(a, b int) (int, int) { return b, a }  实参到形参的传递 package main import &amp;quot;fmt&amp;quot; func chvalue(a int) int { a = a + 1 return a } func chpointer(a *int) { *a = *a + 1 return } func main() { a := 10 chvalue(a) //实参传递给形参是值拷贝 fmt.</description>
+    </item>
+    
+    <item>
+      <title>1.8.介词</title>
+      <link>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.8.%E4%BB%8B%E8%AF%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.8.%E4%BB%8B%E8%AF%8D/</guid>
+      <description>1.8.介词 </description>
     </item>
     
     <item>
@@ -1584,6 +2064,15 @@ atomic包    方法 解释     func LoadInt32(addr *int32) (val int32) 读取操
     </item>
     
     <item>
+      <title>1.9.连词</title>
+      <link>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.9.%E8%BF%9E%E8%AF%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.9.%E8%BF%9E%E8%AF%8D/</guid>
+      <description>1.9.连词 </description>
+    </item>
+    
+    <item>
       <title>并发</title>
       <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/%E5%B9%B6%E5%8F%91/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1599,13 +2088,40 @@ atomic包    方法 解释     func LoadInt32(addr *int32) (val int32) 读取操
     </item>
     
     <item>
-      <title>context</title>
-      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/context/</link>
+      <title>1.10.感叹词</title>
+      <link>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.10.%E6%84%9F%E5%8F%B9%E8%AF%8D/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/context/</guid>
-      <description>context 在 Go http包的Server中，每一个请求在都有一个对应的 goroutine 去处理。请求处理函数通常会启动额外的 goroutine 用来访问后端服务，比如数据库和RPC服务。用来处理一个请求的 goroutine 通常需要访问一些与请求特定的数据，比如终端用户的身份认证信息、验证相关的token、请求的截止时间。 当一个请求被取消或超时时，所有用来处理该请求的 goroutine 都应该迅速退出，然后系统才能释放这些 goroutine 占用的资源。
-为什么需要Context 基本示例 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;sync&amp;quot; &amp;quot;time&amp;quot; ) var wg sync.WaitGroup // 初始的例子 func worker() { for { fmt.Println(&amp;quot;worker&amp;quot;) time.Sleep(time.Second) } // 如何接收外部命令实现退出？？？ wg.Done() } func main() { wg.Add(1) go worker() // 如何优雅的实现结束子goroutine？？？ wg.Wait() fmt.Println(&amp;quot;over&amp;quot;) } 全局变量方式 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;sync&amp;quot; &amp;quot;time&amp;quot; ) var wg sync.WaitGroup var exit bool // 全局变量方式存在的问题： // 1.</description>
+      <guid>https://ruichengm1987.github.io/docs/english/1.%E8%AF%8D%E7%B1%BB/1.10.%E6%84%9F%E5%8F%B9%E8%AF%8D/</guid>
+      <description>1.10.感叹词 </description>
+    </item>
+    
+    <item>
+      <title>3.1.1.异常</title>
+      <link>https://ruichengm1987.github.io/docs/java/3.1.%E5%BC%82%E5%B8%B8/3.1.1.%E5%BC%82%E5%B8%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/3.1.%E5%BC%82%E5%B8%B8/3.1.1.%E5%BC%82%E5%B8%B8/</guid>
+      <description>异常 Error Exception 继承 Throwable
+try { // 一些会抛出异常的方法 } catch(Exception e) { // 处理该异常的代码块 } try { } catch (InputMismatchException e) { } catch (ArithmeticException e) { } try { } catch (Exception e) { } catch (Exception2 e) { } ...(n个catch块)... { } finally { // 最终将要执行的一些代码 } </description>
+    </item>
+    
+    <item>
+      <title>1.7.1.java中的常见注解</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.7.%E6%B3%A8%E8%A7%A3/1.7.1.java%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.7.%E6%B3%A8%E8%A7%A3/1.7.1.java%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E6%B3%A8%E8%A7%A3/</guid>
+      <description>1.7.1.java中的常见注解 JDK自带注解  @Override 覆盖父类的方法 @Deprecated 表示已经过时 @Suppvisewarnings @SuppressWarning(&amp;ldquo;deprecation&amp;rdquo;) 忽略deprecation警告  java第三方注解 Spring  @Autowired @Service @Repository  Mybatis  @InsertProvider @UpdateProvider @Options  </description>
+    </item>
+    
+    <item>
+      <title>1.7.2.注解的分类</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.7.%E6%B3%A8%E8%A7%A3/1.7.2.%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%88%86%E7%B1%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.7.%E6%B3%A8%E8%A7%A3/1.7.2.%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%88%86%E7%B1%BB/</guid>
+      <description>1.7.2.注解的分类 按照运行机制分  源码注解: 注解只在源码中存在,编译成.class文件就不存在了 编译时注解: 注解在源码和.class文件中都存在 (包括: @OVerride @Deprecated, @Suppvi 运行时注解: 在运行阶段还起作用,甚至会影响运行逻辑的注解 (ps: @Autowired)  按照来源分  来自JDK的注解 来自第三方的注解 我们自己定义的注解  自定义注解 TODO::</description>
     </item>
     
     <item>
@@ -1617,6 +2133,24 @@ atomic包    方法 解释     func LoadInt32(addr *int32) (val int32) 读取操
       <description>git 移除已经add的文件 使用 git rm 命令即可，有两种选择,  一种是 git rm &amp;ndash;cached “文件路径”，不删除物理文件，仅将该文件从缓存中删除； 一种是 git rm &amp;ndash;f “文件路径”，不仅将该文件从缓存中删除，还会将物理文件删除（不会回收到垃圾桶）。  请问 git rm &amp;ndash;cache 和 git reset HEAD 的区别到底在哪里呢？ 如果要删除文件，最好用 git rm file_name，而不应该直接在工作区直接 rm file_name。
 如果一个文件已经add到暂存区，还没有 commit，此时如果不想要这个文件了 有两种方法：
  1，用版本库内容清空暂存区，git reset HEAD 但要慎重使用 2，只把特定文件从暂存区删除，git rm &amp;ndash;cached xxx  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.3.log/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.3.log/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.4.strconv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.4.strconv/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -1693,6 +2227,21 @@ atomic包    方法 解释     func LoadInt32(addr *int32) (val int32) 读取操
     
     <item>
       <title></title>
+      <link>https://ruichengm1987.github.io/docs/%E6%95%B0%E6%8D%AE%E5%92%8C%E7%AE%97%E5%95%8A/1.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E6%95%B0%E6%8D%AE%E5%92%8C%E7%AE%97%E5%95%8A/1.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</guid>
+      <description>基本概念 数据 是能输入计算机且能被计算机处理的各种符号的集合
+数据元素 是数据的基本单位,在计算机程序中通常作为一个整体进行考虑和处理。也简称为元素，或记录、节点或顶点。
+数据项 构成数据元素的不可分割的最小单位
+数据对象 是性质相同的数据元素的结合,是数据的一个子集。
+例如: 整数数据对象是集合N={0,1,-1,&amp;hellip;}
+数据结构  数据元素不是孤立存在的,他们之间存在着某种关系,数据元素相互之间的关机称为结构 是指相互之间存在一种或多种特定关系的数据元素集合  数据结构两个层次: 逻辑结构，物理结构
+逻辑结构的种类1: 线性结构: 有且仅有一个开始和一个终端节点,并且所有节点都最多只有一个直接前驱和一个直接后继。  非线性结构: 一个节点可能有多个直接前驱和直接后继  逻辑结构的种类2:  集合结构 结构中的数据元素之间除了同属于一个集合的关系外,无任何其它关系 线性结构 结构中的数据元素之间存在着一对一的线性关系 树形结构 结构中的数据元素之间存在着一对多的层次关系 图状结构或网状结构 结构中的数据元素之间存在着多对多的任意关系  存储结构的种类 顺序存储结构  用一组连续的存储单元依次存储数据元素，数据元素之间的逻辑关系由元素的存储位置来表示 c语言中用数组来实现顺序存储结构  链式存储结构  用一组任意的存储单元存储数据元素,数据元素之间的逻辑用指针来表示 c语言中用指针来实现链式存储表示  索引存储结构  在存储节点信息的同时，还建立附加的索引表  散列存储结构  根据节点的关键字直接计算出该节点的存储地址  数据类型和抽象数据类型  在使用高级程序设计语言编写程序时,必须对程序中出现的每个变量、常量或表达式,明确说明他们所属的数据类型  例如: C语言中  提供int,char, float, double等基本数据类型 数组、结构、共用体、枚举等构造数据类型 还有指针,空(void)类型 用户也可用typedef自己定义数据类型     一些最基本数据结构可以用数据类型来实现,如数组、字符串等 而另一些常用的数据结构,如栈、队列、树、图等,不能直接用数据类型来表示 高级语言中的数据类型明显地或隐含地规定了在程序执行期间变量和表达的所有可能的取值范围,以及 在这些数值范围上所允许进行的操作  </description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/restapi%E8%A7%84%E8%8C%83/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -1704,6 +2253,27 @@ atomic包    方法 解释     func LoadInt32(addr *int32) (val int32) 读取操
   如果该资源脱离父资源后没有意义，则如下设计，例如：文件的某行与文件的关系 GET /file/1000/line/20 如果该资源可以独立访问或可以从属于多个父资源，则不用嵌套显示， 例如：专辑和歌曲的关系 GET /albums/151 GET /songs/10 版本控制 由于一个API服务可以提供多个API接口，如果有不兼容和破坏性的更改，版本号将让你能更容易的发布API。版本控制格式约定为：vN（N=1,2,3&amp;hellip;）
 例如: GET /api/v1/employees/123 GET /api/v2/employees/123 资源操作 HTTP方法 资源操作必须尽可能使用正确的HTTP方法，并且必须遵守操作幂等性。HTTP方法通常被称为HTTP动词。
    方法 安全 幂等     GET 是 是   POST 否 否   PUT 否 是   DELETE 否 是   PATCH 否 否   OPTIONS 是 是   HEAD 是 是    关于以上方法的说明：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/6.%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/6.%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%93%8D%E4%BD%9C/</guid>
+      <description>二叉搜索树的操作 添加
+修改
+查找
+删除</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/6.%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/%E6%A0%91%E7%9A%843%E7%A7%8D%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/6.%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/%E6%A0%91%E7%9A%843%E7%A7%8D%E9%81%8D%E5%8E%86/</guid>
+      <description>代码:树的3种遍历 package main import ( &amp;quot;fmt&amp;quot; ) type node struct { Val string Left *node Right *node } type bst struct { root *node } /* m k l h i j a b c d e f */ func (tree *bst) buildTree() { m := &amp;amp;node{Val: &amp;quot;m&amp;quot;} tree.root = m k := &amp;amp;node{Val: &amp;quot;k&amp;quot;} l := &amp;amp;node{Val: &amp;quot;l&amp;quot;} m.Left = k m.Right = l h := &amp;amp;node{Val: &amp;quot;h&amp;quot;} i := &amp;amp;node{Val: &amp;quot;i&amp;quot;} k.</description>
     </item>
     
     <item>

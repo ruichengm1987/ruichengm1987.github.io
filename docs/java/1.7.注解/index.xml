@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1.7.注解 on 坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/java/1.7.%E6%B3%A8%E8%A7%A3/</link>
+    <description>Recent content in 1.7.注解 on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/java/1.7.%E6%B3%A8%E8%A7%A3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1.7.1.java中的常见注解</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.7.%E6%B3%A8%E8%A7%A3/1.7.1.java%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.7.%E6%B3%A8%E8%A7%A3/1.7.1.java%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E6%B3%A8%E8%A7%A3/</guid>
+      <description>1.7.1.java中的常见注解 JDK自带注解  @Override 覆盖父类的方法 @Deprecated 表示已经过时 @Suppvisewarnings @SuppressWarning(&amp;ldquo;deprecation&amp;rdquo;) 忽略deprecation警告  java第三方注解 Spring  @Autowired @Service @Repository  Mybatis  @InsertProvider @UpdateProvider @Options  </description>
+    </item>
+    
+    <item>
+      <title>1.7.2.注解的分类</title>
+      <link>https://ruichengm1987.github.io/docs/java/1.7.%E6%B3%A8%E8%A7%A3/1.7.2.%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%88%86%E7%B1%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/1.7.%E6%B3%A8%E8%A7%A3/1.7.2.%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%88%86%E7%B1%BB/</guid>
+      <description>1.7.2.注解的分类 按照运行机制分  源码注解: 注解只在源码中存在,编译成.class文件就不存在了 编译时注解: 注解在源码和.class文件中都存在 (包括: @OVerride @Deprecated, @Suppvi 运行时注解: 在运行阶段还起作用,甚至会影响运行逻辑的注解 (ps: @Autowired)  按照来源分  来自JDK的注解 来自第三方的注解 我们自己定义的注解  自定义注解 TODO::</description>
+    </item>
+    
+  </channel>
+</rss>

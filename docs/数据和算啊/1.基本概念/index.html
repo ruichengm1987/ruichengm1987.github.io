@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="基本概念 数据 是能输入计算机且能被计算机处理的各种符号的集合
+数据元素 是数据的基本单位,在计算机程序中通常作为一个整体进行考虑和处理。也简称为元素，或记录、节点或顶点。
+数据项 构成数据元素的不可分割的最小单位
+数据对象 是性质相同的数据元素的结合,是数据的一个子集。
+例如: 整数数据对象是集合N={0,1,-1,&hellip;}
+数据结构  数据元素不是孤立存在的,他们之间存在着某种关系,数据元素相互之间的关机称为结构 是指相互之间存在一种或多种特定关系的数据元素集合  数据结构两个层次: 逻辑结构，物理结构
+逻辑结构的种类1: 线性结构: 有且仅有一个开始和一个终端节点,并且所有节点都最多只有一个直接前驱和一个直接后继。  非线性结构: 一个节点可能有多个直接前驱和直接后继  逻辑结构的种类2:  集合结构 结构中的数据元素之间除了同属于一个集合的关系外,无任何其它关系 线性结构 结构中的数据元素之间存在着一对一的线性关系 树形结构 结构中的数据元素之间存在着一对多的层次关系 图状结构或网状结构 结构中的数据元素之间存在着多对多的任意关系  存储结构的种类 顺序存储结构  用一组连续的存储单元依次存储数据元素，数据元素之间的逻辑关系由元素的存储位置来表示 c语言中用数组来实现顺序存储结构  链式存储结构  用一组任意的存储单元存储数据元素,数据元素之间的逻辑用指针来表示 c语言中用指针来实现链式存储表示  索引存储结构  在存储节点信息的同时，还建立附加的索引表  散列存储结构  根据节点的关键字直接计算出该节点的存储地址  数据类型和抽象数据类型  在使用高级程序设计语言编写程序时,必须对程序中出现的每个变量、常量或表达式,明确说明他们所属的数据类型  例如: C语言中  提供int,char, float, double等基本数据类型 数组、结构、共用体、枚举等构造数据类型 还有指针,空(void)类型 用户也可用typedef自己定义数据类型     一些最基本数据结构可以用数据类型来实现,如数组、字符串等 而另一些常用的数据结构,如栈、队列、树、图等,不能直接用数据类型来表示 高级语言中的数据类型明显地或隐含地规定了在程序执行期间变量和表达的所有可能的取值范围,以及 在这些数值范围上所允许进行的操作  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="基本概念 数据 是能输入计算机且能被计算机处理的各种符号的集合
+数据元素 是数据的基本单位,在计算机程序中通常作为一个整体进行考虑和处理。也简称为元素，或记录、节点或顶点。
+数据项 构成数据元素的不可分割的最小单位
+数据对象 是性质相同的数据元素的结合,是数据的一个子集。
+例如: 整数数据对象是集合N={0,1,-1,&hellip;}
+数据结构  数据元素不是孤立存在的,他们之间存在着某种关系,数据元素相互之间的关机称为结构 是指相互之间存在一种或多种特定关系的数据元素集合  数据结构两个层次: 逻辑结构，物理结构
+逻辑结构的种类1: 线性结构: 有且仅有一个开始和一个终端节点,并且所有节点都最多只有一个直接前驱和一个直接后继。  非线性结构: 一个节点可能有多个直接前驱和直接后继  逻辑结构的种类2:  集合结构 结构中的数据元素之间除了同属于一个集合的关系外,无任何其它关系 线性结构 结构中的数据元素之间存在着一对一的线性关系 树形结构 结构中的数据元素之间存在着一对多的层次关系 图状结构或网状结构 结构中的数据元素之间存在着多对多的任意关系  存储结构的种类 顺序存储结构  用一组连续的存储单元依次存储数据元素，数据元素之间的逻辑关系由元素的存储位置来表示 c语言中用数组来实现顺序存储结构  链式存储结构  用一组任意的存储单元存储数据元素,数据元素之间的逻辑用指针来表示 c语言中用指针来实现链式存储表示  索引存储结构  在存储节点信息的同时，还建立附加的索引表  散列存储结构  根据节点的关键字直接计算出该节点的存储地址  数据类型和抽象数据类型  在使用高级程序设计语言编写程序时,必须对程序中出现的每个变量、常量或表达式,明确说明他们所属的数据类型  例如: C语言中  提供int,char, float, double等基本数据类型 数组、结构、共用体、枚举等构造数据类型 还有指针,空(void)类型 用户也可用typedef自己定义数据类型     一些最基本数据结构可以用数据类型来实现,如数组、字符串等 而另一些常用的数据结构,如栈、队列、树、图等,不能直接用数据类型来表示 高级语言中的数据类型明显地或隐含地规定了在程序执行期间变量和表达的所有可能的取值范围,以及 在这些数值范围上所允许进行的操作  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/%E6%95%B0%E6%8D%AE%E5%92%8C%E7%AE%97%E5%95%8A/1.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" />
+
+<title>1.基本概念 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.55ae7de5e7c082eaa3778cccb39110a8ec996ef2b2f82efa8438770664142472.js" integrity="sha256-Va595efAguqjd4zMs5EQqOyZbvKy&#43;C76hDh3BmQUJHI="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/" class="collapsed ">docker</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">Go</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/java/" class="collapsed ">java</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" class="collapsed ">数据结构&amp;算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/suanfa/" class="collapsed ">算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/" class="collapsed ">算法系列</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E4%BA%94%E7%AC%94/" class="collapsed ">五笔</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E5%92%8C%E7%AE%97%E5%95%8A/1.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="active">1.基本概念</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>1.基本概念</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数据">数据</a></li>
+    <li><a href="#数据元素">数据元素</a></li>
+    <li><a href="#数据项">数据项</a></li>
+    <li><a href="#数据对象">数据对象</a></li>
+    <li><a href="#数据结构">数据结构</a>
+      <ul>
+        <li><a href="#逻辑结构的种类1">逻辑结构的种类1:</a></li>
+        <li><a href="#逻辑结构的种类2">逻辑结构的种类2:</a></li>
+      </ul>
+    </li>
+    <li><a href="#存储结构的种类">存储结构的种类</a>
+      <ul>
+        <li><a href="#顺序存储结构">顺序存储结构</a></li>
+        <li><a href="#链式存储结构">链式存储结构</a></li>
+        <li><a href="#索引存储结构">索引存储结构</a></li>
+        <li><a href="#散列存储结构">散列存储结构</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据类型和抽象数据类型">数据类型和抽象数据类型</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="基本概念">基本概念</h1>
+<h2 id="数据">数据</h2>
+<p>是能输入计算机且能被计算机处理的各种符号的集合</p>
+<h2 id="数据元素">数据元素</h2>
+<p>是数据的基本单位,在计算机程序中通常作为一个整体进行考虑和处理。也简称为元素，或记录、节点或顶点。</p>
+<h2 id="数据项">数据项</h2>
+<p>构成数据元素的不可分割的最小单位</p>
+<h2 id="数据对象">数据对象</h2>
+<p>是性质相同的数据元素的结合,是数据的一个子集。<br>
+例如: 整数数据对象是集合N={0,1,-1,&hellip;}</p>
+<h2 id="数据结构">数据结构</h2>
+<ul>
+<li>数据元素不是孤立存在的,他们之间存在着某种关系,数据元素相互之间的关机称为结构</li>
+<li>是指相互之间存在一种或多种特定关系的数据元素集合</li>
+</ul>
+<p>数据结构两个层次: 逻辑结构，物理结构</p>
+<h3 id="逻辑结构的种类1">逻辑结构的种类1:</h3>
+<h4 id="线性结构">线性结构:</h4>
+<pre><code>有且仅有一个开始和一个终端节点,并且所有节点都最多只有一个直接前驱和一个直接后继。
+</code></pre>
+<h4 id="非线性结构">非线性结构:</h4>
+<pre><code>一个节点可能有多个直接前驱和直接后继
+</code></pre>
+<h3 id="逻辑结构的种类2">逻辑结构的种类2:</h3>
+<ul>
+<li>集合结构
+结构中的数据元素之间除了同属于一个集合的关系外,无任何其它关系</li>
+<li>线性结构
+结构中的数据元素之间存在着一对一的线性关系</li>
+<li>树形结构
+结构中的数据元素之间存在着一对多的层次关系</li>
+<li>图状结构或网状结构
+结构中的数据元素之间存在着多对多的任意关系</li>
+</ul>
+<h2 id="存储结构的种类">存储结构的种类</h2>
+<h3 id="顺序存储结构">顺序存储结构</h3>
+<ul>
+<li>用一组连续的存储单元依次存储数据元素，数据元素之间的逻辑关系由元素的存储位置来表示</li>
+<li>c语言中用数组来实现顺序存储结构</li>
+</ul>
+<h3 id="链式存储结构">链式存储结构</h3>
+<ul>
+<li>用一组任意的存储单元存储数据元素,数据元素之间的逻辑用指针来表示</li>
+<li>c语言中用指针来实现链式存储表示</li>
+</ul>
+<h3 id="索引存储结构">索引存储结构</h3>
+<ul>
+<li>在存储节点信息的同时，还建立附加的索引表</li>
+</ul>
+<h3 id="散列存储结构">散列存储结构</h3>
+<ul>
+<li>根据节点的关键字直接计算出该节点的存储地址</li>
+</ul>
+<h2 id="数据类型和抽象数据类型">数据类型和抽象数据类型</h2>
+<ul>
+<li>在使用高级程序设计语言编写程序时,必须对程序中出现的每个变量、常量或表达式,明确说明他们所属的数据类型
+<ul>
+<li>例如: C语言中
+<ul>
+<li>提供int,char, float, double等基本数据类型</li>
+<li>数组、结构、共用体、枚举等构造数据类型</li>
+<li>还有指针,空(void)类型</li>
+<li>用户也可用typedef自己定义数据类型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>一些最基本数据结构可以用数据类型来实现,如数组、字符串等</li>
+<li>而另一些常用的数据结构,如栈、队列、树、图等,不能直接用数据类型来表示</li>
+<li>高级语言中的数据类型明显地或隐含地规定了在程序执行期间变量和表达的所有可能的取值范围,以及
+在这些数值范围上所允许进行的操作</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数据">数据</a></li>
+    <li><a href="#数据元素">数据元素</a></li>
+    <li><a href="#数据项">数据项</a></li>
+    <li><a href="#数据对象">数据对象</a></li>
+    <li><a href="#数据结构">数据结构</a>
+      <ul>
+        <li><a href="#逻辑结构的种类1">逻辑结构的种类1:</a></li>
+        <li><a href="#逻辑结构的种类2">逻辑结构的种类2:</a></li>
+      </ul>
+    </li>
+    <li><a href="#存储结构的种类">存储结构的种类</a>
+      <ul>
+        <li><a href="#顺序存储结构">顺序存储结构</a></li>
+        <li><a href="#链式存储结构">链式存储结构</a></li>
+        <li><a href="#索引存储结构">索引存储结构</a></li>
+        <li><a href="#散列存储结构">散列存储结构</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据类型和抽象数据类型">数据类型和抽象数据类型</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

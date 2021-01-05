@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/git/2.%E8%BF%9B%E9%98%B6/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/git/2.%E8%BF%9B%E9%98%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>reset命令:将仓库记录和恢复指定历史位置</title>
+      <link>https://ruichengm1987.github.io/docs/git/2.%E8%BF%9B%E9%98%B6/0.reset%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BB%93%E5%BA%93%E8%AE%B0%E5%BD%95%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AE%9A%E5%8E%86%E5%8F%B2%E4%BD%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/2.%E8%BF%9B%E9%98%B6/0.reset%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BB%93%E5%BA%93%E8%AE%B0%E5%BD%95%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AE%9A%E5%8E%86%E5%8F%B2%E4%BD%8D%E7%BD%AE/</guid>
+      <description>0.reset命令:将仓库记录和恢复指定历史位置 有时候我们用 git commit 提交代码后发现这一次提交的内容是错误的，需要将代码复原，这个时候常见有两种做法。
+第一种是把代码错误内容修改正确，然后重新使用 commit 提交一次； 这种情况会多2条log记录
+第二种方法是使用 git reset 命令撤销上一次错误的 commit 记录。 git reset HEAD^ # 撤销我们最近一次提交 git reset 815ac616803fa89c75467618b2be44f85696543d # 指定回滚位置, commitid git reset 815ac616803fa89c75467618b2be44f85696543d filename # 回滚某个文件到某次提交 </description>
+    </item>
+    
+    <item>
+      <title>清理无意义的分支数据</title>
+      <link>https://ruichengm1987.github.io/docs/git/2.%E8%BF%9B%E9%98%B6/1.%E6%B8%85%E7%90%86%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E5%88%86%E6%94%AF%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/git/2.%E8%BF%9B%E9%98%B6/1.%E6%B8%85%E7%90%86%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E5%88%86%E6%94%AF%E6%95%B0%E6%8D%AE/</guid>
+      <description>清理无意义的分支数据  本地不存在，远程存在该分支，但不需要了 远程不存在，本地存在该分支，也不需要了  清理远程分支 1. 查看分支, 远程分支显示红色 git branch -a remotes/origin/dev 2. 执行命令 git push origin --delete dev 清理本地分支 1. 模拟场景 git checkout -b test6 2. 查看当前版本库的分支 git branch -a 3. 将分支推送到远程服务器中 git push --set-upstream origin test6 4. 查看远程分支的信息 git remote show origin 5. 删除远程分支 git push origin --delete test1 </description>
+    </item>
+    
+  </channel>
+</rss>

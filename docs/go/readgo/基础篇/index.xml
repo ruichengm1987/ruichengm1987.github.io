@@ -119,15 +119,5 @@ d = 1 &amp;laquo; iota // d==8 (iota == 3) )
  协程(Coroutine)是什么? 轻量级的线程 协程的定位是什么? 用户控制的函数 有什么样的优势? 协程优势  协程的内存消耗更小  一个线程可以包含多个协程 线程大约8MB的内存申请量 协程大概2kb的内存申请量   上下文切换更快  协程少一道手续 线程申请内存, 需要走过内核 协程申请内存，不需要走过内核        灵魂Goroutine</description>
     </item>
     
-    <item>
-      <title>context</title>
-      <link>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/context/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ruichengm1987.github.io/docs/go/readgo/%E5%9F%BA%E7%A1%80%E7%AF%87/context/</guid>
-      <description>context 在 Go http包的Server中，每一个请求在都有一个对应的 goroutine 去处理。请求处理函数通常会启动额外的 goroutine 用来访问后端服务，比如数据库和RPC服务。用来处理一个请求的 goroutine 通常需要访问一些与请求特定的数据，比如终端用户的身份认证信息、验证相关的token、请求的截止时间。 当一个请求被取消或超时时，所有用来处理该请求的 goroutine 都应该迅速退出，然后系统才能释放这些 goroutine 占用的资源。
-为什么需要Context 基本示例 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;sync&amp;quot; &amp;quot;time&amp;quot; ) var wg sync.WaitGroup // 初始的例子 func worker() { for { fmt.Println(&amp;quot;worker&amp;quot;) time.Sleep(time.Second) } // 如何接收外部命令实现退出？？？ wg.Done() } func main() { wg.Add(1) go worker() // 如何优雅的实现结束子goroutine？？？ wg.Wait() fmt.Println(&amp;quot;over&amp;quot;) } 全局变量方式 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;sync&amp;quot; &amp;quot;time&amp;quot; ) var wg sync.WaitGroup var exit bool // 全局变量方式存在的问题： // 1.</description>
-    </item>
-    
   </channel>
 </rss>

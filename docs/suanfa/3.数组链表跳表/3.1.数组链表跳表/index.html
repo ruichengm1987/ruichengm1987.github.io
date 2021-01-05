@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="3.1.数组链表跳表 数组 时间复杂度:
+   操作 时间复杂度     查找 O(1)   插入 O(n)   删除 O(n)    链表 时间复杂度:
+   操作 时间复杂度     头部增加 O(1)   尾部增加 O(1)   查找 O(n)   插入 O(1)   删除 O(1)    思想:
+ 空间换时间 升维  单链表 node节点有next
+双链表 node节点有next和privious
+循环链表 node节点的next指向头节点
+跳表    操作 时间复杂度     查找 O(logn)    空间复杂度: O(n)">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="3.1.数组链表跳表" />
+<meta property="og:description" content="3.1.数组链表跳表 数组 时间复杂度:
+   操作 时间复杂度     查找 O(1)   插入 O(n)   删除 O(n)    链表 时间复杂度:
+   操作 时间复杂度     头部增加 O(1)   尾部增加 O(1)   查找 O(n)   插入 O(1)   删除 O(1)    思想:
+ 空间换时间 升维  单链表 node节点有next
+双链表 node节点有next和privious
+循环链表 node节点的next指向头节点
+跳表    操作 时间复杂度     查找 O(logn)    空间复杂度: O(n)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/suanfa/3.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/3.1.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/" />
+
+<title>3.1.数组链表跳表 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.55ae7de5e7c082eaa3778cccb39110a8ec996ef2b2f82efa8438770664142472.js" integrity="sha256-Va595efAguqjd4zMs5EQqOyZbvKy&#43;C76hDh3BmQUJHI="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/" class="collapsed ">docker</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">Go</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/java/" class="collapsed ">java</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" class="collapsed ">数据结构&amp;算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/suanfa/" class="collapsed ">算法</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/suanfa/3.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/" class="collapsed ">3.数组链表跳表</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/suanfa/3.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/3.1.%E6%95%B0%E7%BB%84%E9%93%BE%E8%A1%A8%E8%B7%B3%E8%A1%A8/" class="active">3.1.数组链表跳表</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/" class="collapsed ">算法系列</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E4%BA%94%E7%AC%94/" class="collapsed ">五笔</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E5%92%8C%E7%AE%97%E5%95%8A/1.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="">1.基本概念</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>3.1.数组链表跳表</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数组">数组</a></li>
+    <li><a href="#链表">链表</a>
+      <ul>
+        <li><a href="#单链表">单链表</a></li>
+        <li><a href="#双链表">双链表</a></li>
+        <li><a href="#循环链表">循环链表</a></li>
+        <li><a href="#跳表">跳表</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="31数组链表跳表">3.1.数组链表跳表</h1>
+<h2 id="数组">数组</h2>
+<p>时间复杂度:</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>时间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查找</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>插入</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="链表">链表</h2>
+<p>时间复杂度:</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>时间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>头部增加</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>尾部增加</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>查找</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>插入</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<p>思想:</p>
+<ul>
+<li>空间换时间</li>
+<li>升维</li>
+</ul>
+<h3 id="单链表">单链表</h3>
+<p>node节点有next</p>
+<h3 id="双链表">双链表</h3>
+<p>node节点有next和privious</p>
+<h3 id="循环链表">循环链表</h3>
+<p>node节点的next指向头节点</p>
+<h3 id="跳表">跳表</h3>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>时间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查找</td>
+<td>O(logn)</td>
+</tr>
+</tbody>
+</table>
+<p>空间复杂度: O(n)</p>
+<p>扩展阅读:<br>
+LRU Cache-Linked list<br>
+<a href="https://www.jianshu.com/p/b1ab4a170c3c">https://www.jianshu.com/p/b1ab4a170c3c</a><br>
+<a href="https://leetcode-cn.com/problems/lru-cache/">https://leetcode-cn.com/problems/lru-cache/</a></p>
+<p>Redis-Skip List<br>
+<a href="https://redisbook.readthedocs.io/en/latest/internal-datastruct/skiplist.html">https://redisbook.readthedocs.io/en/latest/internal-datastruct/skiplist.html</a><br>
+<a href="https://www.zhihu.com/question/20202931">https://www.zhihu.com/question/20202931</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数组">数组</a></li>
+    <li><a href="#链表">链表</a>
+      <ul>
+        <li><a href="#单链表">单链表</a></li>
+        <li><a href="#双链表">双链表</a></li>
+        <li><a href="#循环链表">循环链表</a></li>
+        <li><a href="#跳表">跳表</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

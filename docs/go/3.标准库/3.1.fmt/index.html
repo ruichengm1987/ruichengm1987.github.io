@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="3.1.fmt fmt包实现了类似C语言printf和scanf的格式化I/O。主要分为向外输出内容和获取输入内容两大部分。
+向外输出 标准库fmt提供了以下几种输出相关函数。
+print Print系列函数会将内容输出到系统的标准输出，区别在于Print函数直接输出内容，Printf函数支持格式化输出字符串，Println函数会在输出内容的结尾添加一个换行符。
+func Print(a ...interface{}) (n int, err error) func Printf(format string, a ...interface{}) (n int, err error) func Println(a ...interface{}) (n int, err error) 举个简单的例子：
+func main() { fmt.Print(&quot;在终端打印该信息。&quot;) name := &quot;沙河小王子&quot; fmt.Printf(&quot;我是：%s\n&quot;, name) fmt.Println(&quot;在终端打印单独一行显示&quot;) } 执行上面的代码输出：
+在终端打印该信息。我是：沙河小王子 在终端打印单独一行显示 Fprint Fprint系列函数会将内容输出到一个io.Writer接口类型的变量w中，我们通常用这个函数往文件中写入内容。
+func Fprint(w io.Writer, a ...interface{}) (n int, err error) func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) func Fprintln(w io.Writer, a .">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="3.1.fmt" />
+<meta property="og:description" content="3.1.fmt fmt包实现了类似C语言printf和scanf的格式化I/O。主要分为向外输出内容和获取输入内容两大部分。
+向外输出 标准库fmt提供了以下几种输出相关函数。
+print Print系列函数会将内容输出到系统的标准输出，区别在于Print函数直接输出内容，Printf函数支持格式化输出字符串，Println函数会在输出内容的结尾添加一个换行符。
+func Print(a ...interface{}) (n int, err error) func Printf(format string, a ...interface{}) (n int, err error) func Println(a ...interface{}) (n int, err error) 举个简单的例子：
+func main() { fmt.Print(&quot;在终端打印该信息。&quot;) name := &quot;沙河小王子&quot; fmt.Printf(&quot;我是：%s\n&quot;, name) fmt.Println(&quot;在终端打印单独一行显示&quot;) } 执行上面的代码输出：
+在终端打印该信息。我是：沙河小王子 在终端打印单独一行显示 Fprint Fprint系列函数会将内容输出到一个io.Writer接口类型的变量w中，我们通常用这个函数往文件中写入内容。
+func Fprint(w io.Writer, a ...interface{}) (n int, err error) func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) func Fprintln(w io.Writer, a ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.1.fmt/" />
+
+<title>3.1.fmt | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.55ae7de5e7c082eaa3778cccb39110a8ec996ef2b2f82efa8438770664142472.js" integrity="sha256-Va595efAguqjd4zMs5EQqOyZbvKy&#43;C76hDh3BmQUJHI="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/" class="collapsed ">docker</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">Go</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="collapsed ">1.开发环境</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/" class="collapsed ">2. Golang基础</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/" class="collapsed ">3.标准库</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.1.fmt/" class="active">3.1.fmt</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.2.time/" class="">3.2.time</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.5.net.http/" class="">3.5.net/http</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.6.context/" class="">3.6.context</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/4.web%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/" class="collapsed ">4. Web开发相关</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/5.golang%E9%AB%98%E7%BA%A7/" class="collapsed ">5. Golang高级</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/6.golang%E6%BA%90%E7%A0%81/" class="collapsed ">6. Golang源码</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/7.%E5%BA%94%E7%94%A8/" class="collapsed ">7.应用</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/java/" class="collapsed ">java</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" class="collapsed ">数据结构&amp;算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/suanfa/" class="collapsed ">算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/" class="collapsed ">算法系列</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E4%BA%94%E7%AC%94/" class="collapsed ">五笔</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E5%92%8C%E7%AE%97%E5%95%8A/1.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="">1.基本概念</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>3.1.fmt</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#向外输出">向外输出</a>
+      <ul>
+        <li><a href="#print">print</a></li>
+        <li><a href="#fprint">Fprint</a></li>
+        <li><a href="#sprint">Sprint</a></li>
+        <li><a href="#errorf">Errorf</a></li>
+      </ul>
+    </li>
+    <li><a href="#格式化占位符">格式化占位符</a>
+      <ul>
+        <li><a href="#通用占位符">通用占位符</a></li>
+        <li><a href="#布尔值">布尔值</a></li>
+        <li><a href="#整型">整型</a></li>
+        <li><a href="#浮点数与复数">浮点数与复数</a></li>
+        <li><a href="#字符串和byte">字符串和[]byte</a></li>
+        <li><a href="#指针">指针</a></li>
+        <li><a href="#宽度标识符">宽度标识符</a></li>
+        <li><a href="#其他flag">其他flag</a></li>
+      </ul>
+    </li>
+    <li><a href="#获取输入">获取输入</a>
+      <ul>
+        <li><a href="#fmtscan">fmt.Scan</a></li>
+        <li><a href="#fmtscanf">fmt.Scanf</a></li>
+        <li><a href="#fmtscanln">fmt.Scanln</a></li>
+        <li><a href="#bufionewreader">bufio.NewReader</a></li>
+        <li><a href="#fscan系列">Fscan系列</a></li>
+        <li><a href="#sscan系列">Sscan系列</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="31fmt">3.1.fmt</h1>
+<p>fmt包实现了类似C语言printf和scanf的格式化I/O。主要分为向外输出内容和获取输入内容两大部分。</p>
+<h2 id="向外输出">向外输出</h2>
+<p>标准库fmt提供了以下几种输出相关函数。</p>
+<h3 id="print">print</h3>
+<p>Print系列函数会将内容输出到系统的标准输出，区别在于Print函数直接输出内容，Printf函数支持格式化输出字符串，Println函数会在输出内容的结尾添加一个换行符。</p>
+<pre><code class="language-aidl" data-lang="aidl">func Print(a ...interface{}) (n int, err error)
+func Printf(format string, a ...interface{}) (n int, err error)
+func Println(a ...interface{}) (n int, err error)
+</code></pre><p>举个简单的例子：</p>
+<pre><code class="language-aidl" data-lang="aidl">func main() {
+	fmt.Print(&quot;在终端打印该信息。&quot;)
+	name := &quot;沙河小王子&quot;
+	fmt.Printf(&quot;我是：%s\n&quot;, name)
+	fmt.Println(&quot;在终端打印单独一行显示&quot;)
+}
+</code></pre><p>执行上面的代码输出：</p>
+<pre><code class="language-aidl" data-lang="aidl">在终端打印该信息。我是：沙河小王子
+在终端打印单独一行显示
+</code></pre><h3 id="fprint">Fprint</h3>
+<p>Fprint系列函数会将内容输出到一个io.Writer接口类型的变量w中，我们通常用这个函数往文件中写入内容。</p>
+<pre><code class="language-aidl" data-lang="aidl">func Fprint(w io.Writer, a ...interface{}) (n int, err error)
+func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error)
+func Fprintln(w io.Writer, a ...interface{}) (n int, err error)
+</code></pre><p>举个例子：</p>
+<pre><code class="language-aidl" data-lang="aidl">// 向标准输出写入内容
+fmt.Fprintln(os.Stdout, &quot;向标准输出写入内容&quot;)
+fileObj, err := os.OpenFile(&quot;./xx.txt&quot;, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+if err != nil {
+	fmt.Println(&quot;打开文件出错，err:&quot;, err)
+	return
+}
+name := &quot;沙河小王子&quot;
+// 向打开的文件句柄中写入内容
+fmt.Fprintf(fileObj, &quot;往文件中写如信息：%s&quot;, name)
+</code></pre><p>注意，只要满足io.Writer接口的类型都支持写入。</p>
+<h3 id="sprint">Sprint</h3>
+<p>Sprint系列函数会把传入的数据生成并返回一个字符串。</p>
+<pre><code class="language-aidl" data-lang="aidl">func Sprint(a ...interface{}) string
+func Sprintf(format string, a ...interface{}) string
+func Sprintln(a ...interface{}) string
+</code></pre><p>简单的示例代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">s1 := fmt.Sprint(&quot;沙河小王子&quot;)
+name := &quot;沙河小王子&quot;
+age := 18
+s2 := fmt.Sprintf(&quot;name:%s,age:%d&quot;, name, age)
+s3 := fmt.Sprintln(&quot;沙河小王子&quot;)
+fmt.Println(s1, s2, s3)
+</code></pre><h3 id="errorf">Errorf</h3>
+<p>Errorf函数根据format参数生成格式化字符串并返回一个包含该字符串的错误。</p>
+<pre><code class="language-aidl" data-lang="aidl">func Errorf(format string, a ...interface{}) error
+</code></pre><p>通常使用这种方式来自定义错误类型，例如：</p>
+<pre><code class="language-aidl" data-lang="aidl">err := fmt.Errorf(&quot;这是一个错误&quot;)
+</code></pre><p>Go1.13版本为fmt.Errorf函数新加了一个%w占位符用来生成一个可以包裹Error的Wrapping Error。</p>
+<pre><code class="language-aidl" data-lang="aidl">e := errors.New(&quot;原始错误e&quot;)
+w := fmt.Errorf(&quot;Wrap了一个错误%w&quot;, e)
+</code></pre><h2 id="格式化占位符">格式化占位符</h2>
+<p>*printf系列函数都支持format格式化参数，在这里我们按照占位符将被替换的变量类型划分，方便查询和记忆。</p>
+<h3 id="通用占位符">通用占位符</h3>
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%v</td>
+<td>值的默认格式表示</td>
+</tr>
+<tr>
+<td>%+v</td>
+<td>类似%v，但输出结构体时会添加字段名</td>
+</tr>
+<tr>
+<td>%#v</td>
+<td>值的Go语法表示</td>
+</tr>
+<tr>
+<td>%T</td>
+<td>打印值的类型</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>百分号</td>
+</tr>
+<tr>
+<td>示例代码如下：</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-aidl" data-lang="aidl">fmt.Printf(&quot;%v\n&quot;, 100)
+fmt.Printf(&quot;%v\n&quot;, false)
+o := struct{ name string }{&quot;小王子&quot;}
+fmt.Printf(&quot;%v\n&quot;, o)
+fmt.Printf(&quot;%#v\n&quot;, o)
+fmt.Printf(&quot;%T\n&quot;, o)
+fmt.Printf(&quot;100%%\n&quot;)
+</code></pre><p>输出结果如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">100
+false
+{小王子}
+struct { name string }{name:&quot;小王子&quot;}
+struct { name string }
+100%
+</code></pre><h3 id="布尔值">布尔值</h3>
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%t</td>
+<td>true或false</td>
+</tr>
+</tbody>
+</table>
+<h3 id="整型">整型</h3>
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%b</td>
+<td>表示为二进制</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>该值对应的unicode码值</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>表示为十进制</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>表示为八进制</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>表示为十六进制，使用a-f</td>
+</tr>
+<tr>
+<td>%X</td>
+<td>表示为十六进制，使用A-F</td>
+</tr>
+<tr>
+<td>%U</td>
+<td>表示为Unicode格式：U+1234，等价于”U+%04X”</td>
+</tr>
+<tr>
+<td>%q</td>
+<td>该值对应的单引号括起来的go语法字符字面值，必要时会采用安全的转义表示</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">n := 65
+fmt.Printf(&quot;%b\n&quot;, n)
+fmt.Printf(&quot;%c\n&quot;, n)
+fmt.Printf(&quot;%d\n&quot;, n)
+fmt.Printf(&quot;%o\n&quot;, n)
+fmt.Printf(&quot;%x\n&quot;, n)
+fmt.Printf(&quot;%X\n&quot;, n)
+</code></pre><p>输出结果如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">1000001
+A
+65
+101
+41
+41
+</code></pre><h3 id="浮点数与复数">浮点数与复数</h3>
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%b</td>
+<td>无小数部分、二进制指数的科学计数法，如-123456p-78</td>
+</tr>
+<tr>
+<td>%e</td>
+<td>科学计数法，如-1234.456e+78</td>
+</tr>
+<tr>
+<td>%E</td>
+<td>科学计数法，如-1234.456E+78</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>有小数部分但无指数部分，如123.456</td>
+</tr>
+<tr>
+<td>%F</td>
+<td>等价于%f</td>
+</tr>
+<tr>
+<td>%g</td>
+<td>根据实际情况采用%e或%f格式（以获得更简洁、准确的输出）</td>
+</tr>
+<tr>
+<td>%G</td>
+<td>根据实际情况采用%E或%F格式（以获得更简洁、准确的输出）</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">f := 12.34
+fmt.Printf(&quot;%b\n&quot;, f)
+fmt.Printf(&quot;%e\n&quot;, f)
+fmt.Printf(&quot;%E\n&quot;, f)
+fmt.Printf(&quot;%f\n&quot;, f)
+fmt.Printf(&quot;%g\n&quot;, f)
+fmt.Printf(&quot;%G\n&quot;, f)
+</code></pre><p>输出结果如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">6946802425218990p-49
+1.234000e+01
+1.234000E+01
+12.340000
+12.34
+12.34
+</code></pre><h3 id="字符串和byte">字符串和[]byte</h3>
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%s</td>
+<td>直接输出字符串或者[]byte</td>
+</tr>
+<tr>
+<td>%q</td>
+<td>该值对应的双引号括起来的go语法字符串字面值，必要时会采用安全的转义表示</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>每个字节用两字符十六进制数表示（使用a-f</td>
+</tr>
+<tr>
+<td>%X</td>
+<td>每个字节用两字符十六进制数表示（使用A-F）</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">s := &quot;小王子&quot;
+fmt.Printf(&quot;%s\n&quot;, s)
+fmt.Printf(&quot;%q\n&quot;, s)
+fmt.Printf(&quot;%x\n&quot;, s)
+fmt.Printf(&quot;%X\n&quot;, s)
+</code></pre><p>输出结果如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">小王子
+&quot;小王子&quot;
+e5b08fe78e8be5ad90
+E5B08FE78E8BE5AD90
+</code></pre><h3 id="指针">指针</h3>
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%p</td>
+<td>表示为十六进制，并加上前导的0x</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">a := 10
+fmt.Printf(&quot;%p\n&quot;, &amp;a)
+fmt.Printf(&quot;%#p\n&quot;, &amp;a)
+</code></pre><p>输出结果如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">0xc000094000
+c000094000
+</code></pre><h3 id="宽度标识符">宽度标识符</h3>
+<p>宽度通过一个紧跟在百分号后面的十进制数指定，如果未指定宽度，则表示值时除必需之外不作填充。精度通过（可选的）宽度后跟点号后跟的十进制数指定。如果未指定精度，会使用默认精度；如果点号后没有跟数字，表示精度为0。举例如下：</p>
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%f</td>
+<td>默认宽度，默认精度</td>
+</tr>
+<tr>
+<td>%9f</td>
+<td>宽度9，默认精度</td>
+</tr>
+<tr>
+<td>%.2f</td>
+<td>默认宽度，精度2</td>
+</tr>
+<tr>
+<td>%9.2f</td>
+<td>宽度9，精度2</td>
+</tr>
+<tr>
+<td>%9.f</td>
+<td>宽度9，精度0</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">n := 12.34
+fmt.Printf(&quot;%f\n&quot;, n)
+fmt.Printf(&quot;%9f\n&quot;, n)
+fmt.Printf(&quot;%.2f\n&quot;, n)
+fmt.Printf(&quot;%9.2f\n&quot;, n)
+fmt.Printf(&quot;%9.f\n&quot;, n)
+</code></pre><p>输出结果如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">12.340000
+12.340000
+12.34
+    12.34
+       12
+</code></pre><h3 id="其他flag">其他flag</h3>
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>’+’</td>
+<td>总是输出数值的正负号；对%q（%+q）会生成全部是ASCII字符的输出（通过转义）；</td>
+</tr>
+<tr>
+<td>’ ‘</td>
+<td>对数值，正数前加空格而负数前加负号；对字符串采用%x或%X时（% x或% X）会给各打印的字节之间加空格</td>
+</tr>
+<tr>
+<td>’-’</td>
+<td>在输出右边填充空白而不是默认的左边（即从默认的右对齐切换为左对齐）；</td>
+</tr>
+<tr>
+<td>’#’</td>
+<td>八进制数前加0（%#o），十六进制数前加0x（%#x）或0X（%#X），指针去掉前面的0x（%#p）对%q（%#q），对%U（%#U）会输出空格和单引号括起来的go字面值；</td>
+</tr>
+<tr>
+<td>‘0’</td>
+<td>使用0而不是空格填充，对于数值类型会把填充的0放在正负号后面；</td>
+</tr>
+</tbody>
+</table>
+<p>举个例子：</p>
+<pre><code class="language-aidl" data-lang="aidl">s := &quot;小王子&quot;
+fmt.Printf(&quot;%s\n&quot;, s)
+fmt.Printf(&quot;%5s\n&quot;, s)
+fmt.Printf(&quot;%-5s\n&quot;, s)
+fmt.Printf(&quot;%5.7s\n&quot;, s)
+fmt.Printf(&quot;%-5.7s\n&quot;, s)
+fmt.Printf(&quot;%5.2s\n&quot;, s)
+fmt.Printf(&quot;%05s\n&quot;, s)
+</code></pre><p>输出结果如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">小王子
+  小王子
+小王子  
+  小王子
+小王子  
+   小王
+00小王子
+</code></pre><h2 id="获取输入">获取输入</h2>
+<p>Go语言fmt包下有fmt.Scan、fmt.Scanf、fmt.Scanln三个函数，可以在程序运行过程中从标准输入获取用户的输入。</p>
+<h3 id="fmtscan">fmt.Scan</h3>
+<p>函数定签名如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func Scan(a ...interface{}) (n int, err error)
+</code></pre><ul>
+<li>Scan从标准输入扫描文本，读取由空白符分隔的值保存到传递给本函数的参数中，换行符视为空白符。</li>
+<li>本函数返回成功扫描的数据个数和遇到的任何错误。如果读取的数据个数比提供的参数少，会返回一个错误报告原因。</li>
+</ul>
+<p>具体代码示例如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func main() {
+	var (
+		name    string
+		age     int
+		married bool
+	)
+	fmt.Scan(&amp;name, &amp;age, &amp;married)
+	fmt.Printf(&quot;扫描结果 name:%s age:%d married:%t \n&quot;, name, age, married)
+}
+</code></pre><p>将上面的代码编译后在终端执行，在终端依次输入小王子、28和false使用空格分隔。</p>
+<pre><code class="language-aidl" data-lang="aidl">$ ./scan_demo 
+小王子 28 false
+扫描结果 name:小王子 age:28 married:false 
+</code></pre><p>fmt.Scan从标准输入中扫描用户输入的数据，将以空白符分隔的数据分别存入指定的参数。</p>
+<h3 id="fmtscanf">fmt.Scanf</h3>
+<p>函数签名如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func Scanf(format string, a ...interface{}) (n int, err error)
+</code></pre><ul>
+<li>Scanf从标准输入扫描文本，根据format参数指定的格式去读取由空白符分隔的值保存到传递给本函数的参数中。</li>
+<li>本函数返回成功扫描的数据个数和遇到的任何错误。</li>
+</ul>
+<p>代码示例如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func main() {
+	var (
+		name    string
+		age     int
+		married bool
+	)
+	fmt.Scanf(&quot;1:%s 2:%d 3:%t&quot;, &amp;name, &amp;age, &amp;married)
+	fmt.Printf(&quot;扫描结果 name:%s age:%d married:%t \n&quot;, name, age, married)
+}
+</code></pre><p>将上面的代码编译后在终端执行，在终端按照指定的格式依次输入小王子、28和false。</p>
+<pre><code class="language-aidl" data-lang="aidl">$ ./scan_demo 
+1:小王子 2:28 3:false
+扫描结果 name:小王子 age:28 married:false 
+</code></pre><p>fmt.Scanf不同于fmt.Scan简单的以空格作为输入数据的分隔符，fmt.Scanf为输入数据指定了具体的输入内容格式，只有按照格式输入数据才会被扫描并存入对应变量。</p>
+<p>例如，我们还是按照上个示例中以空格分隔的方式输入，fmt.Scanf就不能正确扫描到输入的数据。</p>
+<pre><code class="language-aidl" data-lang="aidl">$ ./scan_demo 
+小王子 28 false
+扫描结果 name: age:0 married:false 
+</code></pre><h3 id="fmtscanln">fmt.Scanln</h3>
+<p>函数签名如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func Scanln(a ...interface{}) (n int, err error)
+</code></pre><ul>
+<li>Scanln类似Scan，它在遇到换行时才停止扫描。最后一个数据后面必须有换行或者到达结束位置。</li>
+<li>本函数返回成功扫描的数据个数和遇到的任何错误。</li>
+</ul>
+<p>具体代码示例如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func main() {
+	var (
+		name    string
+		age     int
+		married bool
+	)
+	fmt.Scanln(&amp;name, &amp;age, &amp;married)
+	fmt.Printf(&quot;扫描结果 name:%s age:%d married:%t \n&quot;, name, age, married)
+}
+</code></pre><p>将上面的代码编译后在终端执行，在终端依次输入小王子、28和false使用空格分隔。</p>
+<pre><code class="language-aidl" data-lang="aidl">$ ./scan_demo 
+小王子 28 false
+扫描结果 name:小王子 age:28 married:false 
+</code></pre><p>fmt.Scanln遇到回车就结束扫描了，这个比较常用。</p>
+<h3 id="bufionewreader">bufio.NewReader</h3>
+<p>有时候我们想完整获取输入的内容，而输入的内容可能包含空格，这种情况下可以使用bufio包来实现。示例代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func bufioDemo() {
+	reader := bufio.NewReader(os.Stdin) // 从标准输入生成读对象
+	fmt.Print(&quot;请输入内容：&quot;)
+	text, _ := reader.ReadString('\n') // 读到换行
+	text = strings.TrimSpace(text)
+	fmt.Printf(&quot;%#v\n&quot;, text)
+}
+</code></pre><h3 id="fscan系列">Fscan系列</h3>
+<p>这几个函数功能分别类似于fmt.Scan、fmt.Scanf、fmt.Scanln三个函数，只不过它们不是从标准输入中读取数据而是从io.Reader中读取数据。</p>
+<pre><code class="language-aidl" data-lang="aidl">func Fscan(r io.Reader, a ...interface{}) (n int, err error)
+func Fscanln(r io.Reader, a ...interface{}) (n int, err error)
+func Fscanf(r io.Reader, format string, a ...interface{}) (n int, err error)
+</code></pre><h3 id="sscan系列">Sscan系列</h3>
+<p>这几个函数功能分别类似于fmt.Scan、fmt.Scanf、fmt.Scanln三个函数，只不过它们不是从标准输入中读取数据而是从指定字符串中读取数据。</p>
+<pre><code class="language-aidl" data-lang="aidl">func Sscan(str string, a ...interface{}) (n int, err error)
+func Sscanln(str string, a ...interface{}) (n int, err error)
+func Sscanf(str string, format string, a ...interface{}) (n int, err error)
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#向外输出">向外输出</a>
+      <ul>
+        <li><a href="#print">print</a></li>
+        <li><a href="#fprint">Fprint</a></li>
+        <li><a href="#sprint">Sprint</a></li>
+        <li><a href="#errorf">Errorf</a></li>
+      </ul>
+    </li>
+    <li><a href="#格式化占位符">格式化占位符</a>
+      <ul>
+        <li><a href="#通用占位符">通用占位符</a></li>
+        <li><a href="#布尔值">布尔值</a></li>
+        <li><a href="#整型">整型</a></li>
+        <li><a href="#浮点数与复数">浮点数与复数</a></li>
+        <li><a href="#字符串和byte">字符串和[]byte</a></li>
+        <li><a href="#指针">指针</a></li>
+        <li><a href="#宽度标识符">宽度标识符</a></li>
+        <li><a href="#其他flag">其他flag</a></li>
+      </ul>
+    </li>
+    <li><a href="#获取输入">获取输入</a>
+      <ul>
+        <li><a href="#fmtscan">fmt.Scan</a></li>
+        <li><a href="#fmtscanf">fmt.Scanf</a></li>
+        <li><a href="#fmtscanln">fmt.Scanln</a></li>
+        <li><a href="#bufionewreader">bufio.NewReader</a></li>
+        <li><a href="#fscan系列">Fscan系列</a></li>
+        <li><a href="#sscan系列">Sscan系列</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

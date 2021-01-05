@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="0.reset命令:将仓库记录和恢复指定历史位置 有时候我们用 git commit 提交代码后发现这一次提交的内容是错误的，需要将代码复原，这个时候常见有两种做法。
+第一种是把代码错误内容修改正确，然后重新使用 commit 提交一次； 这种情况会多2条log记录
+第二种方法是使用 git reset 命令撤销上一次错误的 commit 记录。 git reset HEAD^ # 撤销我们最近一次提交 git reset 815ac616803fa89c75467618b2be44f85696543d # 指定回滚位置, commitid git reset 815ac616803fa89c75467618b2be44f85696543d filename # 回滚某个文件到某次提交 ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="reset命令:将仓库记录和恢复指定历史位置" />
+<meta property="og:description" content="0.reset命令:将仓库记录和恢复指定历史位置 有时候我们用 git commit 提交代码后发现这一次提交的内容是错误的，需要将代码复原，这个时候常见有两种做法。
+第一种是把代码错误内容修改正确，然后重新使用 commit 提交一次； 这种情况会多2条log记录
+第二种方法是使用 git reset 命令撤销上一次错误的 commit 记录。 git reset HEAD^ # 撤销我们最近一次提交 git reset 815ac616803fa89c75467618b2be44f85696543d # 指定回滚位置, commitid git reset 815ac616803fa89c75467618b2be44f85696543d filename # 回滚某个文件到某次提交 " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/git/2.%E8%BF%9B%E9%98%B6/0.reset%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BB%93%E5%BA%93%E8%AE%B0%E5%BD%95%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AE%9A%E5%8E%86%E5%8F%B2%E4%BD%8D%E7%BD%AE/" />
+
+<title>reset命令:将仓库记录和恢复指定历史位置 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.55ae7de5e7c082eaa3778cccb39110a8ec996ef2b2f82efa8438770664142472.js" integrity="sha256-Va595efAguqjd4zMs5EQqOyZbvKy&#43;C76hDh3BmQUJHI="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/" class="collapsed ">docker</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">Go</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/java/" class="collapsed ">java</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/1.%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" class="collapsed ">1.入门基础</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/2.%E8%BF%9B%E9%98%B6/" class="collapsed ">2.进阶</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/2.%E8%BF%9B%E9%98%B6/0.reset%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BB%93%E5%BA%93%E8%AE%B0%E5%BD%95%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8C%87%E5%AE%9A%E5%8E%86%E5%8F%B2%E4%BD%8D%E7%BD%AE/" class="active">reset命令:将仓库记录和恢复指定历史位置</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/2.%E8%BF%9B%E9%98%B6/1.%E6%B8%85%E7%90%86%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E5%88%86%E6%94%AF%E6%95%B0%E6%8D%AE/" class="">清理无意义的分支数据</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/3.%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C/" class="collapsed ">3.团队协作</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/git%E7%A7%BB%E9%99%A4%E5%B7%B2%E7%BB%8Fadd%E7%9A%84%E6%96%87%E4%BB%B6/" class="">Git移除已经add的文件</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" class="collapsed ">数据结构&amp;算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/suanfa/" class="collapsed ">算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/" class="collapsed ">算法系列</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E4%BA%94%E7%AC%94/" class="collapsed ">五笔</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E5%92%8C%E7%AE%97%E5%95%8A/1.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="">1.基本概念</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>reset命令:将仓库记录和恢复指定历史位置</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一种是把代码错误内容修改正确然后重新使用-commit-提交一次">第一种是把代码错误内容修改正确，然后重新使用 commit 提交一次；</a></li>
+    <li><a href="#第二种方法是使用-git-reset-命令撤销上一次错误的-commit-记录">第二种方法是使用 git reset 命令撤销上一次错误的 commit 记录。</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="0reset命令将仓库记录和恢复指定历史位置">0.reset命令:将仓库记录和恢复指定历史位置</h1>
+<p>有时候我们用 git commit 提交代码后发现这一次提交的内容是错误的，需要将代码复原，这个时候常见有两种做法。</p>
+<h2 id="第一种是把代码错误内容修改正确然后重新使用-commit-提交一次">第一种是把代码错误内容修改正确，然后重新使用 commit 提交一次；</h2>
+<p>这种情况会多2条log记录</p>
+<h2 id="第二种方法是使用-git-reset-命令撤销上一次错误的-commit-记录">第二种方法是使用 git reset 命令撤销上一次错误的 commit 记录。</h2>
+<pre><code class="language-aidl" data-lang="aidl">git reset HEAD^ # 撤销我们最近一次提交
+
+git reset 815ac616803fa89c75467618b2be44f85696543d # 指定回滚位置, commitid
+
+git reset 815ac616803fa89c75467618b2be44f85696543d filename # 回滚某个文件到某次提交
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一种是把代码错误内容修改正确然后重新使用-commit-提交一次">第一种是把代码错误内容修改正确，然后重新使用 commit 提交一次；</a></li>
+    <li><a href="#第二种方法是使用-git-reset-命令撤销上一次错误的-commit-记录">第二种方法是使用 git reset 命令撤销上一次错误的 commit 记录。</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

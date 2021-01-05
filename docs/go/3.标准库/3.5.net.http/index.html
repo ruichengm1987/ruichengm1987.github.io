@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="3.5.net/http Go语言内置的net/http包十分的优秀，提供了HTTP客户端和服务端的实现。
+net/http介绍 Go语言内置的net/http包提供了HTTP客户端和服务端的实现。
+HTTP协议 超文本传输协议（HTTP，HyperText Transfer Protocol)是互联网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法。
+HTTP客户端 基本的HTTP/HTTPS请求 Get、Head、Post和PostForm函数发出HTTP/HTTPS请求。
+resp, err := http.Get(&quot;http://example.com/&quot;) ... resp, err := http.Post(&quot;http://example.com/upload&quot;, &quot;image/jpeg&quot;, &amp;buf) ... resp, err := http.PostForm(&quot;http://example.com/form&quot;, url.Values{&quot;key&quot;: {&quot;Value&quot;}, &quot;id&quot;: {&quot;123&quot;}}) 程序在使用完response后必须关闭回复的主体。
+resp, err := http.Get(&quot;http://example.com/&quot;) if err != nil { // handle error } defer resp.Body.Close() body, err := ioutil.ReadAll(resp.Body) // ... GET请求示例 使用net/http包编写一个简单的发送HTTP请求的Client端，代码如下：
+package main import ( &quot;fmt&quot; &quot;io/ioutil&quot; &quot;net/http&quot; ) func main() { resp, err := http.Get(&quot;https://www.liwenzhou.com/&quot;) if err !">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="3.5.net/http" />
+<meta property="og:description" content="3.5.net/http Go语言内置的net/http包十分的优秀，提供了HTTP客户端和服务端的实现。
+net/http介绍 Go语言内置的net/http包提供了HTTP客户端和服务端的实现。
+HTTP协议 超文本传输协议（HTTP，HyperText Transfer Protocol)是互联网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法。
+HTTP客户端 基本的HTTP/HTTPS请求 Get、Head、Post和PostForm函数发出HTTP/HTTPS请求。
+resp, err := http.Get(&quot;http://example.com/&quot;) ... resp, err := http.Post(&quot;http://example.com/upload&quot;, &quot;image/jpeg&quot;, &amp;buf) ... resp, err := http.PostForm(&quot;http://example.com/form&quot;, url.Values{&quot;key&quot;: {&quot;Value&quot;}, &quot;id&quot;: {&quot;123&quot;}}) 程序在使用完response后必须关闭回复的主体。
+resp, err := http.Get(&quot;http://example.com/&quot;) if err != nil { // handle error } defer resp.Body.Close() body, err := ioutil.ReadAll(resp.Body) // ... GET请求示例 使用net/http包编写一个简单的发送HTTP请求的Client端，代码如下：
+package main import ( &quot;fmt&quot; &quot;io/ioutil&quot; &quot;net/http&quot; ) func main() { resp, err := http.Get(&quot;https://www.liwenzhou.com/&quot;) if err !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.5.net.http/" />
+
+<title>3.5.net/http | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.55ae7de5e7c082eaa3778cccb39110a8ec996ef2b2f82efa8438770664142472.js" integrity="sha256-Va595efAguqjd4zMs5EQqOyZbvKy&#43;C76hDh3BmQUJHI="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/" class="collapsed ">docker</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">Go</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/1.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="collapsed ">1.开发环境</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.golang%E5%9F%BA%E7%A1%80/" class="collapsed ">2. Golang基础</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/" class="collapsed ">3.标准库</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.1.fmt/" class="">3.1.fmt</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.2.time/" class="">3.2.time</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.5.net.http/" class="active">3.5.net/http</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.6.context/" class="">3.6.context</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/4.web%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/" class="collapsed ">4. Web开发相关</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/5.golang%E9%AB%98%E7%BA%A7/" class="collapsed ">5. Golang高级</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/6.golang%E6%BA%90%E7%A0%81/" class="collapsed ">6. Golang源码</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/7.%E5%BA%94%E7%94%A8/" class="collapsed ">7.应用</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/java/" class="collapsed ">java</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" class="collapsed ">数据结构&amp;算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/suanfa/" class="collapsed ">算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/" class="collapsed ">算法系列</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E4%BA%94%E7%AC%94/" class="collapsed ">五笔</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E5%92%8C%E7%AE%97%E5%95%8A/1.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="">1.基本概念</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>3.5.net/http</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#nethttp介绍">net/http介绍</a>
+      <ul>
+        <li><a href="#http协议">HTTP协议</a></li>
+      </ul>
+    </li>
+    <li><a href="#http客户端">HTTP客户端</a>
+      <ul>
+        <li><a href="#基本的httphttps请求">基本的HTTP/HTTPS请求</a></li>
+        <li><a href="#get请求示例">GET请求示例</a></li>
+        <li><a href="#带参数的get请求示例">带参数的GET请求示例</a></li>
+        <li><a href="#post请求示例">Post请求示例</a></li>
+        <li><a href="#自定义client">自定义Client</a></li>
+        <li><a href="#自定义transport">自定义Transport</a></li>
+      </ul>
+    </li>
+    <li><a href="#服务端">服务端</a>
+      <ul>
+        <li><a href="#默认的server">默认的Server</a></li>
+        <li><a href="#默认的server示例">默认的Server示例</a></li>
+        <li><a href="#自定义server">自定义Server</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="35nethttp">3.5.net/http</h1>
+<p>Go语言内置的net/http包十分的优秀，提供了HTTP客户端和服务端的实现。</p>
+<h2 id="nethttp介绍">net/http介绍</h2>
+<p>Go语言内置的net/http包提供了HTTP客户端和服务端的实现。</p>
+<h3 id="http协议">HTTP协议</h3>
+<p>超文本传输协议（HTTP，HyperText Transfer Protocol)是互联网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法。</p>
+<h2 id="http客户端">HTTP客户端</h2>
+<h3 id="基本的httphttps请求">基本的HTTP/HTTPS请求</h3>
+<p>Get、Head、Post和PostForm函数发出HTTP/HTTPS请求。</p>
+<pre><code class="language-aidl" data-lang="aidl">resp, err := http.Get(&quot;http://example.com/&quot;)
+...
+resp, err := http.Post(&quot;http://example.com/upload&quot;, &quot;image/jpeg&quot;, &amp;buf)
+...
+resp, err := http.PostForm(&quot;http://example.com/form&quot;,
+	url.Values{&quot;key&quot;: {&quot;Value&quot;}, &quot;id&quot;: {&quot;123&quot;}})
+</code></pre><p>程序在使用完response后必须关闭回复的主体。</p>
+<pre><code class="language-aidl" data-lang="aidl">resp, err := http.Get(&quot;http://example.com/&quot;)
+if err != nil {
+	// handle error
+}
+defer resp.Body.Close()
+body, err := ioutil.ReadAll(resp.Body)
+// ...
+
+</code></pre><h3 id="get请求示例">GET请求示例</h3>
+<p>使用net/http包编写一个简单的发送HTTP请求的Client端，代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;io/ioutil&quot;
+	&quot;net/http&quot;
+)
+
+func main() {
+	resp, err := http.Get(&quot;https://www.liwenzhou.com/&quot;)
+	if err != nil {
+		fmt.Printf(&quot;get failed, err:%v\n&quot;, err)
+		return
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Printf(&quot;read from resp.Body failed, err:%v\n&quot;, err)
+		return
+	}
+	fmt.Print(string(body))
+}
+</code></pre><p>将上面的代码保存之后编译成可执行文件，执行之后就能在终端打印liwenzhou.com网站首页的内容了，我们的浏览器其实就是一个发送和接收HTTP协议数据的客户端，我们平时通过浏览器访问网页其实就是从网站的服务器接收HTTP数据，然后浏览器会按照HTML、CSS等规则将网页渲染展示出来。</p>
+<h3 id="带参数的get请求示例">带参数的GET请求示例</h3>
+<p>关于GET请求的参数需要使用Go语言内置的net/url这个标准库来处理。</p>
+<pre><code class="language-aidl" data-lang="aidl">func main() {
+	apiUrl := &quot;http://127.0.0.1:9090/get&quot;
+	// URL param
+	data := url.Values{}
+	data.Set(&quot;name&quot;, &quot;小王子&quot;)
+	data.Set(&quot;age&quot;, &quot;18&quot;)
+	u, err := url.ParseRequestURI(apiUrl)
+	if err != nil {
+		fmt.Printf(&quot;parse url requestUrl failed, err:%v\n&quot;, err)
+	}
+	u.RawQuery = data.Encode() // URL encode
+	fmt.Println(u.String())
+	resp, err := http.Get(u.String())
+	if err != nil {
+		fmt.Printf(&quot;post failed, err:%v\n&quot;, err)
+		return
+	}
+	defer resp.Body.Close()
+	b, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Printf(&quot;get resp failed, err:%v\n&quot;, err)
+		return
+	}
+	fmt.Println(string(b))
+}
+</code></pre><p>对应的Server端HandlerFunc如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func getHandler(w http.ResponseWriter, r *http.Request) {
+	defer r.Body.Close()
+	data := r.URL.Query()
+	fmt.Println(data.Get(&quot;name&quot;))
+	fmt.Println(data.Get(&quot;age&quot;))
+	answer := `{&quot;status&quot;: &quot;ok&quot;}`
+	w.Write([]byte(answer))
+}
+</code></pre><h3 id="post请求示例">Post请求示例</h3>
+<p>上面演示了使用net/http包发送GET请求的示例，发送POST请求的示例代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;io/ioutil&quot;
+	&quot;net/http&quot;
+	&quot;strings&quot;
+)
+
+// net/http post demo
+
+func main() {
+	url := &quot;http://127.0.0.1:9090/post&quot;
+	// 表单数据
+	//contentType := &quot;application/x-www-form-urlencoded&quot;
+	//data := &quot;name=小王子&amp;age=18&quot;
+	// json
+	contentType := &quot;application/json&quot;
+	data := `{&quot;name&quot;:&quot;小王子&quot;,&quot;age&quot;:18}`
+	resp, err := http.Post(url, contentType, strings.NewReader(data))
+	if err != nil {
+		fmt.Printf(&quot;post failed, err:%v\n&quot;, err)
+		return
+	}
+	defer resp.Body.Close()
+	b, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Printf(&quot;get resp failed, err:%v\n&quot;, err)
+		return
+	}
+	fmt.Println(string(b))
+}
+</code></pre><p>对应的Server端HandlerFunc如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">func postHandler(w http.ResponseWriter, r *http.Request) {
+	defer r.Body.Close()
+	// 1. 请求类型是application/x-www-form-urlencoded时解析form数据
+	r.ParseForm()
+	fmt.Println(r.PostForm) // 打印form数据
+	fmt.Println(r.PostForm.Get(&quot;name&quot;), r.PostForm.Get(&quot;age&quot;))
+	// 2. 请求类型是application/json时从r.Body读取数据
+	b, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		fmt.Printf(&quot;read request.Body failed, err:%v\n&quot;, err)
+		return
+	}
+	fmt.Println(string(b))
+	answer := `{&quot;status&quot;: &quot;ok&quot;}`
+	w.Write([]byte(answer))
+}
+</code></pre><h3 id="自定义client">自定义Client</h3>
+<p>要管理HTTP客户端的头域、重定向策略和其他设置，创建一个Client：</p>
+<pre><code class="language-aidl" data-lang="aidl">client := &amp;http.Client{
+	CheckRedirect: redirectPolicyFunc,
+}
+resp, err := client.Get(&quot;http://example.com&quot;)
+// ...
+req, err := http.NewRequest(&quot;GET&quot;, &quot;http://example.com&quot;, nil)
+// ...
+req.Header.Add(&quot;If-None-Match&quot;, `W/&quot;wyzzy&quot;`)
+resp, err := client.Do(req)
+// ...
+
+</code></pre><h3 id="自定义transport">自定义Transport</h3>
+<p>要管理代理、TLS配置、keep-alive、压缩和其他设置，创建一个Transport：</p>
+<pre><code class="language-aidl" data-lang="aidl">tr := &amp;http.Transport{
+	TLSClientConfig:    &amp;tls.Config{RootCAs: pool},
+	DisableCompression: true,
+}
+client := &amp;http.Client{Transport: tr}
+resp, err := client.Get(&quot;https://example.com&quot;)
+</code></pre><p>Client和Transport类型都可以安全的被多个goroutine同时使用。出于效率考虑，应该一次建立、尽量重用。</p>
+<h2 id="服务端">服务端</h2>
+<h3 id="默认的server">默认的Server</h3>
+<p>ListenAndServe使用指定的监听地址和处理器启动一个HTTP服务端。处理器参数通常是nil，这表示采用包变量DefaultServeMux作为处理器。</p>
+<p>Handle和HandleFunc函数可以向DefaultServeMux添加处理器。</p>
+<pre><code class="language-aidl" data-lang="aidl">http.Handle(&quot;/foo&quot;, fooHandler)
+http.HandleFunc(&quot;/bar&quot;, func(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, &quot;Hello, %q&quot;, html.EscapeString(r.URL.Path))
+})
+log.Fatal(http.ListenAndServe(&quot;:8080&quot;, nil))
+</code></pre><h3 id="默认的server示例">默认的Server示例</h3>
+<p>使用Go语言中的net/http包来编写一个简单的接收HTTP请求的Server端示例，net/http包是对net包的进一步封装，专门用来处理HTTP协议的数据。具体的代码如下：</p>
+<pre><code class="language-aidl" data-lang="aidl">// http server
+
+func sayHello(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, &quot;Hello 沙河！&quot;)
+}
+
+func main() {
+	http.HandleFunc(&quot;/&quot;, sayHello)
+	err := http.ListenAndServe(&quot;:9090&quot;, nil)
+	if err != nil {
+		fmt.Printf(&quot;http server failed, err:%v\n&quot;, err)
+		return
+	}
+}
+</code></pre><p>将上面的代码编译之后执行，打开你电脑上的浏览器在地址栏输入127.0.0.1:9090回车，此时就能够看到如下页面了。</p>
+<h3 id="自定义server">自定义Server</h3>
+<p>要管理服务端的行为，可以创建一个自定义的Server：</p>
+<pre><code class="language-aidl" data-lang="aidl">s := &amp;http.Server{
+	Addr:           &quot;:8080&quot;,
+	Handler:        myHandler,
+	ReadTimeout:    10 * time.Second,
+	WriteTimeout:   10 * time.Second,
+	MaxHeaderBytes: 1 &lt;&lt; 20,
+}
+log.Fatal(s.ListenAndServe())
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#nethttp介绍">net/http介绍</a>
+      <ul>
+        <li><a href="#http协议">HTTP协议</a></li>
+      </ul>
+    </li>
+    <li><a href="#http客户端">HTTP客户端</a>
+      <ul>
+        <li><a href="#基本的httphttps请求">基本的HTTP/HTTPS请求</a></li>
+        <li><a href="#get请求示例">GET请求示例</a></li>
+        <li><a href="#带参数的get请求示例">带参数的GET请求示例</a></li>
+        <li><a href="#post请求示例">Post请求示例</a></li>
+        <li><a href="#自定义client">自定义Client</a></li>
+        <li><a href="#自定义transport">自定义Transport</a></li>
+      </ul>
+    </li>
+    <li><a href="#服务端">服务端</a>
+      <ul>
+        <li><a href="#默认的server">默认的Server</a></li>
+        <li><a href="#默认的server示例">默认的Server示例</a></li>
+        <li><a href="#自定义server">自定义Server</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

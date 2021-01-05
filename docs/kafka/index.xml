@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kafka on 坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/kafka/</link>
+    <description>Recent content in kafka on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/kafka/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1.kafka概述</title>
+      <link>https://ruichengm1987.github.io/docs/kafka/1.kafka%E6%A6%82%E8%BF%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/kafka/1.kafka%E6%A6%82%E8%BF%B0/</guid>
+      <description>1.kafka概述 定义 kafka 是一个分布式的基于发布/订阅模式的消息队列, 主要应用于大数据实时处理领域
+消息队列的作用 削峰、解耦
+消息队列的两种模式 点对点模式、发布/订阅模式 发布/订阅模式:分为消息队列主动推，消费者主动拉，这2种模式， kafka属于后种(但是这种有个缺点需要客户端维护轮训)
+kafka基础架构 </description>
+    </item>
+    
+  </channel>
+</rss>

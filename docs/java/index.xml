@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on 坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/java/</link>
+    <description>Recent content in java on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>3.1.1.异常</title>
+      <link>https://ruichengm1987.github.io/docs/java/3.1.%E5%BC%82%E5%B8%B8/3.1.1.%E5%BC%82%E5%B8%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/3.1.%E5%BC%82%E5%B8%B8/3.1.1.%E5%BC%82%E5%B8%B8/</guid>
+      <description>异常 Error Exception 继承 Throwable
+try { // 一些会抛出异常的方法 } catch(Exception e) { // 处理该异常的代码块 } try { } catch (InputMismatchException e) { } catch (ArithmeticException e) { } try { } catch (Exception e) { } catch (Exception2 e) { } ...(n个catch块)... { } finally { // 最终将要执行的一些代码 } </description>
+    </item>
+    
+  </channel>
+</rss>

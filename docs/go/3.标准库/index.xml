@@ -10,5 +10,76 @@
 	<atom:link href="https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>3.1.fmt</title>
+      <link>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.1.fmt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.1.fmt/</guid>
+      <description>3.1.fmt fmt包实现了类似C语言printf和scanf的格式化I/O。主要分为向外输出内容和获取输入内容两大部分。
+向外输出 标准库fmt提供了以下几种输出相关函数。
+print Print系列函数会将内容输出到系统的标准输出，区别在于Print函数直接输出内容，Printf函数支持格式化输出字符串，Println函数会在输出内容的结尾添加一个换行符。
+func Print(a ...interface{}) (n int, err error) func Printf(format string, a ...interface{}) (n int, err error) func Println(a ...interface{}) (n int, err error) 举个简单的例子：
+func main() { fmt.Print(&amp;quot;在终端打印该信息。&amp;quot;) name := &amp;quot;沙河小王子&amp;quot; fmt.Printf(&amp;quot;我是：%s\n&amp;quot;, name) fmt.Println(&amp;quot;在终端打印单独一行显示&amp;quot;) } 执行上面的代码输出：
+在终端打印该信息。我是：沙河小王子 在终端打印单独一行显示 Fprint Fprint系列函数会将内容输出到一个io.Writer接口类型的变量w中，我们通常用这个函数往文件中写入内容。
+func Fprint(w io.Writer, a ...interface{}) (n int, err error) func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) func Fprintln(w io.Writer, a .</description>
+    </item>
+    
+    <item>
+      <title>3.2.time</title>
+      <link>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.2.time/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.2.time/</guid>
+      <description>3.2.time 时间类型 time.Time类型表示时间。我们可以通过time.Now()函数获取当前的时间对象，然后获取时间对象的年月日时分秒等信息。示例代码如下：
+func timeDemo() { now := time.Now() //获取当前时间 fmt.Printf(&amp;quot;current time:%v\n&amp;quot;, now) year := now.Year() //年 month := now.Month() //月 day := now.Day() //日 hour := now.Hour() //小时 minute := now.Minute() //分钟 second := now.Second() //秒 fmt.Printf(&amp;quot;%d-%02d-%02d %02d:%02d:%02d\n&amp;quot;, year, month, day, hour, minute, second) } 输出结果:
+current time:2020-11-16 18:19:06.066198 +0800 CST m=+0.000058943 2020-11-16 18:19:06 时间戳 时间戳是自1970年1月1日（08:00:00GMT）至当前时间的总毫秒数。它也被称为Unix时间戳（UnixTimestamp）。
+基于时间对象获取时间戳的示例代码如下：
+func timestampDemo() { now := time.Now() //获取当前时间 timestamp1 := now.Unix() //时间戳 timestamp2 := now.</description>
+    </item>
+    
+    <item>
+      <title>3.5.net/http</title>
+      <link>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.5.net.http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.5.net.http/</guid>
+      <description>3.5.net/http Go语言内置的net/http包十分的优秀，提供了HTTP客户端和服务端的实现。
+net/http介绍 Go语言内置的net/http包提供了HTTP客户端和服务端的实现。
+HTTP协议 超文本传输协议（HTTP，HyperText Transfer Protocol)是互联网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法。
+HTTP客户端 基本的HTTP/HTTPS请求 Get、Head、Post和PostForm函数发出HTTP/HTTPS请求。
+resp, err := http.Get(&amp;quot;http://example.com/&amp;quot;) ... resp, err := http.Post(&amp;quot;http://example.com/upload&amp;quot;, &amp;quot;image/jpeg&amp;quot;, &amp;amp;buf) ... resp, err := http.PostForm(&amp;quot;http://example.com/form&amp;quot;, url.Values{&amp;quot;key&amp;quot;: {&amp;quot;Value&amp;quot;}, &amp;quot;id&amp;quot;: {&amp;quot;123&amp;quot;}}) 程序在使用完response后必须关闭回复的主体。
+resp, err := http.Get(&amp;quot;http://example.com/&amp;quot;) if err != nil { // handle error } defer resp.Body.Close() body, err := ioutil.ReadAll(resp.Body) // ... GET请求示例 使用net/http包编写一个简单的发送HTTP请求的Client端，代码如下：
+package main import ( &amp;quot;fmt&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;net/http&amp;quot; ) func main() { resp, err := http.Get(&amp;quot;https://www.liwenzhou.com/&amp;quot;) if err !</description>
+    </item>
+    
+    <item>
+      <title>3.6.context</title>
+      <link>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.6.context/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.6.context/</guid>
+      <description>3.6.context 在 Go http包的Server中，每一个请求在都有一个对应的 goroutine 去处理。请求处理函数通常会启动额外的 goroutine 用来访问后端服务，比如数据库和RPC服务。用来处理一个请求的 goroutine 通常需要访问一些与请求特定的数据，比如终端用户的身份认证信息、验证相关的token、请求的截止时间。 当一个请求被取消或超时时，所有用来处理该请求的 goroutine 都应该迅速退出，然后系统才能释放这些 goroutine 占用的资源。
+为什么需要Context 基本示例 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;sync&amp;quot; &amp;quot;time&amp;quot; ) var wg sync.WaitGroup // 初始的例子 func worker() { for { fmt.Println(&amp;quot;worker&amp;quot;) time.Sleep(time.Second) } // 如何接收外部命令实现退出？？？ wg.Done() } func main() { wg.Add(1) go worker() // 如何优雅的实现结束子goroutine？？？ wg.Wait() fmt.Println(&amp;quot;over&amp;quot;) } 全局变量方式 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;sync&amp;quot; &amp;quot;time&amp;quot; ) var wg sync.WaitGroup var exit bool // 全局变量方式存在的问题： // 1.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.3.log/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.3.log/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.4.strconv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/3.%E6%A0%87%E5%87%86%E5%BA%93/3.4.strconv/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="2.5.Docker私有仓库 私有仓库搭建与配置 拉取私有仓库镜像
+docker pull registry 启动私有仓库容器
+docker run -di --name=registry -p 5000:5000 registry 打开终端输入: curl http://127.0.0.1:5000/v2/_catalog 看到{&ldquo;repositories&rdquo;:[]}表示私有仓库搭建成功并且内容为空
+修改daemon.json
+vim /etc/docker/daemon.json 添加以下内容,保存退出
+{ &quot;insecure-registries&quot;: [&quot;127.0.0.1:5000&quot;] } 此步用于docker信任私有仓库地址
+重启docker服务
+systemctl restart docker 私有仓库镜像上传 docker tag 镜像名称 # docker tag centosofme 127.0.0.1:5000/centosofme # docker images REPOSITORY TAG IMAGE ID CREATED SIZE 127.0.0.1:5000/centosofme latest 30615ec12063 5 hours ago 204MB centosofme latest 30615ec12063 5 hours ago 204MB centos 7 8652b9f0cb4c # docker push 127.0.0.1:5000/centosofme # curl http://127.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="2.5.Docker私有仓库" />
+<meta property="og:description" content="2.5.Docker私有仓库 私有仓库搭建与配置 拉取私有仓库镜像
+docker pull registry 启动私有仓库容器
+docker run -di --name=registry -p 5000:5000 registry 打开终端输入: curl http://127.0.0.1:5000/v2/_catalog 看到{&ldquo;repositories&rdquo;:[]}表示私有仓库搭建成功并且内容为空
+修改daemon.json
+vim /etc/docker/daemon.json 添加以下内容,保存退出
+{ &quot;insecure-registries&quot;: [&quot;127.0.0.1:5000&quot;] } 此步用于docker信任私有仓库地址
+重启docker服务
+systemctl restart docker 私有仓库镜像上传 docker tag 镜像名称 # docker tag centosofme 127.0.0.1:5000/centosofme # docker images REPOSITORY TAG IMAGE ID CREATED SIZE 127.0.0.1:5000/centosofme latest 30615ec12063 5 hours ago 204MB centosofme latest 30615ec12063 5 hours ago 204MB centos 7 8652b9f0cb4c # docker push 127.0.0.1:5000/centosofme # curl http://127." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.5.docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/" />
+
+<title>2.5.Docker私有仓库 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.55ae7de5e7c082eaa3778cccb39110a8ec996ef2b2f82efa8438770664142472.js" integrity="sha256-Va595efAguqjd4zMs5EQqOyZbvKy&#43;C76hDh3BmQUJHI="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/" class="collapsed ">docker</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/1.docker%E5%AE%89%E8%A3%85/" class="collapsed ">1.Docker安装</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/2.docker%E4%BD%BF%E7%94%A8/" class="collapsed ">2.Docker使用</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.1.%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="">2.1.常用命令</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.2.%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E6%A0%B7%E4%BE%8B/" class="">2.2.应用部署样例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.3.%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD/" class="">2.3.迁移与备份</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.4.dockerfile/" class="">2.4.Dockerfile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.5.docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/" class="active">2.5.Docker私有仓库</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/2.docker%E4%BD%BF%E7%94%A8/2.6.dockermaven%E6%8F%92%E4%BB%B6/" class="">2.6.DockerMaven插件</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">Go</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/java/" class="collapsed ">java</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" class="collapsed ">数据结构&amp;算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/suanfa/" class="collapsed ">算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/" class="collapsed ">算法系列</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E4%BA%94%E7%AC%94/" class="collapsed ">五笔</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%95%B0%E6%8D%AE%E5%92%8C%E7%AE%97%E5%95%8A/1.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="">1.基本概念</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>2.5.Docker私有仓库</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#私有仓库搭建与配置">私有仓库搭建与配置</a></li>
+    <li><a href="#私有仓库镜像上传">私有仓库镜像上传</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="25docker私有仓库">2.5.Docker私有仓库</h1>
+<h2 id="私有仓库搭建与配置">私有仓库搭建与配置</h2>
+<p>拉取私有仓库镜像</p>
+<pre><code class="language-aidl" data-lang="aidl">docker pull registry
+</code></pre><p>启动私有仓库容器</p>
+<pre><code class="language-aidl" data-lang="aidl">docker run -di --name=registry -p 5000:5000 registry
+</code></pre><p>打开终端输入: curl http://127.0.0.1:5000/v2/_catalog 看到{&ldquo;repositories&rdquo;:[]}表示私有仓库搭建成功并且内容为空</p>
+<p>修改daemon.json</p>
+<pre><code class="language-aidl" data-lang="aidl">vim /etc/docker/daemon.json
+</code></pre><p>添加以下内容,保存退出</p>
+<pre><code class="language-aidl" data-lang="aidl">{
+&quot;insecure-registries&quot;: [&quot;127.0.0.1:5000&quot;]
+}
+</code></pre><p>此步用于docker信任私有仓库地址</p>
+<p>重启docker服务</p>
+<pre><code class="language-aidl" data-lang="aidl">systemctl restart docker
+</code></pre><h2 id="私有仓库镜像上传">私有仓库镜像上传</h2>
+<pre><code class="language-aidl" data-lang="aidl">docker tag 镜像名称    
+# docker tag centosofme 127.0.0.1:5000/centosofme
+# docker images
+REPOSITORY                  TAG                 IMAGE ID            CREATED             SIZE
+127.0.0.1:5000/centosofme   latest              30615ec12063        5 hours ago         204MB
+centosofme                  latest              30615ec12063        5 hours ago         204MB
+centos                      7                   8652b9f0cb4c
+# docker push 127.0.0.1:5000/centosofme
+# curl http://127.0.0.1:5000/v2/_catalog
+{&quot;repositories&quot;:[&quot;centosofme&quot;]}
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#私有仓库搭建与配置">私有仓库搭建与配置</a></li>
+    <li><a href="#私有仓库镜像上传">私有仓库镜像上传</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
