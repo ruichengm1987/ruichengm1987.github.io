@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2.2.集合框架 on 坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</link>
+    <description>Recent content in 2.2.集合框架 on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2.2.1.集合的概念</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.1.%E9%9B%86%E5%90%88%E7%9A%84%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.1.%E9%9B%86%E5%90%88%E7%9A%84%E6%A6%82%E5%BF%B5/</guid>
+      <description>2.2.1.集合的概念   对象的容器,定义了对多个对象进行操作的常用方法。可实现数组的功能。
+  和数组的区别
+ 数组长度固定，集合长度不固定 数组可以存储基本类型和引用类型，集合只能存储引用类型    位置: java.util.*
+  </description>
+    </item>
+    
+    <item>
+      <title>2.2.2.Collection接口</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.2.collection%E6%8E%A5%E5%8F%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.2.collection%E6%8E%A5%E5%8F%A3/</guid>
+      <description>2.2.2.Collection接口  Collection父接口  特点: 代表一组任意类型的对象,无序、无下标、不能重复 方法  boolean add(Object obj) // 添加一个对象 boolean addAll(Collection c) // 将一个集合中的所有对象添加到此结合中 void clear() // 清空此集合中的所有对象 boolean contains(Object o) //检查此集合中是否包含o对象 boolean equals(Object o) // 比较此集合是否与指定对象相等 boolean isEmpty() // 判断此集合是否为空 boolean remove(Object o) // 在此集合中移除o对象 int size() // 返回此集合中的元素个数 Object[] toArray() // 将此集合转换成数组    public class demo { public static void main(String[] args) { // 创建集合 Collection collection = new ArrayList(); // 添加元素 collection.</description>
+    </item>
+    
+    <item>
+      <title>2.2.3.List接口和实现类</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.3.list%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.3.list%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</guid>
+      <description>2.2.3.List接口和实现类  特点: 有序、有下标、元素可以重复 方法  void add(int index, Object o) // 在index位置插入对象o boolean addAll(int index, Collection c) //将一个集合中的元素添加到此集合中的index位置 Object get(int index) // 返回集合中指定位置的元素 List subList(int fromIndex, int toIndex) // 返回fromIndex和toIndex之间的集合元素    public class demo { public static void main(String[] args) { // 先创建集合对象 List list = new ArrayList(); // 添加元素 list.add(&amp;quot;苹果&amp;quot;); list.add(&amp;quot;小米&amp;quot;); list.add(0, &amp;quot;华为&amp;quot;); System.out.println(&amp;quot;元素个数:&amp;quot; + list.size()); System.out.println(list.toString()); // 删除元素 list.remove(&amp;quot;苹果&amp;quot;); System.out.println(&amp;quot;删除之后:&amp;quot; + list.size()); System.out.println(list.toString()); // 遍历 for (int i = 0; i &amp;lt; list.</description>
+    </item>
+    
+    <item>
+      <title>2.2.4.泛型和工具类</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.4.%E6%B3%9B%E5%9E%8B%E5%92%8C%E5%B7%A5%E5%85%B7%E7%B1%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.4.%E6%B3%9B%E5%9E%8B%E5%92%8C%E5%B7%A5%E5%85%B7%E7%B1%BB/</guid>
+      <description>2.2.4.泛型和工具类 </description>
+    </item>
+    
+    <item>
+      <title>2.2.5.Set接口和实现类</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.5.set%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.5.set%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</guid>
+      <description>2.2.5.Set接口和实现类 </description>
+    </item>
+    
+    <item>
+      <title>2.2.6.Map接口和实现类</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.6.map%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.6.map%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</guid>
+      <description>2.2.6.Map接口和实现类 </description>
+    </item>
+    
+  </channel>
+</rss>

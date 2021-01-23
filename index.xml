@@ -274,6 +274,18 @@ go test命令是一个按照一定约定和组织的测试代码的驱动程序�
     </item>
     
     <item>
+      <title>2.2.1.集合的概念</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.1.%E9%9B%86%E5%90%88%E7%9A%84%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.1.%E9%9B%86%E5%90%88%E7%9A%84%E6%A6%82%E5%BF%B5/</guid>
+      <description>2.2.1.集合的概念   对象的容器,定义了对多个对象进行操作的常用方法。可实现数组的功能。
+  和数组的区别
+ 数组长度固定，集合长度不固定 数组可以存储基本类型和引用类型，集合只能存储引用类型    位置: java.util.*
+  </description>
+    </item>
+    
+    <item>
       <title>2.3.1.算术运算符</title>
       <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.3.%E8%BF%90%E7%AE%97%E7%AC%A6/2.3.1.%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -424,6 +436,15 @@ func Fprint(w io.Writer, a ...interface{}) (n int, err error) func Fprintf(w io.
       
       <guid>https://ruichengm1987.github.io/docs/java/4.2.spring/4.2.1.spring/</guid>
       <description>4.2.1.spring 核心 Ioc(控制反转)    Di(依赖注入) </description>
+    </item>
+    
+    <item>
+      <title>bug规则</title>
+      <link>https://ruichengm1987.github.io/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/bug/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/bug/</guid>
+      <description>bug 规则 研发BUG处理规范  BUG状态及时更新，附BUG状态说明  New - 新创建，该状态P0/P1级别问题不要超过一天，P2不超过2天 Assign - 已分配 Duplicate - 重复bug，通过链接把相关bug link在一起 Invalid - 无效bug Wontfix - 确认是bug，但是无需修复 workaround - 确认是bug，但是可以通过其他方式绕过 Worksforme - 无法复现，需要测试提供更多信息 Fixed - 已修复   BUG及时分配给对应人员，同时写明原因，不是自己处理范围的问题不要挂在自己身上 BUG及时回复，通过文字记录修复过程，避免口口相传  Track过程中阶段性结论 与相关人员沟通的信息   BUG修复，写清楚修复逻辑以及对应build版本号  便于测试理解修复原理 便于后续Review问题    </description>
     </item>
     
     <item>
@@ -860,6 +881,15 @@ func (c *T) Error(args ...interface{}) func (c *T) Errorf(format string, args ..
     </item>
     
     <item>
+      <title>2.2.2.Collection接口</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.2.collection%E6%8E%A5%E5%8F%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.2.collection%E6%8E%A5%E5%8F%A3/</guid>
+      <description>2.2.2.Collection接口  Collection父接口  特点: 代表一组任意类型的对象,无序、无下标、不能重复 方法  boolean add(Object obj) // 添加一个对象 boolean addAll(Collection c) // 将一个集合中的所有对象添加到此结合中 void clear() // 清空此集合中的所有对象 boolean contains(Object o) //检查此集合中是否包含o对象 boolean equals(Object o) // 比较此集合是否与指定对象相等 boolean isEmpty() // 判断此集合是否为空 boolean remove(Object o) // 在此集合中移除o对象 int size() // 返回此集合中的元素个数 Object[] toArray() // 将此集合转换成数组    public class demo { public static void main(String[] args) { // 创建集合 Collection collection = new ArrayList(); // 添加元素 collection.</description>
+    </item>
+    
+    <item>
       <title>2.2.2.浮点型</title>
       <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/2.2.2.%E6%B5%AE%E7%82%B9%E5%9E%8B/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1220,6 +1250,15 @@ func (c *B) Error(args ...interface{}) func (c *B) Errorf(format string, args ..
     </item>
     
     <item>
+      <title>2.2.3.List接口和实现类</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.3.list%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.3.list%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</guid>
+      <description>2.2.3.List接口和实现类  特点: 有序、有下标、元素可以重复 方法  void add(int index, Object o) // 在index位置插入对象o boolean addAll(int index, Collection c) //将一个集合中的元素添加到此集合中的index位置 Object get(int index) // 返回集合中指定位置的元素 List subList(int fromIndex, int toIndex) // 返回fromIndex和toIndex之间的集合元素    public class demo { public static void main(String[] args) { // 先创建集合对象 List list = new ArrayList(); // 添加元素 list.add(&amp;quot;苹果&amp;quot;); list.add(&amp;quot;小米&amp;quot;); list.add(0, &amp;quot;华为&amp;quot;); System.out.println(&amp;quot;元素个数:&amp;quot; + list.size()); System.out.println(list.toString()); // 删除元素 list.remove(&amp;quot;苹果&amp;quot;); System.out.println(&amp;quot;删除之后:&amp;quot; + list.size()); System.out.println(list.toString()); // 遍历 for (int i = 0; i &amp;lt; list.</description>
+    </item>
+    
+    <item>
       <title>2.2.3.复数</title>
       <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/2.2.3.%E5%A4%8D%E6%95%B0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1507,6 +1546,15 @@ func TestMain(m *testing.M) { fmt.Println(&amp;quot;write setup code here...&amp
     </item>
     
     <item>
+      <title>2.2.4.泛型和工具类</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.4.%E6%B3%9B%E5%9E%8B%E5%92%8C%E5%B7%A5%E5%85%B7%E7%B1%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.4.%E6%B3%9B%E5%9E%8B%E5%92%8C%E5%B7%A5%E5%85%B7%E7%B1%BB/</guid>
+      <description>2.2.4.泛型和工具类 </description>
+    </item>
+    
+    <item>
       <title>2.3.4.位运算符</title>
       <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.3.%E8%BF%90%E7%AE%97%E7%AC%A6/2.3.4.%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1695,6 +1743,15 @@ func ExampleSplit() { fmt.Println(split.Split(&amp;quot;a:b:c&amp;quot;, &amp;qu
   示例函数能够作为文档直接使用，例如基于web的godoc中能把示例函数与对应的函数或包相关联。
   示例函数只要包含了// Output:也是可以通过go test运行的可执行测试。
   split $ go test -run Example PASS ok github.com/Q1mi/studygo/code_demo/test_demo/split 0.006s  示例函数提供了可以直接运行的示例代码，可以直接在golang.org的godoc文档服务器上使用Go Playground运行示例代码。下图为strings.ToUpper函数在Playground的示例函数效果。   </description>
+    </item>
+    
+    <item>
+      <title>2.2.5.Set接口和实现类</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.5.set%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.5.set%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</guid>
+      <description>2.2.5.Set接口和实现类 </description>
     </item>
     
     <item>
@@ -1893,6 +1950,15 @@ func main() { ch := make(chan int, 1) for i := 0; i &amp;lt; 10; i++ { select { 
 var a := &#39;中&#39; var b := &#39;x&#39; Go 语言的字符有以下两种：
  uint8类型，或者叫 byte 型，代表了ASCII码的一个字符。 rune类型，代表一个 UTF-8字符。 当需要处理中文、日文或者其他复合字符时，则需要用到rune类型。rune类型实际是一个int32。  Go 使用了特殊的 rune 类型来处理 Unicode，让基于 Unicode 的文本处理更为方便，也可以使用 byte 型进行默认字符串处理，性能和扩展性都有照顾。
 // 遍历字符串 func traversalString() { s := &amp;quot;hello沙河&amp;quot; for i := 0; i &amp;lt; len(s); i++ { //byte fmt.Printf(&amp;quot;%v(%c) &amp;quot;, s[i], s[i]) } fmt.Println() for _, r := range s { //rune fmt.Printf(&amp;quot;%v(%c) &amp;quot;, r, r) } fmt.Println() } 输出:</description>
+    </item>
+    
+    <item>
+      <title>2.2.6.Map接口和实现类</title>
+      <link>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.6.map%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.6.map%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</guid>
+      <description>2.2.6.Map接口和实现类 </description>
     </item>
     
     <item>

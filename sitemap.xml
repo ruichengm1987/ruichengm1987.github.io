@@ -183,6 +183,10 @@
   </url>
   
   <url>
+    <loc>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.1.%E9%9B%86%E5%90%88%E7%9A%84%E6%A6%82%E5%BF%B5/</loc>
+  </url>
+  
+  <url>
     <loc>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.3.%E8%BF%90%E7%AE%97%E7%AC%A6/2.3.1.%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</loc>
   </url>
   
@@ -224,6 +228,10 @@
   
   <url>
     <loc>https://ruichengm1987.github.io/docs/java/4.2.spring/4.2.1.spring/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ruichengm1987.github.io/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/bug/</loc>
   </url>
   
   <url>
@@ -423,6 +431,10 @@
   </url>
   
   <url>
+    <loc>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.2.collection%E6%8E%A5%E5%8F%A3/</loc>
+  </url>
+  
+  <url>
     <loc>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/2.2.2.%E6%B5%AE%E7%82%B9%E5%9E%8B/</loc>
   </url>
   
@@ -571,6 +583,10 @@
   </url>
   
   <url>
+    <loc>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.3.list%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</loc>
+  </url>
+  
+  <url>
     <loc>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/2.2.3.%E5%A4%8D%E6%95%B0/</loc>
   </url>
   
@@ -683,6 +699,10 @@
   </url>
   
   <url>
+    <loc>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.4.%E6%B3%9B%E5%9E%8B%E5%92%8C%E5%B7%A5%E5%85%B7%E7%B1%BB/</loc>
+  </url>
+  
+  <url>
     <loc>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.3.%E8%BF%90%E7%AE%97%E7%AC%A6/2.3.4.%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</loc>
   </url>
   
@@ -771,6 +791,10 @@
   </url>
   
   <url>
+    <loc>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.5.set%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</loc>
+  </url>
+  
+  <url>
     <loc>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/2.2.5.%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
   </url>
   
@@ -852,6 +876,10 @@
   
   <url>
     <loc>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/2.2.6.byte%E5%92%8Crune%E7%B1%BB%E5%9E%8B/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/2.2.6.map%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%B1%BB/</loc>
   </url>
   
   <url>
@@ -1072,6 +1100,10 @@
   
   <url>
     <loc>https://ruichengm1987.github.io/docs/java/2.1.%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ruichengm1987.github.io/docs/java/2.2.%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</loc>
   </url>
   
   <url>
