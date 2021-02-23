@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/%E7%AE%97%E6%B3%95/6.%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/%E7%AE%97%E6%B3%95/6.%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/%E7%AE%97%E6%B3%95/6.%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E7%AE%97%E6%B3%95/6.%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%93%8D%E4%BD%9C/</guid>
+      <description>二叉搜索树的操作 添加
+修改
+查找
+删除</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/%E7%AE%97%E6%B3%95/6.%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/%E6%A0%91%E7%9A%843%E7%A7%8D%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E7%AE%97%E6%B3%95/6.%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%A0%91.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/%E6%A0%91%E7%9A%843%E7%A7%8D%E9%81%8D%E5%8E%86/</guid>
+      <description>代码:树的3种遍历 package main import ( &amp;quot;fmt&amp;quot; ) type node struct { Val string Left *node Right *node } type bst struct { root *node } /* m k l h i j a b c d e f */ func (tree *bst) buildTree() { m := &amp;amp;node{Val: &amp;quot;m&amp;quot;} tree.root = m k := &amp;amp;node{Val: &amp;quot;k&amp;quot;} l := &amp;amp;node{Val: &amp;quot;l&amp;quot;} m.Left = k m.Right = l h := &amp;amp;node{Val: &amp;quot;h&amp;quot;} i := &amp;amp;node{Val: &amp;quot;i&amp;quot;} k.</description>
+    </item>
+    
+  </channel>
+</rss>
