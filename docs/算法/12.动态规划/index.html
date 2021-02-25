@@ -4,7 +4,10 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="12.动态规划 ">
+<meta name="description" content="12.动态规划 感触  人肉递归低效、很累 找到最近最简单方法, 将其拆解成可重复解决的问题 数学归纳法思维, (抵制人肉递归的诱惑)  本质: 寻找重复性 -&gt; 计算机指令集就那几个
+动态规划  wiki定义 https://en.wikipedia.org/wiki/Dynamic_programming &ldquo;simplifying a complicated problem by breaking it down into simpler sub-problems&rdquo; (in a recursive manner) 将一个复杂的问题分解成多个子问题 Divide &amp; Conquer &#43; Optimal substructure 分治&#43;最优子结构  关键点 动态规划 和 递归或者分治 没有根本上的区别(关键看有无最优子结构)
+共性: 找到重复子问题
+差异性: 最优子结构、中途可以淘汰次解">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -14,7 +17,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
-<script defer src="/en.search.min.1421760e5b0be566aa9c73494e95c2e5687e39c8b29516faad9752b0d71a3e0a.js" integrity="sha256-FCF2DlsL5WaqnHNJTpXC5Wh&#43;OciylRb6rZdSsNcaPgo="></script>
+<script defer src="/en.search.min.0f26fec8d8396dcc340f3eca23f6b5eed020b3ecf40d45bad1b1358043cd7919.js" integrity="sha256-Dyb&#43;yNg5bcw0Dz7KI/a17tAgs&#43;z0DUW60bE1gEPNeRk="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ruichengm1987.github.io/docs/%E7%AE%97%E6%B3%95/12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.xml" title="坚持的事:读书&攒钱" />
 <!--
 Made with Book Theme
@@ -783,7 +786,13 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#感触">感触</a></li>
+    <li><a href="#动态规划">动态规划</a></li>
+    <li><a href="#关键点">关键点</a></li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -794,6 +803,25 @@ https://github.com/alex-shpak/hugo-book
       
       
   <article class="markdown"><h1 id="12动态规划">12.动态规划</h1>
+<h2 id="感触">感触</h2>
+<ul>
+<li>人肉递归低效、很累</li>
+<li>找到最近最简单方法, 将其拆解成可重复解决的问题</li>
+<li>数学归纳法思维, (抵制人肉递归的诱惑)</li>
+</ul>
+<p>本质: 寻找重复性 -&gt; 计算机指令集就那几个</p>
+<h2 id="动态规划">动态规划</h2>
+<ul>
+<li>wiki定义
+<a href="https://en.wikipedia.org/wiki/Dynamic_programming">https://en.wikipedia.org/wiki/Dynamic_programming</a></li>
+<li>&ldquo;simplifying a complicated problem by breaking it down into simpler sub-problems&rdquo;
+(in a recursive manner) 将一个复杂的问题分解成多个子问题</li>
+<li>Divide &amp; Conquer + Optimal substructure 分治+最优子结构</li>
+</ul>
+<h2 id="关键点">关键点</h2>
+<p>动态规划 和 递归或者分治 没有根本上的区别(关键看有无最优子结构)<br>
+共性: 找到重复子问题<br>
+差异性: 最优子结构、中途可以淘汰次解</p>
 </article>
  
       
@@ -826,7 +854,13 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#感触">感触</a></li>
+    <li><a href="#动态规划">动态规划</a></li>
+    <li><a href="#关键点">关键点</a></li>
+  </ul>
+</nav>
 
  
     </aside>

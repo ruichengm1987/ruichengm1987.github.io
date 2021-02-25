@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="8.分治.回溯 本质上就是递归 最近重复性： 分治，回溯
 分治的思想: 递归状态数的时候，对一个问题，它要化解成好几个子问题
-不管是分治或者是回溯或者是其他的叉叉叉的办法的话,其实最后本质上就是找重复性以及分解问题和最后组合每个子问题的结果
+分治 不管是分治或者是回溯或者是其他的叉叉叉的办法的话,其实最后本质上就是找重复性以及分解问题和最后组合每个子问题的结果
 分治代码模板
-def devide_conquer(problem, param1, param2, ...): # recursion terminator 问题解决判断 if problem is None: print_result return #prepare data 处理当前层逻辑 data = prepare_data(problem) subproblems = split_problem(problem, data) # conquer subproblems 下探到下一层 subresult1 = self.devide_conquer(subproblems[0], p1, ...) subresult2 = self.devide_conquer(subproblems[1], p1, ...) subresult3 = self.devide_conquer(subproblems[2], p1, ...) ... # process and generate the final result result = process_result(subresult1, subresult2, subresult3, ...) ">
+def devide_conquer(problem, param1, param2, ...): # recursion terminator 问题解决判断 if problem is None: print_result return #prepare data 处理当前层逻辑 data = prepare_data(problem) subproblems = split_problem(problem, data) # conquer subproblems 下探到下一层 subresult1 = self.devide_conquer(subproblems[0], p1, ...) subresult2 = self.devide_conquer(subproblems[1], p1, ...) subresult3 = self.devide_conquer(subproblems[2], p1, ...) ... # process and generate the final result 处理并生成最终结果 result = process_result(subresult1, subresult2, subresult3, ...) 回溯 回溯法是采用试错的思想, 它尝试分布的去解决一个问题。在分布解决问题的过程中，当它通过 尝试发现现有的分布答案不能得到有效的正确的解答的时候, 它将取消上一步甚至是上几步的计算， 在通过其它的可能的分布解答再次尝试寻找问题的答案。">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -18,7 +18,7 @@ def devide_conquer(problem, param1, param2, ...): # recursion terminator 问题�
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
-<script defer src="/en.search.min.1421760e5b0be566aa9c73494e95c2e5687e39c8b29516faad9752b0d71a3e0a.js" integrity="sha256-FCF2DlsL5WaqnHNJTpXC5Wh&#43;OciylRb6rZdSsNcaPgo="></script>
+<script defer src="/en.search.min.0f26fec8d8396dcc340f3eca23f6b5eed020b3ecf40d45bad1b1358043cd7919.js" integrity="sha256-Dyb&#43;yNg5bcw0Dz7KI/a17tAgs&#43;z0DUW60bE1gEPNeRk="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ruichengm1987.github.io/docs/%E7%AE%97%E6%B3%95/8.%E5%88%86%E6%B2%BB.%E5%9B%9E%E6%BA%AF/index.xml" title="坚持的事:读书&攒钱" />
 <!--
 Made with Book Theme
@@ -787,7 +787,12 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#分治">分治</a></li>
+    <li><a href="#回溯">回溯</a></li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -801,6 +806,7 @@ https://github.com/alex-shpak/hugo-book
 <p>本质上就是递归
 最近重复性： 分治，回溯</p>
 <p>分治的思想: 递归状态数的时候，对一个问题，它要化解成好几个子问题</p>
+<h2 id="分治">分治</h2>
 <p>不管是分治或者是回溯或者是其他的叉叉叉的办法的话,其实最后本质上就是找重复性以及分解问题和最后组合每个子问题的结果</p>
 <p>分治代码模板</p>
 <pre><code class="language-$xslt" data-lang="$xslt">def devide_conquer(problem, param1, param2, ...):
@@ -816,9 +822,20 @@ https://github.com/alex-shpak/hugo-book
     subresult2 = self.devide_conquer(subproblems[1], p1, ...)
     subresult3 = self.devide_conquer(subproblems[2], p1, ...)
     ...
-    # process and generate the final result 
+    # process and generate the final result  处理并生成最终结果
     result = process_result(subresult1, subresult2, subresult3, ...)
-</code></pre></article>
+</code></pre><h2 id="回溯">回溯</h2>
+<p>回溯法是采用试错的思想, 它尝试分布的去解决一个问题。在分布解决问题的过程中，当它通过
+尝试发现现有的分布答案不能得到有效的正确的解答的时候, 它将取消上一步甚至是上几步的计算，
+在通过其它的可能的分布解答再次尝试寻找问题的答案。</p>
+<p>回溯法通常用最简单的递归方法来实现，在反复重复上述的步骤后可能出现靓装情况:</p>
+<ul>
+<li>找到一个可能存在的正确的答案</li>
+<li>在尝试了所有可能的分布方法后宣告该问题没有答案</li>
+</ul>
+<p>在最坏的情况下, 回溯法会导致一次复杂度为指数时间的计算。</p>
+<p>代码模板和范递归相似</p>
+</article>
  
       
 
@@ -850,7 +867,12 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#分治">分治</a></li>
+    <li><a href="#回溯">回溯</a></li>
+  </ul>
+</nav>
 
  
     </aside>
