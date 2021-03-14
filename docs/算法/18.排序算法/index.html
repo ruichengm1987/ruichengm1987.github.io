@@ -4,7 +4,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="18.排序算法 分类  比较类排序 通过比较来决定元素间的相对次序,由于其时间复杂度不能突破O(nlogn),因此也称为非线性时间比较类排序 非比较类排序 不通过比较来决定元素间的相对次序, 它可以突破基于比较排序的时间下界，以线性时间运行， 因此也称为线性时间非比较类排序     ">
+<meta name="description" content="18.排序算法 分类  比较类排序 通过比较来决定元素间的相对次序,由于其时间复杂度不能突破O(nlogn),因此也称为非线性时间比较类排序 非比较类排序 不通过比较来决定元素间的相对次序, 它可以突破基于比较排序的时间下界，以线性时间运行， 因此也称为线性时间非比较类排序     初级排序-O(n^2)   选择排序(Selection Sort) 每次找 最小值,然后放到待排序数组的起始位置
+  插入排序(Insertion Sort) 从前到后逐步构建有序序列；对于未排序数组，在已排序序列中从后向前扫描，找到相应位置并插入
+  冒泡排序(Bubble Sort) 嵌套循环，每次查看相邻的元素如果逆序，则交换。
+  高级排序-O(N*LogN)   快速排序(Quick Sort) 数据取标杆pivot, 将小元素放pivot左边,大元素放右侧, 然后依次对右边和右边的子数组继续快排；1️以达到整个序列 有序。
+  归并排序(Merge Sort) - 分治
+   把长度为n的输入序列分成两个长度未n/2的子序列; 对这两个子序列分别采用归并排序; 将两个排序好的子序列合并成一个最终的排序序列 归并 和 快排具有相似性, 但步骤顺序相反
+归并: 先排序左右子数组, 然后合并两个有序子数组
+快排: 先调配出左右子数组, 然后对于左右子数组进行排序   堆排序(Heap Sort) - 堆插入O(logN), 取最大/最小值O(1) 1.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -14,7 +21,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
-<script defer src="/en.search.min.89742f6ca6326dde6cba964f376824176a61c34d1d31f28b6e8a6b217a35c16d.js" integrity="sha256-iXQvbKYybd5supZPN2gkF2phw00dMfKLboprIXo1wW0="></script>
+<script defer src="/en.search.min.06f5e09b7be84971e04d6bae36ae77a2a5ab52017a1baba27017b8355727a122.js" integrity="sha256-BvXgm3voSXHgTWuuNq53oqWrUgF6G6uicBe4NVcnoSI="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ruichengm1987.github.io/docs/%E7%AE%97%E6%B3%95/18.%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/index.xml" title="坚持的事:读书&攒钱" />
 <!--
 Made with Book Theme
@@ -786,6 +793,9 @@ https://github.com/alex-shpak/hugo-book
   <nav id="TableOfContents">
   <ul>
     <li><a href="#分类">分类</a></li>
+    <li><a href="#初级排序-on2">初级排序-O(n^2)</a></li>
+    <li><a href="#高级排序-onlogn">高级排序-O(N*LogN)</a></li>
+    <li><a href="#特殊排序-on">特殊排序-O(n)</a></li>
   </ul>
 </nav>
 
@@ -820,6 +830,62 @@ https://github.com/alex-shpak/hugo-book
     
 
 </figure>
+</li>
+</ul>
+<h2 id="初级排序-on2">初级排序-O(n^2)</h2>
+<ul>
+<li>
+<p>选择排序(Selection Sort)
+每次找 最小值,然后放到待排序数组的起始位置</p>
+</li>
+<li>
+<p>插入排序(Insertion Sort)
+从前到后逐步构建有序序列；对于未排序数组，在已排序序列中从后向前扫描，找到相应位置并插入</p>
+</li>
+<li>
+<p>冒泡排序(Bubble Sort)
+嵌套循环，每次查看相邻的元素如果逆序，则交换。</p>
+</li>
+</ul>
+<h2 id="高级排序-onlogn">高级排序-O(N*LogN)</h2>
+<ul>
+<li>
+<p>快速排序(Quick Sort)
+数据取标杆pivot, 将小元素放pivot左边,大元素放右侧, 然后依次对右边和右边的子数组继续快排；1️以达到整个序列
+有序。</p>
+</li>
+<li>
+<p>归并排序(Merge Sort) - 分治</p>
+</li>
+</ul>
+<ol>
+<li>把长度为n的输入序列分成两个长度未n/2的子序列;</li>
+<li>对这两个子序列分别采用归并排序;</li>
+<li>将两个排序好的子序列合并成一个最终的排序序列</li>
+<li>归并 和 快排具有相似性, 但步骤顺序相反<br>
+归并: 先排序左右子数组, 然后合并两个有序子数组<br>
+快排: 先调配出左右子数组, 然后对于左右子数组进行排序</li>
+</ol>
+<ul>
+<li>堆排序(Heap Sort) - 堆插入O(logN), 取最大/最小值O(1)
+1.数组元素依次建立小顶堆<br>
+2.依次取堆顶元素, 并删除</li>
+</ul>
+<h2 id="特殊排序-on">特殊排序-O(n)</h2>
+<ul>
+<li>
+<p>计数排序(Counting Sort)
+计数排序要求输入的数据必须是有确定范围的整数.将输入的数据值转化为键存储在额外开辟的数组空间中；
+然后依次把计数大于1的填充回原数组</p>
+</li>
+<li>
+<p>桶排序(Bucket Sort)
+桶排序的工作的原理:假设输入数据服从均匀分布,将数据分到有限数量的桶里,每个桶再分别排序
+(有可能再使用别的排序算法或者是以递归方式继续使用桶排序进行排)</p>
+</li>
+<li>
+<p>基数排序(Radix Sort)
+基数排序是按照低位先排序,然后收集；在按照高位排序，然后再收集；依次类推，直到最高位。有时候有些属性是有优先级顺序的，先按照低优先级排序，再按高优先级排序。</p>
 </li>
 </ul>
 </article>
@@ -857,6 +923,9 @@ https://github.com/alex-shpak/hugo-book
   <nav id="TableOfContents">
   <ul>
     <li><a href="#分类">分类</a></li>
+    <li><a href="#初级排序-on2">初级排序-O(n^2)</a></li>
+    <li><a href="#高级排序-onlogn">高级排序-O(N*LogN)</a></li>
+    <li><a href="#特殊排序-on">特殊排序-O(n)</a></li>
   </ul>
 </nav>
 

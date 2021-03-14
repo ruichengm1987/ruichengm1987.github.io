@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>坚持的事:读书&amp;攒钱</title>
+    <link>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml/</link>
+    <description>Recent content on 坚持的事:读书&amp;攒钱</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>类图</title>
+      <link>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml/%E7%B1%BB%E5%9B%BE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml/%E7%B1%BB%E5%9B%BE/</guid>
+      <description>类图 1.类图基础属性   +表示public -表示private #表示protected ~表示default,也就是包权限 _下划线表示static 斜体表示抽象  2.类与类之间关系   泛化关系 (is a: Cat is a Animal -&amp;gt; 继承): 类和类、接口和接口的继承    实现关系 (like a: cooker like a foodMenu)    关联关系 (has a: Programmer has a Computer) 聚合、组合 都属于关联关系      聚合关系 聚合关系描述的是整体和部分的关系，聚合关系是比较特殊的关联关系, 比如: 一个教室当中有多个学生，教室和学生之间的关系就是整体和部分的关系。 在聚合关系中，整体的生命周期不会决定部分的生命周期, 例如:教室没了，学生还在，或者说学生走了，教室还在。    组合关系 组合关系可以看做是一种特殊的聚合关系，整体的生命周期决定部分的生命周期，部分是依附在整体上面的，部分离开了整体是无法&amp;quot;存活的&amp;rdquo;. 例如: 人和 四肢的关系。    依赖关系 依赖关系是所有关系中最弱的一种，这种关系通常体现在类和局部变量之间的关系。    </description>
+    </item>
+    
+    <item>
+      <title>用例图</title>
+      <link>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml/%E7%94%A8%E4%BE%8B%E5%9B%BE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml/%E7%94%A8%E4%BE%8B%E5%9B%BE/</guid>
+      <description>用例图 站在系统用户(系统角色)的角度分析系统存在哪些功能?
+实现用例图的时候， 需要先进行系统角色的抽取。  </description>
+    </item>
+    
+    <item>
+      <title>时序图</title>
+      <link>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml/%E6%97%B6%E5%BA%8F%E5%9B%BE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml/%E6%97%B6%E5%BA%8F%E5%9B%BE/</guid>
+      <description>时序图 时序图当中描述了方法的调用过程, 程序的执行流程，以及方法执行结束的返回值情况
+     人图形: 动作发起人 矩形/小圆圈: 队形 实现箭头: 调用 虚线箭头: 返回 柱状: 对象的声明周期，柱状不能断， 在同一个流程当中不能断 回折线: 当前类的方法执行过程中调用自己当前类中的其它方法  组合片段 组合片段用来解决交互执行的条件和方式，它允许在序列图中直接表示逻辑组件，用于通过指定条件或子进程的应用区域，为任何生命线的任何部分定义特殊条件和子进程。组合片段共有13种，名称及含义如下：   </description>
+    </item>
+    
+  </channel>
+</rss>

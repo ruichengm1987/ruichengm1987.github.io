@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="类图 1.类图基础属性   &#43;表示public -表示private #表示protected ~表示default,也就是包权限 _下划线表示static 斜体表示抽象  2.类与类之间关系   泛化关系 (is a: Cat is a Animal -&gt; 继承): 类和类、接口和接口的继承    实现关系 (like a: cooker like a foodMenu)    关联关系 (has a: Programmer has a Computer) 聚合、组合 都属于关联关系      聚合关系 聚合关系描述的是整体和部分的关系，聚合关系是比较特殊的关联关系, 比如: 一个教室当中有多个学生，教室和学生之间的关系就是整体和部分的关系。 在聚合关系中，整体的生命周期不会决定部分的生命周期, 例如:教室没了，学生还在，或者说学生走了，教室还在。    组合关系 组合关系可以看做是一种特殊的聚合关系，整体的生命周期决定部分的生命周期，部分是依附在整体上面的，部分离开了整体是无法&quot;存活的&rdquo;. 例如: 人和 四肢的关系。    依赖关系 依赖关系是所有关系中最弱的一种，这种关系通常体现在类和局部变量之间的关系。    ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="类图" />
+<meta property="og:description" content="类图 1.类图基础属性   &#43;表示public -表示private #表示protected ~表示default,也就是包权限 _下划线表示static 斜体表示抽象  2.类与类之间关系   泛化关系 (is a: Cat is a Animal -&gt; 继承): 类和类、接口和接口的继承    实现关系 (like a: cooker like a foodMenu)    关联关系 (has a: Programmer has a Computer) 聚合、组合 都属于关联关系      聚合关系 聚合关系描述的是整体和部分的关系，聚合关系是比较特殊的关联关系, 比如: 一个教室当中有多个学生，教室和学生之间的关系就是整体和部分的关系。 在聚合关系中，整体的生命周期不会决定部分的生命周期, 例如:教室没了，学生还在，或者说学生走了，教室还在。    组合关系 组合关系可以看做是一种特殊的聚合关系，整体的生命周期决定部分的生命周期，部分是依附在整体上面的，部分离开了整体是无法&quot;存活的&rdquo;. 例如: 人和 四肢的关系。    依赖关系 依赖关系是所有关系中最弱的一种，这种关系通常体现在类和局部变量之间的关系。    " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml/%E7%B1%BB%E5%9B%BE/" />
+
+<title>类图 | 坚持的事:读书&amp;攒钱</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.06f5e09b7be84971e04d6bae36ae77a2a5ab52017a1baba27017b8355727a122.js" integrity="sha256-BvXgm3voSXHgTWuuNq53oqWrUgF6G6uicBe4NVcnoSI="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>坚持的事:读书&amp;攒钱</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/" class="collapsed ">docker</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/english/" class="collapsed ">Englinsh</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">Go</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/java/" class="collapsed ">java</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/rust/" class="collapsed ">Rust</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/python/" class="collapsed ">Python</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/chart/" class="collapsed ">Chart</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git/" class="collapsed ">git</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/linux/" class="collapsed ">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/shell/" class="collapsed ">Shell</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E7%AE%97%E6%B3%95/" class="collapsed ">算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E4%BA%94%E7%AC%94/" class="collapsed ">五笔</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml/" class="collapsed ">Uml</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml/%E7%B1%BB%E5%9B%BE/" class="active">类图</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml/%E7%94%A8%E4%BE%8B%E5%9B%BE/" class="">用例图</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/uml/%E6%97%B6%E5%BA%8F%E5%9B%BE/" class="">时序图</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/%E5%AE%B9%E9%94%99%E9%AB%98%E5%8F%AF%E7%94%A8%E5%92%8C%E7%81%BE%E5%A4%87/" class="">容错，高可用和灾备</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/02%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A/" class="">进程与线程的一个简单解释</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/restapi%E8%A7%84%E8%8C%83/" class="">Restapi规范</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>类图</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1类图基础属性">1.类图基础属性</a></li>
+    <li><a href="#2类与类之间关系">2.类与类之间关系</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="类图">类图</h1>
+<h2 id="1类图基础属性">1.类图基础属性</h2>
+
+<figure >
+
+    <img src="/architect/uml/class/%e7%b1%bb%e5%9b%be%e7%9a%84%e8%a1%a8%e7%a4%ba.png"  />
+    
+
+</figure>
+
+<ul>
+<li>+表示public</li>
+<li>-表示private</li>
+<li>#表示protected</li>
+<li>~表示default,也就是包权限</li>
+<li>_下划线表示static</li>
+<li>斜体表示抽象</li>
+</ul>
+<h2 id="2类与类之间关系">2.类与类之间关系</h2>
+<ul>
+<li>
+<p>泛化关系 (is a: Cat is a Animal -&gt; 继承): 类和类、接口和接口的继承
+
+<figure >
+
+    <img src="/architect/uml/class/1.png"  />
+    
+
+</figure>
+</p>
+</li>
+<li>
+<p>实现关系 (like a: cooker like a foodMenu)
+
+<figure >
+
+    <img src="/architect/uml/class/2.png"  />
+    
+
+</figure>
+</p>
+</li>
+<li>
+<p>关联关系 (has a: Programmer has a Computer)
+聚合、组合 都属于关联关系
+
+<figure >
+
+    <img src="/architect/uml/class/3.png"  />
+    
+
+</figure>
+
+
+<figure >
+
+    <img src="/architect/uml/class/4.png"  />
+    
+
+</figure>
+
+
+<figure >
+
+    <img src="/architect/uml/class/5.png"  />
+    
+
+</figure>
+</p>
+</li>
+<li>
+<p>聚合关系
+聚合关系描述的是整体和部分的关系，聚合关系是比较特殊的关联关系, 比如: 一个教室当中有多个学生，教室和学生之间的关系就是整体和部分的关系。
+在聚合关系中，整体的生命周期不会决定部分的生命周期, 例如:教室没了，学生还在，或者说学生走了，教室还在。
+
+<figure >
+
+    <img src="/architect/uml/class/6.png"  />
+    
+
+</figure>
+</p>
+</li>
+<li>
+<p>组合关系
+组合关系可以看做是一种特殊的聚合关系，整体的生命周期决定部分的生命周期，部分是依附在整体上面的，部分离开了整体是无法&quot;存活的&rdquo;. 例如: 人和
+四肢的关系。
+
+<figure >
+
+    <img src="/architect/uml/class/7.png"  />
+    
+
+</figure>
+</p>
+</li>
+<li>
+<p>依赖关系
+依赖关系是所有关系中最弱的一种，这种关系通常体现在类和局部变量之间的关系。
+
+<figure >
+
+    <img src="/architect/uml/class/8.png"  />
+    
+
+</figure>
+</p>
+</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1类图基础属性">1.类图基础属性</a></li>
+    <li><a href="#2类与类之间关系">2.类与类之间关系</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
