@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Introduction on 坚持:多读书</title>
+    <title>Introduction on 真努力与假努力</title>
     <link>https://ruichengm1987.github.io/</link>
-    <description>Recent content in Introduction on 坚持:多读书</description>
+    <description>Recent content in Introduction on 真努力与假努力</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -1959,6 +1959,19 @@ string类型转成整型 </description>
       <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.14.%E5%B9%B6%E5%8F%91/2.14.8.%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C/</guid>
       <description>2.14.8.原子操作 代码中的加锁操作因为涉及内核态的上下文切换会比较耗时、代价比较高。针对基本数据类型我们还可以使用原子操作来保证并发安全，因为原子操作是Go语言提供的方法它在用户态就可以完成，因此性能比加锁操作更好。Go语言中原子操作由内置的标准库sync/atomic提供。
 atomic包    方法 解释     func LoadInt32(addr *int32) (val int32) 读取操作   func LoadInt64(addr *int64) (val int64)    func LoadUint32(addr *uint32) (val uint32)    func LoadUint64(addr *uint64) (val uint64)    func LoadUintptr(addr *uintptr) (val uintptr)    func LoadPointer(addr *unsafe.Pointer) (val unsafe.Pointer)    func StoreInt32(addr *int32, val int32) 写入操作   func StoreInt64(addr *int64, val int64)    func StoreUint32(addr *uint32, val uint32)    func StoreUint64(addr *uint64, val uint64)    func StoreUintptr(addr *uintptr, val uintptr)    func StorePointer(addr *unsafe.</description>
+    </item>
+    
+    <item>
+      <title>2.2.8.字符串、数字、byte相互转换</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/2.2.8.%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E5%AD%97byte%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.golang%E5%9F%BA%E7%A1%80/2.2.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/2.2.8.%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E5%AD%97byte%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/</guid>
+      <description>字符串、数字、byte相互转换 一、字符串转数字 1、string到int
+int,err := strconv.Atoi(string) ## demo: str := &amp;quot;123&amp;quot; strInt, err := strconv.Atoi(str) if err != nil { fmt.Println(err) } fmt.Println(strInt) 2、string到int64
+int64, err := strconv.ParseInt(string, 10, 64) ## demo: str := &amp;quot;123&amp;quot; strInt64, err := strconv.ParseInt(str, 10, 64) if err != nil { fmt.Println(err) } fmt.Println(strInt64) 3、string到int32
+int10, err := strconv.ParseInt(string, 10, 64) int32 := int32(int10) ## demo: 4、字符串 转 uint64
+int, _ := strconv.Atoi(string) uint64 = uint64(int) ## demo: 二、数字转字符串 1、int到string</description>
     </item>
     
     <item>
