@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vbox on 真努力与假努力</title>
+    <link>https://ruichengm1987.github.io/docs/vbox/</link>
+    <description>Recent content in vbox on 真努力与假努力</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/vbox/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>配置网卡</title>
+      <link>https://ruichengm1987.github.io/docs/vbox/%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/vbox/%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1/</guid>
+      <description>配置网卡 https://blog.csdn.net/weixin_42541479/article/details/118407951
+1、安装centos7的时候注意选择两个网卡 两个网卡分别为：
+nat(虚拟机访问互联网，使用10.0.2.x段)
+host-only(虚拟机和主机互相通信，使用192.168.56.x段)
+在偏好设置里面设置网络。如下图配置：
+    2、配置网络    3、开机，进入 cd /etc/etc/sysconfig/network-scripts/ 目录 cd /etc/sysconfig/network-scripts/ ls   vi ifcfg-enp0s3   vi ifcfg-enp0s8   service network restart   4、验证    拷贝 </description>
+    </item>
+    
+    <item>
+      <title>拷贝</title>
+      <link>https://ruichengm1987.github.io/docs/vbox/%E6%8B%B7%E8%B4%9D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/vbox/%E6%8B%B7%E8%B4%9D/</guid>
+      <description>拷贝    修改配置 /etc/sysconfig/network-scripts/ifcfg-enp0s3 /etc/sysconfig/network-scripts/ifcfg-enp0s8 注意: 参考配置网卡里面的配置</description>
+    </item>
+    
+  </channel>
+</rss>
