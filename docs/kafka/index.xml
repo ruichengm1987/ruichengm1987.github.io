@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kafka on 真努力与假努力</title>
+    <title>kafka on 没事写写笔记</title>
     <link>https://ruichengm1987.github.io/docs/kafka/</link>
-    <description>Recent content in kafka on 真努力与假努力</description>
+    <description>Recent content in kafka on 没事写写笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -16,10 +16,25 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ruichengm1987.github.io/docs/kafka/1.kafka%E6%A6%82%E8%BF%B0/</guid>
-      <description>1.kafka概述 定义 kafka 是一个分布式的基于发布/订阅模式的消息队列, 主要应用于大数据实时处理领域
-消息队列的作用 削峰、解耦
-消息队列的两种模式 点对点模式、发布/订阅模式 发布/订阅模式:分为消息队列主动推，消费者主动拉，这2种模式， kafka属于后种(但是这种有个缺点需要客户端维护轮训)
-kafka基础架构 </description>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2.异步通信原理</title>
+      <link>https://ruichengm1987.github.io/docs/kafka/2.%E5%BC%82%E6%AD%A5%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/kafka/2.%E5%BC%82%E6%AD%A5%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/</guid>
+      <description>2.异步通信原理 观察者模式  观察者模式(Observer), 又叫发布-订阅模式(Publish/Subscribe) 定义对象间一种一对多的依赖关系, 使得每当一个对象改变状态,则所有依赖于它的对象都会得到通知并自动更新 一个对象(目标对象)的 现实生活中的应用现场: 到货通知  生产者消费者模式  传统模式  生产者直接将消息传递给指定的消费者 耦合性特别高,当生产者或者消费者发生变化,都需要重写业务逻辑    缓冲区 数据单元 </description>
+    </item>
+    
+    <item>
+      <title>3.消息系统原理</title>
+      <link>https://ruichengm1987.github.io/docs/kafka/3.%E6%B6%88%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/kafka/3.%E6%B6%88%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/</guid>
+      <description>3.消息系统原理 点对点消息传递 发布订阅消息传递 </description>
     </item>
     
   </channel>
