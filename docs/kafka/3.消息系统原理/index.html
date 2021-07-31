@@ -4,17 +4,19 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="3.消息系统原理 点对点消息传递 发布订阅消息传递 ">
+<meta name="description" content="3.消息系统原理 一个消息系统负责将数据从一个应用传递到另外一个应用，应用只需关注于数据，无需关注数据在两个 或多个应用间是如何传递的。
+点对点消息传递  在点对点消息系统中，消息持久化到一个队列中。此时，将有一个或多个消费者消费队列中的数 据。但是一条消息只能被消费一次。 当一个消费者消费了队列中的某条数据之后，该条数据则从消息队列中删除。 该模式即使有多个消费者同时消费数据，也能保证数据处理的顺序。 基于推送模型的消息系统，由消息代理记录消费状态。  消息代理将消息推送(push)到消费者后，标记这条消息为已经被消费，但是这种方式无法很 好地保证消费的处理语义。      发布订阅消息传递  在发布-订阅消息系统中，消息被持久化到一个topic中。 消费者可以订阅一个或多个topic，消费者可以消费该topic中所有的数据，同一条数据可以被多个 消费者消费，数据被消费后不会立马删除。 在发布-订阅消息系统中，消息的生产者称为发布者，消费者称为订阅者。 Kafka 采取拉取模型(Poll)，由自己控制消费速度，以及消费的进度，消费者可以按照任意的偏移 量进行消费。    ">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="3.消息系统原理" />
-<meta property="og:description" content="3.消息系统原理 点对点消息传递 发布订阅消息传递 " />
+<meta property="og:description" content="3.消息系统原理 一个消息系统负责将数据从一个应用传递到另外一个应用，应用只需关注于数据，无需关注数据在两个 或多个应用间是如何传递的。
+点对点消息传递  在点对点消息系统中，消息持久化到一个队列中。此时，将有一个或多个消费者消费队列中的数 据。但是一条消息只能被消费一次。 当一个消费者消费了队列中的某条数据之后，该条数据则从消息队列中删除。 该模式即使有多个消费者同时消费数据，也能保证数据处理的顺序。 基于推送模型的消息系统，由消息代理记录消费状态。  消息代理将消息推送(push)到消费者后，标记这条消息为已经被消费，但是这种方式无法很 好地保证消费的处理语义。      发布订阅消息传递  在发布-订阅消息系统中，消息被持久化到一个topic中。 消费者可以订阅一个或多个topic，消费者可以消费该topic中所有的数据，同一条数据可以被多个 消费者消费，数据被消费后不会立马删除。 在发布-订阅消息系统中，消息的生产者称为发布者，消费者称为订阅者。 Kafka 采取拉取模型(Poll)，由自己控制消费速度，以及消费的进度，消费者可以按照任意的偏移 量进行消费。    " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ruichengm1987.github.io/docs/kafka/3.%E6%B6%88%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/" />
 
-<title>3.消息系统原理 | 没事写写笔记</title>
+<title>3.消息系统原理 | 笔记本</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
-<script defer src="/en.search.min.e460b0114ec645b66983af950ccab30f74f9cf2d62856f5e2a7a10afd67d4660.js" integrity="sha256-5GCwEU7GRbZpg6&#43;VDMqzD3T5zy1ihW9eKnoQr9Z9RmA="></script>
+<script defer src="/en.search.min.e2336a1a6fd6c5213c209f26f9658259b81983f30790ba9e6080ba8525f9c0d1.js" integrity="sha256-4jNqGm/WxSE8IJ8m&#43;WWCWbgZg/MHkLqeYIC6hSX5wNE="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -30,7 +32,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav>
 <h2 class="book-brand">
-  <a href="/"><span>没事写写笔记</span>
+  <a href="/"><span>笔记本</span>
   </a>
 </h2>
 
@@ -67,91 +69,6 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/docs/c&#43;&#43;/" class="collapsed ">C&#43;&#43;</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/docker/" class="collapsed ">docker</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/english/" class="collapsed ">Englinsh</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/go/" class="collapsed ">Go</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/java/" class="collapsed ">java</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
     <a href="/docs/kafka/" class="collapsed ">kafka</a>
   
 
@@ -163,6 +80,14 @@ https://github.com/alex-shpak/hugo-book
   
   <ul>
     
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/1.kafka%E6%A6%82%E8%BF%B0/" class="">1.kafka概述</a>
+  
+
+        </li>
       
     
       
@@ -185,6 +110,46 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/4.kafka%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/" class="">4.kafka系统架构</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/5.kafka%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="">5.kafka环境搭建</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/6.kafka%E6%95%B0%E6%8D%AE%E6%A3%80%E7%B4%A2%E6%9C%BA%E5%88%B6/" class="">6.kafka数据检索机制</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/7.%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7/" class="">7.数据的安全性</a>
+  
+
+        </li>
+      
+    
   </ul>
   
 
@@ -195,245 +160,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/docs/mysql/" class="collapsed ">Mysql</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/rust/" class="collapsed ">Rust</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" class="collapsed ">项目管理</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/python/" class="collapsed ">Python</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/datas_tructure/" class="collapsed ">Datas Tructure</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/chart/" class="collapsed ">Chart</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/git/" class="collapsed ">git</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/linux/" class="collapsed ">Linux</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/nginx/" class="collapsed ">Nginx</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/shell/" class="collapsed ">Shell</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/%E7%AE%97%E6%B3%95/" class="collapsed ">算法</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
     <a href="/docs/vbox/" class="collapsed ">vbox</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/%E4%BA%94%E7%AC%94/" class="collapsed ">五笔</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/%E6%9E%B6%E6%9E%84%E5%B8%88/" class="collapsed ">架构师</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="collapsed ">设计模式</a>
   
 
           
@@ -510,8 +237,41 @@ https://github.com/alex-shpak/hugo-book
       
       
   <article class="markdown"><h1 id="3消息系统原理">3.消息系统原理</h1>
+<p>一个消息系统负责将数据从一个应用传递到另外一个应用，应用只需关注于数据，无需关注数据在两个 或多个应用间是如何传递的。</p>
 <h2 id="点对点消息传递">点对点消息传递</h2>
+<ul>
+<li>在点对点消息系统中，消息持久化到一个队列中。此时，将有一个或多个消费者消费队列中的数 据。但是一条消息只能被消费一次。</li>
+<li>当一个消费者消费了队列中的某条数据之后，该条数据则从消息队列中删除。</li>
+<li>该模式即使有多个消费者同时消费数据，也能保证数据处理的顺序。</li>
+<li>基于推送模型的消息系统，由消息代理记录消费状态。
+<ul>
+<li>消息代理将消息推送(push)到消费者后，标记这条消息为已经被消费，但是这种方式无法很 好地保证消费的处理语义。
+
+<figure >
+
+    <img src="/architect/kafka/image-20200722105212298.png"  />
+    
+
+</figure>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="发布订阅消息传递">发布订阅消息传递</h2>
+<ul>
+<li>在发布-订阅消息系统中，消息被持久化到一个topic中。</li>
+<li>消费者可以订阅一个或多个topic，消费者可以消费该topic中所有的数据，同一条数据可以被多个 消费者消费，数据被消费后不会立马删除。</li>
+<li>在发布-订阅消息系统中，消息的生产者称为发布者，消费者称为订阅者。</li>
+<li>Kafka 采取拉取模型(Poll)，由自己控制消费速度，以及消费的进度，消费者可以按照任意的偏移 量进行消费。
+
+<figure >
+
+    <img src="/architect/kafka/image-20200722105345218.png"  />
+    
+
+</figure>
+</li>
+</ul>
 </article>
  
       

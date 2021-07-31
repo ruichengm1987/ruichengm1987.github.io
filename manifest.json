@@ -1,6 +1,6 @@
 {
-  "name": "没事写写笔记",
-  "short_name": "没事写写笔记",
+  "name": "笔记本",
+  "short_name": "笔记本",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

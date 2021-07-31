@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="6.kafka数据检索机制   topic在物理层面以partition为分组，一个topic可以分成若干个partition partition还可以细分为Segment，一个partition物理上由多个Segment组成  segment 的参数有两个：  log.segment.bytes：单个segment可容纳的最大数据量，默认为1GB log.segment.ms：Kafka在commit一个未写满的segment前，所等待的时间（默认为7 天）     LogSegment 文件由两部分组成，分别为“.index”文件和“.log”文件，分别表示为 Segment 索引文 件和数据文件。  partition全局的第一个segment从0开始，后续每个segment文件名为上一个segment文件 最后一条消息的offset值 数值大小为64位，20位数字字符长度，没有数字用0填充 第一个segment 00000000000000000000.index 00000000000000000000.log 第二个segment，文件命名以第一个segment的最后一条消息的offset组成 00000000000000170410.index 00000000000000170410.log 第三个segment，文件命名以上一个segment的最后一条消息的offset组成 00000000000000239430.index 00000000000000239430.log    消息都具有固定的物理结构，包括：offset(8 Bytes)、消息体的大小(4 Bytes)、crc32(4 Bytes)、 magic(1 Byte)、attributes(1 Byte)、key length(4 Bytes)、key(K Bytes)、payload(N Bytes)等等 字段，可以确定一条消息的大小，即读取到哪里截止。    ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="6.kafka数据检索机制" />
+<meta property="og:description" content="6.kafka数据检索机制   topic在物理层面以partition为分组，一个topic可以分成若干个partition partition还可以细分为Segment，一个partition物理上由多个Segment组成  segment 的参数有两个：  log.segment.bytes：单个segment可容纳的最大数据量，默认为1GB log.segment.ms：Kafka在commit一个未写满的segment前，所等待的时间（默认为7 天）     LogSegment 文件由两部分组成，分别为“.index”文件和“.log”文件，分别表示为 Segment 索引文 件和数据文件。  partition全局的第一个segment从0开始，后续每个segment文件名为上一个segment文件 最后一条消息的offset值 数值大小为64位，20位数字字符长度，没有数字用0填充 第一个segment 00000000000000000000.index 00000000000000000000.log 第二个segment，文件命名以第一个segment的最后一条消息的offset组成 00000000000000170410.index 00000000000000170410.log 第三个segment，文件命名以上一个segment的最后一条消息的offset组成 00000000000000239430.index 00000000000000239430.log    消息都具有固定的物理结构，包括：offset(8 Bytes)、消息体的大小(4 Bytes)、crc32(4 Bytes)、 magic(1 Byte)、attributes(1 Byte)、key length(4 Bytes)、key(K Bytes)、payload(N Bytes)等等 字段，可以确定一条消息的大小，即读取到哪里截止。    " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/kafka/6.kafka%E6%95%B0%E6%8D%AE%E6%A3%80%E7%B4%A2%E6%9C%BA%E5%88%B6/" />
+
+<title>6.kafka数据检索机制 | 笔记本</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.e2336a1a6fd6c5213c209f26f9658259b81983f30790ba9e6080ba8525f9c0d1.js" integrity="sha256-4jNqGm/WxSE8IJ8m&#43;WWCWbgZg/MHkLqeYIC6hSX5wNE="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>笔记本</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/1.kafka%E6%A6%82%E8%BF%B0/" class="">1.kafka概述</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/2.%E5%BC%82%E6%AD%A5%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" class="">2.异步通信原理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/3.%E6%B6%88%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/" class="">3.消息系统原理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/4.kafka%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/" class="">4.kafka系统架构</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/5.kafka%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="">5.kafka环境搭建</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/6.kafka%E6%95%B0%E6%8D%AE%E6%A3%80%E7%B4%A2%E6%9C%BA%E5%88%B6/" class="active">6.kafka数据检索机制</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/7.%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7/" class="">7.数据的安全性</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/vbox/" class="collapsed ">vbox</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>6.kafka数据检索机制</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents"></nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="6kafka数据检索机制">6.kafka数据检索机制</h1>
+
+<figure >
+
+    <img src="/architect/kafka/image-20200723005044712.png"  />
+    
+
+</figure>
+
+<ul>
+<li>topic在物理层面以partition为分组，一个topic可以分成若干个partition</li>
+<li>partition还可以细分为Segment，一个partition物理上由多个Segment组成
+<ul>
+<li>segment 的参数有两个：
+<ul>
+<li>log.segment.bytes：单个segment可容纳的最大数据量，默认为1GB</li>
+<li>log.segment.ms：Kafka在commit一个未写满的segment前，所等待的时间（默认为7 天）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LogSegment 文件由两部分组成，分别为“.index”文件和“.log”文件，分别表示为 Segment 索引文 件和数据文件。
+<ul>
+<li>partition全局的第一个segment从0开始，后续每个segment文件名为上一个segment文件 最后一条消息的offset值</li>
+<li>数值大小为64位，20位数字字符长度，没有数字用0填充
+<pre><code class="language-$xslt" data-lang="$xslt">第一个segment 
+00000000000000000000.index 
+00000000000000000000.log 
+第二个segment，文件命名以第一个segment的最后一条消息的offset组成 
+00000000000000170410.index 
+00000000000000170410.log 
+第三个segment，文件命名以上一个segment的最后一条消息的offset组成 
+00000000000000239430.index 
+00000000000000239430.log
+</code></pre></li>
+</ul>
+</li>
+<li>消息都具有固定的物理结构，包括：offset(8 Bytes)、消息体的大小(4 Bytes)、crc32(4 Bytes)、 magic(1 Byte)、attributes(1 Byte)、key length(4 Bytes)、key(K Bytes)、payload(N Bytes)等等 字段，可以确定一条消息的大小，即读取到哪里截止。
+
+<figure >
+
+    <img src="/architect/kafka/image-20200723004726240.png"  />
+    
+
+</figure>
+</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
