@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="1.「图」的基本知识 「图」大概是最接近生活的一种数据结构了，生活中各种关系图便是「图」最真实的写照。比如，我们每个人的朋友交际圈就是一个巨大的「图」。  图1.小A的朋友交际图    「图」的类型 「图」的类型有很多,我们将介绍三种类型的图：无向图、有向图、加权图。
+无向图 「无向图」的图中任意两个顶点之间的边都是没有方向的。 「图1. 小A的朋友交际图」是一个无向图。
+有向图 「有向图」的图中任意两个顶点之间的边都是有方向的。 「图 2. 有向图的示例图」是一个有向图。  图2.有向图的示例图    加权图 「加权图」的图中的每条边都带有一个相关的权重。这里的权重可以是任何一种度量，比如时间，距离，尺寸等。生活中最常见的「加权图」应该就是我们的地图了。在下方的「图 3. 加权图的示例图」中，每条边上都标有距离，它们可以视为每个边上的权重。  图3.加权图的示例图    「图」的定义和相关术语 「图」是由顶点和边组成的一种非线形数据结构。在「图」中有很多相关术语来描述一个图。如果在后面的学习中遇到不认识的术语，请回到这里查看相关的定义。
+ 顶点：在「图 1. 小A的朋友交际图」中，小 A 、小 B 、小 C 等均称为「图」的顶点。 边：顶点之间的连接线称为边。在「图 1. 小A的朋友交际图」中，小 A 和小 B 之间的连接线就是图中的一条边。 路径：从一个顶点到另一个顶点之间经过的所有顶点的集合。在「图 1. 小A的朋友交际图」中，从小 A 到小 C 的路径为[小A, 小B, 小C] 或者[小A, 小G, 小B, 小C]或者[小A, 小E, 小F, 小D, 小B, 小C]。 **注意：**两个顶点之间的路径可以是很多条。 路径长度：一条路径上经过的边的数量。在「图 1.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="1.「图」的基本知识" />
+<meta property="og:description" content="1.「图」的基本知识 「图」大概是最接近生活的一种数据结构了，生活中各种关系图便是「图」最真实的写照。比如，我们每个人的朋友交际圈就是一个巨大的「图」。  图1.小A的朋友交际图    「图」的类型 「图」的类型有很多,我们将介绍三种类型的图：无向图、有向图、加权图。
+无向图 「无向图」的图中任意两个顶点之间的边都是没有方向的。 「图1. 小A的朋友交际图」是一个无向图。
+有向图 「有向图」的图中任意两个顶点之间的边都是有方向的。 「图 2. 有向图的示例图」是一个有向图。  图2.有向图的示例图    加权图 「加权图」的图中的每条边都带有一个相关的权重。这里的权重可以是任何一种度量，比如时间，距离，尺寸等。生活中最常见的「加权图」应该就是我们的地图了。在下方的「图 3. 加权图的示例图」中，每条边上都标有距离，它们可以视为每个边上的权重。  图3.加权图的示例图    「图」的定义和相关术语 「图」是由顶点和边组成的一种非线形数据结构。在「图」中有很多相关术语来描述一个图。如果在后面的学习中遇到不认识的术语，请回到这里查看相关的定义。
+ 顶点：在「图 1. 小A的朋友交际图」中，小 A 、小 B 、小 C 等均称为「图」的顶点。 边：顶点之间的连接线称为边。在「图 1. 小A的朋友交际图」中，小 A 和小 B 之间的连接线就是图中的一条边。 路径：从一个顶点到另一个顶点之间经过的所有顶点的集合。在「图 1. 小A的朋友交际图」中，从小 A 到小 C 的路径为[小A, 小B, 小C] 或者[小A, 小G, 小B, 小C]或者[小A, 小E, 小F, 小D, 小B, 小C]。 **注意：**两个顶点之间的路径可以是很多条。 路径长度：一条路径上经过的边的数量。在「图 1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/1.%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" />
+
+<title>1.「图」的基本知识 | 笔记本</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.420f73ccb537b2f006c333178f7384459fde20eb9569eb6a1c159648d991563a.js" integrity="sha256-Qg9zzLU3svAGwzMXj3OERZ/eIOuVaetqHBWWSNmRVjo="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>笔记本</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/" class="collapsed ">algorithm</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/" class="collapsed ">图</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/1.%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" class="active">1.「图」的基本知识</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="collapsed ">2.并查集</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/3.%E5%9B%BE%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-/" class="collapsed ">3.「图」的深度优先搜索算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/4.%E5%9B%BE%E7%9A%84%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" class="collapsed ">4.「图」的广度优先搜索算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/5.%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" class="collapsed ">5.最小生成树相关算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/6.%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" class="collapsed ">6.单源最短路径相关算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/7.%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E4%B9%8Bkahn%E7%AE%97%E6%B3%95/" class="collapsed ">7.拓扑排序之Kahn算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%A0%86/" class="collapsed ">堆</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E6%8E%92%E5%BA%8F/" class="collapsed ">排序</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/vbox/" class="collapsed ">vbox</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>1.「图」的基本知识</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#图的类型">「图」的类型</a>
+      <ul>
+        <li><a href="#无向图">无向图</a></li>
+        <li><a href="#有向图">有向图</a></li>
+        <li><a href="#加权图">加权图</a></li>
+      </ul>
+    </li>
+    <li><a href="#图的定义和相关术语">「图」的定义和相关术语</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="1图的基本知识">1.「图」的基本知识</h1>
+<p>「图」大概是最接近生活的一种数据结构了，生活中各种关系图便是「图」最真实的写照。比如，我们每个人的朋友交际圈就是一个巨大的「图」。
+
+<figure >
+
+    <img src="/architect/algorithm/picture/1/1.png"
+    
+    title="图1.小A的朋友交际图"
+     />
+    
+
+<figcaption>
+    <div align="center">
+        图1.小A的朋友交际图
+    </div>
+    
+    
+</figcaption>
+
+</figure>
+</p>
+<h2 id="图的类型">「图」的类型</h2>
+<p>「图」的类型有很多,我们将介绍三种类型的图：无向图、有向图、加权图。</p>
+<h3 id="无向图">无向图</h3>
+<p>「无向图」的图中任意两个顶点之间的边都是没有方向的。
+「图1. 小A的朋友交际图」是一个无向图。</p>
+<h3 id="有向图">有向图</h3>
+<p>「有向图」的图中任意两个顶点之间的边都是有方向的。
+「图 2. 有向图的示例图」是一个有向图。
+
+<figure >
+
+    <img src="/architect/algorithm/picture/1/2.png"
+    
+    title="图2.有向图的示例图"
+     />
+    
+
+<figcaption>
+    <div align="center">
+        图2.有向图的示例图
+    </div>
+    
+    
+</figcaption>
+
+</figure>
+</p>
+<h3 id="加权图">加权图</h3>
+<p>「加权图」的图中的每条边都带有一个相关的权重。这里的权重可以是任何一种度量，比如时间，距离，尺寸等。生活中最常见的「加权图」应该就是我们的地图了。在下方的「图 3. 加权图的示例图」中，每条边上都标有距离，它们可以视为每个边上的权重。
+
+<figure >
+
+    <img src="/architect/algorithm/picture/1/3.png"
+    
+    title="图3.加权图的示例图"
+     />
+    
+
+<figcaption>
+    <div align="center">
+        图3.加权图的示例图
+    </div>
+    
+    
+</figcaption>
+
+</figure>
+</p>
+<h2 id="图的定义和相关术语">「图」的定义和相关术语</h2>
+<p>「图」是由顶点和边组成的一种非线形数据结构。在「图」中有很多相关术语来描述一个图。如果在后面的学习中遇到不认识的术语，请回到这里查看相关的定义。</p>
+<ul>
+<li>顶点：在「图 1. 小A的朋友交际图」中，小 A 、小 B 、小 C 等均称为「图」的顶点。</li>
+<li>边：顶点之间的连接线称为边。在「图 1. 小A的朋友交际图」中，小 A 和小 B 之间的连接线就是图中的一条边。</li>
+<li>路径：从一个顶点到另一个顶点之间经过的所有顶点的集合。在「图 1. 小A的朋友交际图」中，从小 A 到小 C 的路径为[小A, 小B, 小C] 或者[小A, 小G, 小B, 小C]或者[小A, 小E, 小F, 小D, 小B, 小C]。
+**注意：**两个顶点之间的路径可以是很多条。</li>
+<li>路径长度：一条路径上经过的边的数量。在「图 1. 小A的朋友交际图」中，从小 A 到小 C 的路径长度为2或者3或者5。</li>
+<li>环：起点和终点为同一个顶点的路径。在「图 1. 小A的朋友交际图」中，[小A, 小B, 小D, 小F, 小E]组成了一个环。同理，[小A, 小G, 小B]也组成了一个环。</li>
+<li>负权环：在「加权图」中，如果一个环的所有边的权重加起来为负数，我们就称之为「负权环」。在「图4. 负权环」中，它的所有边的权重和为-3。</li>
+<li>连通性：两个不同顶点之间存在至少一条路径，则称这两个顶点是连通的。在「图 1. 小A的朋友交际图」中，小 A 和小 C 是连通的，因为它们之间至少有一条路径。</li>
+<li>顶点的度：「度」适用于无向图，指的是和该顶点相连接的所有边数称为顶点的度。在「图 1. 小A的朋友交际图」中，顶点小A的度为3，因为与它相连接的边有3条。</li>
+<li>顶点的入度：「入度」适用于有向图，一个顶点的入度为dd，则表示有dd条与顶点相连的边指向该顶点。在「图 2. 有向图的示例图」中，A的入度为1，由F指向A的边。</li>
+<li>顶点的出度：「出度」适用于有向图，它与「入度」相反。一个顶点的出度为dd，则表示有dd条与顶点相连的边以该顶点为起点。在「图 2. 有向图的示例图」中，A 的出度为3，分别为，A 指向 B 的边，A 指向 C 的边，和 A 指向 G 的边。
+
+<figure >
+
+    <img src="/architect/algorithm/picture/1/4.png"
+    
+    title="图4.负权环"
+     />
+    
+
+<figcaption>
+    <div align="center">
+        图4.负权环
+    </div>
+    
+    
+</figcaption>
+
+</figure>
+</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#图的类型">「图」的类型</a>
+      <ul>
+        <li><a href="#无向图">无向图</a></li>
+        <li><a href="#有向图">有向图</a></li>
+        <li><a href="#加权图">加权图</a></li>
+      </ul>
+    </li>
+    <li><a href="#图的定义和相关术语">「图」的定义和相关术语</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

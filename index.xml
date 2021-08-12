@@ -11,12 +11,80 @@
     
     
     <item>
+      <title>1.「图」的基本知识</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/1.%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/1.%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/</guid>
+      <description>1.「图」的基本知识 「图」大概是最接近生活的一种数据结构了，生活中各种关系图便是「图」最真实的写照。比如，我们每个人的朋友交际圈就是一个巨大的「图」。  图1.小A的朋友交际图    「图」的类型 「图」的类型有很多,我们将介绍三种类型的图：无向图、有向图、加权图。
+无向图 「无向图」的图中任意两个顶点之间的边都是没有方向的。 「图1. 小A的朋友交际图」是一个无向图。
+有向图 「有向图」的图中任意两个顶点之间的边都是有方向的。 「图 2. 有向图的示例图」是一个有向图。  图2.有向图的示例图    加权图 「加权图」的图中的每条边都带有一个相关的权重。这里的权重可以是任何一种度量，比如时间，距离，尺寸等。生活中最常见的「加权图」应该就是我们的地图了。在下方的「图 3. 加权图的示例图」中，每条边上都标有距离，它们可以视为每个边上的权重。  图3.加权图的示例图    「图」的定义和相关术语 「图」是由顶点和边组成的一种非线形数据结构。在「图」中有很多相关术语来描述一个图。如果在后面的学习中遇到不认识的术语，请回到这里查看相关的定义。
+ 顶点：在「图 1. 小A的朋友交际图」中，小 A 、小 B 、小 C 等均称为「图」的顶点。 边：顶点之间的连接线称为边。在「图 1. 小A的朋友交际图」中，小 A 和小 B 之间的连接线就是图中的一条边。 路径：从一个顶点到另一个顶点之间经过的所有顶点的集合。在「图 1. 小A的朋友交际图」中，从小 A 到小 C 的路径为[小A, 小B, 小C] 或者[小A, 小G, 小B, 小C]或者[小A, 小E, 小F, 小D, 小B, 小C]。 **注意：**两个顶点之间的路径可以是很多条。 路径长度：一条路径上经过的边的数量。在「图 1.</description>
+    </item>
+    
+    <item>
       <title>1.异步通信原理</title>
       <link>https://ruichengm1987.github.io/docs/kafka/1.%E5%BC%82%E6%AD%A5%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ruichengm1987.github.io/docs/kafka/1.%E5%BC%82%E6%AD%A5%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/</guid>
       <description>1.异步通信原理 观察者模式  观察者模式（Observer），又叫发布-订阅模式（Publish/Subscribe） 定义对象间一种一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到 通知并自动更新。 一个对象（目标对象）的状态发生改变，所有的依赖对象（观察者对象）都将得到通知。   现实生活中的应用场景  京东到货通知    生产者消费者模式  传统模式  生产者直接将消息传递给指定的消费者 耦合性特别高，当生产者或者消费者发生变化，都需要重写业务逻辑   生产者消费者模式  通过一个容器来解决生产者和消费者的强耦合问题。生产者和消费者彼此之间不直接通讯，而通过阻塞队列来进行通讯     数据传递流程  生产者消费者模式，即N个线程进行生产，同时N个线程进行消费，两种角色通过内存缓冲区 进行通信， 生产者负责向缓冲区里面添加数据单元 消费者负责从缓冲区里面取出数据单元  一般遵循先进先出的原则      缓冲区  解耦  假设生产者和消费者分别是两个类。如果让生产者直接调用消费者的某个方法，那么生产者 对于消费者就会产生依赖   支持并发  生产者直接调用消费者的某个方法过程中函数调用是同步的 万一消费者处理数据很慢，生产者就会白白糟蹋大好时光    数据单元  关联到业务对象  数据单元必须关联到某种业务对象   完整性  就是在传输过程中，要保证该数据单元的完整   独立性  就是各个数据单元之间没有互相依赖 某个数据单元传输失败不应该影响已经完成传输的单元；也不应该影响尚未传输的单元。   颗粒度  数据单元需要关联到某种业务对象。那么数据单元和业务对象应该处于的关系（一对一？一 对多） 如果颗粒度过小会增加数据传输的次数 如果颗粒度过大会增加单个数据传输的时间，影响后期消费    </description>
+    </item>
+    
+    <item>
+      <title>2.1.Quick Find 的「并查集」</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.1.quick-find-%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.1.quick-find-%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <description>2.1.Quick Find 的「并查集」 Quick Find的工作原理 //todo::
+伪代码 (todo:://提供一版go的代码) // UnionFind.class public class UnionFind { int root[]; public UnionFind(int size) { root = new int[size]; for (int i = 0; i &amp;lt; size; i++) { root[i] = i; } } public int find(int x) { return root[x]; } public void union(int x, int y) { int rootX = find(x); int rootY = find(y); if (rootX != rootY) { for (int i = 0; i &amp;lt; root.</description>
+    </item>
+    
+    <item>
+      <title>3.1.深度优先搜索算法-遍历所有顶点</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/3.%E5%9B%BE%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-/3.1.%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-%E9%81%8D%E5%8E%86%E6%89%80%E6%9C%89%E9%A1%B6%E7%82%B9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/3.%E5%9B%BE%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-/3.1.%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-%E9%81%8D%E5%8E%86%E6%89%80%E6%9C%89%E9%A1%B6%E7%82%B9/</guid>
+      <description>3.1.深度优先搜索算法-遍历所有顶点 代码 时间复杂度 O(V+E)。
+VV 表示顶点数，EE 表示边数。
+空间复杂度 O(V)。
+VV 表示顶点数。</description>
+    </item>
+    
+    <item>
+      <title>4.1.广度优先搜索算法-遍历所有顶点</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/4.%E5%9B%BE%E7%9A%84%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/4.1.%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-%E9%81%8D%E5%8E%86%E6%89%80%E6%9C%89%E9%A1%B6%E7%82%B9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/4.%E5%9B%BE%E7%9A%84%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/4.1.%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-%E9%81%8D%E5%8E%86%E6%89%80%E6%9C%89%E9%A1%B6%E7%82%B9/</guid>
+      <description>4.1.广度优先搜索算法-遍历所有顶点 代码 //todo::
+时间复杂度 O(V+E)O(V+E)。
+VV 表示顶点数，EE 表示边数。
+空间复杂度 O(V)O(V)。</description>
+    </item>
+    
+    <item>
+      <title>4.2.广度优先搜索算法-求两点之间最短路径</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/4.%E5%9B%BE%E7%9A%84%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/4.2.%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-%E6%B1%82%E4%B8%A4%E7%82%B9%E4%B9%8B%E9%97%B4%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/4.%E5%9B%BE%E7%9A%84%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/4.2.%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-%E6%B1%82%E4%B8%A4%E7%82%B9%E4%B9%8B%E9%97%B4%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/</guid>
+      <description>4.2.广度优先搜索算法-求两点之间最短路径 代码 //todo::
+时间复杂度 O(V+E)O(V+E)。
+VV 表示顶点数，EE 表示边数。
+空间复杂度 O(V)O(V)。
+VV 表示顶点数。</description>
+    </item>
+    
+    <item>
+      <title>冒泡排序</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</guid>
+      <description>冒泡排序 冒泡排序有三种写法：  一边比较一边向后两两交换，将最大值 / 最小值冒泡到最后一位； 经过优化的写法：使用一个变量记录当前轮次的比较是否发生过交换，如果没有发生交换表示已经有序，不再继续排序； 进一步优化的写法：除了使用变量记录当前轮次是否发生交换外，再使用一个变量记录上次发生交换的位置，下一轮排序时到达上次交换的位置就停止比较。  代码 package main import ( &amp;quot;fmt&amp;quot; ) func main() { values1 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12} fmt.Println(values1) // [4 93 84 85 80 37 81 93 27 12] MySort1(values1) fmt.Println(values1) // [4 12 27 37 80 81 84 85 93 93] values2 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12} fmt.Println(values2) // [4 93 84 85 80 37 81 93 27 12] MySort1(values2) fmt.</description>
     </item>
     
     <item>
@@ -34,6 +102,17 @@ host-only(虚拟机和主机互相通信，使用192.168.56.x段)
     </item>
     
     <item>
+      <title>2.2.Quick Union 的「并查集」</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.2.quick-union-%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.2.quick-union-%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <description>2.2.Quick Union 的「并查集」 Quick Union 工作原理 //todo::
+为什么 Quick Union 比 Quick Find 更加高效？ 总体来说，Quick Union 是比 Quick Find 更加高效的。 //todo::
+伪代码 public class UnionFind { int root[]; public UnionFind(int size) { root = new int[size]; for (int i = 0; i &amp;lt; size; i++) { root[i] = i; } } public int find(int x) { while (x != root[x]) { x = root[x]; } return x; } public void union(int x, int y) { int rootX = find(x); int rootY = find(y); if (rootX !</description>
+    </item>
+    
+    <item>
       <title>2.消息系统原理</title>
       <link>https://ruichengm1987.github.io/docs/kafka/2.%E6%B6%88%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -44,12 +123,42 @@ host-only(虚拟机和主机互相通信，使用192.168.56.x段)
     </item>
     
     <item>
+      <title>3.2.深度优先搜索算法-遍历两点之间所有路径</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/3.%E5%9B%BE%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-/3.2.%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-%E9%81%8D%E5%8E%86%E4%B8%A4%E7%82%B9%E4%B9%8B%E9%97%B4%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/3.%E5%9B%BE%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-/3.2.%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-%E9%81%8D%E5%8E%86%E4%B8%A4%E7%82%B9%E4%B9%8B%E9%97%B4%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84/</guid>
+      <description>3.2.深度优先搜索算法-遍历两点之间所有路径 代码   </description>
+    </item>
+    
+    <item>
       <title>拷贝</title>
       <link>https://ruichengm1987.github.io/docs/vbox/%E6%8B%B7%E8%B4%9D/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ruichengm1987.github.io/docs/vbox/%E6%8B%B7%E8%B4%9D/</guid>
       <description>拷贝    修改配置 /etc/sysconfig/network-scripts/ifcfg-enp0s3 /etc/sysconfig/network-scripts/ifcfg-enp0s8 注意: 参考配置网卡里面的配置</description>
+    </item>
+    
+    <item>
+      <title>选择排序</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</guid>
+      <description>选择排序 选择排序的思想是：双重循环遍历数组，每经过一轮比较，找到最小元素的下标，将其交换至首位。
+package main import &amp;quot;fmt&amp;quot; func main() { values1 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12} fmt.Println(values1) // [4 93 84 85 80 37 81 93 27 12] SelectSort(values1) fmt.Println(values1) // [4 12 27 37 80 81 84 85 93 93] values2 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12} fmt.Println(values2) // [4 93 84 85 80 37 81 93 27 12] SelectSort(values2) fmt.</description>
+    </item>
+    
+    <item>
+      <title>2.3.按秩合并的「并查集」</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.3.%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.3.%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <description>2.3.按秩合并的「并查集」 小伙伴看到这里的时候，我们其实已经实现了 2 种「并查集」。但它们都有一个很大的缺点，这个缺点就是通过 union 函数连接顶点之后，可能所有顶点连成一条线形成「图 5. 一条线的图」，这就是我们 find 函数在最坏的情况下的样子。那么我们有办法解决吗？
+当然，伟大的科学家已经给出了解决方案，就是按秩合并。这里的「秩」可以理解为「秩序」。之前我们在 union 的时候，我们是随机选择 x 和 y 中的一个根节点/父节点作为另一个顶点的根节点。但是在「按秩合并」中，我们是按照「某种秩序」选择一个父节点。
+这里的「秩」指的是每个顶点所处的高度。我们每次 union 两个顶点的时候，选择根节点的时候不是随机的选择某个顶点的根节点，而是将「秩」大的那个根节点作为两个顶点的根节点，换句话说，我们将低的树合并到高的树之下，将高的树的根节点作为两个顶点的根节点。这样，我们就避免了所有的顶点连成一条线，这就是按秩合并优化的「并查集」。  图5.一条线的图    伪代码 // UnionFind.class public class UnionFind { int root[]; int rank[]; public UnionFind(int size) { root = new int[size]; rank = new int[size]; for (int i = 0; i &amp;lt; size; i++) { root[i] = i; rank[i] = 1; } } public int find(int x) { while (x !</description>
     </item>
     
     <item>
@@ -78,6 +187,26 @@ host-only(虚拟机和主机互相通信，使用192.168.56.x段)
     </item>
     
     <item>
+      <title>插入排序</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</guid>
+      <description>插入排序 插入排序有两种写法：  交换法：在新数字插入过程中，不断与前面的数字交换，直到找到自己合适的位置。 移动法：在新数字插入过程中，与前面的数字不断比较，前面的数字不断向后挪出位置，当新数字找到自己的位置后，插入一次即可。  </description>
+    </item>
+    
+    <item>
+      <title>2.4.路径压缩优化的「并查集」</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.4.%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E4%BC%98%E5%8C%96%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.4.%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E4%BC%98%E5%8C%96%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <description>2.4.路径压缩优化的「并查集」 从前面的「并查集」实现方式中，我们不难看出，要想找到一个元素的根节点，需要沿着它的父亲节点的足迹一直遍历下去，直到找到它的根节点为止。如果下次再查找同一个元素的根节点，我们还是要做相同的操作。那我们有没有什么办法将它升级优化下呢？
+答案是可以的！如果我们在找到根节点之后，将所有遍历过的元素的父节点都改成根节点，那么我们下次再查询到相同元素的时候，我们就仅仅只需要遍历两个元素就可以找到它的根节点了，这是非常高效的实现方式。那么问题来了，我们如何将所有遍历过的元素的父节点都改成根节点呢？这里就要拿出「递归」算法了。这种优化我们称之为「路径压缩」优化，它是对 find 函数的一种优化。
+伪代码 // UnionFind.class public class UnionFind { int root[]; public UnionFind(int size) { root = new int[size]; for (int i = 0; i &amp;lt; size; i++) { root[i] = i; } } public int find(int x) { if (x == root[x]) { return x; } return root[x] = find(root[x]); } public void union(int x, int y) { int rootX = find(x); int rootY = find(y); if (rootX !</description>
+    </item>
+    
+    <item>
       <title>4.kafka系统架构</title>
       <link>https://ruichengm1987.github.io/docs/kafka/4.kafka%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -87,12 +216,34 @@ host-only(虚拟机和主机互相通信，使用192.168.56.x段)
     </item>
     
     <item>
+      <title>2.5.基于路径压缩的按秩合并优化的「并查集」</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.5.%E5%9F%BA%E4%BA%8E%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E7%9A%84%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6%E4%BC%98%E5%8C%96%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.5.%E5%9F%BA%E4%BA%8E%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E7%9A%84%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6%E4%BC%98%E5%8C%96%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <description>2.5.基于路径压缩的按秩合并优化的「并查集」 这个优化就是将「路径压缩优化」和「按秩合并优化」合并后形成的「并查集」的实现方式。
+伪代码 // UnionFind.class public class UnionFind { int root[]; // 添加了 rank 数组来记录每个顶点的高度，也就是每个顶点的「秩」 int rank[]; public UnionFind(int size) { root = new int[size]; rank = new int[size]; for (int i = 0; i &amp;lt; size; i++) { root[i] = i; rank[i] = 1; // 一开始每个顶点的初始「秩」为1，因为它们只有自己本身的一个顶点。 } } // 此处的 find 函数与路径压优化缩版本的 find 函数一样。 public int find(int x) { if (x == root[x]) { return x; } return root[x] = find(root[x]); } // 按秩合并优化的 union 函数 public void union(int x, int y) { int rootX = find(x); int rootY = find(y); if (rootX !</description>
+    </item>
+    
+    <item>
       <title>5.kafka环境搭建</title>
       <link>https://ruichengm1987.github.io/docs/kafka/5.kafka%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ruichengm1987.github.io/docs/kafka/5.kafka%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
       <description>5.kafka环境搭建 </description>
+    </item>
+    
+    <item>
+      <title>2.6.「并查集」数据结构总结</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.6.%E5%B9%B6%E6%9F%A5%E9%9B%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.6.%E5%B9%B6%E6%9F%A5%E9%9B%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</guid>
+      <description>2.6.「并查集」数据结构总结 在「并查集」数据结构中，其中心思想是将所有连接的顶点，无论是直接连接还是间接连接，都将他们指向同一个父节点或者根节点。此时，如果要判断两个顶点是否具有连通性，只要判断它们的根节点是否为同一个节点即可。
+在「并查集」数据结构中，它的两个灵魂函数，分别是 find和 union。find 函数是为了找出给定顶点的根节点。 union 函数是通过更改顶点根节点的方式，将两个原本不相连接的顶点表示为两个连接的顶点。对于「并查集」来说，它还有一个重要的功能性函数 connected。它最主要的作用就是检查两个顶点的「连通性」。find 和 union 函数是「并查集」中必不可少的函数。connected 函数则需要根据题目的意思来决定是否需要。
+「并查集」代码基本结构 public class UnionFind { // UnionFind 的构造函数，size 为 root 数组的长度 public UnionFind(int size) {} public int find(int x) {} public void union(int x, int y) {} public boolean connected(int x, int y) {} } 「并查集」的 find 函数 它主要是用于查找顶点 x 的根结点。
+ find 函数的基本实现  public int find(int x) { while (x != root[x]) { x = root[x]; } return x; }  find 函数的优化 - 路径压缩  public int find(int x) { if (x == root[x]) { return x; } return root[x] = find(root[x]); } 「并查集」的 union 函数 它主要是连接两个顶点 x 和 y 。将它们的根结点变成相同的，即代表它们来自于同一个根节点。</description>
     </item>
     
     <item>
@@ -111,6 +262,42 @@ host-only(虚拟机和主机互相通信，使用192.168.56.x段)
       
       <guid>https://ruichengm1987.github.io/docs/kafka/7.%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7/</guid>
       <description>7.数据的安全性 producer delivery guarantee 0. At least one 消息绝不会丢，但可能会重复传输 1. At most once 消息可能会丢，但绝不会重复传输 2. Exactly once 每条消息肯定会被传输一次且仅传输一次  Producers可以选择是否为数据的写入接收ack，有以下几种ack的选项：request.required.acks  acks=0 * Producer 在 ISR 中的 Leader 已成功收到的数据并得到确认后发送下一条 Message。 acks=1 * 这意味着 Producer 无需等待来自 Broker 的确认而继续发送下一批消息。 acks=all * Producer 需要等待 ISR 中的所有 Follower 都确认接收到数据后才算一次发送完成，可 靠性最高。    ISR机制  关键词  AR : Assigned Replicas 用来标识副本的全集 OSR ： out -sync Replicas 离开同步队列的副本 ISR ： in -sync Replicas 加入同步队列的副本 ISR = Leader + 没有落后太多的副本;AR = OSR+ ISR。   我们备份数据就是防止数据丢失，当主节点挂掉时，可以启用备份节点  producer&amp;ndash;push&amp;ndash;&amp;gt;leader leader&amp;ndash;pull&amp;ndash;&amp;gt;follower Follower每间隔一定时间去Leader拉取数据，来保证数据的同步   ISR(in-syncReplica  当主节点挂点，并不是去Follower选择主，而是从ISR中选择主 判断标准  超过10秒钟没有同步数据  replica.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/5.%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/5.1.%E5%88%87%E5%88%86%E5%AE%9A%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/5.%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/5.1.%E5%88%87%E5%88%86%E5%AE%9A%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/5.%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/5.2.kruskal%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/5.%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/5.2.kruskal%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/5.%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/5.3.prim%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/5.%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/5.3.prim%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ruichengm1987.github.io/docs/redis/%E7%BC%93%E5%AD%98/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/redis/%E7%BC%93%E5%AD%98/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F/</guid>
+      <description></description>
     </item>
     
   </channel>

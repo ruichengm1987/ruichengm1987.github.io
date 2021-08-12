@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="2.2.Quick Union 的「并查集」 Quick Union 工作原理 //todo::
+为什么 Quick Union 比 Quick Find 更加高效？ 总体来说，Quick Union 是比 Quick Find 更加高效的。 //todo::
+伪代码 public class UnionFind { int root[]; public UnionFind(int size) { root = new int[size]; for (int i = 0; i &lt; size; i&#43;&#43;) { root[i] = i; } } public int find(int x) { while (x != root[x]) { x = root[x]; } return x; } public void union(int x, int y) { int rootX = find(x); int rootY = find(y); if (rootX !">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="2.2.Quick Union 的「并查集」" />
+<meta property="og:description" content="2.2.Quick Union 的「并查集」 Quick Union 工作原理 //todo::
+为什么 Quick Union 比 Quick Find 更加高效？ 总体来说，Quick Union 是比 Quick Find 更加高效的。 //todo::
+伪代码 public class UnionFind { int root[]; public UnionFind(int size) { root = new int[size]; for (int i = 0; i &lt; size; i&#43;&#43;) { root[i] = i; } } public int find(int x) { while (x != root[x]) { x = root[x]; } return x; } public void union(int x, int y) { int rootX = find(x); int rootY = find(y); if (rootX !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.2.quick-union-%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/" />
+
+<title>2.2.Quick Union 的「并查集」 | 笔记本</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.420f73ccb537b2f006c333178f7384459fde20eb9569eb6a1c159648d991563a.js" integrity="sha256-Qg9zzLU3svAGwzMXj3OERZ/eIOuVaetqHBWWSNmRVjo="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>笔记本</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/" class="collapsed ">algorithm</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/" class="collapsed ">图</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/1.%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" class="">1.「图」的基本知识</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="collapsed ">2.并查集</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.1.quick-find-%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="">2.1.Quick Find 的「并查集」</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.2.quick-union-%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="active">2.2.Quick Union 的「并查集」</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.3.%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="">2.3.按秩合并的「并查集」</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.4.%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E4%BC%98%E5%8C%96%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="">2.4.路径压缩优化的「并查集」</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.5.%E5%9F%BA%E4%BA%8E%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E7%9A%84%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6%E4%BC%98%E5%8C%96%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="">2.5.基于路径压缩的按秩合并优化的「并查集」</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.6.%E5%B9%B6%E6%9F%A5%E9%9B%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/" class="">2.6.「并查集」数据结构总结</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/3.%E5%9B%BE%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-/" class="collapsed ">3.「图」的深度优先搜索算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/4.%E5%9B%BE%E7%9A%84%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" class="collapsed ">4.「图」的广度优先搜索算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/5.%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" class="collapsed ">5.最小生成树相关算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/6.%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" class="collapsed ">6.单源最短路径相关算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/7.%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E4%B9%8Bkahn%E7%AE%97%E6%B3%95/" class="collapsed ">7.拓扑排序之Kahn算法</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%A0%86/" class="collapsed ">堆</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E6%8E%92%E5%BA%8F/" class="collapsed ">排序</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/vbox/" class="collapsed ">vbox</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>2.2.Quick Union 的「并查集」</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#quick-union-工作原理">Quick Union 工作原理</a>
+      <ul>
+        <li><a href="#为什么-quick-union-比-quick-find-更加高效">为什么 Quick Union 比 Quick Find 更加高效？</a></li>
+      </ul>
+    </li>
+    <li><a href="#伪代码">伪代码</a></li>
+    <li><a href="#时间复杂度">时间复杂度</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="22quick-union-的并查集">2.2.Quick Union 的「并查集」</h1>
+<h2 id="quick-union-工作原理">Quick Union 工作原理</h2>
+<p>//todo::</p>
+<h3 id="为什么-quick-union-比-quick-find-更加高效">为什么 Quick Union 比 Quick Find 更加高效？</h3>
+<p>总体来说，Quick Union 是比 Quick Find 更加高效的。
+//todo::</p>
+<h2 id="伪代码">伪代码</h2>
+<pre><code class="language-$xslt" data-lang="$xslt">public class UnionFind {
+    int root[];
+
+    public UnionFind(int size) {
+        root = new int[size];
+        for (int i = 0; i &lt; size; i++) {
+            root[i] = i;
+        }
+    }
+
+    public int find(int x) {
+        while (x != root[x]) {
+            x = root[x];
+        }
+        return x;
+    }
+
+    public void union(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+        if (rootX != rootY) {
+            root[rootY] = rootX;
+        }
+    };
+
+    public boolean connected(int x, int y) {
+        return find(x) == find(y);
+    }
+}
+
+// App.java
+// 测试样例
+public class App {
+    public static void main(String[] args) throws Exception {
+        UnionFind uf = new UnionFind(10);
+        // 1-2-5-6-7 3-8-9 4
+        uf.union(1, 2);
+        uf.union(2, 5);
+        uf.union(5, 6);
+        uf.union(6, 7);
+        uf.union(3, 8);
+        uf.union(8, 9);
+        System.out.println(uf.connected(1, 5)); // true
+        System.out.println(uf.connected(5, 7)); // true
+        System.out.println(uf.connected(4, 9)); // false
+        // 1-2-5-6-7 3-8-9-4
+        uf.union(9, 4);
+        System.out.println(uf.connected(4, 9)); // true
+    }
+}
+</code></pre><h2 id="时间复杂度">时间复杂度</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>UnionFind 构造函数</th>
+<th>find 函数</th>
+<th>union 函数</th>
+<th>connected 函数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时间复杂度</td>
+<td>O(N)</td>
+<td>O(H)</td>
+<td>O(H)</td>
+<td>O(H)</td>
+</tr>
+</tbody>
+</table>
+<p>注：NN 为「图」中顶点的个数，HH 为「树」的高度。</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#quick-union-工作原理">Quick Union 工作原理</a>
+      <ul>
+        <li><a href="#为什么-quick-union-比-quick-find-更加高效">为什么 Quick Union 比 Quick Find 更加高效？</a></li>
+      </ul>
+    </li>
+    <li><a href="#伪代码">伪代码</a></li>
+    <li><a href="#时间复杂度">时间复杂度</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

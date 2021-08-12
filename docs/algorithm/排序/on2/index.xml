@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>O(n^2) on 笔记本</title>
+    <link>https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/</link>
+    <description>Recent content in O(n^2) on 笔记本</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>冒泡排序</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</guid>
+      <description>冒泡排序 冒泡排序有三种写法：  一边比较一边向后两两交换，将最大值 / 最小值冒泡到最后一位； 经过优化的写法：使用一个变量记录当前轮次的比较是否发生过交换，如果没有发生交换表示已经有序，不再继续排序； 进一步优化的写法：除了使用变量记录当前轮次是否发生交换外，再使用一个变量记录上次发生交换的位置，下一轮排序时到达上次交换的位置就停止比较。  代码 package main import ( &amp;quot;fmt&amp;quot; ) func main() { values1 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12} fmt.Println(values1) // [4 93 84 85 80 37 81 93 27 12] MySort1(values1) fmt.Println(values1) // [4 12 27 37 80 81 84 85 93 93] values2 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12} fmt.Println(values2) // [4 93 84 85 80 37 81 93 27 12] MySort1(values2) fmt.</description>
+    </item>
+    
+    <item>
+      <title>选择排序</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</guid>
+      <description>选择排序 选择排序的思想是：双重循环遍历数组，每经过一轮比较，找到最小元素的下标，将其交换至首位。
+package main import &amp;quot;fmt&amp;quot; func main() { values1 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12} fmt.Println(values1) // [4 93 84 85 80 37 81 93 27 12] SelectSort(values1) fmt.Println(values1) // [4 12 27 37 80 81 84 85 93 93] values2 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12} fmt.Println(values2) // [4 93 84 85 80 37 81 93 27 12] SelectSort(values2) fmt.</description>
+    </item>
+    
+    <item>
+      <title>插入排序</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</guid>
+      <description>插入排序 插入排序有两种写法：  交换法：在新数字插入过程中，不断与前面的数字交换，直到找到自己合适的位置。 移动法：在新数字插入过程中，与前面的数字不断比较，前面的数字不断向后挪出位置，当新数字找到自己的位置后，插入一次即可。  </description>
+    </item>
+    
+  </channel>
+</rss>

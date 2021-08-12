@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="冒泡排序 冒泡排序有三种写法：  一边比较一边向后两两交换，将最大值 / 最小值冒泡到最后一位； 经过优化的写法：使用一个变量记录当前轮次的比较是否发生过交换，如果没有发生交换表示已经有序，不再继续排序； 进一步优化的写法：除了使用变量记录当前轮次是否发生交换外，再使用一个变量记录上次发生交换的位置，下一轮排序时到达上次交换的位置就停止比较。  代码 package main import ( &quot;fmt&quot; ) func main() { values1 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12} fmt.Println(values1) // [4 93 84 85 80 37 81 93 27 12] MySort1(values1) fmt.Println(values1) // [4 12 27 37 80 81 84 85 93 93] values2 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12} fmt.Println(values2) // [4 93 84 85 80 37 81 93 27 12] MySort1(values2) fmt.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="冒泡排序" />
+<meta property="og:description" content="冒泡排序 冒泡排序有三种写法：  一边比较一边向后两两交换，将最大值 / 最小值冒泡到最后一位； 经过优化的写法：使用一个变量记录当前轮次的比较是否发生过交换，如果没有发生交换表示已经有序，不再继续排序； 进一步优化的写法：除了使用变量记录当前轮次是否发生交换外，再使用一个变量记录上次发生交换的位置，下一轮排序时到达上次交换的位置就停止比较。  代码 package main import ( &quot;fmt&quot; ) func main() { values1 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12} fmt.Println(values1) // [4 93 84 85 80 37 81 93 27 12] MySort1(values1) fmt.Println(values1) // [4 12 27 37 80 81 84 85 93 93] values2 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12} fmt.Println(values2) // [4 93 84 85 80 37 81 93 27 12] MySort1(values2) fmt." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" />
+
+<title>冒泡排序 | 笔记本</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.420f73ccb537b2f006c333178f7384459fde20eb9569eb6a1c159648d991563a.js" integrity="sha256-Qg9zzLU3svAGwzMXj3OERZ/eIOuVaetqHBWWSNmRVjo="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>笔记本</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/" class="collapsed ">algorithm</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%9B%BE/" class="collapsed ">图</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E5%A0%86/" class="collapsed ">堆</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E6%8E%92%E5%BA%8F/" class="collapsed ">排序</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/" class="collapsed ">O(n^2)</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" class="active">冒泡排序</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" class="">选择排序</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E6%8E%92%E5%BA%8F/on2/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="">插入排序</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E6%8E%92%E5%BA%8F/onlogn/" class="collapsed ">O(nlogn)</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/%E6%8E%92%E5%BA%8F/on/" class="collapsed ">O(n)</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/vbox/" class="collapsed ">vbox</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>冒泡排序</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#冒泡排序有三种写法">冒泡排序有三种写法：</a></li>
+    <li><a href="#代码">代码</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="冒泡排序">冒泡排序</h1>
+<h2 id="冒泡排序有三种写法">冒泡排序有三种写法：</h2>
+<ul>
+<li>一边比较一边向后两两交换，将最大值 / 最小值冒泡到最后一位；</li>
+<li>经过优化的写法：使用一个变量记录当前轮次的比较是否发生过交换，如果没有发生交换表示已经有序，不再继续排序；</li>
+<li>进一步优化的写法：除了使用变量记录当前轮次是否发生交换外，再使用一个变量记录上次发生交换的位置，下一轮排序时到达上次交换的位置就停止比较。</li>
+</ul>
+<h2 id="代码">代码</h2>
+<pre><code class="language-$xslt" data-lang="$xslt">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+	values1 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12}
+	fmt.Println(values1) // [4 93 84 85 80 37 81 93 27 12]
+	MySort1(values1)
+	fmt.Println(values1) // [4 12 27 37 80 81 84 85 93 93]
+
+	values2 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12}
+	fmt.Println(values2) // [4 93 84 85 80 37 81 93 27 12]
+	MySort1(values2)
+	fmt.Println(values2) // [4 12 27 37 80 81 84 85 93 93]
+
+	values3 := []int{4, 93, 84, 85, 80, 37, 81, 93, 27, 12}
+	fmt.Println(values3) // [4 93 84 85 80 37 81 93 27 12]
+	MySort1(values3)
+	fmt.Println(values3) // [4 12 27 37 80 81 84 85 93 93]
+}
+
+// 第一种排序
+func MySort1(arr []int) {
+	for i := 0; i &lt; len(arr); i++ {
+		for j := 0; j &lt; len(arr) -i - 1; j++ {
+			if arr[j+1] &lt; arr[j] {
+				arr[j],arr[j+1] = arr[j+1],arr[j]
+			}
+		}
+	}
+}
+
+// 第二种排序
+func MySort2(arr []int) {
+	var swapped bool = true;
+	for i := 0; i &lt; len(arr); i++ {
+		if !swapped {
+			break;
+		}
+		swapped = false;
+		for j := 0; j &lt; len(arr) -i - 1; j++ {
+			if arr[j+1] &lt; arr[j] {
+				arr[j],arr[j+1] = arr[j+1],arr[j]
+				swapped = true;
+			}
+		}
+	}
+}
+
+// 第三种排序
+func MySort3(arr []int) {
+	var swapped bool = true;
+	var indexOfLastUnsortedElement int = len(arr) - 1;
+	// 上次发生交换的位置
+	var swappedIndex int = -1;
+	for swapped {
+		swapped = false;
+		for i := 0; i &lt; indexOfLastUnsortedElement; i++  {
+			if arr[i] &gt; arr[i+1] {
+				arr[i],arr[i+1] = arr[i+1],arr[i]
+				// 表示发生了交换
+				swapped = true;
+				// 更新交换的位置
+				swappedIndex = i;
+			}
+		}
+		// 最后一个没有经过排序的元素的下标就是最后一次发生交换的位置
+		indexOfLastUnsortedElement = swappedIndex;
+	}
+}
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#冒泡排序有三种写法">冒泡排序有三种写法：</a></li>
+    <li><a href="#代码">代码</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2.并查集 on 笔记本</title>
+    <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+    <description>Recent content in 2.并查集 on 笔记本</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2.1.Quick Find 的「并查集」</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.1.quick-find-%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.1.quick-find-%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <description>2.1.Quick Find 的「并查集」 Quick Find的工作原理 //todo::
+伪代码 (todo:://提供一版go的代码) // UnionFind.class public class UnionFind { int root[]; public UnionFind(int size) { root = new int[size]; for (int i = 0; i &amp;lt; size; i++) { root[i] = i; } } public int find(int x) { return root[x]; } public void union(int x, int y) { int rootX = find(x); int rootY = find(y); if (rootX != rootY) { for (int i = 0; i &amp;lt; root.</description>
+    </item>
+    
+    <item>
+      <title>2.2.Quick Union 的「并查集」</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.2.quick-union-%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.2.quick-union-%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <description>2.2.Quick Union 的「并查集」 Quick Union 工作原理 //todo::
+为什么 Quick Union 比 Quick Find 更加高效？ 总体来说，Quick Union 是比 Quick Find 更加高效的。 //todo::
+伪代码 public class UnionFind { int root[]; public UnionFind(int size) { root = new int[size]; for (int i = 0; i &amp;lt; size; i++) { root[i] = i; } } public int find(int x) { while (x != root[x]) { x = root[x]; } return x; } public void union(int x, int y) { int rootX = find(x); int rootY = find(y); if (rootX !</description>
+    </item>
+    
+    <item>
+      <title>2.3.按秩合并的「并查集」</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.3.%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.3.%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <description>2.3.按秩合并的「并查集」 小伙伴看到这里的时候，我们其实已经实现了 2 种「并查集」。但它们都有一个很大的缺点，这个缺点就是通过 union 函数连接顶点之后，可能所有顶点连成一条线形成「图 5. 一条线的图」，这就是我们 find 函数在最坏的情况下的样子。那么我们有办法解决吗？
+当然，伟大的科学家已经给出了解决方案，就是按秩合并。这里的「秩」可以理解为「秩序」。之前我们在 union 的时候，我们是随机选择 x 和 y 中的一个根节点/父节点作为另一个顶点的根节点。但是在「按秩合并」中，我们是按照「某种秩序」选择一个父节点。
+这里的「秩」指的是每个顶点所处的高度。我们每次 union 两个顶点的时候，选择根节点的时候不是随机的选择某个顶点的根节点，而是将「秩」大的那个根节点作为两个顶点的根节点，换句话说，我们将低的树合并到高的树之下，将高的树的根节点作为两个顶点的根节点。这样，我们就避免了所有的顶点连成一条线，这就是按秩合并优化的「并查集」。  图5.一条线的图    伪代码 // UnionFind.class public class UnionFind { int root[]; int rank[]; public UnionFind(int size) { root = new int[size]; rank = new int[size]; for (int i = 0; i &amp;lt; size; i++) { root[i] = i; rank[i] = 1; } } public int find(int x) { while (x !</description>
+    </item>
+    
+    <item>
+      <title>2.4.路径压缩优化的「并查集」</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.4.%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E4%BC%98%E5%8C%96%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.4.%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E4%BC%98%E5%8C%96%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <description>2.4.路径压缩优化的「并查集」 从前面的「并查集」实现方式中，我们不难看出，要想找到一个元素的根节点，需要沿着它的父亲节点的足迹一直遍历下去，直到找到它的根节点为止。如果下次再查找同一个元素的根节点，我们还是要做相同的操作。那我们有没有什么办法将它升级优化下呢？
+答案是可以的！如果我们在找到根节点之后，将所有遍历过的元素的父节点都改成根节点，那么我们下次再查询到相同元素的时候，我们就仅仅只需要遍历两个元素就可以找到它的根节点了，这是非常高效的实现方式。那么问题来了，我们如何将所有遍历过的元素的父节点都改成根节点呢？这里就要拿出「递归」算法了。这种优化我们称之为「路径压缩」优化，它是对 find 函数的一种优化。
+伪代码 // UnionFind.class public class UnionFind { int root[]; public UnionFind(int size) { root = new int[size]; for (int i = 0; i &amp;lt; size; i++) { root[i] = i; } } public int find(int x) { if (x == root[x]) { return x; } return root[x] = find(root[x]); } public void union(int x, int y) { int rootX = find(x); int rootY = find(y); if (rootX !</description>
+    </item>
+    
+    <item>
+      <title>2.5.基于路径压缩的按秩合并优化的「并查集」</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.5.%E5%9F%BA%E4%BA%8E%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E7%9A%84%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6%E4%BC%98%E5%8C%96%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.5.%E5%9F%BA%E4%BA%8E%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E7%9A%84%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6%E4%BC%98%E5%8C%96%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</guid>
+      <description>2.5.基于路径压缩的按秩合并优化的「并查集」 这个优化就是将「路径压缩优化」和「按秩合并优化」合并后形成的「并查集」的实现方式。
+伪代码 // UnionFind.class public class UnionFind { int root[]; // 添加了 rank 数组来记录每个顶点的高度，也就是每个顶点的「秩」 int rank[]; public UnionFind(int size) { root = new int[size]; rank = new int[size]; for (int i = 0; i &amp;lt; size; i++) { root[i] = i; rank[i] = 1; // 一开始每个顶点的初始「秩」为1，因为它们只有自己本身的一个顶点。 } } // 此处的 find 函数与路径压优化缩版本的 find 函数一样。 public int find(int x) { if (x == root[x]) { return x; } return root[x] = find(root[x]); } // 按秩合并优化的 union 函数 public void union(int x, int y) { int rootX = find(x); int rootY = find(y); if (rootX !</description>
+    </item>
+    
+    <item>
+      <title>2.6.「并查集」数据结构总结</title>
+      <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.6.%E5%B9%B6%E6%9F%A5%E9%9B%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.6.%E5%B9%B6%E6%9F%A5%E9%9B%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</guid>
+      <description>2.6.「并查集」数据结构总结 在「并查集」数据结构中，其中心思想是将所有连接的顶点，无论是直接连接还是间接连接，都将他们指向同一个父节点或者根节点。此时，如果要判断两个顶点是否具有连通性，只要判断它们的根节点是否为同一个节点即可。
+在「并查集」数据结构中，它的两个灵魂函数，分别是 find和 union。find 函数是为了找出给定顶点的根节点。 union 函数是通过更改顶点根节点的方式，将两个原本不相连接的顶点表示为两个连接的顶点。对于「并查集」来说，它还有一个重要的功能性函数 connected。它最主要的作用就是检查两个顶点的「连通性」。find 和 union 函数是「并查集」中必不可少的函数。connected 函数则需要根据题目的意思来决定是否需要。
+「并查集」代码基本结构 public class UnionFind { // UnionFind 的构造函数，size 为 root 数组的长度 public UnionFind(int size) {} public int find(int x) {} public void union(int x, int y) {} public boolean connected(int x, int y) {} } 「并查集」的 find 函数 它主要是用于查找顶点 x 的根结点。
+ find 函数的基本实现  public int find(int x) { while (x != root[x]) { x = root[x]; } return x; }  find 函数的优化 - 路径压缩  public int find(int x) { if (x == root[x]) { return x; } return root[x] = find(root[x]); } 「并查集」的 union 函数 它主要是连接两个顶点 x 和 y 。将它们的根结点变成相同的，即代表它们来自于同一个根节点。</description>
+    </item>
+    
+  </channel>
+</rss>
