@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2.基本程序结构 on 笔记本</title>
+    <link>https://ruichengm1987.github.io/docs/go/2.%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/</link>
+    <description>Recent content in 2.基本程序结构 on 笔记本</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/go/2.%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2.1.变量vs常量</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/2.1.%E5%8F%98%E9%87%8Fvs%E5%B8%B8%E9%87%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/2.1.%E5%8F%98%E9%87%8Fvs%E5%B8%B8%E9%87%8F/</guid>
+      <description>2.1.变量vs常量 变量赋值  赋值可以进行自动类型推断 在一个赋值语句中可以对多个变量进行同时赋值  a, b = b, a 常量定义 const ( Monday = iota + 1 Tuesday Wednesday ) const ( Readable = 1 &amp;lt;&amp;lt; iota Writable Executable ) </description>
+    </item>
+    
+    <item>
+      <title>2.2.数据类型</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/2.2.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/2.2.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      <description>2.2.数据类型    基本数据类型     bool   string   int int8 int16 int32 int64   uint uint8 uint16 uint32 uint64 uintptr   byte // alias for uint8   rune // alias for int32, represents a Unicode code point   float32 float64   complex64 complex128    ** go 不支持隐式类型转换,哪怕别名和原始类型都不能转换
+//机器位数 cpu := runtime.GOARCH //int占用位数 int_size := strconv.IntSize 类型的预定义值    math.</description>
+    </item>
+    
+    <item>
+      <title>2.3.运算符</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/2.3.%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/2.3.%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
+      <description>2.3.运算符 &amp;amp;^ 按位置零
+1 &amp;amp;^ 0 1</description>
+    </item>
+    
+    <item>
+      <title>2.4.条件和循环</title>
+      <link>https://ruichengm1987.github.io/docs/go/2.%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/2.4.%E6%9D%A1%E4%BB%B6%E5%92%8C%E5%BE%AA%E7%8E%AF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/2.%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/2.4.%E6%9D%A1%E4%BB%B6%E5%92%8C%E5%BE%AA%E7%8E%AF/</guid>
+      <description>2.4.条件和循环 循环 go 语言仅支持循环关键字for
+for j := 7; j &amp;lt;= 9; j++
+while while条件循环
+# while (n&amp;lt;5) n := 0 for n &amp;lt; 5 { n++ fmt.Println(n) } 无限循环
+# while(true) n := 0 for { } if条件 if condition { } else { } if condition-1 { } else if condition-2 { } else { }    condition 表达式结果必须为布尔值    支持变量赋值    if var declaration; condition { // code to be executed if condiion is true } switch条件  1.</description>
+    </item>
+    
+  </channel>
+</rss>

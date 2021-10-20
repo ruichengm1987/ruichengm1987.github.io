@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>7.编写好的错误处理 on 笔记本</title>
+    <link>https://ruichengm1987.github.io/docs/go/7.%E7%BC%96%E5%86%99%E5%A5%BD%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+    <description>Recent content in 7.编写好的错误处理 on 笔记本</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/go/7.%E7%BC%96%E5%86%99%E5%A5%BD%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>7.1.编写好的错误处理</title>
+      <link>https://ruichengm1987.github.io/docs/go/7.%E7%BC%96%E5%86%99%E5%A5%BD%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/7.1.%E7%BC%96%E5%86%99%E5%A5%BD%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/7.%E7%BC%96%E5%86%99%E5%A5%BD%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/7.1.%E7%BC%96%E5%86%99%E5%A5%BD%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
+      <description>7.1.编写好的错误处理 Go的错误机制  没有异常机制 error类型实现了error接口 可以通过errors.New来快速创建错误实例  </description>
+    </item>
+    
+    <item>
+      <title>7.2.panic和</title>
+      <link>https://ruichengm1987.github.io/docs/go/7.%E7%BC%96%E5%86%99%E5%A5%BD%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/7.2.panic%E5%92%8Crecover/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/go/7.%E7%BC%96%E5%86%99%E5%A5%BD%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/7.2.panic%E5%92%8Crecover/</guid>
+      <description>7.1.编写好的错误处理recover panic  panic用于不可以恢复的错误 panic退出前会执行defer指定的内容  </description>
+    </item>
+    
+  </channel>
+</rss>
