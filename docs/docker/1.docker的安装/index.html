@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="1.docker的安装 docker的安装 0. 需要在Centos7及以上的发行版本, 建议使用overlay2存储驱动程序 1. 卸载已有Docker sudo yum remove docker \ &gt; docker-client \ &gt; docker-client-latest \ &gt; docker-common \ &gt; docker-latest \ &gt; docker-latest-logrotate \ &gt; docker-logrotate \ &gt; docker-engine 2. 使用yum安装依赖包 sudo yum install -y yum-utils 3. 首次安装DOcker之前,需要添加Docker安装源 sudo yum-config-manager \ --add-repo \ https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 4. 安装最新版本的Docker sudo yum install docker-ce docker-ce-cli containerd.io 安装指定的docker sudo yum list docker-ce --showduplicates|sort -r sudo yum install docker-ce-&lt;VERSION_STRING&gt; docker-ce-cli-&lt;VERSION_STRING&gt; containerd.io 5. 启动docker sudo systemctl start docker 6.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="1.docker的安装" />
+<meta property="og:description" content="1.docker的安装 docker的安装 0. 需要在Centos7及以上的发行版本, 建议使用overlay2存储驱动程序 1. 卸载已有Docker sudo yum remove docker \ &gt; docker-client \ &gt; docker-client-latest \ &gt; docker-common \ &gt; docker-latest \ &gt; docker-latest-logrotate \ &gt; docker-logrotate \ &gt; docker-engine 2. 使用yum安装依赖包 sudo yum install -y yum-utils 3. 首次安装DOcker之前,需要添加Docker安装源 sudo yum-config-manager \ --add-repo \ https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 4. 安装最新版本的Docker sudo yum install docker-ce docker-ce-cli containerd.io 安装指定的docker sudo yum list docker-ce --showduplicates|sort -r sudo yum install docker-ce-&lt;VERSION_STRING&gt; docker-ce-cli-&lt;VERSION_STRING&gt; containerd.io 5. 启动docker sudo systemctl start docker 6." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/docker/1.docker%E7%9A%84%E5%AE%89%E8%A3%85/" />
+
+<title>1.docker的安装 | 笔记本</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.807f4dbf6817f0af44592fc24be90194a9f0ead93c6ef0ed9d0b2b8db2a023d9.js" integrity="sha256-gH9Nv2gX8K9EWS/CS&#43;kBlKnw6tk8bvDtnQsrjbKgI9k="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>笔记本</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/" class="collapsed ">algorithm</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">go</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/" class="collapsed ">docker</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/1.docker%E7%9A%84%E5%AE%89%E8%A3%85/" class="active">1.docker的安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/2.docker%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" class="">2.Docker核心概念</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/3.docker%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E9%95%9C%E5%83%8F/" class="">3.Docker环境下如何配置你的镜像</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/10.%E8%B5%84%E6%BA%90%E9%99%90%E5%88%B6%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87cgroup%E6%9C%BA%E5%88%B6%E5%AE%9E%E7%8E%B0%E8%B5%84%E6%BA%90%E9%99%90%E5%88%B6/" class="">10.资源限制:如何通过Cgroup机制实现资源限制</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/vbox/" class="collapsed ">vbox</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>1.docker的安装</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#docker的安装">docker的安装</a></li>
+    <li><a href="#容器技术的原理">容器技术的原理</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="1docker的安装">1.docker的安装</h1>
+<h2 id="docker的安装">docker的安装</h2>
+<pre><code class="language-$xslt" data-lang="$xslt">0. 需要在Centos7及以上的发行版本, 建议使用overlay2存储驱动程序
+
+1. 卸载已有Docker
+   sudo yum remove docker \
+   &gt; docker-client \
+   &gt; docker-client-latest \
+   &gt; docker-common \
+   &gt; docker-latest \
+   &gt; docker-latest-logrotate \
+   &gt; docker-logrotate \
+   &gt; docker-engine
+
+2. 使用yum安装依赖包
+   sudo yum install -y yum-utils
+
+3. 首次安装DOcker之前,需要添加Docker安装源
+   sudo yum-config-manager \
+       --add-repo \
+       https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+4. 安装最新版本的Docker
+   sudo yum install docker-ce docker-ce-cli containerd.io
+   
+   安装指定的docker
+   sudo yum list docker-ce --showduplicates|sort -r   
+   sudo yum install docker-ce-&lt;VERSION_STRING&gt; docker-ce-cli-&lt;VERSION_STRING&gt; containerd.io
+
+5. 启动docker
+   sudo systemctl start docker
+
+6. 启动一个hello world的容器
+   
+</code></pre><h2 id="容器技术的原理">容器技术的原理</h2>
+<pre><code class="language-$xslt" data-lang="$xslt">容器技术原理--chroot:
+   是在unix和linux系统的一个操作, 针对正在运作的软件行程和它的子进程，改变它外显的根目录。 一个运行在这个环境下，经由chroot设置根目录的程序,
+   它不能够对这个指定根目录之外的文件进行访问动作,不能读取, 也不能更改它的内容。
+
+Namespace:
+    Namespace对内核资源进行隔离, 使得容器中的进程都可以在单独的命名空间中运行，并且只可以访问当前容器命名空间的资源
+    Namespace可以隔离进程ID、主机名、用户ID、文件名、网络访问和进程间通信等相关资源
+    
+    pid namespace: 隔离进程ID
+    net namespace: 隔离网络接口
+    mnt namespace: 文件系统挂载点隔离
+    ipc namespace: 信号量,消息队列和共享内存的隔离
+    uts namespace: 主机名和域名的隔离
+
+Cgroup:
+    一种Linux内核功能可以限制和隔离进程的资源使用情况(CPU、内存、磁盘I/O、网络等)
+
+联合文件系统:
+    又叫UnionFS, 是一种通过创建文件层进程操作的文件系统,常用的联合文件系统有AUFS、Overlay和Devicemapper等
+
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#docker的安装">docker的安装</a></li>
+    <li><a href="#容器技术的原理">容器技术的原理</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

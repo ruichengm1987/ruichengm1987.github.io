@@ -20,6 +20,15 @@
     </item>
     
     <item>
+      <title>1.docker的安装</title>
+      <link>https://ruichengm1987.github.io/docs/docker/1.docker%E7%9A%84%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/docker/1.docker%E7%9A%84%E5%AE%89%E8%A3%85/</guid>
+      <description>1.docker的安装 docker的安装 0. 需要在Centos7及以上的发行版本, 建议使用overlay2存储驱动程序 1. 卸载已有Docker sudo yum remove docker \ &amp;gt; docker-client \ &amp;gt; docker-client-latest \ &amp;gt; docker-common \ &amp;gt; docker-latest \ &amp;gt; docker-latest-logrotate \ &amp;gt; docker-logrotate \ &amp;gt; docker-engine 2. 使用yum安装依赖包 sudo yum install -y yum-utils 3. 首次安装DOcker之前,需要添加Docker安装源 sudo yum-config-manager \ --add-repo \ https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 4. 安装最新版本的Docker sudo yum install docker-ce docker-ce-cli containerd.io 安装指定的docker sudo yum list docker-ce --showduplicates|sort -r sudo yum install docker-ce-&amp;lt;VERSION_STRING&amp;gt; docker-ce-cli-&amp;lt;VERSION_STRING&amp;gt; containerd.io 5. 启动docker sudo systemctl start docker 6.</description>
+    </item>
+    
+    <item>
       <title>1.「图」的基本知识</title>
       <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/1.%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -122,6 +131,20 @@ host-only(虚拟机和主机互相通信，使用192.168.56.x段)
     </item>
     
     <item>
+      <title>2.Docker核心概念</title>
+      <link>https://ruichengm1987.github.io/docs/docker/2.docker%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/docker/2.docker%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
+      <description>2.Docker核心概念 Docker核心概念  镜像:
+镜像是一个只读的文件和文件夹组成，是Docker容器启动的先决条件 容器:
+容器是镜像的运行实体；容器运行着真正的应用程序； 容器有初建、运行、停止、暂停和删除五种状态；在容器内部,无法看到主机上的进程、无法看到主机上的进程、环境变量、网络等信息 仓库:
+Docker的镜像仓库用来存储和发布Docker镜像. (1.公共镜像库(github), 和 2.私有镜像库) 三者之间的关系图 //todo::图  Docker架构 OCI: 全称为开放容器标准(Open Container Initiative), 是一个轻量级,开放的治理结构
+ C/S 架构 通信(Unix套接字通讯、网络连接远程通信)  Docker客户端  docker命令是Docker用户与Docker服务端交互的主要方式 使用直接请求REST API的方式与Docker服务端交互 使用各种语言的SDK与Docker服务端交互  Docker服务端  Docker服务端是Docker所有后台服务的统称 dockerd负责相应和处理来自Docker客户端的请求,然后将客户端的请求转化为Docker的具体操作 //todo::  从1.11版本开始，dockerd已经成了独立的二进制,容器继承了containerd、runC等多个组件
+重要组件  containerd // 通过containerd-shim启动并管理 runC containerd-shim ctr docker docker-init docker-proxy dockerd runc //用来运行容器的轻量级工具,是真正用来运行容器的  实验 1. 启动一个busybox容器 docker run -d busybox sleep 3600 2. 查看dockerd的PID ps aux|grep dockerd </description>
+    </item>
+    
+    <item>
       <title>2.消息系统原理</title>
       <link>https://ruichengm1987.github.io/docs/kafka/2.%E6%B6%88%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -168,6 +191,15 @@ package main import &amp;quot;fmt&amp;quot; func main() { values1 := []int{4, 93
       <description>2.3.按秩合并的「并查集」 小伙伴看到这里的时候，我们其实已经实现了 2 种「并查集」。但它们都有一个很大的缺点，这个缺点就是通过 union 函数连接顶点之后，可能所有顶点连成一条线形成「图 5. 一条线的图」，这就是我们 find 函数在最坏的情况下的样子。那么我们有办法解决吗？
 当然，伟大的科学家已经给出了解决方案，就是按秩合并。这里的「秩」可以理解为「秩序」。之前我们在 union 的时候，我们是随机选择 x 和 y 中的一个根节点/父节点作为另一个顶点的根节点。但是在「按秩合并」中，我们是按照「某种秩序」选择一个父节点。
 这里的「秩」指的是每个顶点所处的高度。我们每次 union 两个顶点的时候，选择根节点的时候不是随机的选择某个顶点的根节点，而是将「秩」大的那个根节点作为两个顶点的根节点，换句话说，我们将低的树合并到高的树之下，将高的树的根节点作为两个顶点的根节点。这样，我们就避免了所有的顶点连成一条线，这就是按秩合并优化的「并查集」。  图5.一条线的图    伪代码 // UnionFind.class public class UnionFind { int root[]; int rank[]; public UnionFind(int size) { root = new int[size]; rank = new int[size]; for (int i = 0; i &amp;lt; size; i++) { root[i] = i; rank[i] = 1; } } public int find(int x) { while (x !</description>
+    </item>
+    
+    <item>
+      <title>3.Docker环境下如何配置你的镜像</title>
+      <link>https://ruichengm1987.github.io/docs/docker/3.docker%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/docker/3.docker%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E9%95%9C%E5%83%8F/</guid>
+      <description>3.Docker环境下如何配置你的镜像 镜像的操作 拉取镜像  Docker镜像的拉取使用docker pull命令 命令格式一般以docker pull [Registry]/[Repository]/[image]:[Tag]  </description>
     </item>
     
     <item>
@@ -271,6 +303,16 @@ package main import &amp;quot;fmt&amp;quot; func main() { values1 := []int{4, 93
       
       <guid>https://ruichengm1987.github.io/docs/kafka/7.%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7/</guid>
       <description>7.数据的安全性 producer delivery guarantee 0. At least one 消息绝不会丢，但可能会重复传输 1. At most once 消息可能会丢，但绝不会重复传输 2. Exactly once 每条消息肯定会被传输一次且仅传输一次  Producers可以选择是否为数据的写入接收ack，有以下几种ack的选项：request.required.acks  acks=0 * Producer 在 ISR 中的 Leader 已成功收到的数据并得到确认后发送下一条 Message。 acks=1 * 这意味着 Producer 无需等待来自 Broker 的确认而继续发送下一批消息。 acks=all * Producer 需要等待 ISR 中的所有 Follower 都确认接收到数据后才算一次发送完成，可 靠性最高。    ISR机制  关键词  AR : Assigned Replicas 用来标识副本的全集 OSR ： out -sync Replicas 离开同步队列的副本 ISR ： in -sync Replicas 加入同步队列的副本 ISR = Leader + 没有落后太多的副本;AR = OSR+ ISR。   我们备份数据就是防止数据丢失，当主节点挂掉时，可以启用备份节点  producer&amp;ndash;push&amp;ndash;&amp;gt;leader leader&amp;ndash;pull&amp;ndash;&amp;gt;follower Follower每间隔一定时间去Leader拉取数据，来保证数据的同步   ISR(in-syncReplica  当主节点挂点，并不是去Follower选择主，而是从ISR中选择主 判断标准  超过10秒钟没有同步数据  replica.</description>
+    </item>
+    
+    <item>
+      <title>10.资源限制:如何通过Cgroup机制实现资源限制</title>
+      <link>https://ruichengm1987.github.io/docs/docker/10.%E8%B5%84%E6%BA%90%E9%99%90%E5%88%B6%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87cgroup%E6%9C%BA%E5%88%B6%E5%AE%9E%E7%8E%B0%E8%B5%84%E6%BA%90%E9%99%90%E5%88%B6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/docker/10.%E8%B5%84%E6%BA%90%E9%99%90%E5%88%B6%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87cgroup%E6%9C%BA%E5%88%B6%E5%AE%9E%E7%8E%B0%E8%B5%84%E6%BA%90%E9%99%90%E5%88%B6/</guid>
+      <description>10.资源限制:如何通过Cgroup机制实现资源限制 cgroups功能及核心概念 cgroup(control groups) 是linux内核的一个功能,可以实现限制进程或者进程组的资源(如:CPU、内存、磁盘IO等)
+ 资源限制:限制资源的使用量 优先级限制: 不同的组可以有不同的资源使用优先级 审计: 计算控制组的资源使用情况 控制: 控制进程的挂起和恢复  子系统: 是一个内核的组件，一个子系统代表一类资源调度控制器 控制组: 表示一组进程和一组带有参数的子系统的关联关系 层级树: 是由一系列的控制组按照树状结构排列组成的，子控制组默认拥有父控制组的属性</description>
     </item>
     
     <item>
