@@ -4,13 +4,10 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Docker Docker是基于Linux Kernel的Namespace和Cgroup技术实现的
-Q&amp;A Q: 什么是Namespace?
-A:
-Q:什么是Cgroups?
-A:
-Q: 容器是如何一步步创建的
-A:">
+<meta name="description" content="Docker 1、概念  镜像：可以理解为软件安装包，可以方便的进行传播和安装。 容器：软件安装后的状态，每个软件运行环境都是独立的、隔离的，称之为容器。  1.1、安装 https://docs.docker.com/engine/install/#server
+1.2、镜像加速源    镜像加速器 镜像加速器地址     Docker 中国官方镜像 https://registry.docker-cn.com   DaoCloud 镜像站 http://f1361db2.m.daocloud.io   Azure 中国镜像 https://dockerhub.azk8s.cn   科大镜像站 https://docker.mirrors.ustc.edu.cn   阿里云 https://&lt;your_code&gt;.mirror.aliyuncs.com   七牛云 https://reg-mirror.qiniu.com   网易云 https://hub-mirror.c.163.com   腾讯云 https://mirror.ccs.tencentyun.com    通过:registry-mirrors参数配置
+2、Docker 快速安装软件 2.1、演示 Docker 安装 Redis Docker 官方镜像仓库查找 Redis ：https://hub.docker.com/
+安装: docker run -d -p 6379:6379 &ndash;name redis redis:latest 3、命令参考 https://docs.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="docker" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -20,7 +17,7 @@ A:">
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
-<script defer src="/en.search.min.89872255a64a58543a642998f98de66c843b602d3d27bf80b79ff5dad8ef5a6f.js" integrity="sha256-iYciVaZKWFQ6ZCmY&#43;Y3mbIQ7YC09J7&#43;At5/12tjvWm8="></script>
+<script defer src="/en.search.min.01becf294f0daa28448f628b53f80703ff5e3982e6c07b2528964e4cd82b311b.js" integrity="sha256-Ab7PKU8NqihEj2KLU/gHA/9eOYLmwHslKJZOTNgrMRs="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ruichengm1987.github.io/docs/docker/index.xml" title="笔记本" />
 <!--
 Made with Book Theme
@@ -136,46 +133,6 @@ https://github.com/alex-shpak/hugo-book
   
   <ul>
     
-      
-        <li>
-          
-  
-    <a href="/docs/docker/1.docker%E7%9A%84%E5%AE%89%E8%A3%85/" class="">1.docker的安装</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/docker/2.docker%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" class="">2.Docker核心概念</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/docker/3.docker%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E9%95%9C%E5%83%8F/" class="">3.Docker环境下如何配置你的镜像</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/docs/docker/10.%E8%B5%84%E6%BA%90%E9%99%90%E5%88%B6%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87cgroup%E6%9C%BA%E5%88%B6%E5%AE%9E%E7%8E%B0%E8%B5%84%E6%BA%90%E9%99%90%E5%88%B6/" class="">10.资源限制:如何通过Cgroup机制实现资源限制</a>
-  
-
-        </li>
-      
-    
   </ul>
   
 
@@ -268,7 +225,65 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#qa">Q&amp;A</a></li>
+    <li><a href="#1概念">1、概念</a>
+      <ul>
+        <li><a href="#11安装">1.1、安装</a></li>
+        <li><a href="#12镜像加速源">1.2、镜像加速源</a></li>
+      </ul>
+    </li>
+    <li><a href="#2docker-快速安装软件">2、Docker 快速安装软件</a>
+      <ul>
+        <li><a href="#21演示-docker-安装-redis">2.1、演示 Docker 安装 Redis</a></li>
+      </ul>
+    </li>
+    <li><a href="#3命令参考">3、命令参考</a>
+      <ul>
+        <li><a href="#31仓库相关">3.1、仓库相关</a></li>
+        <li><a href="#32容器相关">3.2、容器相关</a></li>
+        <li><a href="#33镜像相关">3.3、镜像相关</a></li>
+        <li><a href="#34run命令相关">3.4、run命令相关</a></li>
+        <li><a href="#35进入当前正在运行的容器">3.5、进入当前正在运行的容器</a></li>
+        <li><a href="#36从容器拷贝文件到主机">3.6、从容器拷贝文件到主机</a></li>
+      </ul>
+    </li>
+    <li><a href="#4容器数据卷">4、容器数据卷</a>
+      <ul>
+        <li><a href="#41使用数据卷">4.1、使用数据卷</a></li>
+        <li><a href="#42通过dockerfile">4.2、通过Dockerfile</a></li>
+        <li><a href="#43数据卷容器">4.3、数据卷容器</a></li>
+      </ul>
+    </li>
+    <li><a href="#5dockerfile">5、Dockerfile</a>
+      <ul>
+        <li><a href="#51构建步骤">5.1、构建步骤</a></li>
+        <li><a href="#52dockerfile的指令">5.2、Dockerfile的指令</a></li>
+        <li><a href="#53实战">5.3、实战</a></li>
+        <li><a href="#54研究人家dockerfile如何做的">5.4、研究人家dockerfile如何做的</a></li>
+      </ul>
+    </li>
+    <li><a href="#5目录挂载">5、目录挂载</a>
+      <ul>
+        <li><a href="#51现存问题">5.1、现存问题</a></li>
+        <li><a href="#52几种挂载方式">5.2、几种挂载方式</a></li>
+        <li><a href="#53挂载演示">5.3、挂载演示</a></li>
+      </ul>
+    </li>
+    <li><a href="#6多容器通信">6、多容器通信</a>
+      <ul>
+        <li><a href="#61创建虚拟网络">6.1、创建虚拟网络</a></li>
+        <li><a href="#62演示">6.2、演示</a></li>
+      </ul>
+    </li>
+    <li><a href="#7docker-compose">7、Docker-Compose</a>
+      <ul>
+        <li><a href="#71现存问题">7.1、现存问题</a></li>
+        <li><a href="#72安装-docker-compose">7.2、安装 Docker Compose</a></li>
+        <li><a href="#73编写脚本">7.3、编写脚本</a></li>
+        <li><a href="#74跑起来">7.4、跑起来</a></li>
+      </ul>
+    </li>
+    <li><a href="#8发布和部署">8、发布和部署</a></li>
+    <li><a href="#9备份和迁移数据">9、备份和迁移数据</a></li>
   </ul>
 </nav>
 
@@ -281,14 +296,437 @@ https://github.com/alex-shpak/hugo-book
       
       
   <article class="markdown"><h1 id="docker">Docker</h1>
-<p>Docker是基于Linux Kernel的Namespace和Cgroup技术实现的</p>
-<h2 id="qa">Q&amp;A</h2>
-<p>Q: 什么是Namespace?<br>
-A:</p>
-<p>Q:什么是Cgroups?<br>
-A:</p>
-<p>Q: 容器是如何一步步创建的<br>
-A:</p>
+<h2 id="1概念">1、概念</h2>
+<ul>
+<li>镜像：可以理解为软件安装包，可以方便的进行传播和安装。</li>
+<li>容器：软件安装后的状态，每个软件运行环境都是独立的、隔离的，称之为容器。</li>
+</ul>
+<h3 id="11安装">1.1、安装</h3>
+<p><a href="https://docs.docker.com/engine/install/#server">https://docs.docker.com/engine/install/#server</a></p>
+<h3 id="12镜像加速源">1.2、镜像加速源</h3>
+<table>
+<thead>
+<tr>
+<th>镜像加速器</th>
+<th>镜像加速器地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Docker 中国官方镜像</td>
+<td><a href="https://registry.docker-cn.com">https://registry.docker-cn.com</a></td>
+</tr>
+<tr>
+<td>DaoCloud 镜像站</td>
+<td><a href="http://f1361db2.m.daocloud.io">http://f1361db2.m.daocloud.io</a></td>
+</tr>
+<tr>
+<td>Azure 中国镜像</td>
+<td><a href="https://dockerhub.azk8s.cn">https://dockerhub.azk8s.cn</a></td>
+</tr>
+<tr>
+<td>科大镜像站</td>
+<td><a href="https://docker.mirrors.ustc.edu.cn">https://docker.mirrors.ustc.edu.cn</a></td>
+</tr>
+<tr>
+<td>阿里云</td>
+<td>https://&lt;your_code&gt;.mirror.aliyuncs.com</td>
+</tr>
+<tr>
+<td>七牛云</td>
+<td><a href="https://reg-mirror.qiniu.com">https://reg-mirror.qiniu.com</a></td>
+</tr>
+<tr>
+<td>网易云</td>
+<td><a href="https://hub-mirror.c.163.com">https://hub-mirror.c.163.com</a></td>
+</tr>
+<tr>
+<td>腾讯云</td>
+<td><a href="https://mirror.ccs.tencentyun.com">https://mirror.ccs.tencentyun.com</a></td>
+</tr>
+</tbody>
+</table>
+<p>通过:registry-mirrors参数配置</p>
+<h2 id="2docker-快速安装软件">2、Docker 快速安装软件</h2>
+<h3 id="21演示-docker-安装-redis">2.1、演示 Docker 安装 Redis</h3>
+<p>Docker 官方镜像仓库查找 Redis ：https://hub.docker.com/</p>
+<h4 id="安装-docker-run--d--p-63796379---name-redis-redislatest">安装: docker run -d -p 6379:6379 &ndash;name redis redis:latest</h4>
+<h2 id="3命令参考">3、命令参考</h2>
+<p><a href="https://docs.docker.com/engine/reference/run/">https://docs.docker.com/engine/reference/run/</a></p>
+<h3 id="31仓库相关">3.1、仓库相关</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>docker search $KEY_WORD</strong></td>
+<td><strong>查找镜像</strong></td>
+</tr>
+<tr>
+<td><strong>docker pull $REGISTRY:$TAG</strong></td>
+<td><strong>获取镜像</strong></td>
+</tr>
+<tr>
+<td><strong>docker push $IMAGE_NAME:$IMAGE_TAG</strong></td>
+<td><strong>推送镜像到仓库，需要先登录</strong></td>
+</tr>
+<tr>
+<td><strong>docker login $REGISTRY_URL</strong></td>
+<td><strong>登录仓库</strong></td>
+</tr>
+<tr>
+<td><strong>docker logout $REGISTRY_URL</strong></td>
+<td><strong>退出仓库</strong></td>
+</tr>
+<tr>
+<td><strong>docker info</strong></td>
+<td><strong>显示Docker详细的系统信息，可查看仓库地址</strong></td>
+</tr>
+<tr>
+<td><strong>docker version</strong></td>
+<td><strong>显示Docker信息</strong></td>
+</tr>
+<tr>
+<td><strong>docker &ndash;help</strong></td>
+<td><strong>显示Docker的帮助信息</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="32容器相关">3.2、容器相关</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker attach $CONTAINER_ID</td>
+<td>启动一个已存在的docker容器</td>
+</tr>
+<tr>
+<td><strong>docker stop $CONTAINER_ID</strong></td>
+<td><strong>停止docker容器</strong></td>
+</tr>
+<tr>
+<td><strong>docker start $CONTAINER_ID</strong></td>
+<td><strong>启动docker容器</strong></td>
+</tr>
+<tr>
+<td><strong>docker restart $CONTAINER_ID</strong></td>
+<td><strong>重启docker容器</strong></td>
+</tr>
+<tr>
+<td><strong>docker kill $CONTAINER_ID</strong></td>
+<td><strong>强制关闭docker容器</strong></td>
+</tr>
+<tr>
+<td>docker pause $CONTAINER_ID</td>
+<td>暂停容器</td>
+</tr>
+<tr>
+<td>docker unpause $CONTAINER_ID</td>
+<td>恢复暂停的容器</td>
+</tr>
+<tr>
+<td>docker rename $CONTAINER_ID</td>
+<td>重新命名docker容器</td>
+</tr>
+<tr>
+<td><strong>docker rm $CONTAINER_ID</strong></td>
+<td><strong>删除容器</strong></td>
+</tr>
+<tr>
+<td><strong>docker logs $CONTAINER_ID</strong></td>
+<td><strong>查看docker容器运行日志，确保正常运行</strong></td>
+</tr>
+<tr>
+<td><strong>docker inspect $CONTAINER_ID</strong></td>
+<td><strong>查看container的容器属性，比如ip等等</strong></td>
+</tr>
+<tr>
+<td><strong>docker port $CONTAINER_ID</strong></td>
+<td><strong>查看container的端口映射</strong></td>
+</tr>
+<tr>
+<td><strong>docker top $CONTAINER_ID</strong></td>
+<td><strong>查看容器中正在运行的进程</strong></td>
+</tr>
+<tr>
+<td><strong>docker commit $CONTAINER_ID</strong> $NEW_IMAGE_NAME:$NEW_IMAGE_TAG</td>
+<td><strong>将容器保存为镜像</strong></td>
+</tr>
+<tr>
+<td><strong>docker ps -a</strong></td>
+<td><strong>查看所有容器</strong></td>
+</tr>
+<tr>
+<td><strong>docker stats</strong></td>
+<td><strong>查看容器的资源使用情况</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="33镜像相关">3.3、镜像相关</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>docker images</strong></td>
+<td><strong>查看本地镜像</strong></td>
+</tr>
+<tr>
+<td><strong>docker rmi $IMAGE_ID</strong></td>
+<td><strong>删除本地镜像</strong></td>
+</tr>
+<tr>
+<td><strong>docker rmi -f $(docker images -qa)</strong></td>
+<td><strong>删除本地所有镜像</strong></td>
+</tr>
+<tr>
+<td><strong>docker inspect $IMAGE_ID</strong></td>
+<td><strong>查看镜像详情</strong></td>
+</tr>
+<tr>
+<td>docker save $IMAGE_ID &gt; 文件路径</td>
+<td>保存镜像为离线文件</td>
+</tr>
+<tr>
+<td>docker save -o 文件路径 $IMAGE_ID</td>
+<td>保存镜像为离线文件</td>
+</tr>
+<tr>
+<td>docker load &lt; 文件路径</td>
+<td>加载文件为docker镜像</td>
+</tr>
+<tr>
+<td>docker load -i 文件路径</td>
+<td>加载文件为docker镜像</td>
+</tr>
+<tr>
+<td><strong>docker tag $IMAGE_ID $NEW_IMAGE_NAME:$NEW_IMAGE_TAG</strong></td>
+<td><strong>修改镜像TAG</strong></td>
+</tr>
+<tr>
+<td><strong>docker run 参数 $IMAGE_ID $CMD</strong></td>
+<td><strong>运行一个镜像</strong></td>
+</tr>
+<tr>
+<td><strong>docker history $IMAGE_ID</strong></td>
+<td><strong>显示镜像每层的变更内容</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="34run命令相关">3.4、run命令相关</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>-d</strong></td>
+<td><strong>后台运行容器, 并返回容器ID；不指定时, 启动后开始打印日志, Ctrl+C退出命令同时会关闭容器</strong></td>
+</tr>
+<tr>
+<td><strong>-i</strong></td>
+<td><strong>以交互模式运行容器, 通常与-t同时使用</strong></td>
+</tr>
+<tr>
+<td><strong>-t</strong></td>
+<td><strong>为容器重新分配一个伪输入终端, 通常与-i同时使用</strong></td>
+</tr>
+<tr>
+<td><strong>&ndash;name container_name</strong></td>
+<td><strong>设置容器名称, 不指定时随机生成</strong></td>
+</tr>
+<tr>
+<td>-h container_hostname</td>
+<td>设置容器的主机名, 默认随机生成</td>
+</tr>
+<tr>
+<td>&ndash;dns 8.8.8.8</td>
+<td>指定容器使用的DNS服务器, 默认和宿主机一致</td>
+</tr>
+<tr>
+<td>-e docker_host=172.17.0.1</td>
+<td>设置环境变量</td>
+</tr>
+<tr>
+<td>&ndash;cpuset=&quot;0-2&rdquo; or &ndash;cpuset=&quot;0,1,2&rdquo;</td>
+<td>绑定容器到指定CPU运行</td>
+</tr>
+<tr>
+<td>-m 100M</td>
+<td>设置容器使用内存最大值</td>
+</tr>
+<tr>
+<td>&ndash;net bridge</td>
+<td>指定容器的网络连接类型, 支持bridge/host/none/container四种类型</td>
+</tr>
+<tr>
+<td>&ndash;ip 172.18.0.13</td>
+<td>为容器指定固定IP（需要使用自定义网络none）</td>
+</tr>
+<tr>
+<td>&ndash;expose 8081 &ndash;expose 8082</td>
+<td>开放一个端口或一组端口，会覆盖镜像设置中开放的端口</td>
+</tr>
+<tr>
+<td><strong>-p [宿主机端口]:[容器内端口]</strong></td>
+<td><strong>宿主机到容器的端口映射，可指定宿主机的要监听的IP，默认为0.0.0.0</strong></td>
+</tr>
+<tr>
+<td>-P</td>
+<td>注意是大写的, 宿主机随机指定一组可用的端口映射容器expose的所有端口</td>
+</tr>
+<tr>
+<td>-v [宿主机目录路径]:[容器内目录路径]</td>
+<td>挂载宿主机的指定目录（或文件）到容器内的指定目录（或文件）</td>
+</tr>
+<tr>
+<td>&ndash;add-host [主机名]:[IP]</td>
+<td>为容器hosts文件追加host, 默认会在hosts文件最后追加[主机名]:[容器IP]</td>
+</tr>
+<tr>
+<td>&ndash;volumes-from [其他容器名]</td>
+<td>将其他容器的数据卷添加到此容器</td>
+</tr>
+<tr>
+<td>&ndash;link [其他容器名]:[在该容器中的别名]</td>
+<td>添加链接到另一个容器，在本容器hosts文件中加入关联容器的记录，效果类似于&ndash;add-host</td>
+</tr>
+</tbody>
+</table>
+<h3 id="35进入当前正在运行的容器">3.5、进入当前正在运行的容器</h3>
+<p>docker exec -it 容器id /bin/bash  #进入容器开启新的终端
+docker attach 容器id /bin/bash  #进入容器正在执行的终端,不会启动新的进程</p>
+<h3 id="36从容器拷贝文件到主机">3.6、从容器拷贝文件到主机</h3>
+<p>docker cp 容器id:容器内路径 目的的主机路径</p>
+<h2 id="4容器数据卷">4、容器数据卷</h2>
+<h3 id="41使用数据卷">4.1、使用数据卷</h3>
+<h4 id="411直接使用命令来挂载--v">4.1.1、直接使用命令来挂载 -v</h4>
+<ul>
+<li>docker run -it -v [宿主机目录路径]:[容器内目录路径] centos /bin/bash</li>
+<li>docker inspect 容器id   #查看Mounts
+双向同步的,在容器中改，或者在宿主机改，都会互相同步的。</li>
+</ul>
+<h4 id="412匿名挂载">4.1.2、匿名挂载</h4>
+<ul>
+<li>-v 容器内路径: <br>
+docker run -d -P -name nginx01 -v /etc/nginx nginx</li>
+<li>查看所有卷的情况
+docker volume ls</li>
+</ul>
+<h4 id="413具名挂载">4.1.3、具名挂载</h4>
+<ul>
+<li>-v 卷名:容器内路径: <br>
+docker run -d -P -name nginx02 -v juming-nginx:/etc/nginx nginx</li>
+<li>查看一下这个卷
+docker volume inspect 卷名</li>
+</ul>
+<h4 id="414指定路径挂载">4.1.4、指定路径挂载</h4>
+<ul>
+<li>-v 宿主路径:容器内路径</li>
+</ul>
+<h4 id="415扩展">4.1.5、扩展</h4>
+<p>docker run -d -P -name nginx02 -v juming-nginx:/etc/nginx:ro nginx  #容器不能修改
+ro: 只读, rw:可读写</p>
+<p>所有的docker容器内的卷,没有指定目录的情况下都是在 /var/lib/docker/volumes/xxxx/_data</p>
+<h3 id="42通过dockerfile">4.2、通过Dockerfile</h3>
+<p>参考5、Dockerfile</p>
+<h3 id="43数据卷容器">4.3、数据卷容器</h3>
+<p>利用容器给别的容器共享数据<br>
+docker run -it &ndash;name docker01 [容器名称/id]<br>
+docker run -it &ndash;name docker02 &ndash;volumes-from docker01 [容器名称/id]</p>
+<h2 id="5dockerfile">5、Dockerfile</h2>
+<p>Dockerfile是用来构建docker镜像文件</p>
+<h3 id="51构建步骤">5.1、构建步骤</h3>
+<ul>
+<li>编写一个dockerfile文件</li>
+<li>docker build 构建成一个镜像</li>
+<li>docker run 运行镜像</li>
+<li>docker push 发布镜像(DockerHub、阿里云镜像仓库)</li>
+</ul>
+<h3 id="52dockerfile的指令">5.2、Dockerfile的指令</h3>
+<pre><code class="language-aidl" data-lang="aidl">FROM #基础镜像,一切从这里开始构建
+MAINTAINER   #镜像是谁写的, 姓名+邮箱
+RUN          #镜像构建的时候需要运行的命令
+ADD          #步骤,tocat镜像；添加内容
+WORKDIR      #镜像的工作目录
+VOLUME       #挂载的目录位置
+EXPOSE       #暴露端口
+CMD          #指定这个容器启动的时候要运行的命令，只有最后一个会生效，可被替代
+ENTRYPOINT   #指定这个容器启动的时候要运行的命令,可以追加命令
+ONBUILD      #当构建一个被继承DockerFile 这个时候就会运行ONBUILD的指令、触发指令
+COPY         #类似ADD，将我们文件拷贝到镜像中
+ENV          #构建的时候设置环境变量
+</code></pre><h3 id="53实战">5.3、实战</h3>
+<p>scratch 最基础镜像</p>
+<h4 id="531编写dockerfile文件">5.3.1、编写dockerfile文件</h4>
+<pre><code>FROM centos
+MAINTAINER mrc&lt;mrc@qq.com&gt;
+
+ENV MYPATH /usr/local
+WORKDIR $MYPATH
+
+RUN yum -y install vim
+RUN yum -y install net-tools
+
+EXPOSE 80
+CMD echo $MYPATH
+CMD echo &quot;----end----&quot;
+CMD /bin/bash
+</code></pre><h4 id="532构建">5.3.2、构建</h4>
+<p>docker build -f dockerfile文件路径 -t 镜像名:[tag] .</p>
+<h3 id="54研究人家dockerfile如何做的">5.4、研究人家dockerfile如何做的</h3>
+<p>docker history 镜像id</p>
+<h2 id="5目录挂载">5、目录挂载</h2>
+<h3 id="51现存问题">5.1、现存问题</h3>
+<ul>
+<li>使用 Docker 运行后，我们改了项目代码不会立刻生效，需要重新build和run，很是麻烦。</li>
+<li>容器里面产生的数据，例如 log 文件，数据库备份文件，容器删除后就丢失了。</li>
+</ul>
+<h3 id="52几种挂载方式">5.2、几种挂载方式</h3>
+<ul>
+<li>bind mount 直接把宿主机目录映射到容器内，适合挂代码目录和配置文件。可挂到多个容器上</li>
+<li>volume 由容器创建和管理，创建在宿主机，所以删除容器不会丢失，官方推荐，更高效，Linux 文件系统，适合存储数据库数据。可挂到多个容器上</li>
+<li>tmpfs mount 适合存储临时文件，存宿主机内存中。不可多容器共享。
+文档参考: <a href="https://docs.docker.com/storage/">https://docs.docker.com/storage/</a></li>
+</ul>
+<h3 id="53挂载演示">5.3、挂载演示</h3>
+<p>//todo::</p>
+<h2 id="6多容器通信">6、多容器通信</h2>
+<p>项目往往都不是独立运行的，需要数据库、缓存这些东西配合运作。
+这节我们把前面的 Web 项目增加一个 Redis 依赖，多跑一个 Redis 容器，演示如何多容器之间的通信。</p>
+<h3 id="61创建虚拟网络">6.1、创建虚拟网络</h3>
+<p>要想多容器之间互通，从 Web 容器访问 Redis 容器，我们只需要把他们放到同个网络中就可以了。
+文档参考：https://docs.docker.com/engine/reference/commandline/network/</p>
+<h3 id="62演示">6.2、演示</h3>
+<p>//todo::</p>
+<h2 id="7docker-compose">7、Docker-Compose</h2>
+<h3 id="71现存问题">7.1、现存问题</h3>
+<p>如果项目依赖更多的第三方软件，我们需要管理的容器就更加多，每个都要单独配置运行，指定网络。我们使用 docker-compose 把项目的多个服务集合到一起，一键运行。</p>
+<h3 id="72安装-docker-compose">7.2、安装 Docker Compose</h3>
+<p>//todo::</p>
+<h3 id="73编写脚本">7.3、编写脚本</h3>
+<p>//todo::</p>
+<h3 id="74跑起来">7.4、跑起来</h3>
+<p>//todo::</p>
+<h2 id="8发布和部署">8、发布和部署</h2>
+<p>//todo::</p>
+<h2 id="9备份和迁移数据">9、备份和迁移数据</h2>
 </article>
  
       
@@ -323,7 +761,65 @@ A:</p>
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#qa">Q&amp;A</a></li>
+    <li><a href="#1概念">1、概念</a>
+      <ul>
+        <li><a href="#11安装">1.1、安装</a></li>
+        <li><a href="#12镜像加速源">1.2、镜像加速源</a></li>
+      </ul>
+    </li>
+    <li><a href="#2docker-快速安装软件">2、Docker 快速安装软件</a>
+      <ul>
+        <li><a href="#21演示-docker-安装-redis">2.1、演示 Docker 安装 Redis</a></li>
+      </ul>
+    </li>
+    <li><a href="#3命令参考">3、命令参考</a>
+      <ul>
+        <li><a href="#31仓库相关">3.1、仓库相关</a></li>
+        <li><a href="#32容器相关">3.2、容器相关</a></li>
+        <li><a href="#33镜像相关">3.3、镜像相关</a></li>
+        <li><a href="#34run命令相关">3.4、run命令相关</a></li>
+        <li><a href="#35进入当前正在运行的容器">3.5、进入当前正在运行的容器</a></li>
+        <li><a href="#36从容器拷贝文件到主机">3.6、从容器拷贝文件到主机</a></li>
+      </ul>
+    </li>
+    <li><a href="#4容器数据卷">4、容器数据卷</a>
+      <ul>
+        <li><a href="#41使用数据卷">4.1、使用数据卷</a></li>
+        <li><a href="#42通过dockerfile">4.2、通过Dockerfile</a></li>
+        <li><a href="#43数据卷容器">4.3、数据卷容器</a></li>
+      </ul>
+    </li>
+    <li><a href="#5dockerfile">5、Dockerfile</a>
+      <ul>
+        <li><a href="#51构建步骤">5.1、构建步骤</a></li>
+        <li><a href="#52dockerfile的指令">5.2、Dockerfile的指令</a></li>
+        <li><a href="#53实战">5.3、实战</a></li>
+        <li><a href="#54研究人家dockerfile如何做的">5.4、研究人家dockerfile如何做的</a></li>
+      </ul>
+    </li>
+    <li><a href="#5目录挂载">5、目录挂载</a>
+      <ul>
+        <li><a href="#51现存问题">5.1、现存问题</a></li>
+        <li><a href="#52几种挂载方式">5.2、几种挂载方式</a></li>
+        <li><a href="#53挂载演示">5.3、挂载演示</a></li>
+      </ul>
+    </li>
+    <li><a href="#6多容器通信">6、多容器通信</a>
+      <ul>
+        <li><a href="#61创建虚拟网络">6.1、创建虚拟网络</a></li>
+        <li><a href="#62演示">6.2、演示</a></li>
+      </ul>
+    </li>
+    <li><a href="#7docker-compose">7、Docker-Compose</a>
+      <ul>
+        <li><a href="#71现存问题">7.1、现存问题</a></li>
+        <li><a href="#72安装-docker-compose">7.2、安装 Docker Compose</a></li>
+        <li><a href="#73编写脚本">7.3、编写脚本</a></li>
+        <li><a href="#74跑起来">7.4、跑起来</a></li>
+      </ul>
+    </li>
+    <li><a href="#8发布和部署">8、发布和部署</a></li>
+    <li><a href="#9备份和迁移数据">9、备份和迁移数据</a></li>
   </ul>
 </nav>
 
