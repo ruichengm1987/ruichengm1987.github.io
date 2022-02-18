@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="一.基础 1、第一个go程序 package main //包,表明代码所在的模块(包) import &quot;fmt&quot; // 引入代码依赖 // 功能实现 func main() { fmt.Println(&quot;hello world&quot;) } 1.1、应用程序入口  必须是main包: package main 必须是main方法: func main() 文件名不一定是main.go  1.2、退出返回值 与其他主要编程语言的差异
+ Go中main函数不支持任何返回值 通过os.Exit来返回状态  1.3、获取命令行参数 与其他主要编程语言的差异
+ main函数不支持传入参数 func main(arg []string) 在程序中直接通过os.Args获取命令行参数  1.3、编写测试程序  源码文件以 _test结尾: xxx_test.go 测试方法名以Test方法开头: func TestXXX(t *testing.T) {&hellip;}  2、基本程序结构 2.1、变量赋值 与其他主要编程语言的差异
+ 赋值可以进行自动类型推断 在一个赋值语句中可以对多个变量进行同时赋值  2.2、常量定义 与其他主要编程语言的差异
+快速设置连续值
+const ( Monday = iota &#43; 1 Tuesday Webnesday Thursday Friday Staturday Sunday ) 2.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="一、基础" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/go/1.%E5%9F%BA%E7%A1%80/" />
+
+<title>一、基础 | 笔记本</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.809a2a8e8c1c971e3f99c615cfb86a01eab0f71dc5a39347e718dfcdce582f2f.js" integrity="sha256-gJoqjowclx4/mcYVz7hqAeqw9x3Fo5NH5xjfzc5YLy8="></script>
+<link rel="alternate" type="application/rss+xml" href="https://ruichengm1987.github.io/docs/go/1.%E5%9F%BA%E7%A1%80/index.xml" title="笔记本" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>笔记本</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/" class="collapsed ">algorithm</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">go</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/1.go%E7%AE%80%E4%BB%8B/" class="collapsed ">1.go简介</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/1.%E5%9F%BA%E7%A1%80/" class="collapsed active">一、基础</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/" class="collapsed ">2.基本程序结构</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/" class="collapsed ">3.常用结合</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/4.%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="collapsed ">4.字符串</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/5.%E5%87%BD%E6%95%B0/" class="collapsed ">5.函数</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/6.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="collapsed ">6.面向对象编程</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/7.%E7%BC%96%E5%86%99%E5%A5%BD%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" class="collapsed ">7.编写好的错误处理</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/%E5%AE%89%E8%A3%85/" class="">安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/%E5%B9%B6%E5%8F%91/%E5%9F%BA%E6%9C%AC%E5%B9%B6%E5%8F%91%E5%8E%9F%E8%AF%AD/%E4%BA%92%E6%96%A5%E9%94%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6/" class="">互斥锁的实现机制</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/" class="collapsed ">docker</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/vbox/" class="collapsed ">vbox</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+    <span>成&#34;神&#34;之路</span>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>一、基础</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1第一个go程序">1、第一个go程序</a>
+      <ul>
+        <li><a href="#11应用程序入口">1.1、应用程序入口</a></li>
+        <li><a href="#12退出返回值">1.2、退出返回值</a></li>
+        <li><a href="#13获取命令行参数">1.3、获取命令行参数</a></li>
+        <li><a href="#13编写测试程序">1.3、编写测试程序</a></li>
+      </ul>
+    </li>
+    <li><a href="#2基本程序结构">2、基本程序结构</a>
+      <ul>
+        <li><a href="#21变量赋值">2.1、变量赋值</a></li>
+        <li><a href="#22常量定义">2.2、常量定义</a></li>
+        <li><a href="#23数据类型">2.3、数据类型</a></li>
+        <li><a href="#24运算符">2.4、运算符</a></li>
+        <li><a href="#25循环">2.5、循环</a></li>
+        <li><a href="#26if条件">2.6、if条件</a></li>
+        <li><a href="#27switch条件">2.7、switch条件</a></li>
+      </ul>
+    </li>
+    <li><a href="#3常用集合">3、常用集合</a>
+      <ul>
+        <li><a href="#31数组">3.1、数组</a></li>
+        <li><a href="#32切片">3.2、切片</a></li>
+        <li><a href="#33数组vs切片">3.3、数组vs切片</a></li>
+        <li><a href="#33map">3.3、Map</a></li>
+      </ul>
+    </li>
+    <li><a href="#4字符串">4、字符串</a>
+      <ul>
+        <li><a href="#41unicode-utf8">4.1、Unicode UTF8</a></li>
+        <li><a href="#42编码与存储">4.2、编码与存储</a></li>
+        <li><a href="#43常用字符串函数">4.3、常用字符串函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#5函数">5、函数</a>
+      <ul>
+        <li><a href="#51函数是一等公民">5.1、函数是一等公民</a></li>
+        <li><a href="#52可变参数及defer">5.2、可变参数及defer</a></li>
+      </ul>
+    </li>
+    <li><a href="#6面向对象编程">6、面向对象编程</a>
+      <ul>
+        <li><a href="#61结构体定义">6.1、结构体定义</a></li>
+        <li><a href="#62行为方法定义">6.2、行为(方法)定义</a></li>
+        <li><a href="#63duck-type-式接口">6.3、Duck Type 式接口</a></li>
+        <li><a href="#64接口变量">6.4、接口变量</a></li>
+        <li><a href="#65自定义类型">6.5、自定义类型</a></li>
+        <li><a href="#66扩展与复用">6.6、扩展与复用</a></li>
+        <li><a href="#67多态">6.7、多态</a></li>
+        <li><a href="#68空接口与断言">6.8、空接口与断言</a></li>
+        <li><a href="#69go接口的最佳实践">6.9、Go接口的最佳实践</a></li>
+      </ul>
+    </li>
+    <li><a href="#7错误处理">7、错误处理</a>
+      <ul>
+        <li><a href="#71go的错误机制">7.1、Go的错误机制</a></li>
+        <li><a href="#72panic-vs-recover">7.2、panic vs recover</a></li>
+      </ul>
+    </li>
+    <li><a href="#8包和依赖管理">8、包和依赖管理</a>
+      <ul>
+        <li><a href="#81构建可复用的模块">8.1、构建可复用的模块</a></li>
+        <li><a href="#82go-mod-依赖管理">8.2、go mod 依赖管理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="一基础">一.基础</h1>
+<h2 id="1第一个go程序">1、第一个go程序</h2>
+<pre><code class="language-$xslt" data-lang="$xslt">package main    //包,表明代码所在的模块(包)
+  
+import &quot;fmt&quot; // 引入代码依赖
+
+// 功能实现
+func main() {
+    fmt.Println(&quot;hello world&quot;)
+}
+</code></pre><h3 id="11应用程序入口">1.1、应用程序入口</h3>
+<ul>
+<li>必须是main包: package main</li>
+<li>必须是main方法: func main()</li>
+<li>文件名不一定是main.go</li>
+</ul>
+<h3 id="12退出返回值">1.2、退出返回值</h3>
+<p><em>与其他主要编程语言的差异</em></p>
+<ul>
+<li>Go中main函数不支持任何返回值</li>
+<li>通过os.Exit来返回状态</li>
+</ul>
+<h3 id="13获取命令行参数">1.3、获取命令行参数</h3>
+<p><em>与其他主要编程语言的差异</em></p>
+<ul>
+<li>main函数不支持传入参数
+func main(<del>arg []string</del>)</li>
+<li>在程序中直接通过os.Args获取命令行参数</li>
+</ul>
+<h3 id="13编写测试程序">1.3、编写测试程序</h3>
+<ul>
+<li>源码文件以 _test结尾: xxx_test.go</li>
+<li>测试方法名以Test方法开头: func TestXXX(t *testing.T) {&hellip;}</li>
+</ul>
+<h2 id="2基本程序结构">2、基本程序结构</h2>
+<h3 id="21变量赋值">2.1、变量赋值</h3>
+<p><em>与其他主要编程语言的差异</em></p>
+<ul>
+<li>赋值可以进行自动类型推断</li>
+<li>在一个赋值语句中可以对多个变量进行同时赋值</li>
+</ul>
+<h3 id="22常量定义">2.2、常量定义</h3>
+<p><em>与其他主要编程语言的差异</em></p>
+<p><strong>快速设置连续值</strong></p>
+<pre><code class="language-$xslt" data-lang="$xslt">const (
+	Monday = iota + 1
+	Tuesday
+	Webnesday
+	Thursday
+	Friday
+	Staturday
+	Sunday
+)
+</code></pre><h3 id="23数据类型">2.3、数据类型</h3>
+<pre><code class="language-$xslt" data-lang="$xslt">bool
+string
+int int8 int16 int32 int64
+uint uint8 uint16 uint32 uint64 uintptr
+byte // alias for uint8
+rune // alias for int32 represents a unicode code point
+float32 float64
+complex64 complex128
+</code></pre><h4 id="231类型转换">2.3.1、类型转换</h4>
+<p><em>与其他主要编程语言的差异</em></p>
+<ul>
+<li>Go语言不允许隐式类型转换</li>
+<li>别名和原有类型也不能进行隐式类型转换</li>
+</ul>
+<h4 id="232类型的预定义值">2.3.2、类型的预定义值</h4>
+<ul>
+<li>math.MaxInt64</li>
+<li>math.MaxFloat64</li>
+<li>math.MaxUint32</li>
+</ul>
+<h4 id="233指针类型">2.3.3、指针类型</h4>
+<p><em>与其他主要编程语言的差异</em></p>
+<ul>
+<li>不支持指针运算</li>
+<li>string是值类型,其默认的初始化值为空字符串,而不是nil</li>
+</ul>
+<h3 id="24运算符">2.4、运算符</h3>
+<h4 id="241算术运算符">2.4.1、算术运算符</h4>
+<p>没有前置的++ &ndash;</p>
+<h4 id="242比较运算符">2.4.2、比较运算符</h4>
+<p><em>与其他主要编程语言的差异</em>
+<em>用==比较数组</em></p>
+<ul>
+<li>相同维数且含有相同个数元素的数组才可以比较</li>
+<li>每个元素都相同的才相等</li>
+</ul>
+<h4 id="243逻辑运算符">2.4.3、逻辑运算符</h4>
+<p>和主流语言相同</p>
+<h4 id="244位运算符">2.4.4、位运算符</h4>
+<p><em>与其他主要编程语言的差异</em>
+&amp;^ 按位置零</p>
+<pre><code class="language-$xslt" data-lang="$xslt">1 &amp;^ 0  -- 1
+1 &amp;^ 1  -- 0
+0 &amp;^ 1  -- 0
+0 &amp;^ 0  -- 0
+右边的二进制是0，左边的是什么，结果就是什么
+右边的二进制是1，左边的无论是什么, 结果都是0
+</code></pre><h3 id="25循环">2.5、循环</h3>
+<p><em>与其他主要编程语言的差异</em></p>
+<ul>
+<li>Go语言仅支持循环关键字for</li>
+<li>for <del>(</del> j := 7; j &lt;= 9; j++  <del>)</del> //不需要&rdquo;(&ldquo;和&rdquo;)&quot;。</li>
+</ul>
+<pre><code class="language-$xslt" data-lang="$xslt">while条件循环 while(n&lt;5)
+n := 0
+for n &lt; 5 {
+    n++
+    fmt.Println(n)
+}
+
+无限循环 while(true)
+n := 0
+for {
+...
+}
+</code></pre><h3 id="26if条件">2.6、if条件</h3>
+<pre><code class="language-$xslt" data-lang="$xslt">if condition {
+    // code to be executed if condition is true
+} else {
+    // code to be executed if condition is false
+}
+
+if condition-1 {
+    // code to be executed if condition-1 is true
+} else if condition-2 {
+    // code to be executed if condition-2 is true
+} else {
+    // code to be executed if both condition1 and condition2 are false
+}
+</code></pre><p><em>与其他主要编程语言的差异</em></p>
+<ul>
+<li>condition  表达式结果必须为布尔值</li>
+<li>支持变量赋值:</li>
+</ul>
+<pre><code class="language-$xslt" data-lang="$xslt">if var declaration; condition {
+    // code to be executed if condition is true
+}
+</code></pre><h3 id="27switch条件">2.7、switch条件</h3>
+<pre><code class="language-$xslt" data-lang="$xslt">switch os := runtime.GOOS; os {
+    case &quot;darwin&quot;:
+        fmt.Println(&quot;OS x.&quot;)
+    case &quot;linux&quot;:
+        fmt.Println(&quot;Linux.&quot;)
+    default:
+        fmt.Printf(&quot;%s.&quot;, os)
+}
+
+switch {
+    case 0 &lt;= Num &amp;&amp; Num &lt;= 3:
+        fmt.Printf(&quot;0-3&quot;)
+    case 4 &lt;= Num &amp;&amp; Num &lt;= 6:
+        fmt.Printf(&quot;4-6&quot;)
+    case 7 &lt;= Num &amp;&amp; Num &lt;= 9:
+        fmt.Printf(&quot;7-9&quot;)
+}
+</code></pre><p><em>与其他主要编程语言的差异</em></p>
+<ul>
+<li>条件表达式不限制为常量或者整数</li>
+<li>单个case中，可以出现多个结果选项，使用逗号分隔；</li>
+<li>与C语言等规则相反,GO语言不需要用break来明确退出一个case</li>
+<li>可以不设定switch之后的条件表达式，在此种情况下,整个switch结构与多个if&hellip;else&hellip;的逻辑作用等同</li>
+</ul>
+<h2 id="3常用集合">3、常用集合</h2>
+<h3 id="31数组">3.1、数组</h3>
+<h4 id="311数组的声明">3.1.1、数组的声明</h4>
+<pre><code class="language-$xslt" data-lang="$xslt">var a [3]int  // 声明并初始化为默认零值
+a[0] = 1
+
+b := [3]int{1,2,3}   // 声明同时初始化
+c := [...]int{1,2,3}   // 声明同时初始化
+d := [2][2]int{{1,2}, {3, 4}} // 多维数组初始化
+</code></pre><h4 id="312数组截取">3.1.2、数组截取</h4>
+<p>a[开发索引(包含), 结果索引(不包含)]<br>
+注:开发索引 和 结果索引 都不支持负数</p>
+<h3 id="32切片">3.2、切片</h3>
+<h4 id="321切片内部结构">3.2.1、切片内部结构</h4>
+<p>ptr: 指针<br>
+len: 元素的个数<br>
+cap: 内部数组的容量</p>
+<h4 id="322切片声明">3.2.2、切片声明</h4>
+<pre><code class="language-$xslt" data-lang="$xslt">var s0 []int
+s0 = append(s0, 1)
+
+s := []int{]
+s1 := []int{1, 2, 3}
+s2 := make([]int, 2, 4)
+/* []type, len, cap
+其中len个元素会被初始化为默认零值,未初始化元素不可以访问
+*/
+</code></pre><h4 id="322切片共享存储结构">3.2.2、切片共享存储结构</h4>
+<p><em>切片是如何实现可变长的?</em></p>
+<h3 id="33数组vs切片">3.3、数组vs切片</h3>
+<ul>
+<li>容量是否可伸缩
+数据不可伸缩, 切片可伸缩</li>
+<li>是否可以进行比较
+数组相同大小，相同类型能比较，切片不能比较</li>
+</ul>
+<h3 id="33map">3.3、Map</h3>
+<h4 id="331map声明">3.3.1、Map声明</h4>
+<pre><code class="language-$xslt" data-lang="$xslt">m := map[string]int{&quot;one&quot;:1, &quot;two&quot;: 2}
+
+m1 := map[string]int{}
+m1[&quot;three&quot;] = 3
+
+m2 := make(map[string]int, 10 /*Initial Capacity*/)
+// 为什么不初始化len
+
+</code></pre><h4 id="332map元素的访问">3.3.2、Map元素的访问</h4>
+<p><em>与其他主要编程语言的差异</em>
+在访问的key不存在时,仍会返回零值, 不能通过返回nil来判断元素是否存在</p>
+<pre><code class="language-$xslt" data-lang="$xslt">if v, ok := m1[3]; ok {
+		t.Logf(&quot;key 3's value is %d&quot;, v)
+	} else {
+		t.Log(&quot;key 3 is not existing.&quot;)
+	}
+</code></pre><h4 id="333map遍历">3.3.3、Map遍历</h4>
+<pre><code class="language-$xslt" data-lang="$xslt">m := map[string]int{&quot;one&quot;:1, &quot;two&quot;:2, &quot;three&quot;: 3}
+for k, v := range m {
+    t.Log(k, v)
+}
+</code></pre><h4 id="334map与工厂模式">3.3.4、Map与工厂模式</h4>
+<ul>
+<li>map的value可以是一个方法</li>
+<li>与go的Dock type接口方式一起, 可以方便的实现单一方法对象的工厂模式</li>
+</ul>
+<h4 id="335线程安全map">3.3.5、线程安全map</h4>
+<p><a href="https://github.com/easierway/concurrent_map">https://github.com/easierway/concurrent_map</a></p>
+<h4 id="336实现set">3.3.6、实现Set</h4>
+<p>Go的内置集合中没有Set实现,可以map[type]bool</p>
+<ul>
+<li>元素的唯一性</li>
+<li>基本操作
+<ul>
+<li>添加元素</li>
+<li>判断元素是否存在</li>
+<li>删除元素</li>
+<li>元素个数</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-$xslt" data-lang="$xslt">   // 定义初始化
+   mySet := map[int]bool{}
+   // s和值1
+   mySet[1] = true
+   
+   // 判断是否3存在
+   n := 3
+   if mySet[n] {
+       t.Logf(&quot;%d is existing&quot;, n)
+   } else {
+       t.Logf(&quot;%d is not existing&quot;, n)
+   }
+   // 添加key 3
+   mySet[3] = true 
+   t.Log(len(mySet))
+
+   // 删出key 1
+   delete(mySet, 1)
+
+   // 判断key 1 是否存在
+   if mySet[1] {
+       t.Logf(&quot;%d is existing&quot;, 1)
+   } else {
+       t.Logf(&quot;%d is not existing&quot;, 1)
+   }
+</code></pre><h2 id="4字符串">4、字符串</h2>
+<p><em>与其他主要编程语言的差异</em></p>
+<ul>
+<li>string是数据类型，不是引用或指针类型</li>
+<li>string是只读的byte slice，len函数可以返回它所包含的byte数</li>
+<li>string的byte数组可以存放任何数据</li>
+</ul>
+<h3 id="41unicode-utf8">4.1、Unicode UTF8</h3>
+<ul>
+<li>Unicode是一种字符集 (code point)</li>
+<li>UTF8 是unicode的存储实现(转换为字节序列的规则)</li>
+</ul>
+<h3 id="42编码与存储">4.2、编码与存储</h3>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>&ldquo;中&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unicode</td>
+<td>0x4E2D</td>
+</tr>
+<tr>
+<td>UTF-8</td>
+<td>0xE4B8AD</td>
+</tr>
+<tr>
+<td>string/[]byte</td>
+<td>[0xE4,0xB8,0xAD]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43常用字符串函数">4.3、常用字符串函数</h3>
+<ul>
+<li>strings包 (<a href="https://golang.org">https://golang.org</a>)</li>
+<li>strconv 包 (<a href="https://golang.org/pkg/strconv">https://golang.org/pkg/strconv</a>)</li>
+</ul>
+<h2 id="5函数">5、函数</h2>
+<h3 id="51函数是一等公民">5.1、函数是一等公民</h3>
+<p><em>与其他主要编程语言的差异</em></p>
+<ul>
+<li>可以有多个返回值</li>
+<li>所有参数都是值传递: slice, map, channel会有传引用的错觉</li>
+<li>函数可以作为变量的值</li>
+<li>函数可以作为参数和返回值</li>
+</ul>
+<h3 id="52可变参数及defer">5.2、可变参数及defer</h3>
+<h4 id="521可变参数">5.2.1、可变参数</h4>
+<pre><code class="language-$xslt" data-lang="$xslt">func sum(ops ...int) int {
+	s := 0
+	for _, op := range ops {
+	    s += op
+	}
+	return s
+}
+</code></pre><h4 id="522defer">5.2.2、defer</h4>
+<pre><code class="language-$xslt" data-lang="$xslt">func TestDefer(t *testing.T) {
+	defer func() {
+		t.Log(&quot;clear resources&quot;)
+	}()
+	t.Log(&quot;Started&quot;)
+	panic(&quot;Fatal error&quot;) // defer仍会执行
+}
+</code></pre><h2 id="6面向对象编程">6、面向对象编程</h2>
+<h3 id="61结构体定义">6.1、结构体定义</h3>
+<pre><code class="language-$xslt" data-lang="$xslt">type Employee struct {
+	Id string
+	Name string
+	Age int
+}
+e := Employee {Id : &quot;1&quot;}
+e1 := new(Employee) // 注意这里返回的引用/指针,相当于e:=&amp;Employee{}
+e1.Id = &quot;2&quot;   // 与其他主要编程语言的差异；通过实例的指针访问成员不需要使用-&gt;
+</code></pre><h3 id="62行为方法定义">6.2、行为(方法)定义</h3>
+<pre><code class="language-$xslt" data-lang="$xslt">// 第一种定义方式在实例对应方法被调用时，实例的成员会进行值复制
+func (e Employee) String() string {
+    return fmt.Sprintf(&quot;ID:%s-Name:%s-Age:%d&quot;, e.Id, e.Name, e.Age)
+}
+
+// 通常情况下为了避免内存拷贝我们使用第二种定义方式
+func (e *Employee) String() string {
+	return fmt.Sprintf(&quot;ID:%s-Name:%s-Age:%d&quot;, e.Id, e.Name, e.Age)
+}
+</code></pre><h3 id="63duck-type-式接口">6.3、Duck Type 式接口</h3>
+<pre><code class="language-$xslt" data-lang="$xslt">type Programmer interface {
+	WriteHelloWorld() string
+}
+
+type GoProgrammer struct {
+}
+
+func (g *GoProgrammer) WriteHelloWorld() string {
+	return &quot;fmt.Println(\&quot;Hello World\&quot;)&quot;
+}
+</code></pre><p><em>与其他主要编程语言的差异</em></p>
+<ul>
+<li>接口为非入侵性,实现不依赖于接口定义</li>
+<li>所有接口的定义可以包含在接口使用者包内</li>
+</ul>
+<h3 id="64接口变量">6.4、接口变量</h3>
+<pre><code class="language-$xslt" data-lang="$xslt">var prog  Code = &amp;GoProgrammer{} 
+
+// 类型
+type GoProgrammer struct {
+}
+
+// 数据
+&amp;GoProgrammer{}
+</code></pre><h3 id="65自定义类型">6.5、自定义类型</h3>
+<ul>
+<li>type IntConvertionFn func(n int) int</li>
+<li>type MyPoint int</li>
+</ul>
+<h3 id="66扩展与复用">6.6、扩展与复用</h3>
+<p><em>与其他主要编程语言的差异</em>
+不支持重载</p>
+<h3 id="67多态">6.7、多态</h3>
+<pre><code class="language-$xslt" data-lang="$xslt">package duotai
+
+import (
+	&quot;fmt&quot;
+	&quot;testing&quot;
+)
+
+type Programmer interface {
+	WriteHelloWorld() string
+}
+
+type GoProgrammer struct {
+
+}
+
+func (p *GoProgrammer) WriteHelloWorld() string {
+	return &quot;fmt.Println(\&quot;hello world!\&quot;)&quot;
+}
+
+type JavaProgrammer struct {
+}
+
+func (p *JavaProgrammer) WriteHelloWorld() string {
+	return &quot;fmt.Println(\&quot;hello world!\&quot;)&quot;
+}
+
+func writeFirstProgram(p Programmer) {
+	fmt.Printf(&quot;%T %v\n&quot;, p, p.WriteHelloWorld())
+}
+
+func TestPolymorphism(t *testing.T) {
+	goProg := new(GoProgrammer)
+	javaProg := new(JavaProgrammer)
+	writeFirstProgram(goProg)
+	writeFirstProgram(javaProg)
+}
+</code></pre><h3 id="68空接口与断言">6.8、空接口与断言</h3>
+<ul>
+<li>空接口可以表示任何类型</li>
+<li>通过断言来将空接口转换为指定类型</li>
+</ul>
+<pre><code class="language-$xslt" data-lang="$xslt">v, ok := p.(int) // ok == true 时为转换成功
+</code></pre><h3 id="69go接口的最佳实践">6.9、Go接口的最佳实践</h3>
+<ul>
+<li>倾向于使用小的接口定义,很多接口只包含一个方法</li>
+</ul>
+<pre><code class="language-$xslt" data-lang="$xslt">type Reader interface{
+    Read(p []byte) (n int, err error)
+}
+
+type Writer interface {
+    Write(p []byte) (n int, err error)
+}
+</code></pre><ul>
+<li>较大的接口定义,可以由多个小接口定义组合而成</li>
+</ul>
+<pre><code class="language-$xslt" data-lang="$xslt">type ReadWriter interface{
+    Reader
+    Writer
+}
+</code></pre><ul>
+<li>只依赖于必要功能的最小接口</li>
+</ul>
+<pre><code class="language-$xslt" data-lang="$xslt">func Store(reader Reader) error {
+	...
+})
+</code></pre><h2 id="7错误处理">7、错误处理</h2>
+<h3 id="71go的错误机制">7.1、Go的错误机制</h3>
+<p><em>与其他主要编程语言的差异</em></p>
+<ul>
+<li>没有异常机制</li>
+<li>error类型实现了error接口</li>
+</ul>
+<pre><code class="language-$xslt" data-lang="$xslt">type error interface {
+    Error() string
+}
+</code></pre><ul>
+<li>可以通过errors.New来快速创建错误实例</li>
+</ul>
+<pre><code class="language-$xslt" data-lang="$xslt">errors.New(&quot;n must be in ther r ange [0, 100]&quot;)
+</code></pre><p><em>最佳实践</em><br>
+定义不同的错误变量,1️以便于判断错误类型</p>
+<pre><code class="language-$xslt" data-lang="$xslt">var LessThanTwoError error = errors.New(&quot;n must be grater than 2&quot;)
+var GreaterThanHundredError error = errors.New(&quot;n must be less than 100&quot;)
+
+func TestGetFibonacci(t *testing.T) {
+    var list []int
+    list, err := GetFibonacci(-10)
+    if err = LessThanTwoError { 
+        t.Error(&quot;Need a large Number&quot;)
+    }
+
+    if err = GreaterThanHundredError { 
+        t.Error(&quot;Need a large Number&quot;)
+    }
+}
+</code></pre><p><em>及早失败,避免嵌套</em></p>
+<h3 id="72panic-vs-recover">7.2、panic vs recover</h3>
+<ul>
+<li>os.Exit退出时不会调用defer指定的函数</li>
+<li>os.Exit退出时不输出当前调用栈信息</li>
+</ul>
+<pre><code class="language-$xslt" data-lang="$xslt">defer func() {
+    if err := recover(); err != nil {
+        fmt.Println(&quot;recoverd from&quot;, err)
+    }
+    fmt.Println(&quot;Finally!&quot;)
+}()
+</code></pre><h4 id="721最常见的错误恢复">7.2.1、最常见的&quot;错误恢复&rdquo;</h4>
+<pre><code class="language-$xslt" data-lang="$xslt">defer func() {
+    if err := recover(); err != nil {
+        fmt.Println(&quot;recoverd from&quot;, err)
+    }
+    fmt.Println(&quot;Finally!&quot;)
+}()
+</code></pre><p><em>当心！recover成为恶魔</em></p>
+<ul>
+<li>形成僵尸服务进程,导致health check失败。</li>
+<li>&ldquo;Let it Crash!&ldquo;往往是我们恢复不确定性错误的最好方法。</li>
+</ul>
+<h2 id="8包和依赖管理">8、包和依赖管理</h2>
+<h3 id="81构建可复用的模块">8.1、构建可复用的模块</h3>
+<ul>
+<li>基本复用模块单元<br>
+以首字母大写来表名可被包外代码访问</li>
+<li>代码的package可以和所在的目录不一致</li>
+<li>同一目录里的Go代码的package要保持一致</li>
+<li>在main被执行前,所有依赖的package的init方法都会被执行</li>
+<li>不同包的init函数按照包导入的依赖关系决定执行顺序</li>
+<li>每个包可以有多个init函数</li>
+<li>包的每个源文件也可以有多个init函数,这点比较 特殊</li>
+</ul>
+<h3 id="82go-mod-依赖管理">8.2、go mod 依赖管理</h3>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1第一个go程序">1、第一个go程序</a>
+      <ul>
+        <li><a href="#11应用程序入口">1.1、应用程序入口</a></li>
+        <li><a href="#12退出返回值">1.2、退出返回值</a></li>
+        <li><a href="#13获取命令行参数">1.3、获取命令行参数</a></li>
+        <li><a href="#13编写测试程序">1.3、编写测试程序</a></li>
+      </ul>
+    </li>
+    <li><a href="#2基本程序结构">2、基本程序结构</a>
+      <ul>
+        <li><a href="#21变量赋值">2.1、变量赋值</a></li>
+        <li><a href="#22常量定义">2.2、常量定义</a></li>
+        <li><a href="#23数据类型">2.3、数据类型</a></li>
+        <li><a href="#24运算符">2.4、运算符</a></li>
+        <li><a href="#25循环">2.5、循环</a></li>
+        <li><a href="#26if条件">2.6、if条件</a></li>
+        <li><a href="#27switch条件">2.7、switch条件</a></li>
+      </ul>
+    </li>
+    <li><a href="#3常用集合">3、常用集合</a>
+      <ul>
+        <li><a href="#31数组">3.1、数组</a></li>
+        <li><a href="#32切片">3.2、切片</a></li>
+        <li><a href="#33数组vs切片">3.3、数组vs切片</a></li>
+        <li><a href="#33map">3.3、Map</a></li>
+      </ul>
+    </li>
+    <li><a href="#4字符串">4、字符串</a>
+      <ul>
+        <li><a href="#41unicode-utf8">4.1、Unicode UTF8</a></li>
+        <li><a href="#42编码与存储">4.2、编码与存储</a></li>
+        <li><a href="#43常用字符串函数">4.3、常用字符串函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#5函数">5、函数</a>
+      <ul>
+        <li><a href="#51函数是一等公民">5.1、函数是一等公民</a></li>
+        <li><a href="#52可变参数及defer">5.2、可变参数及defer</a></li>
+      </ul>
+    </li>
+    <li><a href="#6面向对象编程">6、面向对象编程</a>
+      <ul>
+        <li><a href="#61结构体定义">6.1、结构体定义</a></li>
+        <li><a href="#62行为方法定义">6.2、行为(方法)定义</a></li>
+        <li><a href="#63duck-type-式接口">6.3、Duck Type 式接口</a></li>
+        <li><a href="#64接口变量">6.4、接口变量</a></li>
+        <li><a href="#65自定义类型">6.5、自定义类型</a></li>
+        <li><a href="#66扩展与复用">6.6、扩展与复用</a></li>
+        <li><a href="#67多态">6.7、多态</a></li>
+        <li><a href="#68空接口与断言">6.8、空接口与断言</a></li>
+        <li><a href="#69go接口的最佳实践">6.9、Go接口的最佳实践</a></li>
+      </ul>
+    </li>
+    <li><a href="#7错误处理">7、错误处理</a>
+      <ul>
+        <li><a href="#71go的错误机制">7.1、Go的错误机制</a></li>
+        <li><a href="#72panic-vs-recover">7.2、panic vs recover</a></li>
+      </ul>
+    </li>
+    <li><a href="#8包和依赖管理">8、包和依赖管理</a>
+      <ul>
+        <li><a href="#81构建可复用的模块">8.1、构建可复用的模块</a></li>
+        <li><a href="#82go-mod-依赖管理">8.2、go mod 依赖管理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
