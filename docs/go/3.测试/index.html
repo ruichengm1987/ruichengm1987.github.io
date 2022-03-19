@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="三、测试 单元测试 func square(i int) int { return i * i } func TestSquare(t *testing.T) { inputs := [...]int{1, 2, 3} expected := [...]int{1, 4, 10} for i := 0; i &lt; len(inputs); i&#43;&#43;{ ret := square(inputs[i]) if ret != expected[i] { t.Errorf(&quot;input is %d, the expected is %d, &quot; &#43; &quot;the actual is %d&quot;, inputs[i], expected[i], ret) } } } 内置单元测试框架  Fail,Error:该测试失败,该测试继续, 其他测试继续执行 FailNow,Fatal:该测试失败,该测试终止，其他测试继续执行  func TestErrorInCode(t *testing.T) { fmt.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="三、测试" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ruichengm1987.github.io/docs/go/3.%E6%B5%8B%E8%AF%95/" />
+
+<title>三、测试 | 笔记本</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.bb4a93f672284143ad5e07bd92e93a011244e3039e121071eecfa2c25a838ec4.js" integrity="sha256-u0qT9nIoQUOtXge9kuk6ARJE4wOeEhBx7s&#43;iwlqDjsQ="></script>
+<link rel="alternate" type="application/rss+xml" href="https://ruichengm1987.github.io/docs/go/3.%E6%B5%8B%E8%AF%95/index.xml" title="笔记本" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>笔记本</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/algorithm/" class="collapsed ">algorithm</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/" class="collapsed ">go</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/1.%E5%9F%BA%E7%A1%80/" class="collapsed ">一、基础</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/2.%E5%B9%B6%E5%8F%91/" class="collapsed ">二、并发</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/3.%E6%B5%8B%E8%AF%95/" class="collapsed active">三、测试</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/4.%E5%8F%8D%E5%B0%84%E5%92%8C%E4%B8%8D%E5%AE%89%E5%85%A8%E7%BC%96%E7%A8%8B/" class="collapsed ">四、反射和不安全编程</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/5.%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86go-mod/" class="collapsed ">五、依赖管理go mod</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/6.%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/" class="collapsed ">六、文件目录操作</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/go/%E5%AE%89%E8%A3%85/" class="">安装</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/kafka/" class="collapsed ">kafka</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/docker/" class="collapsed ">docker</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/jiagou/" class="collapsed ">jiagou</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/vbox/" class="collapsed ">vbox</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+    <span>成&#34;神&#34;之路</span>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>三、测试</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#单元测试">单元测试</a>
+      <ul>
+        <li><a href="#内置单元测试框架">内置单元测试框架</a></li>
+      </ul>
+    </li>
+    <li><a href="#benchmark">Benchmark</a></li>
+    <li><a href="#bdd-in-go">BDD in Go</a>
+      <ul>
+        <li><a href="#项目网站">项目网站</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#启动-web-ui">启动 WEB UI</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="三测试">三、测试</h1>
+<h2 id="单元测试">单元测试</h2>
+<pre><code class="language-$xslt" data-lang="$xslt">func square(i int) int {
+	return i * i
+}
+
+func TestSquare(t *testing.T) {
+    inputs := [...]int{1, 2, 3}
+    expected := [...]int{1, 4, 10}
+    for i := 0; i &lt; len(inputs); i++{
+        ret := square(inputs[i])
+        if ret != expected[i] {
+            t.Errorf(&quot;input is %d, the expected is %d, &quot; +
+                &quot;the actual is %d&quot;, inputs[i], expected[i], ret)
+        }
+    }
+}
+
+</code></pre><h3 id="内置单元测试框架">内置单元测试框架</h3>
+<ul>
+<li>Fail,Error:该测试失败,该测试继续, 其他测试继续执行</li>
+<li>FailNow,Fatal:该测试失败,该测试终止，其他测试继续执行</li>
+</ul>
+<pre><code class="language-$xslt" data-lang="$xslt">func TestErrorInCode(t *testing.T) {
+	fmt.Println(&quot;Start&quot;)
+	t.Error(&quot;Error&quot;)
+	fmt.Println(&quot;End&quot;)
+}
+//结果:
+//Start
+//demo_test.go:26: Error
+//End
+
+func TestFailInCode(t *testing.T) {
+	fmt.Println(&quot;Start&quot;)
+	t.Fatal(&quot;Fatal&quot;)
+	fmt.Println(&quot;End&quot;)
+}
+//结果:
+//Start
+//demo_test.go:35: Fatal
+</code></pre><ul>
+<li>
+<p>代码覆盖率<br>
+go test -v -cover</p>
+</li>
+<li>
+<p>断言<br>
+go get -u github.com/stretchr/testify/assert</p>
+</li>
+</ul>
+<h2 id="benchmark">Benchmark</h2>
+<pre><code class="language-$xslt" data-lang="$xslt">func BenchmarkConcatStringByAdd(b *testing.B) {
+	// 与性能测试无关的代码
+	b.ResetTimer()
+	for i := 0; i &lt; b.N; i++ {
+		// 测试代码
+	}
+	b.StopTimer()
+	// 与性能测试无关的代码
+}
+</code></pre><p>go test -bench=. -benchmem</p>
+<h2 id="bdd-in-go">BDD in Go</h2>
+<h3 id="项目网站">项目网站</h3>
+<p><a href="https://github.com/smartystreets/goconvey">https://github.com/smartystreets/goconvey</a></p>
+<h3 id="安装">安装</h3>
+<p>go get -u github.com/smartystreets/goconvey</p>
+<h3 id="启动-web-ui">启动 WEB UI</h3>
+<p>$GOPATH/bin/goconvey</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#单元测试">单元测试</a>
+      <ul>
+        <li><a href="#内置单元测试框架">内置单元测试框架</a></li>
+      </ul>
+    </li>
+    <li><a href="#benchmark">Benchmark</a></li>
+    <li><a href="#bdd-in-go">BDD in Go</a>
+      <ul>
+        <li><a href="#项目网站">项目网站</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#启动-web-ui">启动 WEB UI</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

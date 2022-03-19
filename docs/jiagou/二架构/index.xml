@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>二、架构 on 笔记本</title>
+    <link>https://ruichengm1987.github.io/docs/jiagou/%E4%BA%8C%E6%9E%B6%E6%9E%84/</link>
+    <description>Recent content in 二、架构 on 笔记本</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/jiagou/%E4%BA%8C%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1.如何设计可扩展架构</title>
+      <link>https://ruichengm1987.github.io/docs/jiagou/%E4%BA%8C%E6%9E%B6%E6%9E%84/1.%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E5%8F%AF%E6%89%A9%E5%B1%95%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/jiagou/%E4%BA%8C%E6%9E%B6%E6%9E%84/1.%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E5%8F%AF%E6%89%A9%E5%B1%95%E6%9E%B6%E6%9E%84/</guid>
+      <description>1.如何设计可扩展架构 鸡蛋篮子第一法则：如果一个篮子数不清，拆分到多个篮子再数！
+架构设计复杂度模型  可扩展复杂度模型 可扩展定义  可扩展架构设计 - 拆分 鸡蛋篮子第一法则（拆分法则）：如果一个篮子数不清，拆分到多个篮子再数！  拆分复杂度模型  拆分粒度 - 两个复杂度  拆分粒度 - 平衡的艺术  可扩展架构设计 - 封装 封装复杂度模型  预测的艺术  封装的技巧  总结  </description>
+    </item>
+    
+    <item>
+      <title>2.如何设计高性能架构</title>
+      <link>https://ruichengm1987.github.io/docs/jiagou/%E4%BA%8C%E6%9E%B6%E6%9E%84/2.%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/jiagou/%E4%BA%8C%E6%9E%B6%E6%9E%84/2.%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84/</guid>
+      <description>如何设计高性能架构 高性能复杂度模型  单机高性能复杂度分析  集群高性能设计  鸡蛋篮子理论第二法则 - 叠加法则    ** 集群高性能 - 任务分配  集群高性能任务分配架构设计关键点  </description>
+    </item>
+    
+  </channel>
+</rss>
