@@ -59,6 +59,15 @@
     </item>
     
     <item>
+      <title>1.栈</title>
+      <link>https://ruichengm1987.github.io/docs/alg/%E6%A0%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/alg/%E6%A0%88/</guid>
+      <description>栈 图解   特点: 先进后出</description>
+    </item>
+    
+    <item>
       <title>2.1.Quick Find 的「并查集」</title>
       <link>https://ruichengm1987.github.io/docs/algorithm/%E5%9B%BE/2.%E5%B9%B6%E6%9F%A5%E9%9B%86/2.1.quick-find-%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -176,6 +185,15 @@ host-only(虚拟机和主机互相通信，使用192.168.56.x段)
       <guid>https://ruichengm1987.github.io/docs/kafka/2.%E6%B6%88%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/</guid>
       <description>2.消息系统原理 一个消息系统负责将数据从一个应用传递到另外一个应用，应用只需关注于数据，无需关注数据在两个 或多个应用间是如何传递的。
 点对点消息传递  在点对点消息系统中，消息持久化到一个队列中。此时，将有一个或多个消费者消费队列中的数 据。但是一条消息只能被消费一次。 当一个消费者消费了队列中的某条数据之后，该条数据则从消息队列中删除。 该模式即使有多个消费者同时消费数据，也能保证数据处理的顺序。 基于推送模型的消息系统，由消息代理记录消费状态。  消息代理将消息推送(push)到消费者后，标记这条消息为已经被消费，但是这种方式无法很 好地保证消费的处理语义。      发布订阅消息传递  在发布-订阅消息系统中，消息被持久化到一个topic中。 消费者可以订阅一个或多个topic，消费者可以消费该topic中所有的数据，同一条数据可以被多个 消费者消费，数据被消费后不会立马删除。 在发布-订阅消息系统中，消息的生产者称为发布者，消费者称为订阅者。 Kafka 采取拉取模型(Poll)，由自己控制消费速度，以及消费的进度，消费者可以按照任意的偏移 量进行消费。    </description>
+    </item>
+    
+    <item>
+      <title>2.链表</title>
+      <link>https://ruichengm1987.github.io/docs/alg/%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/alg/%E9%93%BE%E8%A1%A8/</guid>
+      <description>链表 链表是一种物理存储单元上非连续，非顺序胡存储结构，数据元素的逻辑顺序是通过 链表胡指针链接实现的。  </description>
     </item>
     
     <item>

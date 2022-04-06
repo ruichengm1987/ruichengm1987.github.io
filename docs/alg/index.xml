@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algorithm on 笔记本</title>
+    <link>https://ruichengm1987.github.io/docs/alg/</link>
+    <description>Recent content in algorithm on 笔记本</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://ruichengm1987.github.io/docs/alg/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1.栈</title>
+      <link>https://ruichengm1987.github.io/docs/alg/%E6%A0%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/alg/%E6%A0%88/</guid>
+      <description>栈 图解   特点: 先进后出</description>
+    </item>
+    
+    <item>
+      <title>2.链表</title>
+      <link>https://ruichengm1987.github.io/docs/alg/%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ruichengm1987.github.io/docs/alg/%E9%93%BE%E8%A1%A8/</guid>
+      <description>链表 链表是一种物理存储单元上非连续，非顺序胡存储结构，数据元素的逻辑顺序是通过 链表胡指针链接实现的。  </description>
+    </item>
+    
+  </channel>
+</rss>
